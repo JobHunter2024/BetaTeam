@@ -1,5 +1,5 @@
-from cleaner_base import Cleaner
+from .cleaner_base import Cleaner
 
 class AdvancedCleaner(Cleaner):
     def custom_clean(self, text: str) -> str:
-        pass
+        return text.lower()
