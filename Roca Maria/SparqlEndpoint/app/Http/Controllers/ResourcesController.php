@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Resource;
-use App\Repositories\ResourceRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Services\ResourceService;
+use App\Repositories\ResourceRepositoryInterface;
 
 class ResourcesController extends Controller
 {
-    protected $resourceRepository;
+    protected $resourceService;
 
-    public function __construct()
+    public function __construct(ResourceService $resourceService)
     {
+        $this->resourceService = $resourceService;
     }
+
     /**
      * Display a listing of the resources.
      *
@@ -20,8 +23,8 @@ class ResourcesController extends Controller
      */
     public function index()
     {
-        //todo implement
-        return response()->json();
+        $list = $this->resourceService->list();
+        return response()->json($list);
     }
 
     /**
@@ -57,6 +60,7 @@ class ResourcesController extends Controller
      */
     public function show($id)
     {
+
         // todo implement
         return response()->json();
 
