@@ -1,7 +1,10 @@
 import re
 import spacy
 from spacy.matcher import PhraseMatcher
+from CiobanuAna.Processing.utils.aop_logging import log_aspect, exception_handling_aspect
 
+@log_aspect
+@exception_handling_aspect
 class JobDetailsExtractor:
 
     def __init__(self):
@@ -15,6 +18,7 @@ class JobDetailsExtractor:
         self.matcher = PhraseMatcher(self.nlp.vocab)
         patterns = [self.nlp.make_doc(field) for field in self.fields_of_study]
         self.matcher.add("EDUCATION_FIELD", patterns)
+
 
     def extract_degree_level(self, text):
         return [degree for degree in self.degree_keywords if degree in text.lower()]
@@ -38,23 +42,3 @@ class JobDetailsExtractor:
 
     def extract_location_type(self, text):
         return [loc for loc in self.location_type_keywords if loc in text.lower()]
-
-#     def extract_all_details(self, text):
-#         """Extracts all job-related details."""
-#         return {
-#             "education_degree_level": self.extract_degree_level(text),
-#             "education_field": self.extract_education_field(text),
-#             "employment_type": self.extract_employment_type(text),
-#             "experience_in_years": self.extract_experience_years(text),
-#             "job_location": self.extract_job_location(text),
-#             "job_location_type": self.extract_location_type(text)
-#         }
-
-
-# extractor = JobDetailsExtractor()
-# job_description = """
-# We are looking for a Software Engineer with 3+ years experience, 5 years of experience 
-# The candidate must have a Bachelor in Computer Science, Information Technology or a related field. 
-# This is a full-time, onsite position based in Bucharest, Romania.
-# """
-# print(extractor.extract_all_details(job_description))

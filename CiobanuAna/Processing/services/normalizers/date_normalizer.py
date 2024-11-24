@@ -1,12 +1,12 @@
 from CiobanuAna.Processing.services.normalizers.normalizer_strategy import Normalizer
 from datetime import datetime
-# from Processing.utils.aop_logging import log_aspect, exception_handling_aspect
+from CiobanuAna.Processing.utils.aop_logging import log_aspect, exception_handling_aspect
 
 class DateNormalizer(Normalizer):
     """Normalization strategy for dates."""
 
-    # @log_aspect
-    # @exception_handling_aspect
+    @log_aspect
+    @exception_handling_aspect
     def normalize(self, date_string):
         date_formats = [
             "%Y-%m-%d",
