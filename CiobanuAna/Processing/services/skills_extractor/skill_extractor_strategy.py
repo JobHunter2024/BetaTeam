@@ -3,12 +3,14 @@ import spacy
 from spacy.matcher import PhraseMatcher
 from skillNer.general_params import SKILL_DB
 from skillNer.skill_extractor_class import SkillExtractor
+from CiobanuAna.Processing.utils.aop_logging import log_aspect, execution_time_aspect
 
 nlp = spacy.load("en_core_web_lg")
 skill_extractor = SkillExtractor(nlp, SKILL_DB, PhraseMatcher)
 
 class SkillExtractor(ABC):
-
+    @log_aspect
+    @execution_time_aspect
     def extract_skills(self, job_description):
         """Extract skills from the job description."""       
         annotations = skill_extractor.annotate(job_description)
