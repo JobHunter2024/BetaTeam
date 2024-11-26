@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Repositories\TripleRepositoryInterface;
 use App\Services\SparqlService;
 use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Support\Facades\Artisan;
+
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class TriplesController extends Controller
 {
@@ -100,4 +105,49 @@ class TriplesController extends Controller
 
         return response()->json($results);
     }
+
+    public function executeScript(Request $request)
+    {
+        // Get input as JSON from the request
+        $input = $request->json()->all();
+
+        // Path to the Python script
+        $scriptPath = 'C:/xampp/htdocs/BetaTeam/CiobanuAna/Processing/services/processors/script.py';
+
+        // Encode the input as JSON
+        $jsonArgument = json_encode($input, JSON_UNESCAPED_SLASHES);
+
+        // Properly escape the JSON argument for the command
+        $escapedJsonArgument = addcslashes($jsonArgument, '"'); // Escape double quotes for the shell
+
+        // Construct the command
+        $command = "python $scriptPath \"$escapedJsonArgument\"";
+        // dd($jsonArgument, $escapedJsonArgument, $command);
+        try {
+            // Execute the command
+            $output = shell_exec($command);
+            //dd($output);
+            if ($output === null) {
+                throw new Exception('Error executing Python script.');
+            }
+            // Extract the JSON portion from the output
+            preg_match('/\{.*\}/s', $output, $matches);
+            if (empty($matches)) {
+                throw new Exception('No valid JSON found in Python script output.');
+            }
+
+            $jsonOutput = $matches[0]; // The JSON part of the output
+            $decodedOutput = json_decode($jsonOutput, true);
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                throw new Exception('Invalid JSON output from Python script: ' . json_last_error_msg());
+            }
+
+            // Return the decoded output as a JSON response
+            return response()->json(['output' => $decodedOutput], 200);
+        } catch (Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
+
 }

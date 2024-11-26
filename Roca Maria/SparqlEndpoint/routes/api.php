@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SparqlController;
 use App\Http\Controllers\ResourcesController;
+use App\Http\Controllers\TriplesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,5 @@ use App\Http\Controllers\ResourcesController;
 
 Route::post('/sparql/query', [SparqlController::class, 'query']);
 Route::get('/resources', [ResourcesController::class, 'index']);
+
+Route::post('executeScript', [TriplesController::class, 'executeScript']);
