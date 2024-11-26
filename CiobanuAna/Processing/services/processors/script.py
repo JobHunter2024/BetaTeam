@@ -31,6 +31,14 @@ def process_data(input_json):
     return output_json
 
 if __name__ == "__main__":
-    input_data = sys.argv[1]
+    input_data ='''
+        {
+            "jobtitle": "Software Engineer - Remote, Romania",
+            "company": "TechCorp Inc.",
+            "date": "2024-11-23",
+            "job_description": "We are looking for a Software Engineer with 3+ years experience. The candidate must have a Bachelor in Computer Science, Information Technology or a related field. This is a full-time, onsite position based in Bucharest, Romania."
+        }
+        '''
+    print(input_data)
     result = process_data(input_data)
     print(result)
