@@ -29,4 +29,17 @@ use App\Http\Controllers\TriplesController;
 Route::post('/sparql/query', [SparqlController::class, 'query']);
 Route::get('/resources', [ResourcesController::class, 'index']);
 
-Route::post('executeScript', [TriplesController::class, 'executeScript']);
+Route::post('/executeScript', [TriplesController::class, 'executeScript']);
+
+
+Route::prefix('triples')->group(function () {
+    // Create a new triple
+    Route::post('/', [TriplesController::class, 'store'])->name('triples.store');
+
+    Route::post('/fuseki/insert', [TriplesController::class, 'insertTriples']);
+
+    Route::post('store', [TriplesController::class, 'storeJobTriples']);
+
+    // Route::get('/', [TripleController::class, 'index'])->name('triples.index');
+    // Route::delete('/{id}', [TripleController::class, 'destroy'])->name('triples.destroy');
+});

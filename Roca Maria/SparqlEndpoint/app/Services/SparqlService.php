@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Exception;
 use Illuminate\Support\Facades\Http;
 
 class SparqlService
@@ -12,7 +13,8 @@ class SparqlService
 
     public function __construct()
     {
-        $this->endpoint = env('SPARQL_ENDPOINT');
+        $this->endpoint = env('FUSEKI_ENDPOINT');
+        //$this->endpoint = env('SPARQL_ENDPOINT');
         $this->user = env('SPARQL_USER');
         $this->password = env('SPARQL_PASSWORD');
     }
@@ -43,4 +45,23 @@ class SparqlService
             'status' => $response->status(),
         ];
     }
+
+
+
+    public function executeUpdate($sparqlQuery)
+    {
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/sparql-update',
+        ])->post($this->endpoint, [
+                    'update' => $sparqlQuery, // Use 'update' key for SPARQL updates
+                ]);
+
+        if (!$response->successful()) {
+            throw new Exception("SPARQL update failed: " . $response->body());
+        }
+
+        return $response->body();
+    }
+
+
 }
