@@ -4,7 +4,7 @@ from CiobanuAna.Processing.models.job_listing import JobListing
 
 class JobListingProcessor:
     def __init__(self, job_title_normalizer, company_name_normalizer, date_normalizer, language_skill_extractor, basic_cleaner, 
-                 skill_extractor, soft_skill_extractor, detail_extractor):
+                 skill_extractor, soft_skill_extractor, detail_extractor, technical_skill_extractor):
         self.job_title_normalizer = job_title_normalizer
         self.company_name_normalizer = company_name_normalizer
         self.date_normalizer = date_normalizer
@@ -13,6 +13,7 @@ class JobListingProcessor:
         self.skill_extractor = skill_extractor
         self.soft_skill_extractor = soft_skill_extractor
         self.detail_extractor = detail_extractor
+        self.technical_skill_extractor = technical_skill_extractor
 
     def process_job_listing(self, input_json):
         # Parse input JSON
@@ -43,6 +44,7 @@ class JobListingProcessor:
         experience_in_years = self.detail_extractor.extract_experience_years(job_description)
         job_location = self.detail_extractor.extract_job_location(job_description)
         job_location_type = self.detail_extractor.extract_location_type(job_description)
+        programming_languages, frameworks, libraries, unclassified_skills = self.technical_skill_extractor.technical_skill_classifier(hard_skills)
 
         # Create a JobListing object
         processed_job_listing = JobListing(
@@ -50,12 +52,15 @@ class JobListingProcessor:
             normalized_company,
             normalized_date,
             extracted_language_skills,
-            hard_skills,
             soft_skills,
             education_degree_level,
             education_field,
             employment_type,
-            experience_in_years,job_location,job_location_type
+            experience_in_years,job_location,job_location_type,
+            programming_languages,
+            frameworks,
+            libraries,
+            unclassified_skills
             
         )
 

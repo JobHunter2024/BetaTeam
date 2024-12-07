@@ -7,7 +7,7 @@ class JobTitleNormalizer(Normalizer):
     """Normalization strategy for job titles."""
 
     def normalize(self, title):
-        unnecessary_parts = ["remote","relocation","full-time","part-time", "hybrid", "contract"]
+        unnecessary_parts = ["remote","relocation","full-time","part-time", "hybrid", "contract", "freelancer","internship","onsite","offline","online","office"]
         doc = nlp(title)
 
         final_tokens = []
