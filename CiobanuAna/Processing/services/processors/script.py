@@ -10,6 +10,7 @@ from CiobanuAna.Processing.services.cleaners.basic_cleaner import BasicCleaner
 from CiobanuAna.Processing.services.skills_extractor.skill_extractor_strategy import SkillExtractor
 from CiobanuAna.Processing.services.skills_extractor.soft_skill_extractor import SoftSkillExtractor
 from CiobanuAna.Processing.services.job_details_extractor.detail_extractor import JobDetailsExtractor
+from CiobanuAna.Processing.services.skills_extractor.technical_skill_extractor import TechnicalSkillExtractor
 
 def process_data(input_json):
     # Initialize normalizers and skill extractor
@@ -21,9 +22,10 @@ def process_data(input_json):
     skill_extractor = SkillExtractor()
     soft_skill_extractor = SoftSkillExtractor()
     job_details = JobDetailsExtractor()
+    technical_skill_extractor = TechnicalSkillExtractor()
 
     # Create a processor
-    processor = JobListingProcessor(job_title_normalizer, company_name_normalizer, date_normalizer, language_skill_extractor, basic_cleaner, skill_extractor, soft_skill_extractor, job_details)
+    processor = JobListingProcessor(job_title_normalizer, company_name_normalizer, date_normalizer, language_skill_extractor, basic_cleaner, skill_extractor, soft_skill_extractor, job_details, technical_skill_extractor)
 
     # Process the job listing
     output_json = processor.process_job_listing(input_json)
@@ -31,14 +33,7 @@ def process_data(input_json):
     return output_json
 
 if __name__ == "__main__":
-    input_data ='''
-        {
-            "jobtitle": "Software Engineer - Remote, Romania",
-            "company": "TechCorp Inc.",
-            "date": "2024-11-23",
-            "job_description": "We are looking for a Software Engineer with 3+ years experience. The candidate must have a Bachelor in Computer Science, Information Technology or a related field. This is a full-time, onsite position based in Bucharest, Romania."
-        }
-        '''
+    input_data = sys.argv[1]
     print(input_data)
     result = process_data(input_data)
     print(result)

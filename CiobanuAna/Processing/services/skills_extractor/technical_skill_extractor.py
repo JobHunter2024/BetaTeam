@@ -1,17 +1,14 @@
-# from skill_extractor_strategy import SkillExtractor
-
-# class TechnicalSkillExtractor(SkillExtractor):
-#     """Extracts technical skills like programming languages."""
-
-#     def extract_skills_custom(self, skills):
-#         pass
 from SPARQLWrapper import SPARQLWrapper, JSON
 import re
+from CiobanuAna.Processing.utils.sparql_monitor import RuntimeMonitor
+from CiobanuAna.Processing.utils.fsm_monitor import FSMMonitor
 
 class TechnicalSkillExtractor():
+
     """Classify technical skills"""
 
     def __init__(self):
+        self.monitor = FSMMonitor()
         self.sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
         # Map Wikidata IDs to categories
         self.category_map = {
@@ -57,6 +54,7 @@ class TechnicalSkillExtractor():
         return "Unclassified"
     
     def technical_skill_classifier(self, technical_skills):
+        self.monitor.call_technical_skill_extractor()
         technical_skills_rev = []
         programming_languages = []
         frameworks = []

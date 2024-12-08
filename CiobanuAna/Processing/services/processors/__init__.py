@@ -33,7 +33,7 @@ if __name__ == "__main__":
             "jobtitle": "Software Engineer - Remote, Romania",
             "company": "TechCorp Inc.",
             "date": "2024-11-23",
-            "job_description": "We are looking for a Software Engineer with 3+ years experience. The candidate must have a Masters degree in computer science, Information Technology or a related field. This is a full-time, onsite position based in Bucharest, Romania. Good speaking capability in English and German. Experience with the Linux operating system and scripting. Good knowledge of one of the following languages: Python, Java, Go, experience using numpy, nltk or spacy is a advantage. Be open-minded and prepared to adapt to an international team."
+            "job_description": "We are looking for a Software Engineer with 3+ years experience. The candidate must have a Masters degree in computer science, Information Technology or a related field. This is a full-time, onsite position based in Bucharest, Romania. Good speaking capability in English and German. Experience with the Linux operating system and scripting. Good knowledge of one of the following languages: Python, Java, Go, JavaScript, React.js, Nodejs,MongoDB,C++, .NET, C#, Firebase, Tensorflow, Machine Learning, Regression, Telecomunication, Windows, Netwroking, Cybersecurity, Web development, Blockchain, robotics, ruby,Dart, Go,Java, php, kotlin, css, html, sql, typescript, flask, django, spring boot, Ajax, laravel. gin, flatter, matplotlib Oracle experience using numpy, nltk or spacy is a advantage. Be open-minded and prepared to adapt to an international team."
         }
         '''
 
