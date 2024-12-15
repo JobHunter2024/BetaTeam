@@ -1,6 +1,6 @@
 import pytest
-from Processing.services.cleaners.basic_cleaner import BasicCleaner
-from Processing.services.cleaners.advanced_cleaner import AdvancedCleaner
+from CiobanuAna.Processing.services.cleaners.basic_cleaner import BasicCleaner
+from CiobanuAna.Processing.services.cleaners.advanced_cleaner import AdvancedCleaner
 
 @pytest.fixture
 def basic_cleaner():

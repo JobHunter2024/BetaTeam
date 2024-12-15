@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 import spacy
 from spacy.matcher import PhraseMatcher
 from skillNer.general_params import SKILL_DB
@@ -9,7 +8,7 @@ from CiobanuAna.Processing.utils.fsm_monitor import FSMMonitor
 nlp = spacy.load("en_core_web_lg")
 skill_extractor = SkillExtractor(nlp, SKILL_DB, PhraseMatcher)
 
-class SkillExtractor(ABC):
+class SkillExtractor():
     def __init__(self):
         self.monitor = FSMMonitor()
 

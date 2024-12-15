@@ -17,7 +17,7 @@ class JobListingProcessor:
 
     def process_job_listing(self, input_json):
         # Parse input JSON
-        job_data = json.loads(input_json)
+        job_data = json.loads(input_json, strict=False)
 
         # Extract fields from JSON
         job_title = job_data.get("jobtitle", "")
@@ -25,25 +25,35 @@ class JobListingProcessor:
         date_posted = job_data.get("date", "")
         job_description = job_data.get("job_description", "")
 
+        # experience level Junior, M
+        experience_level = self.detail_extractor.extract_experience_level(job_title, job_description)
+
         # Normalize fields
-        normalized_title = self.job_title_normalizer.normalize(job_title)
+        normalized_title, job_location_from_title, job_location_type_from_title = self.job_title_normalizer.normalize(job_title)
         normalized_company = self.company_name_normalizer.normalize(company_name)
         normalized_date = self.date_normalizer.normalize(date_posted)
 
-        #Clean data after normalizing
-        normalized_title = self.basic_cleaner.clean(normalized_title)
-        normalized_company = self.basic_cleaner.clean(normalized_company)        
+        # #Clean data after normalizing
+        # normalized_title = self.basic_cleaner.clean(normalized_title)
+        # normalized_company = self.basic_cleaner.clean(normalized_company)        
 
         # Extract skills from the job description
-        extracted_language_skills = self.language_skill_extractor.extract_language_skills(job_description)
         hard_skills,soft_skills = self.skill_extractor.extract_skills(job_description)
+        extracted_language_skills = self.language_skill_extractor.extract_language_skills(job_description, soft_skills)
         soft_skills = self.soft_skill_extractor.remove_language_skills_from_soft_skills(extracted_language_skills, soft_skills)
         education_degree_level = self.detail_extractor.extract_degree_level(job_description)
         education_field = self.detail_extractor.extract_education_field(job_description)
         employment_type = self.detail_extractor.extract_employment_type(job_description)
         experience_in_years = self.detail_extractor.extract_experience_years(job_description)
-        job_location = self.detail_extractor.extract_job_location(job_description)
-        job_location_type = self.detail_extractor.extract_location_type(job_description)
+        if not job_location_from_title:
+            job_location = self.detail_extractor.extract_job_location(job_description)
+        else:
+            job_location = job_location_from_title
+
+        if not job_location_type_from_title:        
+            job_location_type = self.detail_extractor.extract_location_type(job_description)
+        else:
+            job_location_type = job_location_type_from_title    
         programming_languages, frameworks, libraries, unclassified_skills = self.technical_skill_extractor.technical_skill_classifier(hard_skills)
 
         # Create a JobListing object
@@ -56,7 +66,9 @@ class JobListingProcessor:
             education_degree_level,
             education_field,
             employment_type,
-            experience_in_years,job_location,job_location_type,
+            experience_in_years,
+            experience_level,
+            job_location,job_location_type,
             programming_languages,
             frameworks,
             libraries,

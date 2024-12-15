@@ -15,4 +15,4 @@ class SoftSkillExtractor():
             if lang_skill+" Language" in soft_skills:
                 soft_skills.remove(lang_skill+" Language")
 
-        return soft_skills        
+        return soft_skills      

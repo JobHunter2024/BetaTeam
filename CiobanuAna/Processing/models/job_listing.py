@@ -1,6 +1,6 @@
 class JobListing:
     def __init__(self, title, companyName, datePosted, language_skills, soft_skills, degree_level, education_field,
-                 employment_type, experience_years, job_location, job_location_type, programming_languages, frameworks, 
+                 employment_type, experience_years, experience_level, job_location, job_location_type, programming_languages, frameworks, 
                  libraries, unclassified_skills):
         self.title = title
         self.companyName = companyName
@@ -11,6 +11,7 @@ class JobListing:
         self.education_field = education_field
         self.employment_type = employment_type
         self.experience_years = experience_years
+        self.experience_level = experience_level
         self.job_location = job_location
         self.job_location_type = job_location_type
         self.programming_languages = programming_languages
@@ -30,6 +31,7 @@ class JobListing:
             "education_field": self.education_field,
             "employment_type": self.employment_type,
             "experience_years": self.experience_years,
+            "experience_level": self.experience_level,
             "job_location": self.job_location,
             "job_location_type": self.job_location_type,
             "programming_languages": self.programming_languages,
