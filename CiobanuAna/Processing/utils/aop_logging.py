@@ -55,7 +55,7 @@ def argument_validation_aspect(*args, **kwargs):
     if not all(isinstance(item, str) for item in soft_skills):
         raise TypeError("All elements in the third argument (soft_skills) must be strings.")
     
-    print(f"Arguments validated: {args}")
+    logger.info(f"Arguments validated: {args}")
     
     # Proceed with function execution
     result = yield aspectlib.Proceed

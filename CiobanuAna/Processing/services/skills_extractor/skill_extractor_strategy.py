@@ -1,17 +1,21 @@
-from abc import ABC, abstractmethod
 import spacy
 from spacy.matcher import PhraseMatcher
 from skillNer.general_params import SKILL_DB
 from skillNer.skill_extractor_class import SkillExtractor
 from CiobanuAna.Processing.utils.aop_logging import log_aspect, execution_time_aspect
+from CiobanuAna.Processing.utils.fsm_monitor import FSMMonitor
 
 nlp = spacy.load("en_core_web_lg")
 skill_extractor = SkillExtractor(nlp, SKILL_DB, PhraseMatcher)
 
-class SkillExtractor(ABC):
+class SkillExtractor():
+    def __init__(self):
+        self.monitor = FSMMonitor()
+
     @log_aspect
     @execution_time_aspect
     def extract_skills(self, job_description):
+        self.monitor.call_all_skill_extractor()
         """Extract skills from the job description."""       
         annotations = skill_extractor.annotate(job_description)
         results = annotations['results']
@@ -38,9 +42,3 @@ class SkillExtractor(ABC):
             else:
                 soft_skills.append(full_name)
         return hard_skills, soft_skills
-
-
-
-    # @abstractmethod
-    # def extract_skills_custom():
-    #     pass

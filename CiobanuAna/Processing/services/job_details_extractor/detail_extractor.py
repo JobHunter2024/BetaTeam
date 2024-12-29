@@ -1,6 +1,8 @@
 import re
 import spacy
 from spacy.matcher import PhraseMatcher
+from rapidfuzz import process
+from rapidfuzz import fuzz
 from CiobanuAna.Processing.utils.aop_logging import log_aspect, exception_handling_aspect
 
 @log_aspect
@@ -12,33 +14,78 @@ class JobDetailsExtractor:
         self.fields_of_study = ["Computer Science", "Mathematics", "Engineering", "Physics", "Finance", "Business Administration", "Economics", "Information Systems",
         "Data Science","Statistics","Artificial Intelligence", "Computer Engineering", "Electrical Engineering", "Cybernetics",
         "Data Engineering","Information Technology", "Accounting", "Industrial Engineering", "Computational Linguistics"]
-        self.degree_keywords = ["bachelor's degree","bachelor degree", "bachelor","master's degree","master degree","master", "phd", "doctorate", "associate's degree", "high school diploma"]
-        self.employment_type_keywords = ["full-time", "part-time", "contract", "freelance", "internship", "temporary"]
-        self.location_type_keywords = ["onsite", "online", "remote", "hybrid"]
-        self.matcher = PhraseMatcher(self.nlp.vocab)
+        self.matcher = PhraseMatcher(self.nlp.vocab, attr="LOWER")
         patterns = [self.nlp.make_doc(field) for field in self.fields_of_study]
         self.matcher.add("EDUCATION_FIELD", patterns)
+        
+        self.degree_mapping = {
+            "b.sc": "Bachelor's Degree",
+            "bsc": "Bachelor's Degree",
+            "b.sc.": "Bachelor's Degree",
+            "bachelor": "Bachelor's Degree",
+            "bachelor's degree": "Bachelor's Degree",
+            "undergraduate": "Bachelor's Degree",
+            "master": "Master Degree",
+            "master's degree": "Master's Degree",
+            "msc": "Master's Degree",
+            "m.sc": "Master's Degree",
+            "m.sc.": "Master's Degree",
+            "ph.d": "Doctorate",
+            "phd": "Doctorate",
+            "doctorate": "Doctorate",
+            "associate's degree": "Associate's Degree",
+            "high school diploma": "High School Diploma"
+        }
+
+        self.employment_type_keywords = ["full-time", "part-time", "contract", "freelance", "internship", "temporary"]
+        self.location_type_keywords = ["onsite", "online", "remote", "hybrid", "office"]
 
 
     def extract_degree_level(self, text):
-        return [degree for degree in self.degree_keywords if degree in text.lower()]
+        return list(set(value for key,value in self.degree_mapping.items() if key in text.lower()))
 
     def extract_education_field(self, text):
         doc = self.nlp(text)
         matches = self.matcher(doc)
-        return [doc[start:end].text for _, start, end in matches]
+        return list(set(doc[start:end].text.title() for _, start, end in matches))
 
     def extract_employment_type(self, text):
-        return [emp for emp in self.employment_type_keywords if emp in text.lower()]
+        return list(set(emp for emp in self.employment_type_keywords if emp in text.lower()))
 
     def extract_experience_years(self, text):
         experience_pattern = r"(\d+)\+?\s?(years?|yrs?)\s?(of)?(experience)?"
         matches = re.findall(experience_pattern, text, re.IGNORECASE)
         return [f"{match[0]} years" for match in matches]
+    
+    def extract_experience_level(self, title, text):
+        if "junior" in title.lower() or "jr" in title.lower() or "junior" in text.lower() or "jr" in text.lower():
+            return "Junior"
+        elif "mid-level" in title.lower() or "middle" in title.lower() or "mid-level" in text.lower() or "middle" in text.lower():
+            return "Mid-level"
+        elif "associate" in title.lower() or "associate" in text.lower():
+            return "Associate"
+        elif "senior" in title.lower() or "sr" in title.lower() or "senior" in text.lower() or "sr" in text.lower():
+            return "Senior"
+        experience_in_years = self.extract_experience_years(text)
+        for exp in experience_in_years:
+            level = int(exp.split(" ")[0])
+            if level < 3:
+                return "Junior"
+            elif 3 <=level <= 5:
+                return "Mid-level"
+            else:
+                return "Senior"
+        return ""
 
     def extract_job_location(self, text):
+        locations_it_terms = ["Java", "Python", "Perl", "Scala", "Rust", "Swift", "Ruby", "Go", "Dart","Sage",
+                              "Ajax","Kotlin","Shell", "Vim", "Node"]
         doc = self.nlp(text)
-        return [ent.text for ent in doc.ents if ent.label_ in ["GPE", "LOC"]]
+        location = []
+        for ent in doc.ents:
+            if ent.label_ in ["GPE","LOC"] and ent.text not in locations_it_terms:
+                location.append(ent.text)        
+        return ", ".join(set(location))
 
     def extract_location_type(self, text):
-        return [loc for loc in self.location_type_keywords if loc in text.lower()]
+        return list(set(loc for loc in self.location_type_keywords if loc in text.lower()))

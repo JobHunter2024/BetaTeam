@@ -1,5 +1,5 @@
 import pytest
-from Processing.services.normalizers.date_normalizer import DateNormalizer
+from CiobanuAna.Processing.services.normalizers.date_normalizer import DateNormalizer
 
 @pytest.fixture
 def date_normalizer():
