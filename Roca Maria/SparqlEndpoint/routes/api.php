@@ -42,4 +42,6 @@ Route::prefix('triples')->group(function () {
 
     // Route::get('/', [TripleController::class, 'index'])->name('triples.index');
     // Route::delete('/{id}', [TripleController::class, 'destroy'])->name('triples.destroy');
+
+    Route::post('test', [TriplesController::class, 'test']);
 });

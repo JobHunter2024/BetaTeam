@@ -82,18 +82,18 @@ class TripleService
         if ($this->tripleExists($triples)) {
             return response()->json([
                 'message' => 'The triples already exist in the dataset.',
-            ], 200);
+            ], 200); // This is okay if already exists
         }
 
         // Construct the SPARQL INSERT query
         $sparqlUpdate = "
-            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-            PREFIX : <http://example.org#>
-            
-            INSERT DATA {
-                $triples
-            }
-        ";
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX : <http://example.org#>
+        
+        INSERT DATA {
+            $triples
+        }
+    ";
 
         // Execute the INSERT query
         $response = Http::asForm()->post($this->fusekiEndpoint, [
@@ -101,22 +101,64 @@ class TripleService
         ]);
 
         if ($response->failed()) {
-            throw new \Exception('Failed to insert triples into Fuseki: ' . $response->body());
+            throw new Exception('Failed to insert triples into Fuseki: ' . $response->body());
         }
 
         // Check if the response body indicates success
         if (str_contains(strtolower($response->body()), 'update succeeded')) {
             return response()->json([
                 'message' => 'Triples inserted successfully.',
-            ], 201);
+            ], 201);  // Ensure a 201 is returned here on successful insert
         }
 
         // Handle unexpected responses
         return response()->json([
             'message' => 'Triples inserted, but response was unexpected.',
             'response' => $response->body(),
-        ], 202);
+        ], 202);  // If the response was unexpected, you might want to return 202
     }
+
+    // public function insertTriples($triples)
+    // {
+    //     // Check if the triples already exist
+    //     if ($this->tripleExists($triples)) {
+    //         return response()->json([
+    //             'message' => 'The triples already exist in the dataset.',
+    //         ], 200);
+    //     }
+
+    //     // Construct the SPARQL INSERT query
+    //     $sparqlUpdate = "
+    //         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    //         PREFIX : <http://example.org#>
+
+    //         INSERT DATA {
+    //             $triples
+    //         }
+    //     ";
+
+    //     // Execute the INSERT query
+    //     $response = Http::asForm()->post($this->fusekiEndpoint, [
+    //         'update' => $sparqlUpdate,
+    //     ]);
+
+    //     if ($response->failed()) {
+    //         throw new Exception('Failed to insert triples into Fuseki: ' . $response->body());
+    //     }
+
+    //     // Check if the response body indicates success
+    //     if (str_contains(strtolower($response->body()), 'update succeeded')) {
+    //         return response()->json([
+    //             'message' => 'Triples inserted successfully.',
+    //         ], 201);
+    //     }
+
+    //     // Handle unexpected responses
+    //     return response()->json([
+    //         'message' => 'Triples inserted, but response was unexpected.',
+    //         'response' => $response->body(),
+    //     ], 202);
+    // }
 
     /**
      * Check if a triple exists in Fuseki

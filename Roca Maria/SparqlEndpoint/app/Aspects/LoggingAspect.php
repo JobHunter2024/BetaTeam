@@ -2,44 +2,39 @@
 
 namespace App\Aspects;
 
-use Go\Aop\Aspect;
-use Go\Lang\Annotation\After;
-use Go\Lang\Annotation\Around;
-use Go\Lang\Annotation\Before;
-use Go\Lang\Annotation\Pointcut;
 use Illuminate\Support\Facades\Log;
+use Ytake\LaravelAspect\Annotation\After;
+use Ytake\LaravelAspect\Annotation\Aspect;
+use Ytake\LaravelAspect\Annotation\Before;
+use Ytake\LaravelAspect\Annotation\Pointcut;
 
-namespace App\Aspects;
-
-use Go\Aop\Aspect;
-use Go\Lang\Annotation\After;
-use Go\Lang\Annotation\Before;
-use Illuminate\Support\Facades\Log;
-use Go\Aop\Intercept\MethodInvocation;
-
-class LoggingAspect implements Aspect
+/**
+ * @Aspect
+ */
+class LoggingAspect
 {
-    public function __construct()
+    /**
+     * @Pointcut("execution(public App\Http\Controllers\*->*(*))")
+     */
+    public function allPublicMethods()
     {
-        Log::info('LoggingAspect instantiated');
     }
 
     /**
-     * Log before entering any public method in controllers
-     * @Before("execution(public App\Http\Controllers\*->*(*))")
+     * @Before("allPublicMethods()")
      */
-    public function beforeMethod(MethodInvocation $invocation)
+    public function logBefore($joinPoint)
     {
-        Log::info('Entering method: ' . $invocation->getMethod()->getName());
+        $methodName = $joinPoint->getMethod()->getName();
+        Log::info("Entering method: {$methodName}");
     }
 
     /**
-     * Log after exiting any public method in controllers
-     * @After("execution(public App\Http\Controllers\*->*(*))")
+     * @After("allPublicMethods()")
      */
-    public function afterMethod(MethodInvocation $invocation)
+    public function logAfter($joinPoint)
     {
-        Log::info('Exiting method: ' . $invocation->getMethod()->getName());
+        $methodName = $joinPoint->getMethod()->getName();
+        Log::info("Exiting method: {$methodName}");
     }
-
 }

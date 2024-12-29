@@ -28,27 +28,53 @@ class ResourcesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Update the specified resource in storage.
      *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function update(Request $request, Resource $resource)
     {
-        // todo implement
-        return response()->json();
+        $data = $request->validate([
+            'uri' => 'string',
+            'type' => 'string',
+        ]);
 
+        $resource->update($data);
+
+        return response()->json($resource);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Resource $resource)
+    {
+        $resource->delete();
+
+        return response()->json(['message' => 'Resource deleted successfully.']);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        // todo implement
-        return response()->json();
+        $data = $request->validate([
+            'uri' => 'required|string',
+            'type' => 'required|string',
+        ]);
+
+        $resource = Resource::create($data);
+
+        return response()->json($resource, 201);
 
     }
 
@@ -79,30 +105,4 @@ class ResourcesController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        // todo implement
-        return response()->json();
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        // todo implement
-        return response()->json();
-
-    }
 }

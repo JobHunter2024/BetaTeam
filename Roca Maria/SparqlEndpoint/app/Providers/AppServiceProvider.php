@@ -3,22 +3,21 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Ytake\LaravelAspect\Aspect\AspectManager;
+use Ytake\LaravelAspect\Aspect\AspectKernel;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void
+    public function register()
     {
-        //
+        // No need to manually register aspects here
     }
 
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
+    public function boot()
     {
-        //
+        // Initialize the aspect manager
+        // AspectManager::getInstance()->init();
+
+        // AspectKernel::getInstance()->init();
     }
 }

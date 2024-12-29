@@ -1,6 +1,5 @@
 <?php
 
-use App\Providers\AopServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -169,7 +168,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        AopServiceProvider::class,
     ])->toArray(),
 
     /*

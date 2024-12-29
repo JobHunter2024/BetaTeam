@@ -20,7 +20,7 @@ class TriplesController extends Controller
     protected $tripleService;
     protected $sparqlService;
 
-    public function __construct(TripleService $tripleService, $sparqlService)
+    public function __construct($tripleService, $sparqlService)
     {
         $this->tripleService = $tripleService;
         $this->sparqlService = $sparqlService;
@@ -37,13 +37,14 @@ class TriplesController extends Controller
         return response()->json();
     }
 
+    public function test()
+    {
+        return "Hello, World!";
+    }
 
     public function storeJobTriples(Request $request)
     {
         try {
-            // Fuseki endpoint and dataset
-            // $fusekiEndpoint = 'http://localhost:3030/jobHunterDataset/update';
-
             $request_json = $request->json()->all();
 
             $data = $this->tripleService->executeScript($request_json);
