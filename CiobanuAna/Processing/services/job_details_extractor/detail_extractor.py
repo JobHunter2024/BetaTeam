@@ -1,9 +1,19 @@
 import re
 import spacy
+import nltk
+import locationtagger
+import stanza
 from spacy.matcher import PhraseMatcher
-from rapidfuzz import process
-from rapidfuzz import fuzz
 from CiobanuAna.Processing.utils.aop_logging import log_aspect, exception_handling_aspect
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
+ 
+# nltk.download('maxent_ne_chunker', force=True)
+# nltk.download('words', force=True)
+# nltk.download('treebank', force=True)
+# nltk.download('maxent_treebank_pos_tagger', force=True)
+# nltk.download('punkt',force=True)
+# nltk.download('averaged_perceptron_tagger', force=True)
 
 @log_aspect
 @exception_handling_aspect
@@ -79,13 +89,22 @@ class JobDetailsExtractor:
 
     def extract_job_location(self, text):
         locations_it_terms = ["Java", "Python", "Perl", "Scala", "Rust", "Swift", "Ruby", "Go", "Dart","Sage",
-                              "Ajax","Kotlin","Shell", "Vim", "Node"]
-        doc = self.nlp(text)
-        location = []
-        for ent in doc.ents:
-            if ent.label_ in ["GPE","LOC"] and ent.text not in locations_it_terms:
-                location.append(ent.text)        
-        return ", ".join(set(location))
+                              "Ajax","Kotlin","Shell", "Vim", "Node", "Amazon"]
+        # place_entity = locationtagger.find_locations(text = text)
+        # location_tagger = place_entity.countries + place_entity.regions + place_entity.cities
+        locations_found = []
+        nlp = stanza.Pipeline(lang='en', processors='tokenize,ner', download_method=None, verbose=False)
+        doc = nlp(text)
+        for sent in doc.sentences:
+            for ent in sent.ents:
+                if ent.type == 'GPE' and ent.text not in locations_it_terms:
+                    locations_found.append(ent.text)
+        # doc = self.nlp(text)
+        # location = []
+        # for ent in doc.ents:
+        #     if ent.label_ in ["GPE","LOC"] and ent.text not in locations_it_terms:
+        #         location.append(ent.text)        
+        return ", ".join(set(locations_found))
 
     def extract_location_type(self, text):
         return list(set(loc for loc in self.location_type_keywords if loc in text.lower()))

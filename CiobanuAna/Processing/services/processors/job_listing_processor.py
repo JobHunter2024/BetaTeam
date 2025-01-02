@@ -16,14 +16,16 @@ class JobListingProcessor:
         self.technical_skill_extractor = technical_skill_extractor
 
     def process_job_listing(self, input_json):
+        print("Input JSON:", repr(input_json))
         # Parse input JSON
         job_data = json.loads(input_json, strict=False)
 
         # Extract fields from JSON
-        job_title = job_data.get("jobtitle", "")
-        company_name = job_data.get("company", "")
         date_posted = job_data.get("date", "")
-        job_description = job_data.get("job_description", "")
+        job_title = job_data.get("jobTitle", "")
+        company_name = job_data.get("company", "")
+        location_from_scraping = job_data.get("location","")
+        job_description = job_data.get("jobDescription", "")
 
         # experience level Junior, M
         experience_level = self.detail_extractor.extract_experience_level(job_title, job_description)
@@ -31,11 +33,7 @@ class JobListingProcessor:
         # Normalize fields
         normalized_title, job_location_from_title, job_location_type_from_title = self.job_title_normalizer.normalize(job_title)
         normalized_company = self.company_name_normalizer.normalize(company_name)
-        normalized_date = self.date_normalizer.normalize(date_posted)
-
-        # #Clean data after normalizing
-        # normalized_title = self.basic_cleaner.clean(normalized_title)
-        # normalized_company = self.basic_cleaner.clean(normalized_company)        
+        # normalized_date = self.date_normalizer.normalize(date_posted)     # keep for now the date from scraping
 
         # Extract skills from the job description
         hard_skills,soft_skills = self.skill_extractor.extract_skills(job_description)
@@ -45,10 +43,13 @@ class JobListingProcessor:
         education_field = self.detail_extractor.extract_education_field(job_description)
         employment_type = self.detail_extractor.extract_employment_type(job_description)
         experience_in_years = self.detail_extractor.extract_experience_years(job_description)
-        if not job_location_from_title:
-            job_location = self.detail_extractor.extract_job_location(job_description)
+        if not location_from_scraping:
+            if not job_location_from_title:
+                job_location = self.detail_extractor.extract_job_location(job_description)
+            else:
+                job_location = job_location_from_title
         else:
-            job_location = job_location_from_title
+            job_location = location_from_scraping        
 
         if not job_location_type_from_title:        
             job_location_type = self.detail_extractor.extract_location_type(job_description)
@@ -60,7 +61,8 @@ class JobListingProcessor:
         processed_job_listing = JobListing(
             normalized_title,
             normalized_company,
-            normalized_date,
+            # normalized_date,
+            date_posted,
             extracted_language_skills,
             soft_skills,
             education_degree_level,

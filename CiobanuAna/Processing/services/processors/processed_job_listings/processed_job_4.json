@@ -1,0 +1,101 @@
+{
+    "title": "Senior Full Stack Engineer",
+    "companyName": "Synthesia",
+    "datePosted": "December 08, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Planning",
+        "Team Building",
+        "Leadership",
+        "Collaboration",
+        "Operations",
+        "Management"
+    ],
+    "degree_level": [],
+    "education_field": [
+        "Engineering"
+    ],
+    "employment_type": [
+        "full-time",
+        "contract"
+    ],
+    "experience_years": [],
+    "experience_level": "Senior",
+    "job_location": "Khostinskiy, Krasnodar Krai, 354054, Russian Federation",
+    "job_location_type": [
+        "remote",
+        "online"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "Standard ML",
+                "Icon",
+                "C++",
+                "ABC",
+                "Modula-3",
+                "Perl",
+                "Haskell",
+                "APL",
+                "ALGOL 68",
+                "Java",
+                "CLU",
+                "Dylan",
+                "C",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "C",
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [
+        {
+            "skill_name": "React.js",
+            "skill_type": "Library",
+            "official_website": "https://react.dev/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Custom Backend",
+        "Data Pipeline",
+        "AVS Video Editor",
+        "Application Client",
+        "Production Management",
+        "Scholastic READ 180",
+        "Sage SAFE X3",
+        "Transcoding",
+        "Personalization",
+        "Performance Engineering",
+        "Automated Tiered Storage",
+        "Monoliths",
+        "Syntax",
+        "Incentive Stock Option",
+        "Onboarding",
+        "Real-Time Computing",
+        "Database Queries",
+        "Technical Recruitment",
+        "Billing Systems",
+        "Long-Term Potentiation",
+        "Films",
+        "Experimentation",
+        "Branding",
+        "Online Charging Systems",
+        "Server-Side",
+        "Video Production",
+        "Scripting",
+        "Scale",
+        "Software Engineering",
+        "Integrated Delivery Systems",
+        "Low Latency"
+    ]
+}

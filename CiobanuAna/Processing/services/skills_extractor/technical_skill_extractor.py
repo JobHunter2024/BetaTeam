@@ -1,6 +1,9 @@
 from SPARQLWrapper import SPARQLWrapper, JSON
 import re
 from CiobanuAna.Processing.utils.fsm_monitor import FSMMonitor
+from SPARQLWrapper import SPARQLExceptions
+import time
+import urllib.error
 
 class TechnicalSkillExtractor():
 
@@ -60,44 +63,91 @@ class TechnicalSkillExtractor():
 }}
         """
         classifier_keywords = ["library","package","framework","programming language"]
-        self.sparql.setQuery(query)
-        self.sparql.setReturnFormat(JSON)
-        results = self.sparql.query().convert()
-        
-        # Extract the first result's type
-        bindings = results.get("results", {}).get("bindings", [])
-        if bindings:
-            set_influenced_by = set()
-            set_programmed_in = set()
-            skill_type = ""
-            official_website = ""
-            for binding in bindings:
-                if self.category_map.get(binding["type"]["value"].split("/")[-1], "Unclassified") == "Unclassified": # Extract the Wikidata ID
-                    description = binding.get("description", {}).get("value", "No description available")
-                    for keyword in classifier_keywords:
-                        if keyword in description:
-                            skill_type = self.category_map.get(keyword) 
-                            break
-                else:
-                    skill_type = self.category_map.get(binding["type"]["value"].split("/")[-1])
-                influenced_by = binding.get("influencedByLabel", {}).get("value", "")
-                if influenced_by: 
-                    set_influenced_by.add(influenced_by)
-                programmed_in = binding.get("programmedInLabel", {}).get("value", "")
-                if programmed_in:    
-                    set_programmed_in.add(programmed_in)
-                if not official_website:    
-                    official_website = binding.get("officialWebsite", {}).get("value", "")
 
-            return {"skill_name": skill_name,
-                    "skill_type": skill_type, 
-                    "official_website": official_website,
-                    "influenced_by": list(set_influenced_by),
-                    "programmed_in": list(set_programmed_in)}
-        
-        return {"skill_name": skill_name,
-                "skill_type": "Unclassified"}
-    
+        # handle urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+        retries = 5
+        backoff_factor = 2
+
+        for attempt in range(retries):
+            try:        
+                self.sparql.setQuery(query)
+                self.sparql.setReturnFormat(JSON)
+                results = self.sparql.query().convert()
+                
+                # Extract the first result's type
+                bindings = results.get("results", {}).get("bindings", [])
+                if bindings:
+                    set_influenced_by = set()
+                    set_programmed_in = set()
+                    skill_type = ""
+                    official_website = ""
+                    for binding in bindings:
+                        if self.category_map.get(binding["type"]["value"].split("/")[-1], "Unclassified") == "Unclassified": # Extract the Wikidata ID
+                            description = binding.get("description", {}).get("value", "No description available")
+                            for keyword in classifier_keywords:
+                                if keyword in description:
+                                    skill_type = self.category_map.get(keyword) 
+                                    break
+                        else:
+                            skill_type = self.category_map.get(binding["type"]["value"].split("/")[-1])
+                        influenced_by = binding.get("influencedByLabel", {}).get("value", "")
+                        if influenced_by: 
+                            set_influenced_by.add(influenced_by)
+                        programmed_in = binding.get("programmedInLabel", {}).get("value", "")
+                        if programmed_in:    
+                            set_programmed_in.add(programmed_in)
+                        if not official_website:    
+                            official_website = binding.get("officialWebsite", {}).get("value", "")
+
+                    return {"skill_name": skill_name,
+                            "skill_type": skill_type, 
+                            "official_website": official_website,
+                            "influenced_by": list(set_influenced_by),
+                            "programmed_in": list(set_programmed_in)}
+                
+                return {"skill_name": skill_name,
+                        "skill_type": "Unclassified"}
+            except urllib.error.HTTPError as e:
+                if e.code == 429:
+                    print(f"Too many requests (attempt {attempt + 1} of {retries}): Retrying after delay...")
+                    time.sleep(backoff_factor ** attempt)
+
+
+    # def check_technical_skills_already_added(self, endpoint_url, technical_skills):
+    #     sparql_fuseki = SPARQLWrapper(endpoint_url)
+    #     skill_values = " ".join(f":{skill}" for skill in technical_skills)
+
+    #     query = f"""
+    #     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    #     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    #     PREFIX : <http://example.org/ontology#>
+
+    #     SELECT ?skill
+    #     WHERE {{
+    #     {{
+    #         ?skill rdf:type :TechnicalSkill .
+    #     }}
+    #     UNION
+    #     {{
+    #         ?skill rdf:type ?type .
+    #         ?type rdfs:subClassOf* :TechnicalSkill .
+    #     }}
+    #     FILTER (?skill IN ({skill_values}))
+    #     }}
+    #     """
+
+    #     sparql_fuseki.setQuery(query)
+    #     sparql_fuseki.setReturnFormat(JSON)
+
+    #     try:
+    #         results = sparql_fuseki.query().convert()
+    #         existing_skills = [result["skill"]["value"] for result in results["results"]["bindings"]]
+    #         return existing_skills
+    #     except Exception as e:
+    #         print(f"Error querying SPARQL Fuseki endpoint: {e}")
+    #         return []
+
+
     def technical_skill_classifier(self, technical_skills):
         self.monitor.call_technical_skill_extractor()
         technical_skills_rev = []
@@ -109,6 +159,11 @@ class TechnicalSkillExtractor():
             cleaned_skill_text = re.sub(r'\s?\(.*\)', '', skill)
             technical_skills_rev.append(cleaned_skill_text)
 
+        # # filter out technical skills already added to fuseki
+        # added_technical_skills = self.check_technical_skills_already_added("http://localhost:3030/dataset", technical_skills)
+        # skills_to_classify = list(set(technical_skills_rev) - set(added_technical_skills))
+
+        #for skill in skills_to_classify:
         for skill in technical_skills_rev:
             category = self.query_skill(skill)
             if category["skill_type"] == "Programming Language":
@@ -120,4 +175,4 @@ class TechnicalSkillExtractor():
             else:
                 unclassified.append(skill)
 
-        return programming_languages, frameworks, libraries, unclassified
+        return programming_languages, frameworks, libraries, list(set(unclassified))
