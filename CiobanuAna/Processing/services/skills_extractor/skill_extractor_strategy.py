@@ -41,4 +41,4 @@ class SkillExtractor():
                 hard_skills.append(full_name)
             else:
                 soft_skills.append(full_name)
-        return hard_skills, soft_skills
+        return list(set(hard_skills)), list(set(soft_skills))
