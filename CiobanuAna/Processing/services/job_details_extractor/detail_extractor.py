@@ -15,6 +15,9 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 # nltk.download('punkt',force=True)
 # nltk.download('averaged_perceptron_tagger', force=True)
 
+#Download English resources to the specific directory
+stanza.download('en', model_dir='C:/Users/magda/stanza_resources')
+
 @log_aspect
 @exception_handling_aspect
 class JobDetailsExtractor:

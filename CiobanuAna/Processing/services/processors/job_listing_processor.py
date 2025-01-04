@@ -16,7 +16,7 @@ class JobListingProcessor:
         self.technical_skill_extractor = technical_skill_extractor
 
     def process_job_listing(self, input_json):
-        print("Input JSON:", repr(input_json))
+       # print("Input JSON:", repr(input_json))
         # Parse input JSON
         job_data = json.loads(input_json, strict=False)
 

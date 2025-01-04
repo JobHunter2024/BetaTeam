@@ -3,29 +3,20 @@
 namespace App\Services;
 
 use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class TripleService
 {
-    private $fusekiEndpoint = 'http://localhost:3030/jobHunterDataset/update';
-    private $fusekiQueryEndpoint = 'http://localhost:3030/jobHunterDataset/query';
-
     public function validateJobData($data)
     {
         $validator = Validator::make($data, [
-            'title' => 'required|string',
-            'companyName' => 'required|string',
-            'datePosted' => 'required|date_format:d/m/Y',
-            'language_skills' => 'array',
-            'hard_skills' => 'array',
-            'soft_skills' => 'array',
-            'degree_level' => 'array',
-            'education_field' => 'array',
-            'employment_type' => 'array',
-            'experience_years' => 'array',
-            'job_location' => 'array',
-            'job_location_type' => 'array',
+            'jobTitle' => 'required|string',
+            'company' => 'required|string',
+            'date' => 'required|date_format:d/m/Y',
+            'location' => 'string',
+            'jobDescription' => 'string',
         ]);
 
         if ($validator->fails()) {
@@ -40,38 +31,165 @@ class TripleService
                 :hasTitle \"" . addslashes(trim($data['title'])) . "\" ;
                 :hasCompany \"" . addslashes(trim($data['companyName'])) . "\" ;
                 :datePosted \"" . addslashes(trim($data['datePosted'])) . "\" ;
-                :employmentType \"" . addslashes(trim($data['employment_type'][0])) . "\" ;
-                :experienceRequired \"" . addslashes(trim($data['experience_years'][0])) . "\" ;
-                :locationType \"" . addslashes(trim($data['job_location_type'][0])) . "\" ;
         ";
 
-        // Add hard skills
-        foreach ($data['hard_skills'] as $skill) {
-            $triples .= ":requiresHardSkill \"" . addslashes(trim($skill)) . "\" ;\n";
+        // Add experience years
+        if (isset($data["experience_years"])) {
+            if (!empty($data["experience_years"])) {
+                foreach ($data['experience_years'] as $key => $value) {
+                    $triples .= ":experienceYears \"" . addslashes(trim($value)) . "\" ;\n";
+                }
+            }
+        }
+
+        // Add experience level
+        if (isset($data["experience_level"])) {
+            $triples .= ":experienceLevel \"" . addslashes(trim($data["experience_level"])) . "\" ;\n";
+        }
+
+
+        // Add employment type
+        if (isset($data["employment_type"])) {
+            if (!empty($data["employment_type"])) {
+                foreach ($data['employment_type'] as $key => $value) {
+                    $triples .= ":employmentType \"" . addslashes(trim($value)) . "\" ;\n";
+                }
+            }
         }
 
         // Add soft skills
-        foreach ($data['soft_skills'] as $skill) {
-            $triples .= ":requiresSoftSkill \"" . addslashes(trim($skill)) . "\" ;\n";
+        if (isset($data["language_skills"])) {
+            if (!empty($data["language_skills"])) {
+                foreach ($data['language_skills'] as $skill) {
+                    $triples .= ":requiresLanguageSkill \"" . addslashes(trim($skill)) . "\" ;\n";
+                }
+            }
+        }
+
+        // Add soft skills
+        if (isset($data["soft_skills"])) {
+            if (!empty($data["soft_skills"])) {
+                foreach ($data['soft_skills'] as $skill) {
+                    $triples .= ":requiresSoftSkill \"" . addslashes(trim($skill)) . "\" ;\n";
+                }
+            }
         }
 
         // Add degree levels
-        foreach ($data['degree_level'] as $degree) {
-            $triples .= ":requiresDegreeLevel \"" . addslashes(trim($degree)) . "\" ;\n";
+        if (isset($data["degree_level"])) {
+            if (!empty($data["degree_level"])) {
+                foreach ($data['degree_level'] as $degree) {
+                    $triples .= ":requiresDegreeLevel \"" . addslashes(trim($degree)) . "\" ;\n";
+                }
+            }
         }
 
         // Add education fields
-        foreach ($data['education_field'] as $field) {
-            $triples .= ":requiresEducationField \"" . addslashes(trim($field)) . "\" ;\n";
+        if (isset($data["education_field"])) {
+            if (!empty($data["education_field"])) {
+                foreach ($data['education_field'] as $field) {
+                    $triples .= ":requiresEducationField \"" . addslashes(trim($field)) . "\" ;\n";
+                }
+            }
         }
 
         // Add job location
-        foreach ($data['job_location'] as $location) {
-            $triples .= ":hasLocation \"" . addslashes(trim($location)) . "\" ;\n";
+        if (isset($data['job_location']))
+            $triples .= ":hasLocation \"" . addslashes(trim($data['job_location'])) . "\" ;\n";
+
+
+        // Add job location type
+        if (isset($data['job_location_type'])) {
+            if (!empty($data["job_location_type"])) {
+                foreach ($data['job_location_type'] as $field) {
+                    $triples .= ":hasLocationType \"" . addslashes(trim($field)) . "\" ;\n";
+                }
+            }
+        }
+
+        // Add programming languages
+        if (isset($data["programming_languages"])) {
+            if (!empty($data["programming_languages"])) {
+                foreach ($data['programming_languages'] as $language) {
+                    $triples .= ":requiresProgrammingLanguage \"" . addslashes(trim($language["skill_name"])) . "\" ;\n";
+
+                    // Add influenced_by languages
+                    if (!empty($language['influenced_by'])) {
+                        foreach ($language['influenced_by'] as $influenced) {
+                            $triples .= ":influencedBy \"" . addslashes(trim($influenced)) . "\" ;\n";
+                        }
+                    }
+
+                    // Add programmed_in languages
+                    if (!empty($language['programmed_in'])) {
+                        foreach ($language['programmed_in'] as $programmed) {
+                            $triples .= ":programmedIn \"" . addslashes(trim($programmed)) . "\" ;\n";
+                        }
+                    }
+                }
+            }
+        }
+
+        // Add unclasified skills
+        if (isset($data["unclassified_skills"])) {
+            if (!empty($data["unclassified_skills"])) {
+                foreach ($data['unclassified_skills'] as $skill) {
+                    $triples .= ":unclasifiedSkill \"" . addslashes(trim($skill)) . "\" ;\n";
+                }
+            }
+        }
+
+        // Add libraries
+        if (isset($data["libraries"])) {
+            if (!empty($data["libraries"])) {
+                foreach ($data['libraries'] as $library) {
+                    $triples .= ":requiresLibrary \"" . addslashes(trim($library['skill_name'])) . "\" ;\n";
+
+                    // Add influenced_by libraries
+                    if (!empty($library['influenced_by'])) {
+                        foreach ($library['influenced_by'] as $influenced) {
+                            $triples .= ":libraryInfluencedBy \"" . addslashes(trim($influenced)) . "\" ;\n";
+                        }
+                    }
+
+                    // Add programmed_in languages
+                    if (!empty($library['programmed_in'])) {
+                        foreach ($library['programmed_in'] as $programmed) {
+                            $triples .= ":libraryProgrammedIn \"" . addslashes(trim($programmed)) . "\" ;\n";
+                        }
+                    }
+                }
+            }
+        }
+
+        // Add frameworks
+        if (isset($data["frameworks"])) {
+            if (!empty($data["frameworks"])) {
+                //Log::info("Frameworks" . json_encode($data["frameworks"]));
+
+                foreach ($data['frameworks'] as $framework) {
+                    $triples .= ":requiresFramework \"" . addslashes(trim($framework['skill_name'])) . "\" ;\n";
+
+                    if (!empty($framework['influenced_by'])) {
+                        foreach ($framework['influenced_by'] as $influenced) {
+                            $triples .= ":frameworkInfluencedBy \"" . addslashes(trim($influenced)) . "\" ;\n";
+                        }
+                    }
+
+                    if (!empty($framework['programmed_in'])) {
+                        foreach ($framework['programmed_in'] as $programmed) {
+                            $triples .= ":frameworkProgrammedIn \"" . addslashes(trim($programmed)) . "\" ;\n";
+                        }
+                    }
+                }
+            }
         }
 
         // End the triples block
         $triples .= ".\n";
+
+        Log::info('Generated Triples:', ['triples' => $triples]);
+        $triples = trim($triples);
 
         return $triples;
     }
@@ -87,18 +205,23 @@ class TripleService
 
         // Construct the SPARQL INSERT query
         $sparqlUpdate = "
-        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        PREFIX : <http://example.org#>
-        
-        INSERT DATA {
-            $triples
-        }
-    ";
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX : <http://example.org#>
+            
+            INSERT DATA {
+                $triples
+            }
+        ";
 
-        // Execute the INSERT query
-        $response = Http::asForm()->post($this->fusekiEndpoint, [
-            'update' => $sparqlUpdate,
-        ]);
+        // Execute the INSERT query with authentication
+        $response = Http::withBasicAuth(
+            config('services.jobhunter_update.username'),
+            config('services.jobhunter_update.password')
+        )
+            ->asForm()->post(config('services.jobhunter_update.url'), [
+                    'update' => $sparqlUpdate,
+                ]);
+
 
         if ($response->failed()) {
             throw new Exception('Failed to insert triples into Fuseki: ' . $response->body());
@@ -118,48 +241,6 @@ class TripleService
         ], 202);  // If the response was unexpected, you might want to return 202
     }
 
-    // public function insertTriples($triples)
-    // {
-    //     // Check if the triples already exist
-    //     if ($this->tripleExists($triples)) {
-    //         return response()->json([
-    //             'message' => 'The triples already exist in the dataset.',
-    //         ], 200);
-    //     }
-
-    //     // Construct the SPARQL INSERT query
-    //     $sparqlUpdate = "
-    //         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    //         PREFIX : <http://example.org#>
-
-    //         INSERT DATA {
-    //             $triples
-    //         }
-    //     ";
-
-    //     // Execute the INSERT query
-    //     $response = Http::asForm()->post($this->fusekiEndpoint, [
-    //         'update' => $sparqlUpdate,
-    //     ]);
-
-    //     if ($response->failed()) {
-    //         throw new Exception('Failed to insert triples into Fuseki: ' . $response->body());
-    //     }
-
-    //     // Check if the response body indicates success
-    //     if (str_contains(strtolower($response->body()), 'update succeeded')) {
-    //         return response()->json([
-    //             'message' => 'Triples inserted successfully.',
-    //         ], 201);
-    //     }
-
-    //     // Handle unexpected responses
-    //     return response()->json([
-    //         'message' => 'Triples inserted, but response was unexpected.',
-    //         'response' => $response->body(),
-    //     ], 202);
-    // }
-
     /**
      * Check if a triple exists in Fuseki
      */
@@ -175,10 +256,12 @@ class TripleService
             }
         ";
 
-        // Send the ASK query with the correct headers to request a JSON response
-        $response = Http::withHeaders([
-            'Accept' => 'application/json', // Request JSON response
-        ])->asForm()->post($this->fusekiQueryEndpoint, [
+        // Execute the INSERT query with authentication
+        $response = Http::withBasicAuth(
+            config('services.jobhunter_query.username'),
+            config('services.jobhunter_query.password')
+        )
+            ->asForm()->post(config('services.jobhunter_query.url'), [
                     'query' => $askQuery,
                 ]);
 
@@ -189,12 +272,12 @@ class TripleService
         // Decode the JSON response from Fuseki
         $askResult = json_decode($response->body(), true);
 
-        // Log or debug the result
+        // Log::info('Fuseki ASK Query Response: ' . $response->body());
         if (!isset($askResult['boolean'])) {
-            throw new Exception('Invalid response from Fuseki: ' . $response->body());
+            //    throw new Exception('Invalid response from Fuseki: ' . json_encode($askResult));
         }
 
-        return $askResult['boolean'];
+        return $askResult['boolean'] ?? false;
     }
 
     /**
@@ -208,51 +291,49 @@ class TripleService
         // Path to the Python script
         $scriptPath = 'C:/xampp/htdocs/BetaTeam/CiobanuAna/Processing/services/processors/script.py';
 
-        // Encode the input as JSON
-        $jsonArgument = json_encode($input, JSON_UNESCAPED_SLASHES);
+        // Convert the associative array to a JSON string
+        $json = json_encode($input);
 
-        // Properly escape the JSON argument for the command
-        $escapedJsonArgument = addcslashes($jsonArgument, '"'); // Escape double quotes for the shell
+        // Write the JSON string to a temporary file
+        $tempFile = tempnam(sys_get_temp_dir(), 'json_');
+        file_put_contents($tempFile, $json);
 
-        // Construct the command
-        $command = "python $scriptPath \"$escapedJsonArgument\"";
+        // Build command to execute the Python script with the temporary file as an argument
+        $command = "python $scriptPath " . escapeshellarg($tempFile);
 
-        //  try {
+        // Set execution timeout
+        set_time_limit(500);
+
         // Execute the command
         $output = shell_exec($command);
-        //dd($output);
+
+        $json = json_decode($output);
+
+        unlink($tempFile);
+
         if ($output === null) {
             throw new Exception('Error executing Python script.');
         }
-        // // Extract the JSON portion from the output
-        // preg_match('/\{.*\}/s', $output, $matches);
 
-        // if (empty($matches)) {
-        //     throw new Exception('No valid JSON found in Python script output.');
-        // }
-
-        // Match all JSON objects in the string
-        preg_match_all('/\{.*?\}/s', $output, $matches);
-
-        if (empty($matches[0]) || count($matches[0]) < 2) {
-            throw new Exception('Second JSON object not found.');
-        }
-
-
-        // Extract the second JSON object
-        $jsonOutput = $matches[0][1]; // The JSON part of the output
-        $jsonOutput = preg_replace('/[\r\n]+/', '', $jsonOutput);
-        $jsonOutput = trim($jsonOutput, " ");
-
-        $decodedOutput = json_decode($jsonOutput, true);
-
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new Exception('Invalid JSON output from Python script: ' . json_last_error_msg());
-        }
+        $result = $this->extractJson($output);
+        $decodedOutput = json_decode($result, true);
 
         return $decodedOutput;
     }
 
+    /**
+     * Extract the JSON object from mixed output.
+     */
+    public function extractJson(string $output): string
+    {
+        // Use a regular expression to extract JSON
+        preg_match('/\{.*\}/s', $output, $matches);
 
+        if (!empty($matches)) {
+            return $matches[0]; // Return the JSON part
+        }
+
+        throw new Exception('No JSON object found in the output');
+    }
 
 }

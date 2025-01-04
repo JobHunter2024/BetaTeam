@@ -7,7 +7,6 @@ use App\Models\Triple;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Services\SparqlService;
-
 use App\Services\TripleService;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\Process\Process;
@@ -20,7 +19,7 @@ class TriplesController extends Controller
     protected $tripleService;
     protected $sparqlService;
 
-    public function __construct($tripleService, $sparqlService)
+    public function __construct(TripleSErvice $tripleService, SparqlService $sparqlService)
     {
         $this->tripleService = $tripleService;
         $this->sparqlService = $sparqlService;
@@ -47,18 +46,20 @@ class TriplesController extends Controller
         try {
             $request_json = $request->json()->all();
 
-            $data = $this->tripleService->executeScript($request_json);
+            if (isset($request_json))
+                foreach ($request_json as $key => $value) {
+                    // Execute python script for ontology creation
+                    $data = $this->tripleService->executeScript($value);
 
-            // Validate data
-            $this->tripleService->validateJobData($data);
+                    if ($data != null) {
+                        // Prepare triples
+                        $triples = $this->tripleService->prepareTriples($data);
 
-            // Prepare triples
-            $triples = $this->tripleService->prepareTriples($data);
-
-            // Insert triples into Fuseki
-            $response = $this->tripleService->insertTriples($triples);
-
-            return response()->json(['message' => 'Triples inserted successfully.', 'response' => $response]);
+                        // Insert triples into Fuseki
+                        $response = $this->tripleService->insertTriples($triples);
+                    }
+                }
+            return response()->json(['message' => 'Triples inserted successfully.', 'response' => $response ?? ""]);
         } catch (Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
