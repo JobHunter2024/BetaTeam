@@ -38,8 +38,7 @@ return [
     ],
 
     'jobhunter_query' => [
-        //'url' => env('JOB_HUNTER_QUERY_API_URL'),'http://localhost:3030/jobHunterDataset/query'
-        'url' => 'http://localhost:3030/jobHunterDataset/query',
+        'url' => env('JOB_HUNTER_QUERY_API_URL'),
         'username' => env('JOB_HUNTER_API_USERNAME'),
         'password' => env('JOB_HUNTER_API_PASSWORD'),
     ],

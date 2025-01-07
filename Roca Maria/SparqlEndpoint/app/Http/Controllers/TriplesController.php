@@ -43,6 +43,7 @@ class TriplesController extends Controller
 
     public function storeJobTriples(Request $request)
     {
+        $error = "";
         try {
             $request_json = $request->json()->all();
 
@@ -50,16 +51,39 @@ class TriplesController extends Controller
                 foreach ($request_json as $key => $value) {
                     // Execute python script for ontology creation
                     $data = $this->tripleService->executeScript($value);
-
-                    if ($data != null) {
+                    //  dd($data['output']);
+                    if ($data['output'] != null) {
                         // Prepare triples
-                        $triples = $this->tripleService->prepareTriples($data);
+                        $triples = $this->tripleService->prepareTriples($data['output']);
 
-                        // Insert triples into Fuseki
-                        $response = $this->tripleService->insertTriples($triples);
+                        if ($triples['output'] != null) {
+
+                            // Insert triples into Fuseki
+                            $response = $this->tripleService->insertTriples($triples['output']);
+                        } else {
+                            $error .= "Eroare pentru job: " . $key . " a aparut eroarea: " . $triples["error"] . "\n";
+                        }
+                        // return response()->json(
+                        //     [
+                        //         "message" => "Failed to insert",
+                        //         "status" => $triples["status"],
+                        //         "error" => $triples["error"]
+                        //     ]
+                        // );
+                    } else {
+                        $error .= "Eroare pentru job: " . $key . " a aparut eroarea: " . $data["error"] . "\n";
                     }
+                    // return response()->json(
+                    //     [
+                    //         "message" => "Failed to execute script",
+                    //         "status" => $data["status"],
+                    //         "error" => $data["error"]
+                    //     ]
+                    // );
                 }
-            return response()->json(['message' => 'Triples inserted successfully.', 'response' => $response ?? ""]);
+            return response()->json(
+                $response
+            );
         } catch (Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
