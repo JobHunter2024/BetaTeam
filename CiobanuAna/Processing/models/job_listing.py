@@ -1,7 +1,7 @@
 class JobListing:
     def __init__(self, title, companyName, datePosted, language_skills, soft_skills, degree_level, education_field,
                  employment_type, experience_years, experience_level, job_location, job_location_type, programming_languages, frameworks, 
-                 libraries, unclassified_skills):
+                 libraries, unclassified_skills, already_added_technical_skills):
         self.title = title
         self.companyName = companyName
         self.datePosted = datePosted
@@ -18,6 +18,7 @@ class JobListing:
         self.frameworks = frameworks
         self.libraries = libraries
         self.unclassified_skills = unclassified_skills
+        self.already_added_technical_skills = already_added_technical_skills
 
     def to_dict(self):
         """Convert the object to a dictionary for JSON serialization."""
@@ -37,5 +38,6 @@ class JobListing:
             "programming_languages": self.programming_languages,
             "frameworks": self.frameworks,
             "libraries":self.libraries,
-            "unclassified_skills": self.unclassified_skills
+            "unclassified_skills": self.unclassified_skills,
+            "already_added_technical_skills": self.already_added_technical_skills
         }

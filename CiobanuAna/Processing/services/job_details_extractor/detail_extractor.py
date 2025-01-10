@@ -16,7 +16,7 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 # nltk.download('averaged_perceptron_tagger', force=True)
 
 #Download English resources to the specific directory
-stanza.download('en', model_dir='C:/Users/magda/stanza_resources')
+# stanza.download('en', model_dir='C:/Users/magda/stanza_resources')
 
 @log_aspect
 @exception_handling_aspect
@@ -26,7 +26,7 @@ class JobDetailsExtractor:
         self.nlp = spacy.load("en_core_web_sm")
         self.fields_of_study = ["Computer Science", "Mathematics", "Engineering", "Physics", "Finance", "Business Administration", "Economics", "Information Systems",
         "Data Science","Statistics","Artificial Intelligence", "Computer Engineering", "Electrical Engineering", "Cybernetics",
-        "Data Engineering","Information Technology", "Accounting", "Industrial Engineering", "Computational Linguistics"]
+        "Data Engineering","Information Technology", "Accounting", "Industrial Engineering","Mechanical Engineering", "Computational Linguistics"]
         self.matcher = PhraseMatcher(self.nlp.vocab, attr="LOWER")
         patterns = [self.nlp.make_doc(field) for field in self.fields_of_study]
         self.matcher.add("EDUCATION_FIELD", patterns)
@@ -35,11 +35,14 @@ class JobDetailsExtractor:
             "b.sc": "Bachelor's Degree",
             "bsc": "Bachelor's Degree",
             "b.sc.": "Bachelor's Degree",
+            "BS": "Bachelor's Degree",
             "bachelor": "Bachelor's Degree",
             "bachelor's degree": "Bachelor's Degree",
             "undergraduate": "Bachelor's Degree",
-            "master": "Master Degree",
+            "university degree": "Bachelor's Degree",
+            "master": "Master's Degree",
             "master's degree": "Master's Degree",
+            "MS": "Master's Degree",
             "msc": "Master's Degree",
             "m.sc": "Master's Degree",
             "m.sc.": "Master's Degree",
@@ -66,12 +69,12 @@ class JobDetailsExtractor:
         return list(set(emp for emp in self.employment_type_keywords if emp in text.lower()))
 
     def extract_experience_years(self, text):
-        experience_pattern = r"(\d+)\+?\s?(years?|yrs?)\s?(of)?(experience)?"
+        experience_pattern = r"\((\d+)\)\+?\s?(years?|yrs?)\s?(of)?(experience)?"
         matches = re.findall(experience_pattern, text, re.IGNORECASE)
-        return [f"{match[0]} years" for match in matches]
+        return [f"{match[0]} years" for match in matches if int(match[0]) < 50]
     
     def extract_experience_level(self, title, text):
-        if "junior" in title.lower() or "jr" in title.lower() or "junior" in text.lower() or "jr" in text.lower():
+        if "junior" in title.lower() or "jr" in title.lower() or "junior" in text.lower() or "jr" in text.lower() or "Intern" in text.lower():
             return "Junior"
         elif "mid-level" in title.lower() or "middle" in title.lower() or "mid-level" in text.lower() or "middle" in text.lower():
             return "Mid-level"

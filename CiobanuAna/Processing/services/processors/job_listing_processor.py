@@ -55,7 +55,7 @@ class JobListingProcessor:
             job_location_type = self.detail_extractor.extract_location_type(job_description)
         else:
             job_location_type = job_location_type_from_title    
-        programming_languages, frameworks, libraries, unclassified_skills = self.technical_skill_extractor.technical_skill_classifier(hard_skills)
+        programming_languages, frameworks, libraries, unclassified_skills, already_added_technical_skills = self.technical_skill_extractor.technical_skill_classifier(hard_skills)
 
         # Create a JobListing object
         processed_job_listing = JobListing(
@@ -74,7 +74,8 @@ class JobListingProcessor:
             programming_languages,
             frameworks,
             libraries,
-            unclassified_skills
+            unclassified_skills,
+            already_added_technical_skills
             
         )
 

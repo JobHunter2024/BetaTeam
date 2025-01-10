@@ -4,6 +4,10 @@ from CiobanuAna.Processing.utils.fsm_monitor import FSMMonitor
 from SPARQLWrapper import SPARQLExceptions
 import time
 import urllib.error
+import os
+JOB_HUNTER_QUERY_API_URL = os.getenv('JOB_HUNTER_QUERY_API_URL')
+JOB_HUNTER_API_USERNAME = os.getenv('JOB_HUNTER_API_USERNAME')
+JOB_HUNTER_API_PASSWORD = os.getenv('JOB_HUNTER_API_PASSWORD')
 
 class TechnicalSkillExtractor():
 
@@ -113,39 +117,34 @@ class TechnicalSkillExtractor():
                     time.sleep(backoff_factor ** attempt)
 
 
-    # def check_technical_skills_already_added(self, endpoint_url, technical_skills):
-    #     sparql_fuseki = SPARQLWrapper(endpoint_url)
-    #     skill_values = " ".join(f":{skill}" for skill in technical_skills)
+    def check_technical_skills_already_added(self, endpoint_url, technical_skills):
+        sparql_fuseki = SPARQLWrapper(endpoint_url)
+        skills_no_spaces = [skill.replace(" ", "") for skill in technical_skills]
+        skills_list_escaped = [re.escape(skill) for skill in skills_no_spaces]
+        skills_list = [f":{skill}" for skill in skills_list_escaped]
+        skills_filter = ', '.join(skills_list)
 
-    #     query = f"""
-    #     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    #     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    #     PREFIX : <http://example.org/ontology#>
+        query = f"""
+PREFIX : <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-    #     SELECT ?skill
-    #     WHERE {{
-    #     {{
-    #         ?skill rdf:type :TechnicalSkill .
-    #     }}
-    #     UNION
-    #     {{
-    #         ?skill rdf:type ?type .
-    #         ?type rdfs:subClassOf* :TechnicalSkill .
-    #     }}
-    #     FILTER (?skill IN ({skill_values}))
-    #     }}
-    #     """
+SELECT ?technicalSkill
+WHERE {{
+    ?technicalSkill rdf:type ?type .
+    ?type rdfs:subClassOf* :TechnicalSkill .
+    FILTER (?technicalSkill IN ({skills_filter}))
+}}
+        """
 
-    #     sparql_fuseki.setQuery(query)
-    #     sparql_fuseki.setReturnFormat(JSON)
+        sparql_fuseki.setQuery(query)
+        sparql_fuseki.setReturnFormat(JSON)
+        sparql_fuseki.setHTTPAuth("BASIC")
+        sparql_fuseki.setCredentials(JOB_HUNTER_API_USERNAME, JOB_HUNTER_API_PASSWORD)
 
-    #     try:
-    #         results = sparql_fuseki.query().convert()
-    #         existing_skills = [result["skill"]["value"] for result in results["results"]["bindings"]]
-    #         return existing_skills
-    #     except Exception as e:
-    #         print(f"Error querying SPARQL Fuseki endpoint: {e}")
-    #         return []
+        results = sparql_fuseki.query().convert()
+        existing_skills = [result["technicalSkill"]["value"].split("#")[-1] for result in results["results"]["bindings"]]
+        return existing_skills
 
 
     def technical_skill_classifier(self, technical_skills):
@@ -155,16 +154,15 @@ class TechnicalSkillExtractor():
         frameworks = []
         libraries = []
         unclassified = []
-        for skill in technical_skills:
+        for skill in set(technical_skills):
             cleaned_skill_text = re.sub(r'\s?\(.*\)', '', skill)
             technical_skills_rev.append(cleaned_skill_text)
 
-        # # filter out technical skills already added to fuseki
-        # added_technical_skills = self.check_technical_skills_already_added("http://localhost:3030/dataset", technical_skills)
-        # skills_to_classify = list(set(technical_skills_rev) - set(added_technical_skills))
+        # filter out technical skills already added to fuseki
+        already_added_technical_skills = self.check_technical_skills_already_added(JOB_HUNTER_QUERY_API_URL, technical_skills_rev)
+        skills_to_classify = list(set(technical_skills_rev) - set(already_added_technical_skills))
 
-        #for skill in skills_to_classify:
-        for skill in technical_skills_rev:
+        for skill in skills_to_classify:
             category = self.query_skill(skill)
             if category["skill_type"] == "Programming Language":
                 programming_languages.append(category)
@@ -175,4 +173,5 @@ class TechnicalSkillExtractor():
             else:
                 unclassified.append(skill)
 
-        return programming_languages, frameworks, libraries, list(set(unclassified))
+        return programming_languages, frameworks, libraries, list(set(unclassified)), list(set(already_added_technical_skills))
+       
