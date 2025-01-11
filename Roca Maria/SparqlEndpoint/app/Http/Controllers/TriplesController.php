@@ -51,18 +51,32 @@ class TriplesController extends Controller
                 foreach ($request_json as $key => $value) {
                     // Execute python script for ontology creation
                     $data = $this->tripleService->executeScript($value);
-                    //  dd($data['output']);
+                    //dd($data['output']);
+                    Log::info("Script output: " . json_encode($data['output']));
                     if ($data['output'] != null) {
+
                         // Prepare triples
-                        $triples = $this->tripleService->prepareTriples($data['output']);
+                        $triples = $this->tripleService->prepareIndividualTriples($data['output']);
+                        Log::info("Triples prepared" . json_encode($triples["output"]));
 
-                        if ($triples['output'] != null) {
+                        // dd($triples['output']);
+                        if (!empty($triples['output'])) {
 
-                            // Insert triples into Fuseki
-                            $response = $this->tripleService->insertTriples($triples['output']);
+                            // insert entities and propersties
+                            $entitiesTriples = $this->tripleService->createOntologyEntities();
+                            foreach ($entitiesTriples as $triple) {
+                                // Insert triples into Fuseki
+                                $response = $this->tripleService->insertTriples($triple);
+                            }
+
+                            foreach ($triples['output'] as $triple) {
+                                // Insert triples into Fuseki
+                                $response = $this->tripleService->insertTriples($triple);
+                            }
                         } else {
                             $error .= "Eroare pentru job: " . $key . " a aparut eroarea: " . $triples["error"] . "\n";
                         }
+
                         // return response()->json(
                         //     [
                         //         "message" => "Failed to insert",
@@ -81,6 +95,7 @@ class TriplesController extends Controller
                     //     ]
                     // );
                 }
+            $response["errors"] = $error;
             return response()->json(
                 $response
             );
