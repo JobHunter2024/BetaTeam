@@ -24,6 +24,7 @@ class TriplesController extends Controller
         $this->tripleService = $tripleService;
         $this->sparqlService = $sparqlService;
     }
+
     /**
      * Display a listing of the triples.
      *
@@ -36,30 +37,29 @@ class TriplesController extends Controller
         return response()->json();
     }
 
-    public function test()
-    {
-        return "Hello, World!";
-    }
-
+    /**
+     * Stores a list of triples.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function storeJobTriples(Request $request)
     {
         $error = "";
         try {
             $request_json = $request->json()->all();
 
-            if (isset($request_json))
+            if (!empty($request_json)) {
+
                 foreach ($request_json as $key => $value) {
                     // Execute python script for ontology creation
                     $data = $this->tripleService->executeScript($value);
-                    //dd($data['output']);
-                    Log::info("Script output: " . json_encode($data['output']));
+
                     if ($data['output'] != null) {
 
                         // Prepare triples
                         $triples = $this->tripleService->prepareIndividualTriples($data['output']);
-                        Log::info("Triples prepared" . json_encode($triples["output"]));
 
-                        // dd($triples['output']);
+
                         if (!empty($triples['output'])) {
 
                             // insert entities and propersties
@@ -77,33 +77,22 @@ class TriplesController extends Controller
                             $error .= "Eroare pentru job: " . $key . " a aparut eroarea: " . $triples["error"] . "\n";
                         }
 
-                        // return response()->json(
-                        //     [
-                        //         "message" => "Failed to insert",
-                        //         "status" => $triples["status"],
-                        //         "error" => $triples["error"]
-                        //     ]
-                        // );
                     } else {
                         $error .= "Eroare pentru job: " . $key . " a aparut eroarea: " . $data["error"] . "\n";
                     }
-                    // return response()->json(
-                    //     [
-                    //         "message" => "Failed to execute script",
-                    //         "status" => $data["status"],
-                    //         "error" => $data["error"]
-                    //     ]
-                    // );
                 }
-            $response["errors"] = $error;
-            return response()->json(
-                $response
-            );
+                $response["errors"] = $error;
+
+                return response()->json(
+                    $response
+                );
+            } else {
+                return response()->json(['error' => 'No data provided'], 400);
+            }
         } catch (Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
-
     /**
      * Display the specified triple.
      *
