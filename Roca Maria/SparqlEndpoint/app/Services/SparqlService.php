@@ -14,10 +14,6 @@ class SparqlService
 
     public function __construct()
     {
-        $this->queryEndpoint = env('FUSEKI_QUERY_ENDPOINT');
-        $this->updateEndpoint = env('FUSEKI_UPDATE_ENDPOINT');
-        $this->user = env('SPARQL_USER');
-        $this->password = env('SPARQL_PASSWORD');
     }
 
     /**
@@ -28,14 +24,19 @@ class SparqlService
      * @return mixed
      * @throws Exception if the query fails.
      */
-    public function query($query, $format = 'json')
+    public static function query($query, $format = 'json')
     {
-        $response = Http::withBasicAuth($this->user, $this->password)
-            ->asForm()
-            ->post($this->queryEndpoint, [
-                'query' => $query,
-                'format' => $format,
-            ]);
+        $response = Http::withBasicAuth(
+            config('services.jobhunter_query.username'),
+            config('services.jobhunter_query.password')
+        )
+            ->withHeaders([
+                'Accept' => 'application/sparql-results+json', // Ensure JSON response
+                'Content-Type' => 'application/x-www-form-urlencoded'
+            ])
+            ->asForm()->post(config('services.jobhunter_query.url'), [
+                    'query' => $query,
+                ]);
 
         if ($response->ok()) {
             return $response->json(); // Return JSON-decoded response
@@ -51,18 +52,23 @@ class SparqlService
      * @return string The response body.
      * @throws Exception if the update fails.
      */
-    public function executeUpdate($sparqlQuery)
+    public static function executeUpdate($sparqlQuery)
     {
-        $response = Http::withBasicAuth($this->user, $this->password)
-            ->asForm()
-            ->post($this->updateEndpoint, [
-                'update' => $sparqlQuery,
-            ]);
+        // dd($sparqlQuery);
+        // Execute the INSERT query with authentication
+        $response = Http::withBasicAuth(
+            config('services.jobhunter_update.username'),
+            config('services.jobhunter_update.password')
+        )
+            ->asForm()->post(config('services.jobhunter_update.url'), [
+                    'update' => $sparqlQuery,
+                ]);
 
         if (!$response->successful()) {
             throw new Exception("SPARQL update failed: " . $response->body());
         }
 
+        //dd($response, $sparqlQuery);
         return $response->body();
     }
 }

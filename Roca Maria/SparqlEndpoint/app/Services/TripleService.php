@@ -47,13 +47,13 @@ class TripleService
             // Core Job Information
             if (isset($data['title'])) {
                 $cleanTitle = str_replace(' ', '', $data['title']);
-                $triples[] = "<{$baseUri}{$cleanTitle}> rdf:type <{$baseUri}Job> .";
+                //--$triples[] = "<{$baseUri}{$cleanTitle}> rdf:type <{$baseUri}Job> .";
                 $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}jobTitle> \"" . addslashes($data['title']) . "\"^^xsd:string .";
             }
 
             if (isset($data['companyName'])) {
                 $cleanCompanyName = str_replace(' ', '', $data['companyName']);
-                $triples[] = "<{$baseUri}{$cleanCompanyName}> rdf:type <{$baseUri}Company> .";
+                //--$triples[] = "<{$baseUri}{$cleanCompanyName}> rdf:type <{$baseUri}Company> .";
                 $triples[] = "<{$baseUri}{$cleanCompanyName}> <{$baseUri}companyName> \"" . addslashes($data['companyName']) . "\"^^xsd:string .";
                 $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}postedByCompany> <{$baseUri}{$cleanCompanyName}> .";
             }
@@ -61,7 +61,7 @@ class TripleService
             // if (isset($data['datePosted'])) {
             //     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}datePosted> \"" . addslashes($data['datePosted']) . "\"^^xsd:dateTime .";
             // }
-
+            // dd($data['datePosted']);
             if (isset($data['datePosted'])) {
                 try {
                     // Parse the date using Carbon
@@ -88,7 +88,7 @@ class TripleService
                 foreach ($data['soft_skills'] as $skill) {
                     $cleanSkill = str_replace(' ', '', $skill);
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$cleanSkill}> .";
-                    $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}SoftSkill> .";
+                    //--$triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Soft Skill> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdfs:label \"" . addslashes($skill) . "\"^^xsd:string .";
                 }
             }
@@ -97,9 +97,9 @@ class TripleService
             if (!empty($data['programming_languages'])) {
                 foreach ($data['programming_languages'] as $language) {
                     $langName = str_replace(' ', '', $language['skill_name'] ?? 'Unknown');
-                    $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}ProgrammingLanguage> .";
-                    $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
-                    $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Skill> .";
+                    //-- $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Programming Language> .";
+                    //-- $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Technical Skill> .";
+                    //-- $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$langName}> rdfs:label \"" . addslashes($language['skill_name']) . "\"^^xsd:string .";
                     if (!empty($language['official_website'])) {
                         $triples[] = "<{$baseUri}{$langName}> <{$baseUri}officialWebsite> \"" . addslashes($language['official_website']) . "\"^^xsd:anyURI .";
@@ -124,7 +124,7 @@ class TripleService
                 foreach ($data['education_field'] as $field) {
                     $cleanField = str_replace(' ', '', $field);
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresEducation> <{$baseUri}{$cleanField}> .";
-                    $triples[] = "<{$baseUri}{$cleanField}> rdf:type <{$baseUri}Education> .";
+                    //-- $triples[] = "<{$baseUri}{$cleanField}> rdf:type <{$baseUri}Education> .";
                     $triples[] = "<{$baseUri}{$cleanField}> rdfs:label \"" . addslashes($field) . "\"^^xsd:string .";
                 }
             }
@@ -134,7 +134,7 @@ class TripleService
                 foreach ($data['unclassified_skills'] as $skill) {
                     $cleanSkill = str_replace(' ', '', $skill);
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}hasSkill> <{$baseUri}{$cleanSkill}> .";
-                    $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Skill> .";
+                    //-- $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdfs:label \"" . addslashes($skill) . "\"^^xsd:string .";
                 }
             }
@@ -143,9 +143,9 @@ class TripleService
             if (!empty($data['libraries'])) {
                 foreach ($data['libraries'] as $library) {
                     $libName = str_replace(' ', '', $library['skill_name'] ?? 'UnknownLibrary');
-                    $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Library> .";
-                    $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
-                    $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Skill> .";
+                    //-- $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Library> .";
+                    //-- $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
+                    //-- $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$libName}> rdfs:label \"" . addslashes($library['skill_name']) . "\"^^xsd:string .";
                     if (!empty($library['influenced_by'])) {
                         foreach ($library['influenced_by'] as $influenced) {
@@ -166,9 +166,9 @@ class TripleService
             if (!empty($data['frameworks'])) {
                 foreach ($data['frameworks'] as $framework) {
                     $fwName = str_replace(' ', '', $framework['skill_name'] ?? 'UnknownFramework');
-                    $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Framework> .";
-                    $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
-                    $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Skill> .";
+                    //-- $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Framework> .";
+                    //-- $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
+                    //-- $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$fwName}> rdfs:label \"" . addslashes($framework['skill_name']) . "\"^^xsd:string .";
                     if (!empty($framework['influenced_by'])) {
                         foreach ($framework['influenced_by'] as $influenced) {
@@ -200,162 +200,175 @@ class TripleService
         ];
     }
 
-    public function createOntologyEntities()
-    {
-        $baseUri = "http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#";
-        $triples = [];
+    // public function createOntologyEntities()
+    // {
+    //     $baseUri = "http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#";
+    //     $triples = [];
 
-        // Create Ontology
-        $triples[] = "<{$baseUri}> rdf:type owl:Ontology .";
+    //     // Create Ontology
+    //     $triples[] = "<{$baseUri}> rdf:type owl:Ontology .";
 
-        // Create Classes
-        $classes = [
-            'Company',
-            'Education',
-            'Framework',
-            'Job',
-            'LanguageSkill',
-            'Library',
-            'ProgrammingLanguage',
-            'Skill',
-            'SoftSkill',
-            'TechnicalSkill'
-        ];
+    //     // Create Classes with labels
+    //     $classes = [
+    //         'Company' => 'Company',
+    //         'Education' => 'Education',
+    //         'Framework' => 'Framework',
+    //         'Job' => 'Job',
+    //         'LanguageSkill' => 'Language Skill',
+    //         'Library' => 'Library',
+    //         'ProgrammingLanguage' => 'Programming Language',
+    //         'Skill' => 'Skill',
+    //         'SoftSkill' => 'Soft Skill',
+    //         'TechnicalSkill' => 'Technical Skill'
+    //     ];
 
-        foreach ($classes as $class) {
-            $triples[] = "<{$baseUri}{$class}> rdf:type owl:Class .";
-            $triples[] = "<{$baseUri}{$class}> rdfs:label \"" . addslashes($class) . "\"^^xsd:string .";
-        }
+    //     foreach ($classes as $class => $label) {
+    //         $triples[] = "<{$baseUri}{$class}> rdf:type owl:Class .";
+    //         $triples[] = "<{$baseUri}{$class}> rdfs:label \"" . addslashes($label) . "\"^^xsd:string .";
+    //     }
 
-        // Define Subclass Relationships
-        $subclasses = [
-            'LanguageSkill' => 'Skill',
-            'SoftSkill' => 'Skill',
-            'TechnicalSkill' => 'Skill',
-            'Framework' => 'TechnicalSkill',
-            'Library' => 'TechnicalSkill',
-            'ProgrammingLanguage' => 'TechnicalSkill',
-        ];
+    //     // Define Subclass Relationships
+    //     $subclasses = [
+    //         'LanguageSkill' => 'Skill',
+    //         'SoftSkill' => 'Skill',
+    //         'TechnicalSkill' => 'Skill',
+    //         'Framework' => 'TechnicalSkill',
+    //         'Library' => 'TechnicalSkill',
+    //         'ProgrammingLanguage' => 'TechnicalSkill',
+    //     ];
 
-        foreach ($subclasses as $subclass => $superclass) {
-            $triples[] = "<{$baseUri}{$subclass}> rdfs:subClassOf <{$baseUri}{$superclass}> .";
-        }
+    //     foreach ($subclasses as $subclass => $superclass) {
+    //         $triples[] = "<{$baseUri}{$subclass}> rdfs:subClassOf <{$baseUri}{$superclass}> .";
+    //     }
 
-        // Create Object Properties
-        $objectProperties = [
-            'hasFramework' => [
-                'domain' => 'ProgrammingLanguage',
-                'range' => 'Framework'
-            ],
-            'hasLibrary' => [
-                'domain' => 'ProgrammingLanguage',
-                'range' => 'Library'
-            ],
-            'influencedBy' => [
-                'domain' => 'TechnicalSkill',
-                'range' => 'TechnicalSkill'
-            ],
-            'isFrameworkOf' => [
-                'domain' => 'Framework',
-                'range' => 'ProgrammingLanguage'
-            ],
-            'isLibraryOf' => [
-                'domain' => 'Library',
-                'range' => 'ProgrammingLanguage'
-            ],
-            'postedByCompany' => [
-                'domain' => 'Job',
-                'range' => 'Company'
-            ],
-            'postedJob' => [
-                'domain' => 'Company',
-                'range' => 'Job'
-            ],
-            'programmedIn' => [
-                'domain' => ['Framework', 'Library'], // 'Framework', // Also has domain of Library
-                'range' => 'ProgrammingLanguage'
-            ],
-            'requiresEducation' => [
-                'domain' => 'Job',
-                'range' => 'Education'
-            ],
-            'requiresSkill' => [
-                'domain' => 'Job',
-                'range' => 'Skill'
-            ]
-        ];
+    //     // Create Object Properties
+    //     $objectProperties = [
+    //         'hasFramework' => [
+    //             'domain' => 'ProgrammingLanguage',
+    //             'range' => 'Framework',
+    //             'label' => 'Has Framework',
+    //         ],
+    //         'hasLibrary' => [
+    //             'domain' => 'ProgrammingLanguage',
+    //             'range' => 'Library',
+    //             'label' => 'Has Library',
+    //         ],
+    //         'influencedBy' => [
+    //             'domain' => 'TechnicalSkill',
+    //             'range' => 'TechnicalSkill',
+    //             'label' => 'Influenced By',
+    //         ],
+    //         'isFrameworkOf' => [
+    //             'domain' => 'Framework',
+    //             'range' => 'ProgrammingLanguage',
+    //             'label' => 'Is Framework Of',
+    //         ],
+    //         'isLibraryOf' => [
+    //             'domain' => 'Library',
+    //             'range' => 'ProgrammingLanguage',
+    //             'label' => 'Is Library Of',
+    //         ],
+    //         'postedByCompany' => [
+    //             'domain' => 'Job',
+    //             'range' => 'Company',
+    //             'label' => 'Posted By Company'
+    //         ],
+    //         'postedJob' => [
+    //             'domain' => 'Company',
+    //             'range' => 'Job',
+    //             'label' => 'Posted Job'
+    //         ],
+    //         'programmedIn' => [
+    //             'domain' => ['Framework', 'Library'], // 'Framework', // Also has domain of Library
+    //             'range' => 'ProgrammingLanguage',
+    //             'label' => 'Programmed In'
+    //         ],
+    //         'requiresEducation' => [
+    //             'domain' => 'Job',
+    //             'range' => 'Education',
+    //             'label' => 'Requires Education'
+    //         ],
+    //         'requiresSkill' => [
+    //             'domain' => 'Job',
+    //             'range' => 'Skill',
+    //             'label' => 'Requires Skill'
+    //         ]
+    //     ];
 
-        foreach ($objectProperties as $property => $details) {
-            $triples[] = "<{$baseUri}{$property}> rdf:type owl:ObjectProperty .";
-            if (is_array($details['domain'])) {
-                foreach ($details['domain'] as $domain) {
-                    $triples[] = "<{$baseUri}{$property}> rdfs:domain <{$baseUri}{$domain}> .";
-                }
-            } else {
-                $triples[] = "<{$baseUri}{$property}> rdfs:domain <{$baseUri}{$details['domain']}> .";
-            }
+    //     foreach ($objectProperties as $property => $details) {
+    //         $label = $details['label'];
+    //         $triples[] = "<{$baseUri}{$property}> rdf:type owl:ObjectProperty .";
+    //         if (is_array($details['domain'])) {
+    //             foreach ($details['domain'] as $domain) {
+    //                 $triples[] = "<{$baseUri}{$property}> rdfs:domain <{$baseUri}{$domain}> .";
+    //                 $triples[] = "<{$baseUri}{$property}> rdfs:label \"" . addslashes($label) . "\"^^xsd:string .";
 
-            //   $triples[] = "<{$baseUri}{$property}> rdfs:domain <{$baseUri}{$details['domain']}> .";
-            $triples[] = "<{$baseUri}{$property}> rdfs:range <{$baseUri}{$details['range']}> .";
-            $triples[] = "<{$baseUri}{$property}> rdfs:label \"" . addslashes($property) . "\"^^xsd:string .";
-        }
+    //             }
+    //         } else {
+    //             $triples[] = "<{$baseUri}{$property}> rdfs:domain <{$baseUri}{$details['domain']}> .";
+    //             $triples[] = "<{$baseUri}{$property}> rdfs:label \"" . addslashes($label) . "\"^^xsd:string .";
+    //         }
 
-        // Add Inverse Properties
-        $triples[] = "<{$baseUri}hasFramework> owl:inverseOf <{$baseUri}isFrameworkOf> .";
-        $triples[] = "<{$baseUri}hasLibrary> owl:inverseOf <{$baseUri}isLibraryOf> .";
+    //         //   $triples[] = "<{$baseUri}{$property}> rdfs:domain <{$baseUri}{$details['domain']}> .";
+    //         $triples[] = "<{$baseUri}{$property}> rdfs:range <{$baseUri}{$details['range']}> .";
+    //     }
 
-        // Create Data Properties with custom labels
-        $dataProperties = [
-            'companyName' => ['domain' => 'Company', 'label' => 'Company Name'],
-            'datePosted' => ['domain' => 'Job', 'label' => 'Date Posted'],
-            'educationDegreeLevel' => ['domain' => 'Education', 'label' => 'Education Degree Level'],
-            'educationField' => ['domain' => 'Education', 'label' => 'Education Field'],
-            'employmentType' => ['domain' => 'Job', 'label' => 'Employment Type'],
-            'experienceInYears' => ['domain' => 'Job', 'label' => 'Experience in Years'],
-            'experinceLevel' => ['domain' => 'Job', 'label' => 'Experience Level'],
-            'jobLocation' => ['domain' => 'Job', 'label' => 'Job Location'],
-            'jobLocationType' => ['domain' => 'Job', 'label' => 'Job Location Type'],
-            'jobTitle' => ['domain' => 'Job', 'label' => 'Job Title'],
-            'officialWebsite' => ['domain' => 'TechnicalSkill', 'label' => 'Official Website']
-        ];
+    //     // Add Inverse Properties
+    //     $triples[] = "<{$baseUri}hasFramework> owl:inverseOf <{$baseUri}isFrameworkOf> .";
+    //     $triples[] = "<{$baseUri}hasLibrary> owl:inverseOf <{$baseUri}isLibraryOf> .";
 
-        foreach ($dataProperties as $property => $details) {
-            $domain = $details['domain'];
-            $label = $details['label'];
+    //     // Create Data Properties with custom labels
+    //     $dataProperties = [
+    //         'companyName' => ['domain' => 'Company', 'label' => 'Company Name'],
+    //         'datePosted' => ['domain' => 'Job', 'label' => 'Date Posted'],
+    //         'educationDegreeLevel' => ['domain' => 'Education', 'label' => 'Education Degree Level'],
+    //         'educationField' => ['domain' => 'Education', 'label' => 'Education Field'],
+    //         'employmentType' => ['domain' => 'Job', 'label' => 'Employment Type'],
+    //         'experienceInYears' => ['domain' => 'Job', 'label' => 'Experience in Years'],
+    //         'experinceLevel' => ['domain' => 'Job', 'label' => 'Experience Level'],
+    //         'jobLocation' => ['domain' => 'Job', 'label' => 'Job Location'],
+    //         'jobLocationType' => ['domain' => 'Job', 'label' => 'Job Location Type'],
+    //         'jobTitle' => ['domain' => 'Job', 'label' => 'Job Title'],
+    //         'officialWebsite' => ['domain' => 'TechnicalSkill', 'label' => 'Official Website']
+    //     ];
 
-            $triples[] = "<{$baseUri}{$property}> rdf:type owl:DatatypeProperty .";
-            $triples[] = "<{$baseUri}{$property}> rdfs:domain <{$baseUri}{$domain}> .";
-            $triples[] = "<{$baseUri}{$property}> rdfs:label \"" . addslashes($label) . "\"^^xsd:string .";
+    //     foreach ($dataProperties as $property => $details) {
+    //         $domain = $details['domain'];
+    //         $label = $details['label'];
 
-            // Adjust range based on specific properties
-            if ($property === 'datePosted') {
-                $triples[] = "<{$baseUri}{$property}> rdfs:range xsd:dateTime ."; // Set range to dateTime
-            } elseif ($property === 'experienceInYears') {
-                $triples[] = "<{$baseUri}{$property}> rdfs:range xsd:int ."; // Set range to int
-            } else {
-                $triples[] = "<{$baseUri}{$property}> rdfs:range xsd:string ."; // Default to string
-            }
-        }
+    //         $triples[] = "<{$baseUri}{$property}> rdf:type owl:DatatypeProperty .";
+    //         $triples[] = "<{$baseUri}{$property}> rdfs:domain <{$baseUri}{$domain}> .";
+    //         $triples[] = "<{$baseUri}{$property}> rdfs:label \"" . addslashes($label) . "\"^^xsd:string .";
 
-        // // Create Named Individuals
-        // $individuals = [
-        //     'Numpy' => 'Library',
-        //     'Software_Developer' => 'Job'
-        // ];
+    //         // Adjust range based on specific properties
+    //         if ($property === 'datePosted') {
+    //             $triples[] = "<{$baseUri}{$property}> rdfs:range xsd:dateTime ."; // Set range to dateTime
+    //         } elseif ($property === 'experienceInYears') {
+    //             $triples[] = "<{$baseUri}{$property}> rdfs:range xsd:int ."; // Set range to int
+    //         } else {
+    //             $triples[] = "<{$baseUri}{$property}> rdfs:range xsd:string ."; // Default to string
+    //         }
+    //     }
 
-        // foreach ($individuals as $individual => $type) {
-        //     $triples[] = "<{$baseUri}{$individual}> rdf:type <{$baseUri}{$type}> .";
-        // }
+    //     // Create Named Individuals
+    //     $individuals = [
+    //         'Numpy' => 'Library',
+    //         'Software_Developer' => 'Job'
+    //     ];
 
-        // Log or return the generated triples
-        Log::info('Generated RDF Triples:', $triples);
-        return $triples;
-    }
+    //     foreach ($individuals as $individual => $type) {
+    //         $triples[] = "<{$baseUri}{$individual}> rdf:type <{$baseUri}{$type}> .";
+    //     }
 
-    public function insertTriples($triples)
+    //     // Log or return the generated triples
+    //     Log::info('Generated RDF Triples:', $triples);
+    //     return $triples;
+    // }
+
+    public function insertTriples($triple)
     {
         // Check if the triples already exist
-        if ($this->tripleExists($triples)) {
+        if ($this->tripleExists($triple)) {
             return [
                 'message' => 'The triples already exist in the dataset.',
                 'status' => 200 // This is okay if already exists
@@ -364,7 +377,7 @@ class TripleService
 
         // Construct the SPARQL INSERT query
         $sparqlUpdate = "
-            
+
             PREFIX :                  <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology/>
             PREFIX JobHunterOntology: <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#>
             PREFIX owl:               <http://www.w3.org/2002/07/owl#>
@@ -372,39 +385,41 @@ class TripleService
             PREFIX rdfs:              <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX xml:               <http://www.w3.org/XML/1998/namespace>
             PREFIX xsd:               <http://www.w3.org/2001/XMLSchema#>
-            
+
             INSERT DATA {
-                $triples
+                $triple
             }
         ";
 
-        // Execute the INSERT query with authentication
-        $response = Http::withBasicAuth(
-            config('services.jobhunter_update.username'),
-            config('services.jobhunter_update.password')
-        )
-            ->asForm()->post(config('services.jobhunter_update.url'), [
-                    'update' => $sparqlUpdate,
-                ]);
+        // // Execute the INSERT query with authentication
+        // $response = Http::withBasicAuth(
+        //     config('services.jobhunter_update.username'),
+        //     config('services.jobhunter_update.password')
+        // )
+        //     ->asForm()->post(config('services.jobhunter_update.url'), [
+        //             'update' => $sparqlUpdate,
+        //         ]);
 
 
-        if ($response->failed()) {
-            throw new Exception('Failed to insert triples into Fuseki: ' . $response->body());
-        }
+        // if ($response->failed()) {
+        //     throw new Exception('Failed to insert triples into Fuseki: ' . $response->body());
+        // }
 
-        // Check if the response body indicates success
-        if (str_contains(strtolower($response->body()), 'update succeeded')) {
-            return [
-                'message' => 'Triples inserted successfully.',
-                //'body' => $response->body(),
-                'status' => 201,  // Return a 201 status code for successful insert
-            ];
-        }
+        // // Check if the response body indicates success
+        // if (str_contains(strtolower($response->body()), 'update succeeded')) {
+        //     return [
+        //         'message' => 'Triples inserted successfully.',
+        //         //'body' => $response->body(),
+        //         'status' => 201,  // Return a 201 status code for successful insert
+        //     ];
+        // }
 
+        $response = SparqlService::executeUpdate($sparqlUpdate);
+        //dd($response);
         // Handle unexpected responses
         return [
             'message' => 'Triples inserted, but response was unexpected.',
-            'response' => $response->body(),
+            'response' => $response,
             'status' => 202  // If the response was unexpected, you might want to return 202
         ];
     }
@@ -433,38 +448,43 @@ class TripleService
         Log::info('SPARQL ASK Query:', ['query' => $askQuery]);
 
         // Execute the ASK query with authentication
-        $response = Http::withBasicAuth(
-            config('services.jobhunter_query.username'),
-            config('services.jobhunter_query.password')
-        )
-            ->withHeaders([
-                'Accept' => 'application/sparql-results+json', // Ensure JSON response
-                'Content-Type' => 'application/x-www-form-urlencoded'
-            ])
-            ->asForm()->post(config('services.jobhunter_query.url'), [
-                    'query' => $askQuery,
-                ]);
+        // $response = Http::withBasicAuth(
+        //     config('services.jobhunter_query.username'),
+        //     config('services.jobhunter_query.password')
+        // )
+        //     ->withHeaders([
+        //         'Accept' => 'application/sparql-results+json', // Ensure JSON response
+        //         'Content-Type' => 'application/x-www-form-urlencoded'
+        //     ])
+        //     ->asForm()->post(config('services.jobhunter_query.url'), [
+        //             'query' => $askQuery,
+        //         ]);
 
         // Log the raw response for debugging
-        Log::info('Raw ASK query response:', ['response' => $response->body()]);
+        // Log::info('Raw ASK query response:', ['response' => $response->body()]);
         // Parse the response
-        $result = $response->json();
+        // $result = $response->json();
 
         // if ($response->failed()) {
         //     throw new Exception('Failed to query Fuseki: ' . $response->body());
         // }
 
-        Log::info("ask query response: " . json_encode($response));
+        //Log::info("ask query response: " . json_encode($response));
 
         // Decode the JSON response from Fuseki
-        $askResult = json_decode($response->body(), true);
+        // $askResult = json_decode($response->body(), true);
 
-        if (isset($result['boolean'])) {
-            Log::info('ASK query result:', ['exists' => $result['boolean']]);
-        } else {
-            Log::error('ASK query did not return a valid boolean result', ['response' => $result]);
-        }
-        return $askResult['boolean'] ?? true;
+        // if (isset($result['boolean'])) {
+        //     Log::info('ASK query result:', ['exists' => $result['boolean']]);
+        // } else {
+        //     Log::error('ASK query did not return a valid boolean result', ['response' => $result]);
+        // }
+
+        //return $askResult['boolean'] ?? true;
+        $result = SparqlService::query($askQuery);
+        //  dd($result, $askQuery);
+        //  dd($result);
+        return $result['boolean'];
     }
 
     /**
