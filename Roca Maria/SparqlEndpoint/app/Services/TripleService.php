@@ -88,7 +88,7 @@ class TripleService
                 foreach ($data['soft_skills'] as $skill) {
                     $cleanSkill = str_replace(' ', '', $skill);
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$cleanSkill}> .";
-                    $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Soft Skill> .";
+                    $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}SoftSkill> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdfs:label \"" . addslashes($skill) . "\"^^xsd:string .";
                 }
             }
@@ -97,8 +97,8 @@ class TripleService
             if (!empty($data['programming_languages'])) {
                 foreach ($data['programming_languages'] as $language) {
                     $langName = str_replace(' ', '', $language['skill_name'] ?? 'Unknown');
-                    $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Programming Language> .";
-                    $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Technical Skill> .";
+                    $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}ProgrammingLanguage> .";
+                    $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}TechnicalSkill> .";
                     $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$langName}> rdfs:label \"" . addslashes($language['skill_name']) . "\"^^xsd:string .";
                     if (!empty($language['official_website'])) {
