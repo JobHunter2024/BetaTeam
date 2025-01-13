@@ -110,6 +110,7 @@ class TripleService
             if (!empty($data['programming_languages'])) {
                 foreach ($data['programming_languages'] as $language) {
                     $langName = str_replace(' ', '', $language['skill_name'] ?? 'Unknown');
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$langName}> .";
                     $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}ProgrammingLanguage> .";
                     $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}TechnicalSkill> .";
                     $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Skill> .";
@@ -146,6 +147,7 @@ class TripleService
             if (!empty($data['unclassified_skills'])) {
                 foreach ($data['unclassified_skills'] as $skill) {
                     $cleanSkill = str_replace(' ', '', $skill);
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$cleanSkill}> .";
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}hasSkill> <{$baseUri}{$cleanSkill}> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdfs:label \"" . addslashes($skill) . "\"^^xsd:string .";
@@ -156,6 +158,7 @@ class TripleService
             if (!empty($data['libraries'])) {
                 foreach ($data['libraries'] as $library) {
                     $libName = str_replace(' ', '', $library['skill_name'] ?? 'UnknownLibrary');
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$libName}> .";
                     $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Library> .";
                     $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
                     $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Skill> .";
@@ -179,6 +182,7 @@ class TripleService
             if (!empty($data['frameworks'])) {
                 foreach ($data['frameworks'] as $framework) {
                     $fwName = str_replace(' ', '', $framework['skill_name'] ?? 'UnknownFramework');
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$fwName}> .";
                     $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Framework> .";
                     $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
                     $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Skill> .";
@@ -239,31 +243,8 @@ class TripleService
             }
         ";
 
-        // // Execute the INSERT query with authentication
-        // $response = Http::withBasicAuth(
-        //     config('services.jobhunter_update.username'),
-        //     config('services.jobhunter_update.password')
-        // )
-        //     ->asForm()->post(config('services.jobhunter_update.url'), [
-        //             'update' => $sparqlUpdate,
-        //         ]);
-
-
-        // if ($response->failed()) {
-        //     throw new Exception('Failed to insert triples into Fuseki: ' . $response->body());
-        // }
-
-        // // Check if the response body indicates success
-        // if (str_contains(strtolower($response->body()), 'update succeeded')) {
-        //     return [
-        //         'message' => 'Triples inserted successfully.',
-        //         //'body' => $response->body(),
-        //         'status' => 201,  // Return a 201 status code for successful insert
-        //     ];
-        // }
-
         $response = SparqlService::executeUpdate($sparqlUpdate);
-        //dd($response);
+
         // Handle unexpected responses
         return [
             'message' => 'Triples inserted, but response was unexpected.',

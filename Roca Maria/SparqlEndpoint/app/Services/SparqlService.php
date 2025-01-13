@@ -54,7 +54,6 @@ class SparqlService
      */
     public static function executeUpdate($sparqlQuery)
     {
-        // dd($sparqlQuery);
         // Execute the INSERT query with authentication
         $response = Http::withBasicAuth(
             config('services.jobhunter_update.username'),
