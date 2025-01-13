@@ -1,0 +1,135 @@
+{
+    "title": "QA Engineer",
+    "companyName": "Oceano Mercado",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Problem Solving",
+        "Innovation",
+        "Collaboration",
+        "Reliability",
+        "Teamwork",
+        "Communications"
+    ],
+    "degree_level": [],
+    "education_field": [
+        "Computer Science",
+        "Artificial Intelligence"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Poland, Romania, Bulgaria, Hungary",
+    "job_location_type": [],
+    "programming_languages": [
+        {
+            "skill_name": "Nice",
+            "skill_type": "Programming Language",
+            "official_website": "http://nice.sourceforge.net/",
+            "influenced_by": [],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "JavaScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.ecma-international.org/publications-and-standards/standards/ecma-262/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "LiveScript",
+                "Python",
+                "Lua",
+                "HyperTalk",
+                "AWK",
+                "Perl",
+                "Scheme",
+                "Self"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "Icon",
+                "C++",
+                "Modula-3",
+                "Dylan",
+                "CLU",
+                "ALGOL 68",
+                "APL",
+                "Perl",
+                "ABC",
+                "Standard ML",
+                "Haskell",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "C",
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Automated Testing Framework",
+            "skill_type": "Framework",
+            "official_website": "https://github.com/jmmv/atf/wiki",
+            "influenced_by": [],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "TestNG",
+            "skill_type": "Framework",
+            "official_website": "https://testng.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Selenium",
+            "skill_type": "Library",
+            "official_website": "https://selenium.dev/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Appium",
+        "Security Testing",
+        "Language Experience Approach",
+        "Test Strategy",
+        "GUI Testing Tools",
+        "Atlassian Bamboo",
+        "Analytics",
+        "Travis Ci",
+        "Automation",
+        "Junit",
+        "Computer Science",
+        "Machine Learning",
+        "Romanian Language",
+        "Performance Testing",
+        "Artificial Intelligence",
+        "Amazon Marketplace",
+        "Test Script",
+        "Test Automation",
+        "Apache JMeter",
+        "Jenkins",
+        "Programming",
+        "Application Programming Interface",
+        "Cross-Functional Team Leadership",
+        "Postman",
+        "SoapUI",
+        "E-Commerce"
+    ]
+}

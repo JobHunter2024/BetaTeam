@@ -1,0 +1,145 @@
+{
+    "title": "Software Engineer Big Data",
+    "companyName": "Booking Holdings Romania",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Positivity",
+        "Problem Solving",
+        "Innovation",
+        "Collaboration",
+        "Communications",
+        "Written Communication"
+    ],
+    "degree_level": [
+        "Bachelor's Degree"
+    ],
+    "education_field": [
+        "Computer Science"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "Associate",
+    "job_location": "Bucharest, Bucharest, Romania",
+    "job_location_type": [
+        "office",
+        "online"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.java.com",
+            "influenced_by": [
+                "C",
+                "Simula 67",
+                "Modula-3",
+                "variadic function",
+                "Oberon",
+                "C#",
+                "Eiffel",
+                "Niklaus Wirth",
+                "Patrick Naughton",
+                "Smalltalk",
+                "Simula",
+                "Java annotation",
+                "Objective-C",
+                "Object Pascal",
+                "Ada",
+                "boxing",
+                "Mesa",
+                "C++",
+                "UCSD Pascal",
+                "foreach loop"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "Icon",
+                "C++",
+                "Modula-3",
+                "Dylan",
+                "CLU",
+                "ALGOL 68",
+                "APL",
+                "Perl",
+                "ABC",
+                "Standard ML",
+                "Haskell",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "C",
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "High Performance Fortran",
+            "skill_type": "Programming Language",
+            "official_website": "http://hpff.rice.edu/",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Component Object Model",
+            "skill_type": "Framework",
+            "official_website": "https://docs.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Apache Airflow",
+            "skill_type": "Library",
+            "official_website": "https://airflow.apache.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Life Insurance Sales",
+        "Apache Cassandra",
+        "Server-Side",
+        "Distributed File Systems",
+        "Library For WWW In Perl",
+        "Traffic Patterns",
+        "Machine Learning Methods",
+        "Snowflake",
+        "Learning Platforms",
+        "Electronic Data Processing",
+        "High Performance Computing",
+        "Service Provider",
+        "Big Data",
+        "Computer Science",
+        "Data Streaming",
+        "Good Documentation Practices",
+        "Emerging Technologies",
+        "KM Programming Language",
+        "Accounting",
+        "Spark Framework",
+        "Voucher",
+        "MySQL",
+        "Booking",
+        "Distributed Computing Environment",
+        "Kubernetes",
+        "Health Care Benefits",
+        "User Accounts",
+        "Algorithms",
+        "Amazon Data Pipeline",
+        "Scalability",
+        "Survey Data Analysis"
+    ]
+}

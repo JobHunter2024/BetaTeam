@@ -1,0 +1,100 @@
+{
+    "title": "Senior Software Engineer",
+    "companyName": "Sugarcrm",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Collaboration",
+        "Sales",
+        "Communications"
+    ],
+    "degree_level": [],
+    "education_field": [
+        "Computer Science"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "Senior",
+    "job_location": "",
+    "job_location_type": [
+        "office"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "JavaScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.ecma-international.org/publications-and-standards/standards/ecma-262/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "LiveScript",
+                "Python",
+                "Lua",
+                "HyperTalk",
+                "AWK",
+                "Perl",
+                "Scheme",
+                "Self"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Cascading Style Sheets",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.w3.org/Style/CSS/",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "frameworks": [],
+    "libraries": [
+        {
+            "skill_name": "D3.js",
+            "skill_type": "Library",
+            "official_website": "https://d3js.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        },
+        {
+            "skill_name": "React.js",
+            "skill_type": "Library",
+            "official_website": "https://react.dev/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Real Time Data",
+        "Web Applications",
+        "Responsive Web Design",
+        "Demand Generation",
+        "Learning Experience Design",
+        "Interactivity",
+        "Professional Services Automation",
+        "Automation",
+        "SugarCRM",
+        "Computer Science",
+        "End Systems",
+        "Visualization",
+        "HyperText Markup Language",
+        "Product Management",
+        "Browser Compatibility",
+        "Angular Material",
+        "Customer Relationship Management",
+        "Front End",
+        "Data Visualization",
+        "Personalization",
+        "Customer Profitability",
+        "Customer Relationship Building",
+        "Programming",
+        "Value-Added Reseller",
+        "Scalability",
+        "Customer Experience",
+        "Staging",
+        "Customer Journey Mapping"
+    ]
+}

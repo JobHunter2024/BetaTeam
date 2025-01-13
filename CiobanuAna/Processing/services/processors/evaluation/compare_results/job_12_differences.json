@@ -1,0 +1,134 @@
+{
+    "title": {
+        "json1": "Data Scientist, GenAI (Remote)",
+        "json2": "Data Scientist GenAI"
+    },
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "continuous learning"
+        ],
+        "only_in_json2": [
+            "self starter",
+            "friendliness",
+            "integration",
+            "team building",
+            "innovation",
+            "research",
+            "presentations",
+            "professionalism"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "bachelor\u2019s degree",
+            "ph.d. (bonus)",
+            "master\u2019s degree (preferred)"
+        ],
+        "only_in_json2": [
+            "doctorate"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "artificial intelligence",
+            "machine learning"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "2+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level",
+        "json2": ""
+    },
+    "job_location": {
+        "json1": "Bucharest, Bucharest, Romania (Remote)",
+        "json2": "Bucharest, Bucharest, Romania"
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "E"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Hugging Face Transformers",
+            "PyTorch",
+            "TensorFlow"
+        ],
+        "only_in_json2": [
+            "Component Object Model"
+        ]
+    },
+    "libraries": {
+        "only_in_json2": [
+            "PyTorch",
+            "TensorFlow"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "large language models (llms)",
+            "ml model fine-tuning",
+            "cuda",
+            "high-dimensional data analysis",
+            "ml model development",
+            "ai assistants",
+            "data pipeline design",
+            "cybersecurity",
+            "machine learning research",
+            "tensorrt"
+        ],
+        "only_in_json2": [
+            "disabilities",
+            "software engineering",
+            "professional development programs",
+            "track",
+            "interactive design",
+            "sparse",
+            "cybersecurity compliance",
+            "nvidia cuda",
+            "model-based definition",
+            "equities",
+            "production systems",
+            "dissemination",
+            "information access",
+            "data science",
+            "mathematical statistics",
+            "transformers",
+            "graphics processing unit",
+            "sage safe x3",
+            "thought leadership",
+            "peer review",
+            "self host",
+            "scalability",
+            "scale",
+            "computer science",
+            "machine learning methods",
+            "production management",
+            "linux",
+            "intelligent virtual assistant",
+            "data collection",
+            "visualization",
+            "adoptions",
+            "machine learning",
+            "coloring",
+            "diving",
+            "prototype",
+            "language model"
+        ]
+    }
+}

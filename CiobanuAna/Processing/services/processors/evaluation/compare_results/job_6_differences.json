@@ -1,0 +1,135 @@
+{
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "team-oriented mindset",
+            "proactive learning",
+            "team collaboration",
+            "openness to feedback",
+            "problem-solving",
+            "effective communication",
+            "analytical thinking",
+            "attention to data quality"
+        ],
+        "only_in_json2": [
+            "team oriented",
+            "decision making",
+            "problem solving",
+            "communications",
+            "collaboration",
+            "socialization",
+            "writing",
+            "professionalism"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "master's degree (preferred)"
+        ],
+        "only_in_json2": [
+            "master's degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "math and statistics"
+        ],
+        "only_in_json2": [
+            "statistics",
+            "engineering"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "3+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "senior",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "office work"
+        ],
+        "only_in_json2": [
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "SQL"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Spark",
+            "Databricks"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "oltp and olap datasets",
+            "scrum practices",
+            "machine learning techniques",
+            "data pipeline development",
+            "data cleansing",
+            "etl processes",
+            "natural language processing (nlp)"
+        ],
+        "only_in_json2": [
+            "project planning",
+            "conceptualization",
+            "big data",
+            "storages",
+            "data extraction",
+            "virtual environment",
+            "vectorization",
+            "embedding",
+            "campaign management",
+            "data ingestion",
+            "data quality",
+            "staging",
+            "cross-functional team leadership",
+            "amazon data pipeline",
+            "analytics",
+            "dataset",
+            "apex data loader",
+            "statistics",
+            "peer-to-peer",
+            "azure data lake",
+            "statistical methods",
+            "voucher",
+            "computer science",
+            "data engineering",
+            "mental health",
+            "machine learning methods",
+            "scrum",
+            "personality development",
+            "databricks",
+            "data collection",
+            "sanitization",
+            "transformation",
+            "continuous improvement process",
+            "scripting",
+            "cloud technologies",
+            "reduction",
+            "natural language processing",
+            "indexing",
+            "customer support",
+            "knowledge base",
+            "consolidation",
+            "data transformation services",
+            "agility"
+        ]
+    }
+}

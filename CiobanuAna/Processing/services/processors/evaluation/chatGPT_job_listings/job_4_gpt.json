@@ -1,0 +1,92 @@
+{
+    "title": "Senior Full Stack Engineer",
+    "companyName": "Synthesia",
+    "datePosted": "December 08, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Problem Solving",
+        "Ownership",
+        "Outcome Orientation",
+        "Focus on Commercial Success",
+        "Leadership",
+        "Simplification",
+        "Collaboration",
+        "Adaptability"
+    ],
+    "degree_level": [],
+    "education_field": [],
+    "employment_type": [
+        "full-time"
+    ],
+    "experience_years": [
+        "7+ years"
+    ],
+    "experience_level": "senior",
+    "job_location": "Khostinskiy, Krasnodar Krai, Russian Federation",
+    "job_location_type": [
+        "Remote"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org",
+            "influenced_by": [
+                "ABC",
+                "C",
+                "Modula-3",
+                "Smalltalk",
+                "Algol 68",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "JavaScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.javascript.com",
+            "influenced_by": [
+                "Java",
+                "Self",
+                "Scheme"
+            ],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "React",
+            "skill_type": "Framework",
+            "official_website": "https://react.dev",
+            "influenced_by": [
+                "JavaScript",
+                "Flux Architecture"
+            ],
+            "programmed_in": [
+                "JavaScript",
+                "TypeScript"
+            ]
+        }
+    ],
+    "libraries": [],
+    "unclassified_skills": [
+        "Backend Development",
+        "Frontend Development",
+        "Optimizing Database Queries",
+        "UI Interactions",
+        "Data Pipeline Frameworks",
+        "SaaS Product Development",
+        "AI Video Generation",
+        "Billing Systems",
+        "Experimentation Platforms",
+        "Online Editors",
+        "Real-Time Collaboration",
+        "Video Delivery Systems"
+    ]
+}

@@ -1,0 +1,104 @@
+{
+    "title": {
+        "json1": "Research Analyst - Arabic language",
+        "json2": "Research Analyst Arabic language"
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "verbal communication",
+            "written communication",
+            "organization",
+            "attention to detail"
+        ],
+        "only_in_json2": [
+            "planning",
+            "operations",
+            "governance",
+            "research",
+            "infrastructure",
+            "verbal communication skills",
+            "microsoft office",
+            "creativity",
+            "collaboration"
+        ]
+    },
+    "degree_level": {
+        "only_in_json2": [
+            "bachelor's degree"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_level": {
+        "json1": "Entry-Level",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "on-site"
+        ],
+        "only_in_json2": [
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "Nice",
+            "Source"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "know your customer (kyc)",
+            "open-source research methods",
+            "microsoft office applications",
+            "financial crime",
+            "fluency in english and arabic",
+            "publicly exposed persons (pep)",
+            "corruption risk identification",
+            "research skills",
+            "regulatory compliance",
+            "collaboration with global teams",
+            "anti-money laundering (aml)"
+        ],
+        "only_in_json2": [
+            "narcotics",
+            "economy",
+            "disabilities",
+            "anti money laundering",
+            "financial market",
+            "organized crime investigation",
+            "analytical thinking",
+            "life insurance sales",
+            "scholastic read 180",
+            "financial risk",
+            "economics",
+            "open source intelligence",
+            "medical insurance claims",
+            "economic growth",
+            "risk management",
+            "shared whois project",
+            "latin",
+            "emergency medical services",
+            "investments",
+            "open access",
+            "collections",
+            "sustainability",
+            "voucher",
+            "sustainable growth rate",
+            "mental health",
+            "reputational risk",
+            "personality development",
+            "innovation management",
+            "purchasing",
+            "retirement planning",
+            "infrastructure management services",
+            "law enforcement",
+            "romanian language",
+            "know your customer"
+        ]
+    }
+}

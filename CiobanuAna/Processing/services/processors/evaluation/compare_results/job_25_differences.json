@@ -1,0 +1,146 @@
+{
+    "title": {
+        "json1": "Senior Artificial Intelligence / Machine Learning Engineer",
+        "json2": "Senior Artificial Intelligence Machine Learning Engineer"
+    },
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "team collaboration",
+            "mentorship"
+        ],
+        "only_in_json2": [
+            "planning",
+            "collaboration",
+            "integration",
+            "operations",
+            "prioritization",
+            "reliability",
+            "scheduling",
+            "presentations",
+            "professionalism"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "bs/ms"
+        ],
+        "only_in_json2": [
+            "bachelor's degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "related field"
+        ],
+        "only_in_json2": [
+            "engineering"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "3+ years"
+        ]
+    },
+    "job_location": {
+        "json1": "Cluj-Napoca, Romania",
+        "json2": "Cluj-Napoca"
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "on-site"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "Source",
+            "E"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "PyTorch",
+            "TensorFlow"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "JAX"
+        ],
+        "only_in_json2": [
+            "PyTorch",
+            "TensorFlow"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "mlops",
+            "mentorship",
+            "azure",
+            "large language models",
+            "qlora",
+            "problem-solving",
+            "peft techniques",
+            "lora",
+            "data privacy regulations"
+        ],
+        "only_in_json2": [
+            "computing platforms",
+            "software engineering",
+            "git",
+            "technical solution design",
+            "professional development programs",
+            "digital transformation",
+            "data structures",
+            "diversity and inclusion",
+            "equities",
+            "open source intelligence",
+            "strategic business unit",
+            "chatbot",
+            "business requirements",
+            "tracking",
+            "cross-functional team leadership",
+            "balancing",
+            "energy production",
+            "custom function",
+            "production improvement",
+            "programming",
+            "patentable subject matter",
+            "production function",
+            "sustainability",
+            "a/b testing",
+            "life sciences",
+            "quantization",
+            "scalability",
+            "version control",
+            "high performance computing",
+            "computer science",
+            "machine learning methods",
+            "industrial automation",
+            "algorithms",
+            "software development",
+            "hostile work environment",
+            "continuous improvement process",
+            "software design",
+            "automation",
+            "control systems",
+            "user experience",
+            "workflows",
+            "branding",
+            "customer support",
+            "translations",
+            "refining",
+            "language model"
+        ]
+    }
+}

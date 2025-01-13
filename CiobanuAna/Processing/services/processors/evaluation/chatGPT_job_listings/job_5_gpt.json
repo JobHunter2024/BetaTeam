@@ -1,0 +1,124 @@
+{
+    "title": "Software Development Engineer in Test (SDET)",
+    "companyName": "NTT DATA Europe & Latam",
+    "datePosted": "December 08, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Problem Solving",
+        "Collaboration",
+        "Adaptability",
+        "Attention to Detail",
+        "Agile/Scrum Methodology Knowledge",
+        "Good Communication Skills"
+    ],
+    "degree_level": [
+        "Bachelor's degree"
+    ],
+    "education_field": [
+        "Informatics",
+        "Related Field"
+    ],
+    "employment_type": [
+        "full-time"
+    ],
+    "experience_years": [
+        "6+ years"
+    ],
+    "experience_level": "senior",
+    "job_location": "Iasi, Romania",
+    "job_location_type": [
+        "Remote",
+        "Hybrid",
+        "Office Work"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "JavaScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.javascript.com",
+            "influenced_by": [
+                "Java",
+                "Self",
+                "Scheme"
+            ],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        },
+        {
+            "skill_name": "TypeScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.typescriptlang.org",
+            "influenced_by": [
+                "JavaScript",
+                "C#",
+                "Java"
+            ],
+            "programmed_in": [
+                "TypeScript"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "React Native",
+            "skill_type": "Framework",
+            "official_website": "https://reactnative.dev",
+            "influenced_by": [
+                "React",
+                "JavaScript"
+            ],
+            "programmed_in": [
+                "JavaScript",
+                "TypeScript"
+            ]
+        },
+        {
+            "skill_name": "Detox",
+            "skill_type": "Testing Framework",
+            "official_website": "https://wix.github.io/Detox/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript",
+                "TypeScript"
+            ]
+        },
+        {
+            "skill_name": "Jest",
+            "skill_type": "Testing Framework",
+            "official_website": "https://jestjs.io",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript",
+                "TypeScript"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Storybook",
+            "skill_type": "Component Testing Library",
+            "official_website": "https://storybook.js.org",
+            "influenced_by": [
+                "React",
+                "JavaScript"
+            ],
+            "programmed_in": [
+                "JavaScript",
+                "TypeScript"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "End-to-End Testing",
+        "Contract Testing",
+        "Unit Testing",
+        "Performance Testing",
+        "Page Object Model Design",
+        "Automation Framework Development",
+        "Code Testability",
+        "CI/CD Integration"
+    ]
+}

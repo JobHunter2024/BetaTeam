@@ -1,0 +1,118 @@
+{
+    "title": {
+        "json1": "System Engineer - Bucuresti",
+        "json2": "System Engineer Bucuresti"
+    },
+    "companyName": {
+        "json1": "S.C. INTERBRANDS ORBICO S.R.L.",
+        "json2": "Sc Interbrands Orbico"
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "problem solving",
+            "documentation",
+            "collaboration",
+            "interpersonal skills"
+        ],
+        "only_in_json2": [
+            "planning",
+            "integration",
+            "non-verbal communication",
+            "training and development",
+            "prioritization",
+            "troubleshooting (problem solving)",
+            "cooperation",
+            "infrastructure",
+            "sales"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "bachelor\u2019s degree (preferred)"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "computer science",
+            "information technology"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "3+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "on-site"
+        ],
+        "only_in_json2": [
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "Scheme"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Azure",
+            "Hyper-V",
+            "VMware vSphere"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "service-desk tools",
+            "windows server (2012/2016/2019/2022)",
+            "server health monitoring",
+            "data backup",
+            "networking (routers, switches)",
+            "storage management",
+            "hardware for servers",
+            "system integration",
+            "troubleshooting and debugging",
+            "xml",
+            "backup solutions (veritas backupexec, veeam b&r)"
+        ],
+        "only_in_json2": [
+            "customer experience",
+            "storages",
+            "extensible markup language",
+            "network operating system",
+            "vmware vsphere",
+            "debugging",
+            "issue tracking systems",
+            "product quality",
+            "medical insurance claims",
+            "logistics",
+            "veeam",
+            "windows servers",
+            "programming",
+            "integration platforms",
+            "veritas software",
+            "business process",
+            "systems integration",
+            "visualization",
+            "purchasing",
+            "hyper-v",
+            "service level",
+            "unlocker",
+            "executable",
+            "installation",
+            "service desk",
+            "romanian language"
+        ]
+    }
+}

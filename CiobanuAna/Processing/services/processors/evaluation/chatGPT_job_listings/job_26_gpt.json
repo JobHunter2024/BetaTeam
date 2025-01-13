@@ -1,0 +1,108 @@
+{
+    "title": ".Net Developer (Mid-Level & Senior)",
+    "companyName": "ROLOWAY TECH SRL",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Team Collaboration",
+        "Problem Solving",
+        "Communication",
+        "Agile Mindset",
+        "Adaptability"
+    ],
+    "degree_level": [
+        "University Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Related Field"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "3+ years"
+    ],
+    "experience_level": "Mid-Level & Senior",
+    "job_location": "Targu-Mures, Strada Braila 2-4, Targu Mures, Romania",
+    "job_location_type": [
+        "Hybrid"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "C#",
+            "skill_type": "Programming Language",
+            "official_website": "https://learn.microsoft.com/en-us/dotnet/csharp/",
+            "influenced_by": [
+                "C",
+                "C++"
+            ],
+            "programmed_in": [
+                "C#"
+            ]
+        },
+        {
+            "skill_name": ".NET Core",
+            "skill_type": "Framework",
+            "official_website": "https://dotnet.microsoft.com/",
+            "influenced_by": [],
+            "programmed_in": [
+                "C#"
+            ]
+        },
+        {
+            "skill_name": "ASP.NET MVC",
+            "skill_type": "Framework",
+            "official_website": "https://dotnet.microsoft.com/en-us/apps/aspnet",
+            "influenced_by": [],
+            "programmed_in": [
+                "C#"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "ASP.NET Web API",
+            "skill_type": "Web Framework",
+            "official_website": "https://dotnet.microsoft.com/en-us/apps/aspnet/web-api",
+            "influenced_by": [],
+            "programmed_in": [
+                "C#"
+            ]
+        },
+        {
+            "skill_name": "Bootstrap",
+            "skill_type": "Front-End Framework",
+            "official_website": "https://getbootstrap.com/",
+            "influenced_by": [],
+            "programmed_in": [
+                "HTML",
+                "CSS"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Microsoft Azure",
+            "skill_type": "Cloud Platform",
+            "official_website": "https://azure.microsoft.com/en-us/",
+            "influenced_by": [],
+            "programmed_in": [
+                "C#"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "JavaScript",
+        "Angular",
+        "ASP.NET Zero",
+        "Agile Development",
+        "Collaboration",
+        "Problem-Solving",
+        "Integration with External Services",
+        "DevOps",
+        "JIRA"
+    ]
+}

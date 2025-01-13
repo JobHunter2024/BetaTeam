@@ -1,0 +1,115 @@
+{
+    "title": {
+        "json1": "Mobile Software Developer Bucharest, Romania",
+        "json2": "Mobile Software Developer"
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "technical articulation",
+            "problem solving",
+            "agile development",
+            "algorithmic thinking"
+        ],
+        "only_in_json2": [
+            "innovation",
+            "governance",
+            "complex problem solving",
+            "verbal communication skills",
+            "writing",
+            "professionalism"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "related fields"
+        ],
+        "only_in_json2": [
+            "artificial intelligence"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "2+ years"
+        ]
+    },
+    "job_location_type": {
+        "only_in_json2": [
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "E"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Flutter"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "CocoaPods"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "mobile development lifecycle",
+            "ios development tools",
+            "version control systems",
+            "instruments",
+            "unit and functional tests",
+            "simulators",
+            "xcode ide",
+            "apple distribution process",
+            "ios frameworks",
+            "swift packages",
+            "restful apis",
+            "multithreaded programming"
+        ],
+        "only_in_json2": [
+            "instrumentation",
+            "codebase",
+            "mobile application software",
+            "cybersecurity compliance",
+            "licensing",
+            "library for www in perl",
+            "multithreading",
+            "functional testing",
+            "investments",
+            "restful api",
+            "behavioral analytics",
+            "programming",
+            "research and development",
+            "version control",
+            "high performance computing",
+            "computer science",
+            "ios development",
+            "artificial intelligence",
+            "cyber resilience",
+            "scrum",
+            "progress openedge",
+            "algorithms",
+            "mobile app",
+            "hostile work environment",
+            "process driven development",
+            "cocoapods",
+            "control systems",
+            "usability",
+            "mobile application development",
+            "back end",
+            "apple xcode",
+            "bitbucket",
+            "agile methodology",
+            "simulations",
+            "agility",
+            "github"
+        ]
+    }
+}

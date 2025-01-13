@@ -1,0 +1,94 @@
+{
+    "title": "Data Engineer",
+    "companyName": "Awin Global",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Analytical Thinking",
+        "Problem-Solving",
+        "Adaptability",
+        "Effective Communication",
+        "Team Collaboration",
+        "Openness to Feedback",
+        "Attention to Data Quality",
+        "Proactive Learning",
+        "Team-Oriented Mindset"
+    ],
+    "degree_level": [
+        "Bachelor's Degree",
+        "Master's Degree (Preferred)"
+    ],
+    "education_field": [
+        "Data Science",
+        "Data Engineering",
+        "Computer Science",
+        "Math and Statistics"
+    ],
+    "employment_type": [
+        "full-time"
+    ],
+    "experience_years": [
+        "3+ years"
+    ],
+    "experience_level": "senior",
+    "job_location": "Iasi, Romania",
+    "job_location_type": [
+        "Remote",
+        "Hybrid",
+        "Office Work"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org",
+            "influenced_by": [
+                "ABC",
+                "C",
+                "Modula-3",
+                "Smalltalk",
+                "Java"
+            ],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Spark",
+            "skill_type": "Big Data Framework",
+            "official_website": "https://spark.apache.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "Scala",
+                "Python",
+                "Java",
+                "R"
+            ]
+        },
+        {
+            "skill_name": "Databricks",
+            "skill_type": "Big Data Framework",
+            "official_website": "https://databricks.com",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python",
+                "Scala",
+                "SQL"
+            ]
+        }
+    ],
+    "libraries": [],
+    "unclassified_skills": [
+        "Data Cleansing",
+        "ETL Processes",
+        "Data Pipeline Development",
+        "Natural Language Processing (NLP)",
+        "Machine Learning Techniques",
+        "Scrum Practices",
+        "OLTP and OLAP Datasets"
+    ]
+}

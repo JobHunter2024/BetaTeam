@@ -1,0 +1,97 @@
+{
+    "title": "2025 Software Development Engineer - Embedded Development",
+    "companyName": "Amazon Development Center (Romania) S.R.L.",
+    "datePosted": "November 23, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Collaboration",
+        "Design",
+        "Innovation",
+        "Problem Solving",
+        "Ambiguity Management",
+        "Abstract Thinking",
+        "Technical Articulation"
+    ],
+    "degree_level": [
+        "Bachelor's Degree",
+        "Master's Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Computer Engineering"
+    ],
+    "employment_type": [
+        "full-time"
+    ],
+    "experience_years": [
+        "Less than 2 years"
+    ],
+    "experience_level": "",
+    "job_location": "",
+    "job_location_type": [],
+    "programming_languages": [
+        {
+            "skill_name": "C",
+            "skill_type": "Programming Language",
+            "official_website": "https://en.cppreference.com/w/c",
+            "influenced_by": [
+                "Assembly",
+                "B"
+            ],
+            "programmed_in": [
+                "C"
+            ]
+        },
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.java.com",
+            "influenced_by": [
+                "C",
+                "C++",
+                "Smalltalk",
+                "Objective-C",
+                "Simula"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "Rust",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.rust-lang.org",
+            "influenced_by": [
+                "C++",
+                "Haskell",
+                "Erlang",
+                "ML"
+            ],
+            "programmed_in": [
+                "Rust"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Computer Science Fundamentals",
+        "Databases",
+        "Operating Systems",
+        "Kernel Internals",
+        "Distributed Systems",
+        "Multi-Tiered Systems",
+        "Algorithms",
+        "Relational Databases",
+        "Linear Programming",
+        "Nonlinear Optimization",
+        "Fault Tolerance",
+        "Disaster Recovery",
+        "Transactional Systems",
+        "Distributed Storage",
+        "Scalability",
+        "Query Systems",
+        "System Fault-Tolerance",
+        "Agile Development"
+    ]
+}

@@ -1,0 +1,89 @@
+{
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "problem solving",
+            "adaptability",
+            "continuous learning"
+        ],
+        "only_in_json2": [
+            "verbal communication skills",
+            "friendliness",
+            "professionalism"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "master's degree (preferred)"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "computer science",
+            "machine learning"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "3+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "mid-senior",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "office work"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json1": [
+            "Python"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "PyTorch",
+            "TensorFlow"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "Scikit-learn"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "model life cycle management",
+            "model deployment",
+            "ai tools",
+            "ml optimization",
+            "large language models (llm)",
+            "data pipeline design",
+            "open-source ml techniques"
+        ],
+        "only_in_json2": [
+            "data science",
+            "technical training",
+            "library",
+            "cross-functional team leadership",
+            "machine learning methods",
+            "amazon data pipeline",
+            "model-based definition",
+            "project cycle management",
+            "data pipeline",
+            "continuous improvement process"
+        ]
+    }
+}

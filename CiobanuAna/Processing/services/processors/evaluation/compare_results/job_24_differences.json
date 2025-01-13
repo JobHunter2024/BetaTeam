@@ -1,0 +1,131 @@
+{
+    "title": {
+        "json1": "Software Engineer - Big Data",
+        "json2": "Software Engineer Big Data"
+    },
+    "companyName": {
+        "json1": "BOOKING HOLDINGS ROMANIA S.R.L.",
+        "json2": "Booking Holdings Romania"
+    },
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "team collaboration",
+            "mentorship"
+        ],
+        "only_in_json2": [
+            "collaboration",
+            "communications",
+            "positivity",
+            "written communication"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "university degree"
+        ],
+        "only_in_json2": [
+            "bachelor's degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "related field"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "3+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level",
+        "json2": "Associate"
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "hybrid"
+        ],
+        "only_in_json2": [
+            "online",
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "High Performance Fortran"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Spark",
+            "Kafka Streaming"
+        ],
+        "only_in_json2": [
+            "Component Object Model"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "Snowflake",
+            "Airflow"
+        ],
+        "only_in_json2": [
+            "Apache Airflow"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "data availability",
+            "distributed systems",
+            "mentorship",
+            "aws",
+            "machine learning models",
+            "data pipelines",
+            "problem-solving",
+            "scalable systems",
+            "response time optimization"
+        ],
+        "only_in_json2": [
+            "kubernetes",
+            "distributed computing environment",
+            "apache cassandra",
+            "accounting",
+            "life insurance sales",
+            "electronic data processing",
+            "service provider",
+            "library for www in perl",
+            "server-side",
+            "emerging technologies",
+            "survey data analysis",
+            "user accounts",
+            "amazon data pipeline",
+            "data streaming",
+            "scalability",
+            "high performance computing",
+            "computer science",
+            "spark framework",
+            "voucher",
+            "machine learning methods",
+            "mysql",
+            "learning platforms",
+            "algorithms",
+            "health care benefits",
+            "snowflake",
+            "booking",
+            "good documentation practices",
+            "distributed file systems",
+            "km programming language"
+        ]
+    }
+}

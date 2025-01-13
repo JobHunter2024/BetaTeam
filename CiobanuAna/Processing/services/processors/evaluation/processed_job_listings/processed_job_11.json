@@ -1,0 +1,131 @@
+{
+    "title": "Junior SQL Developer",
+    "companyName": "Luxoft",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Infrastructure",
+        "Planning",
+        "Troubleshooting (Problem Solving)",
+        "Management",
+        "Adaptability"
+    ],
+    "degree_level": [],
+    "education_field": [],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "Junior",
+    "job_location": "Bucharest, Romania",
+    "job_location_type": [],
+    "programming_languages": [
+        {
+            "skill_name": "SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.iso.org/standard/76583.html",
+            "influenced_by": [
+                "first-order logic",
+                "Datalog"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "JavaScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.ecma-international.org/publications-and-standards/standards/ecma-262/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "LiveScript",
+                "Python",
+                "Lua",
+                "HyperTalk",
+                "AWK",
+                "Perl",
+                "Scheme",
+                "Self"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.java.com",
+            "influenced_by": [
+                "C",
+                "Simula 67",
+                "Modula-3",
+                "variadic function",
+                "Oberon",
+                "C#",
+                "Eiffel",
+                "Niklaus Wirth",
+                "Patrick Naughton",
+                "Smalltalk",
+                "Simula",
+                "Java annotation",
+                "Objective-C",
+                "Object Pascal",
+                "Ada",
+                "boxing",
+                "Mesa",
+                "C++",
+                "UCSD Pascal",
+                "foreach loop"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "Transact-SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.tsql.info/",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Architectural Design",
+        "XML Schema",
+        "Rich Internet Application",
+        "Data Validation",
+        "Mapping",
+        "Validations",
+        "Software Development",
+        "Interactivity",
+        "Sustainable Growth Rate",
+        "Technical Solution Design",
+        "Hosting",
+        "Document Management Systems",
+        "Native SQL",
+        "HyperText Markup Language",
+        "Professional Services",
+        "Extensible Markup Language",
+        "Cleaning Validation",
+        "Product Management",
+        "Technical Writing",
+        "User Story",
+        "Back End",
+        "Performance Tuning",
+        "Front End",
+        "Stored Procedure",
+        "Oracle SQL Developer",
+        "Economy",
+        "Backup And Restore",
+        "Translations",
+        "Microsoft SQL Servers",
+        "Project Stakeholders",
+        "Business Requirements",
+        "Workflows",
+        "Data Manipulation",
+        "Scalability",
+        "Sales Tax Management Services",
+        "CodeSynthesis XSD/E",
+        "Financial Business Solution",
+        "Financial Market",
+        "Minimum Data Set",
+        "Customer Support"
+    ]
+}

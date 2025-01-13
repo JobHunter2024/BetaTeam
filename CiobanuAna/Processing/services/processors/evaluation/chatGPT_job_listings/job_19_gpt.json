@@ -1,0 +1,135 @@
+{
+    "title": "Data Engineer",
+    "companyName": "Mega Image",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Analytical Thinking",
+        "Problem Solving",
+        "Business Acumen",
+        "Teamwork",
+        "Collaboration",
+        "Ownership",
+        "Communication"
+    ],
+    "degree_level": [
+        "University Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Cybernetics",
+        "Technical Disciplines"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "3-5 years"
+    ],
+    "experience_level": "Mid-Level",
+    "job_location": "Bucharest, Bucharest, Romania",
+    "job_location_type": [
+        "Hybrid"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "ABC",
+                "Modula-3"
+            ],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.sql.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "SQL"
+            ]
+        },
+        {
+            "skill_name": "DAX",
+            "skill_type": "Programming Language",
+            "official_website": "https://dax.guide/",
+            "influenced_by": [],
+            "programmed_in": [
+                "DAX"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Azure Synapse",
+            "skill_type": "Cloud Analytics Framework",
+            "official_website": "https://azure.microsoft.com/en-us/services/synapse-analytics/",
+            "influenced_by": [],
+            "programmed_in": [
+                "SQL",
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "Azure Databricks",
+            "skill_type": "Cloud Analytics Framework",
+            "official_website": "https://databricks.com/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python",
+                "SQL"
+            ]
+        },
+        {
+            "skill_name": "Delta Lake",
+            "skill_type": "Data Lake Framework",
+            "official_website": "https://delta.io/",
+            "influenced_by": [],
+            "programmed_in": [
+                "SQL",
+                "Python"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Power BI",
+            "skill_type": "Business Intelligence Library",
+            "official_website": "https://powerbi.microsoft.com/",
+            "influenced_by": [],
+            "programmed_in": [
+                "DAX",
+                "SQL"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Data Lifecycle Management",
+        "ETL/ELT",
+        "Data Warehouse",
+        "Data Lake",
+        "Data Modelling",
+        "Star Schema",
+        "Snowflake Schema",
+        "Functional Architecture",
+        "Technical Architecture",
+        "Data Integration",
+        "Data Quality",
+        "Data Integrity",
+        "Business Requirements Translation",
+        "Scalable Data Pipelines",
+        "Azure Data Ecosystem",
+        "Test-driven Development",
+        "Agile Methodology",
+        "Retail Experience",
+        "Marketing Experience",
+        "Supply Chain Experience",
+        "Finance Experience"
+    ]
+}

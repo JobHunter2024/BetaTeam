@@ -1,0 +1,96 @@
+{
+    "title": {
+        "json1": "IT - System Administrator",
+        "json2": "IT System Administrator"
+    },
+    "companyName": {
+        "json1": "Tmax Sibiu S.R.L.",
+        "json2": "Tmax Sibiu"
+    },
+    "language_skills": {
+        "only_in_json1": [
+            "german (optional)"
+        ],
+        "only_in_json2": [
+            "german"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "structured work approach",
+            "teamwork",
+            "independence"
+        ],
+        "only_in_json2": [
+            "planning",
+            "operations",
+            "infrastructure",
+            "verbal communication skills",
+            "supervision",
+            "management"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "university degree"
+        ],
+        "only_in_json2": [
+            "bachelor's degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "it",
+            "computer science",
+            "related technical field"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "relevant professional experience"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "on-site"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "AD Model Builder"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "windows ad infrastructure",
+            "security solutions",
+            "network architectures",
+            "client/server environments",
+            "software and license management",
+            "backup systems",
+            "it infrastructure optimization"
+        ],
+        "only_in_json2": [
+            "workstations",
+            "support vector machine",
+            "reatogo-x-pe",
+            "system monitor",
+            "it infrastructure",
+            "mini-din connector",
+            "network infrastructure",
+            "network architecture",
+            "client server models",
+            "licensing"
+        ]
+    }
+}

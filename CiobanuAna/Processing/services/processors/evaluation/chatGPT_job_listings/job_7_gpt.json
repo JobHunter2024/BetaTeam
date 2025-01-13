@@ -1,0 +1,93 @@
+{
+    "title": "Machine Learning Engineer",
+    "companyName": "OPEN",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Curiosity",
+        "Collaboration",
+        "Communication",
+        "Continuous Learning",
+        "Problem Solving",
+        "Adaptability"
+    ],
+    "degree_level": [
+        "Bachelor's Degree",
+        "Master's Degree (Preferred)"
+    ],
+    "education_field": [
+        "Data Science",
+        "Machine Learning",
+        "Computer Science"
+    ],
+    "employment_type": [
+        "full-time"
+    ],
+    "experience_years": [
+        "3+ years"
+    ],
+    "experience_level": "mid-senior",
+    "job_location": "Bucharest, Romania",
+    "job_location_type": [
+        "Office Work"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org",
+            "influenced_by": [
+                "ABC",
+                "C",
+                "Modula-3",
+                "Smalltalk",
+                "Java"
+            ],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "TensorFlow",
+            "skill_type": "Machine Learning Framework",
+            "official_website": "https://www.tensorflow.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "PyTorch",
+            "skill_type": "Machine Learning Framework",
+            "official_website": "https://pytorch.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Scikit-learn",
+            "skill_type": "Machine Learning Library",
+            "official_website": "https://scikit-learn.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Large Language Models (LLM)",
+        "Data Pipeline Design",
+        "Model Deployment",
+        "AI Tools",
+        "ML Optimization",
+        "Model Life Cycle Management",
+        "Open-Source ML Techniques"
+    ]
+}

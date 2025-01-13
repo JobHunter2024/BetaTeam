@@ -1,0 +1,116 @@
+{
+    "title": "Cloud Developer | Deloitte Technology Delivery Center",
+    "companyName": "Deloitte",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Autonomy",
+        "Collaboration",
+        "Problem Solving",
+        "Continuous Learning",
+        "Attention to Detail"
+    ],
+    "degree_level": [
+        "Bachelor’s Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Software Engineering"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "1+ years"
+    ],
+    "experience_level": "Junior",
+    "job_location": "Iasi, Iasi, Romania",
+    "job_location_type": [
+        "Office Work"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Go (Golang)",
+            "skill_type": "Programming Language",
+            "official_website": "https://golang.org",
+            "influenced_by": [
+                "C",
+                "C++"
+            ],
+            "programmed_in": [
+                "Go"
+            ]
+        },
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org",
+            "influenced_by": [
+                "ABC",
+                "C",
+                "Modula-3",
+                "Smalltalk",
+                "Java"
+            ],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.java.com",
+            "influenced_by": [
+                "C++",
+                "C"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "NodeJS",
+            "skill_type": "Programming Language",
+            "official_website": "https://nodejs.org",
+            "influenced_by": [
+                "JavaScript"
+            ],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Docker",
+            "skill_type": "Containerization Framework",
+            "official_website": "https://www.docker.com",
+            "influenced_by": [],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Kubernetes",
+            "skill_type": "Container Orchestration Framework",
+            "official_website": "https://kubernetes.io",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "libraries": [],
+    "unclassified_skills": [
+        "Microservices",
+        "Software Architecture",
+        "Serverless Ecosystem",
+        "Automation Testing",
+        "Unit Testing",
+        "Cloud Providers (AWS/GCP/Azure)",
+        "Virtualization Solutions",
+        "SQL/NoSQL Databases",
+        "Infrastructure as Code (IaC)",
+        "Terraform",
+        "Version Control (Git/SVN)",
+        "Containerized Applications"
+    ]
+}

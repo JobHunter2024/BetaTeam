@@ -1,0 +1,128 @@
+{
+    "title": "Mobile Software Developer",
+    "companyName": "Bitdefender",
+    "datePosted": "November 26, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Creativity",
+        "Professionalism",
+        "Innovation",
+        "Collaboration",
+        "Writing",
+        "Verbal Communication Skills",
+        "Complex Problem Solving",
+        "Governance"
+    ],
+    "degree_level": [
+        "Bachelor's Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Artificial Intelligence"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Bucharest, Romania",
+    "job_location_type": [
+        "office"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Kotlin",
+            "skill_type": "Programming Language",
+            "official_website": "https://kotlinlang.org/",
+            "influenced_by": [
+                "Java",
+                "JavaScript",
+                "C#",
+                "Python",
+                "Gosu",
+                "ML",
+                "Ruby",
+                "Apache Groovy",
+                "Scala"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Swift",
+            "skill_type": "Programming Language",
+            "official_website": "https://swift.org/",
+            "influenced_by": [
+                "Java",
+                "C",
+                "D",
+                "C++",
+                "C#",
+                "Rust",
+                "Python",
+                "CLU",
+                "Objective-C",
+                "Ruby",
+                "Apache Groovy",
+                "Smalltalk",
+                "Scala",
+                "Haskell"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "E",
+            "skill_type": "Programming Language",
+            "official_website": "http://numod.ins.uni-bonn.de/grape/",
+            "influenced_by": [
+                "Java",
+                "Joule"
+            ],
+            "programmed_in": [
+                "C"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Behavioral Analytics",
+        "Control Systems",
+        "Licensing",
+        "Dependency Management",
+        "Bitbucket",
+        "Android Development",
+        "Cybersecurity Compliance",
+        "Progress OpenEdge",
+        "Library For WWW In Perl",
+        "Cyber Resilience",
+        "High Performance Computing",
+        "Agile Methodology",
+        "Computer Science",
+        "Codebase",
+        "Usability",
+        "Artificial Intelligence",
+        "RESTful API",
+        "Simulations",
+        "IOS Development",
+        "Mobile Application Development",
+        "Back End",
+        "Version Control",
+        "Mobile App",
+        "Github",
+        "Process Driven Development",
+        "Scrum",
+        "Hostile Work Environment",
+        "Apple Xcode",
+        "Agility",
+        "Git",
+        "Programming",
+        "Investments",
+        "Algorithms",
+        "Research And Development",
+        "Cocoapods",
+        "Multithreading",
+        "Instrumentation",
+        "Functional Testing",
+        "Mobile Application Software"
+    ]
+}

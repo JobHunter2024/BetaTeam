@@ -1,0 +1,49 @@
+{
+    "title": "IT - System Administrator",
+    "companyName": "Tmax Sibiu S.R.L.",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English",
+        "German (optional)"
+    ],
+    "soft_skills": [
+        "Independence",
+        "Structured Work Approach",
+        "Teamwork",
+        "Communication",
+        "Assertiveness"
+    ],
+    "degree_level": [
+        "University Degree"
+    ],
+    "education_field": [
+        "IT",
+        "Computer Science",
+        "Related Technical Field"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "Relevant Professional Experience"
+    ],
+    "experience_level": "Mid-Level",
+    "job_location": "Sibiu, Romania",
+    "job_location_type": [
+        "On-Site"
+    ],
+    "programming_languages": [],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "System Administration",
+        "Client/Server Environments",
+        "Network Architectures",
+        "System Monitoring",
+        "Security Solutions",
+        "Backup Systems",
+        "Windows AD Infrastructure",
+        "IT Infrastructure Optimization",
+        "Software and License Management"
+    ]
+}

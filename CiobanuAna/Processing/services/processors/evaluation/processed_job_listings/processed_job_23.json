@@ -1,0 +1,138 @@
+{
+    "title": "Software Engineer Marketing",
+    "companyName": "Booking Holdings Romania",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Integration",
+        "Innovation",
+        "Collaboration",
+        "Communications",
+        "Prioritization"
+    ],
+    "degree_level": [
+        "Bachelor's Degree"
+    ],
+    "education_field": [
+        "Mathematics",
+        "Engineering"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Bucharest, Bucharest, Romania",
+    "job_location_type": [
+        "onsite",
+        "office",
+        "online",
+        "hybrid"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Nice",
+            "skill_type": "Programming Language",
+            "official_website": "http://nice.sourceforge.net/",
+            "influenced_by": [],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "C#",
+            "skill_type": "Programming Language",
+            "official_website": "https://docs.microsoft.com/ja-jp/dotnet/csharp/",
+            "influenced_by": [
+                "Java",
+                "Visual J++",
+                "Icon",
+                "C",
+                "C++",
+                "Modula-3",
+                "J#",
+                "Haskell",
+                "Eiffel",
+                "C\u03c9",
+                "ML",
+                "Object Pascal",
+                "Visual Basic",
+                "F#",
+                "Rust",
+                "delete"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.java.com",
+            "influenced_by": [
+                "C",
+                "Simula 67",
+                "Modula-3",
+                "variadic function",
+                "Oberon",
+                "C#",
+                "Eiffel",
+                "Niklaus Wirth",
+                "Patrick Naughton",
+                "Smalltalk",
+                "Simula",
+                "Java annotation",
+                "Objective-C",
+                "Object Pascal",
+                "Ada",
+                "boxing",
+                "Mesa",
+                "C++",
+                "UCSD Pascal",
+                "foreach loop"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "High Performance Fortran",
+            "skill_type": "Programming Language",
+            "official_website": "http://hpff.rice.edu/",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Component Object Model",
+            "skill_type": "Framework",
+            "official_website": "https://docs.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "libraries": [],
+    "unclassified_skills": [
+        "Life Insurance Sales",
+        "New Business Development",
+        "Server-Side",
+        "Distributed File Systems",
+        "Acting",
+        "Library For WWW In Perl",
+        "Relational Databases",
+        "Cloud Computing",
+        "Learning Platforms",
+        "Continuous Quality Improvement",
+        "Software Development",
+        "Service Provider",
+        "Scale",
+        "Emerging Technologies",
+        "KM Programming Language",
+        "Process Improvements",
+        "Voucher",
+        "MySQL",
+        "Booking",
+        "Good Laboratory Practice",
+        "Software Engineering",
+        "Ddd Service",
+        "Synoptic Scale Meteorology",
+        "PostgreSQL",
+        "Application Programming Interface",
+        "Test-Driven Development"
+    ]
+}

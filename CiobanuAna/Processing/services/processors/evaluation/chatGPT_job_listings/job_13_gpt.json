@@ -1,0 +1,106 @@
+{
+    "title": "System Engineer - Bucuresti",
+    "companyName": "S.C. INTERBRANDS ORBICO S.R.L.",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Communication",
+        "Documentation",
+        "Problem Solving",
+        "Collaboration",
+        "Interpersonal Skills"
+    ],
+    "degree_level": [
+        "Bachelor’s Degree (Preferred)"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Engineering",
+        "Information Technology"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "3+ years"
+    ],
+    "experience_level": "Mid-Level",
+    "job_location": "Bucharest, Bucharest, Romania",
+    "job_location_type": [
+        "On-Site"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "C#",
+            "skill_type": "Programming Language",
+            "official_website": "https://learn.microsoft.com/en-us/dotnet/csharp/",
+            "influenced_by": [
+                "C",
+                "C++",
+                "Java"
+            ],
+            "programmed_in": [
+                "C#"
+            ]
+        },
+        {
+            "skill_name": "Visual Basic",
+            "skill_type": "Programming Language",
+            "official_website": "https://learn.microsoft.com/en-us/dotnet/visual-basic/",
+            "influenced_by": [
+                "Basic"
+            ],
+            "programmed_in": [
+                "Visual Basic"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Azure",
+            "skill_type": "Cloud Computing Platform",
+            "official_website": "https://azure.microsoft.com/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Various (based on tools & services)"
+            ]
+        },
+        {
+            "skill_name": "Hyper-V",
+            "skill_type": "Virtualization Platform",
+            "official_website": "https://www.microsoft.com/en-us/cloud-platform/hyper-v",
+            "influenced_by": [],
+            "programmed_in": [
+                "Various (administration & tools)"
+            ]
+        },
+        {
+            "skill_name": "VMware vSphere",
+            "skill_type": "Virtualization Platform",
+            "official_website": "https://www.vmware.com/products/vsphere.html",
+            "influenced_by": [],
+            "programmed_in": [
+                "Various (administration & tools)"
+            ]
+        }
+    ],
+    "libraries": [],
+    "unclassified_skills": [
+        "Windows Server (2012/2016/2019/2022)",
+        "Service-Desk Tools",
+        "Incident Management",
+        "System Integration",
+        "Backup Solutions (Veritas BackupExec, Veeam B&R)",
+        "XML",
+        "JSON",
+        "Linux",
+        "Data Backup",
+        "Server Health Monitoring",
+        "Troubleshooting and Debugging",
+        "Networking (Routers, Switches)",
+        "Storage Management",
+        "Hardware for Servers"
+    ]
+}

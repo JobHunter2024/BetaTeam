@@ -1,0 +1,196 @@
+{
+    "title": "Senior Developer NET React",
+    "companyName": "Vertiv Group",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Leadership",
+        "Innovation",
+        "Collaboration",
+        "English Language",
+        "Troubleshooting (Problem Solving)",
+        "Management",
+        "Microsoft Word",
+        "Sales"
+    ],
+    "degree_level": [
+        "Bachelor's Degree",
+        "Master's Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Engineering"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "Senior",
+    "job_location": "Cluj-Napoca",
+    "job_location_type": [
+        "remote"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Source",
+            "skill_type": "Programming Language",
+            "official_website": "",
+            "influenced_by": [],
+            "programmed_in": [
+                "C++"
+            ]
+        },
+        {
+            "skill_name": "SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.iso.org/standard/76583.html",
+            "influenced_by": [
+                "first-order logic",
+                "Datalog"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "JavaScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.ecma-international.org/publications-and-standards/standards/ecma-262/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "LiveScript",
+                "Python",
+                "Lua",
+                "HyperTalk",
+                "AWK",
+                "Perl",
+                "Scheme",
+                "Self"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "C#",
+            "skill_type": "Programming Language",
+            "official_website": "https://docs.microsoft.com/ja-jp/dotnet/csharp/",
+            "influenced_by": [
+                "Java",
+                "Visual J++",
+                "Icon",
+                "C",
+                "C++",
+                "Modula-3",
+                "J#",
+                "Haskell",
+                "Eiffel",
+                "C\u03c9",
+                "ML",
+                "Object Pascal",
+                "Visual Basic",
+                "F#",
+                "Rust",
+                "delete"
+            ],
+            "programmed_in": []
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Docker",
+            "skill_type": "Framework",
+            "official_website": "https://www.docker.com",
+            "influenced_by": [],
+            "programmed_in": [
+                "Go"
+            ]
+        },
+        {
+            "skill_name": "ASP.NET Core",
+            "skill_type": "Framework",
+            "official_website": "https://docs.microsoft.com/aspnet/core/",
+            "influenced_by": [],
+            "programmed_in": [
+                "C#"
+            ]
+        },
+        {
+            "skill_name": "Component Object Model",
+            "skill_type": "Framework",
+            "official_website": "https://docs.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "React.js",
+            "skill_type": "Library",
+            "official_website": "https://react.dev/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        },
+        {
+            "skill_name": "Highcharts",
+            "skill_type": "Library",
+            "official_website": "https://www.highcharts.com/",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "unclassified_skills": [
+        "Source Code Control Systems",
+        "NGBSS",
+        "Remote Service Software",
+        "Cloud Development",
+        "Test Planning",
+        "Occupational Health",
+        "Life Cycle Logistics",
+        "Web Applications",
+        "Relational Databases",
+        "Service Life",
+        "Agile Software Development",
+        "Validations",
+        "Data Centers",
+        "Software Development",
+        "High Performance Computing",
+        "Java Message Service",
+        "Debugging",
+        "Executable",
+        "Graphing",
+        "Computer Science",
+        "MSC Software",
+        "Coloring",
+        "Childbirth",
+        "Genetics",
+        "User Interface",
+        "User-Centered Design",
+        "Self Service Technologies",
+        "Product Management",
+        "Google Cloud Platform",
+        "User Story",
+        "Software Design",
+        "Angular Material",
+        "Microservices",
+        "Mobility",
+        "Front End",
+        "Operational Excellence",
+        "Risk Mitigation",
+        "Web Services",
+        "Containerization",
+        "Acceptance and Commitment Therapy",
+        "Scrum",
+        "Software Engineering",
+        "Process Specification",
+        "Continuous Improvement Process",
+        "Web Development",
+        "Cloud Services",
+        "Software Development Methodologies",
+        "Software Security",
+        "Service-Oriented Architecture",
+        "Disabilities",
+        "Software Design Patterns",
+        "Registration Evaluation Authorisation And Restriction Of Chemicals Regulations",
+        "Branding",
+        "Object-Oriented Programming",
+        "Project Planning"
+    ]
+}

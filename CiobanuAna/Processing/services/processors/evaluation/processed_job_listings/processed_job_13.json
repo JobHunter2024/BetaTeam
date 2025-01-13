@@ -1,0 +1,109 @@
+{
+    "title": "System Engineer Bucuresti",
+    "companyName": "Sc Interbrands Orbico",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Integration",
+        "Non-Verbal Communication",
+        "Infrastructure",
+        "Training And Development",
+        "Planning",
+        "Troubleshooting (Problem Solving)",
+        "Cooperation",
+        "Sales",
+        "Prioritization"
+    ],
+    "degree_level": [],
+    "education_field": [
+        "Engineering"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Bucharest, Bucharest, Romania",
+    "job_location_type": [
+        "office"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Visual Basic",
+            "skill_type": "Programming Language",
+            "official_website": "https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-basic-6/visual-basic-6.0-documentation",
+            "influenced_by": [
+                "Visual Basic"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Scheme",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.scheme.org/",
+            "influenced_by": [
+                "MDL",
+                "Lisp",
+                "ALGOL"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "C#",
+            "skill_type": "Programming Language",
+            "official_website": "https://docs.microsoft.com/ja-jp/dotnet/csharp/",
+            "influenced_by": [
+                "Java",
+                "Visual J++",
+                "Icon",
+                "C",
+                "C++",
+                "Modula-3",
+                "J#",
+                "Haskell",
+                "Eiffel",
+                "C\u03c9",
+                "ML",
+                "Object Pascal",
+                "Visual Basic",
+                "F#",
+                "Rust",
+                "delete"
+            ],
+            "programmed_in": []
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Linux",
+        "Incident Management",
+        "Issue Tracking Systems",
+        "Windows Servers",
+        "Service Level",
+        "Product Quality",
+        "Unlocker",
+        "Systems Integration",
+        "Purchasing",
+        "Executable",
+        "Debugging",
+        "Network Operating System",
+        "Installation",
+        "Visualization",
+        "Romanian Language",
+        "Business Process",
+        "Service Desk",
+        "Storages",
+        "Extensible Markup Language",
+        "Medical Insurance Claims",
+        "Logistics",
+        "Hyper-V",
+        "Integration Platforms",
+        "Programming",
+        "Veritas Software",
+        "Customer Experience",
+        "Veeam",
+        "VMware VSphere",
+        "JSON"
+    ]
+}

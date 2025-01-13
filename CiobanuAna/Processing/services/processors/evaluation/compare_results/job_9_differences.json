@@ -1,0 +1,127 @@
+{
+    "title": {
+        "json1": "AI/ML Engineer",
+        "json2": "AI ML Engineer"
+    },
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication"
+        ],
+        "only_in_json2": [
+            "research",
+            "verbal communication skills",
+            "supervision",
+            "communications"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "ph.d. (preferred)",
+            "bachelor\u2019s degree",
+            "master\u2019s degree (preferred)"
+        ],
+        "only_in_json2": [
+            "doctorate",
+            "bachelor's degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "related field"
+        ],
+        "only_in_json2": [
+            "artificial intelligence",
+            "engineering"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "3+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Senior",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "office work"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "Java"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Keras",
+            "PyTorch",
+            "TensorFlow"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "Scikit-learn"
+        ],
+        "only_in_json2": [
+            "Keras",
+            "TensorFlow",
+            "OpenCL",
+            "PyTorch",
+            "Threading Building Blocks"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "model deployment",
+            "opencl",
+            "model optimization",
+            "neural networks",
+            "ai solutions",
+            "hip",
+            "semi-conductors/silicon design/embedded systems knowledge",
+            "fine tuning llm",
+            "amd hardware (gpu, cpu, apu)",
+            "rocm"
+        ],
+        "only_in_json2": [
+            "disabilities",
+            "embedded systems",
+            "data centers",
+            "embedding",
+            "scikit-learn",
+            "personal communications service systems",
+            "recurrent neural network",
+            "library",
+            "cross-functional team leadership",
+            "graphics processing unit",
+            "computer engineering",
+            "analytics",
+            "amd processor",
+            "ph meters",
+            "reinforcement learning",
+            "job descriptions",
+            "silicone",
+            "computer science",
+            "machine learning methods",
+            "artificial intelligence",
+            "production management",
+            "algorithms",
+            "software development",
+            "coloring",
+            "unsupervised learning",
+            "km programming language"
+        ]
+    }
+}

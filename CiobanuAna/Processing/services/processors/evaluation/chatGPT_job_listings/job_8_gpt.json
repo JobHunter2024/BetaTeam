@@ -1,0 +1,60 @@
+{
+    "title": "2025 Intern- Software Engineer (Python)",
+    "companyName": "Adobe",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Collaboration",
+        "Communication",
+        "Problem Solving",
+        "Curiosity",
+        "Continuous Learning",
+        "Adaptability"
+    ],
+    "degree_level": [
+        "Bachelor's Degree",
+        "Master's Degree (Preferred)"
+    ],
+    "education_field": [
+        "Computer Science"
+    ],
+    "employment_type": [
+        "Internship"
+    ],
+    "experience_years": [
+        "0+ years"
+    ],
+    "experience_level": "Entry-Level",
+    "job_location": "Bucharest, Romania",
+    "job_location_type": [
+        "Hybrid"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org",
+            "influenced_by": [
+                "ABC",
+                "C",
+                "Modula-3",
+                "Smalltalk",
+                "Java"
+            ],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Software Development",
+        "Problem Identification",
+        "Testing",
+        "Collaboration with Designers",
+        "Customer Experience"
+    ]
+}

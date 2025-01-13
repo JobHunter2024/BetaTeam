@@ -1,0 +1,52 @@
+{
+    "title": "IT System Administrator",
+    "companyName": "Tmax Sibiu",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English",
+        "German"
+    ],
+    "soft_skills": [
+        "Supervision",
+        "Operations",
+        "Infrastructure",
+        "Verbal Communication Skills",
+        "Planning",
+        "Assertiveness",
+        "Management"
+    ],
+    "degree_level": [
+        "Bachelor's Degree"
+    ],
+    "education_field": [],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Sibiu, Romania",
+    "job_location_type": [],
+    "programming_languages": [
+        {
+            "skill_name": "AD Model Builder",
+            "skill_type": "Programming Language",
+            "official_website": "http://admb-project.org/",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Reatogo-X-PE",
+        "Client Server Models",
+        "Network Architecture",
+        "Licensing",
+        "System Monitoring",
+        "Mini-DIN Connector",
+        "Workstations",
+        "Support Vector Machine",
+        "IT Infrastructure",
+        "Network Infrastructure",
+        "System Administration",
+        "System Monitor"
+    ]
+}

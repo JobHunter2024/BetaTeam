@@ -1,0 +1,130 @@
+{
+    "title": "Software Development Engineer in Test Job",
+    "companyName": "Ntt Data Europe Latam",
+    "datePosted": "December 08, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Integration",
+        "ITIL Foundation Certification",
+        "Reliability"
+    ],
+    "degree_level": [
+        "Bachelor's Degree"
+    ],
+    "education_field": [],
+    "employment_type": [
+        "contract"
+    ],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Iasi, Iasi, Romania",
+    "job_location_type": [
+        "office",
+        "hybrid",
+        "remote"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "TypeScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.typescriptlang.org/",
+            "influenced_by": [
+                "Java",
+                "CoffeeScript",
+                "JavaScript",
+                "C#"
+            ],
+            "programmed_in": [
+                "TypeScript",
+                "JavaScript"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "React Native",
+            "skill_type": "Framework",
+            "official_website": "https://reactnative.dev/",
+            "influenced_by": [
+                "React"
+            ],
+            "programmed_in": [
+                "Objective-C",
+                "JavaScript",
+                "Python",
+                "C++",
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "Automated Testing Framework",
+            "skill_type": "Framework",
+            "official_website": "https://github.com/jmmv/atf/wiki",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Jest",
+            "skill_type": "Library",
+            "official_website": "https://jestjs.io/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Test Automation",
+        "Executable",
+        "Library",
+        "Framework Design",
+        "Learning Platforms",
+        "Software Development",
+        "Integrated Product Team",
+        "Testability",
+        "Jenkins",
+        "JIRA Studio",
+        "Automation",
+        "Software Development Engineer in Test",
+        "Mobile Application Testing",
+        "Mobile App",
+        "Performance Testing",
+        "Asset Management",
+        "Data Exchange",
+        "Software Design Patterns",
+        "Github",
+        "Appium",
+        "Software Testing",
+        "Scenario Testing",
+        "Microservices",
+        "Sharpening",
+        "Grafana",
+        "Atlassian Confluence",
+        "Test Suite",
+        "Agility",
+        "Coloring",
+        "Git Flow",
+        "Teamcity",
+        "Object Model",
+        "Angular Material",
+        "Scrum",
+        "Regression Testing",
+        "Code Review",
+        "Application Development",
+        "System Integration Testing",
+        "Genetics",
+        "Application Programming Interface",
+        "Unit Testing",
+        "Test Design",
+        "Disabilities"
+    ],
+    "already_added_technical_skills": [
+        "E",
+        "JavaScript",
+        "React.js"
+    ]
+}

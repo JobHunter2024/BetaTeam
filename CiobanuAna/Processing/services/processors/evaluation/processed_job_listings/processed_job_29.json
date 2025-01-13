@@ -1,0 +1,159 @@
+{
+    "title": "Salesforce Developer",
+    "companyName": "Ibm",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Integration",
+        "Visionary",
+        "Creativity",
+        "Professionalism",
+        "Operations",
+        "Innovation",
+        "Collaboration",
+        "Curiosity",
+        "Empathy",
+        "Verbal Communication Skills",
+        "Investigation",
+        "Research",
+        "Sales",
+        "Consulting"
+    ],
+    "degree_level": [],
+    "education_field": [
+        "Artificial Intelligence"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Bucharest, Bucharest, Romania",
+    "job_location_type": [
+        "hybrid"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Ruby",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.cs.ox.ac.uk/people/geraint.jones/ruby/",
+            "influenced_by": [
+                "C++",
+                "Emacs",
+                "Lua",
+                "Python",
+                "Dylan",
+                "Eiffel",
+                "CLU",
+                "Perl",
+                "Ada",
+                "BASIC",
+                "Smalltalk",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "C"
+            ]
+        },
+        {
+            "skill_name": "C++",
+            "skill_type": "Programming Language",
+            "official_website": "https://isocpp.org/",
+            "influenced_by": [
+                "C",
+                "CLU",
+                "ML",
+                "ALGOL 68",
+                "Ada",
+                "Simula"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "C#",
+            "skill_type": "Programming Language",
+            "official_website": "https://docs.microsoft.com/ja-jp/dotnet/csharp/",
+            "influenced_by": [
+                "Visual J++",
+                "C",
+                "Icon",
+                "C++",
+                "Java",
+                "Modula-3",
+                "Haskell",
+                "J#",
+                "Eiffel",
+                "C\u03c9",
+                "ML",
+                "Object Pascal",
+                "Visual Basic",
+                "F#",
+                "Rust",
+                "delete"
+            ],
+            "programmed_in": []
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Catalyst",
+            "skill_type": "Framework",
+            "official_website": "http://catalyst.perl.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Perl"
+            ]
+        }
+    ],
+    "libraries": [],
+    "unclassified_skills": [
+        "Employment Practices Liability",
+        "Salesforce.Com",
+        "Customer Relationship Management Software",
+        "Business Card Design",
+        "Business Strategies",
+        "Development Environment",
+        "Relational Databases",
+        "Agile Software Development",
+        "Strategic Business Unit",
+        "Design Codes",
+        "IBM Software",
+        "Lightning Web Components",
+        "Software Development",
+        "Salesforce Object Search Language",
+        "Java Scripting Languages",
+        "Wide Area Networks",
+        "Coloring",
+        "Long-Term Potentiation",
+        "Simple Object Access Protocol",
+        "IBM System Z10",
+        "Genetics",
+        "Adoptions",
+        "Visualization",
+        "Salesforce Object Query Language",
+        "Romanian Language",
+        "Early Adopter",
+        "Artificial Intelligence",
+        "Apex Code",
+        "Solution Architecture",
+        "IBM Services",
+        "MySQL",
+        "Web Services",
+        "Management Training",
+        "Quantum Computing",
+        "Oracle SQL Developer",
+        "Hybrid Cloud Computing",
+        "Economy",
+        "Hostile Work Environment",
+        "Process Development",
+        "Cloud Services",
+        "Building Design",
+        "Disabilities",
+        "Application Programming Interface",
+        "Red Hat Linux",
+        "Blockchain",
+        "Test-Driven Development",
+        "IBM WAS",
+        "Visualforce"
+    ]
+}

@@ -1,0 +1,76 @@
+{
+    "title": {
+        "json1": "2025 Intern- Software Engineer (Python)",
+        "json2": "Intern Software Engineer Python"
+    },
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "adaptability",
+            "problem solving",
+            "continuous learning",
+            "curiosity"
+        ],
+        "only_in_json2": [
+            "management",
+            "communications"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "master's degree (preferred)",
+            "bachelor's degree"
+        ],
+        "only_in_json2": [
+            "doctorate"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "0+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Entry-Level",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json2": [
+            "online",
+            "office"
+        ]
+    },
+    "frameworks": {
+        "only_in_json2": [
+            "Component Object Model"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "collaboration with designers",
+            "testing",
+            "problem identification"
+        ],
+        "only_in_json2": [
+            "amazon marketplace",
+            "disabilities",
+            "online assessments",
+            "email processing",
+            "adobe audience manager",
+            "workflows",
+            "computer science",
+            "good laboratory practice",
+            "registration evaluation authorisation and restriction of chemicals regulations",
+            "coloring",
+            "corporate social responsibility",
+            "recruitment process outsourcing",
+            "ph meters",
+            "refining"
+        ]
+    }
+}

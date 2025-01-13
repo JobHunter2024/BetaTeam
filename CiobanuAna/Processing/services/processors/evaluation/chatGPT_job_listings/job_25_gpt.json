@@ -1,0 +1,95 @@
+{
+    "title": "Senior Artificial Intelligence / Machine Learning Engineer",
+    "companyName": "Emerson",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Team Collaboration",
+        "Problem Solving",
+        "Communication",
+        "Mentorship",
+        "Innovation"
+    ],
+    "degree_level": [
+        "BS/MS"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Artificial Intelligence",
+        "Related Field"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "3+ years"
+    ],
+    "experience_level": "Senior",
+    "job_location": "Cluj-Napoca, Romania",
+    "job_location_type": [
+        "On-site"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "ABC"
+            ],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "PyTorch",
+            "skill_type": "Machine Learning Framework",
+            "official_website": "https://pytorch.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "TensorFlow",
+            "skill_type": "Machine Learning Framework",
+            "official_website": "https://www.tensorflow.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "JAX",
+            "skill_type": "Machine Learning Library",
+            "official_website": "https://jax.readthedocs.io/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "Natural Language Processing",
+        "Conversational AI",
+        "Large Language Models",
+        "PEFT Techniques",
+        "LoRA",
+        "QLoRA",
+        "Cloud Computing",
+        "Azure",
+        "MLOps",
+        "Data Privacy Regulations",
+        "Problem-Solving",
+        "Mentorship"
+    ]
+}

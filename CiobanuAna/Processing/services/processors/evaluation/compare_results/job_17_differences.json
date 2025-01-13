@@ -1,0 +1,111 @@
+{
+    "soft_skills": {
+        "only_in_json1": [
+            "problem solving",
+            "mentorship",
+            "continuous learning"
+        ],
+        "only_in_json2": [
+            "sales",
+            "communications"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "bachelor\u2019s degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "related technical field"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "5-7 years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Senior-Level",
+        "json2": "Senior"
+    },
+    "job_location": {
+        "json1": "Flexible (Remote/On-Site)",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "on-site",
+            "remote"
+        ],
+        "only_in_json2": [
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "Cascading Style Sheets"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "React",
+            "Angular"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "D3"
+        ],
+        "only_in_json2": [
+            "D3.js",
+            "React.js"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "product management collaboration",
+            "html/css",
+            "closures",
+            "web accessibility",
+            "cross-browser compatibility",
+            "asynchronous programming",
+            "scalable front-end systems",
+            "front-end performance optimization",
+            "real-time visualizations"
+        ],
+        "only_in_json2": [
+            "sugarcrm",
+            "customer experience",
+            "real time data",
+            "staging",
+            "customer relationship building",
+            "value-added reseller",
+            "customer relationship management",
+            "web applications",
+            "programming",
+            "personalization",
+            "scalability",
+            "customer journey mapping",
+            "demand generation",
+            "angular material",
+            "computer science",
+            "end systems",
+            "customer profitability",
+            "front end",
+            "browser compatibility",
+            "professional services automation",
+            "visualization",
+            "automation",
+            "hypertext markup language",
+            "product management",
+            "interactivity",
+            "learning experience design"
+        ]
+    }
+}

@@ -1,0 +1,146 @@
+{
+    "language_skills": {
+        "only_in_json1": [
+            "romanian"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "problem solving",
+            "team collaboration",
+            "adaptability"
+        ],
+        "only_in_json2": [
+            "integration",
+            "innovation",
+            "operations",
+            "consulting",
+            "research",
+            "verbal communication skills",
+            "sales",
+            "creativity",
+            "collaboration",
+            "visionary",
+            "professionalism",
+            "empathy",
+            "investigation"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "university degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "computer science",
+            "related field"
+        ],
+        "only_in_json2": [
+            "artificial intelligence"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "2+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level",
+        "json2": ""
+    },
+    "programming_languages": {
+        "only_in_json1": [
+            "Apex"
+        ],
+        "only_in_json2": [
+            "C++",
+            "Ruby",
+            "C#"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Salesforce Lightning"
+        ],
+        "only_in_json2": [
+            "Catalyst"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "Visualforce"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "marketing cloud",
+            "salesforce certifications",
+            "sales cloud",
+            "apex classes",
+            "service cloud",
+            "salesforce crm",
+            "visualforce pages",
+            "sosl",
+            "community cloud",
+            "agile development",
+            "soql",
+            "triggers",
+            "api integrations"
+        ],
+        "only_in_json2": [
+            "economy",
+            "disabilities",
+            "salesforce.com",
+            "agile software development",
+            "business card design",
+            "wide area networks",
+            "oracle sql developer",
+            "employment practices liability",
+            "genetics",
+            "java scripting languages",
+            "strategic business unit",
+            "apex code",
+            "process development",
+            "web services",
+            "hybrid cloud computing",
+            "application programming interface",
+            "ibm services",
+            "design codes",
+            "blockchain",
+            "solution architecture",
+            "customer relationship management software",
+            "long-term potentiation",
+            "building design",
+            "business strategies",
+            "mysql",
+            "artificial intelligence",
+            "quantum computing",
+            "ibm software",
+            "development environment",
+            "software development",
+            "management training",
+            "hostile work environment",
+            "visualization",
+            "romanian language",
+            "salesforce object query language",
+            "adoptions",
+            "salesforce object search language",
+            "ibm was",
+            "cloud services",
+            "early adopter",
+            "coloring",
+            "relational databases",
+            "red hat linux",
+            "ibm system z10",
+            "visualforce",
+            "simple object access protocol"
+        ]
+    }
+}

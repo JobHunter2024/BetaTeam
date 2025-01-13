@@ -1,0 +1,130 @@
+{
+    "title": "Javascript Developer",
+    "companyName": "Wiley",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Team Collaboration",
+        "Problem Solving",
+        "Mentorship",
+        "Learning Mindset",
+        "Communication"
+    ],
+    "degree_level": [
+        "University Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Related Field"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "3+ years"
+    ],
+    "experience_level": "Mid-Level",
+    "job_location": "Iași, Romania (Hybrid work model - 8 days at the office a month)",
+    "job_location_type": [
+        "Hybrid"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "JavaScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+            "influenced_by": [
+                "C",
+                "Java"
+            ],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        },
+        {
+            "skill_name": "TypeScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.typescriptlang.org/",
+            "influenced_by": [
+                "JavaScript"
+            ],
+            "programmed_in": [
+                "TypeScript"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Node.js",
+            "skill_type": "Backend Framework",
+            "official_website": "https://nodejs.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        },
+        {
+            "skill_name": "Express.js",
+            "skill_type": "Web Framework",
+            "official_website": "https://expressjs.com/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        },
+        {
+            "skill_name": "NestJS",
+            "skill_type": "Web Framework",
+            "official_website": "https://nestjs.com/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript",
+                "TypeScript"
+            ]
+        },
+        {
+            "skill_name": "React",
+            "skill_type": "Frontend Framework",
+            "official_website": "https://reactjs.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        },
+        {
+            "skill_name": "GraphQL",
+            "skill_type": "API Query Language",
+            "official_website": "https://graphql.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "AWS",
+            "skill_type": "Cloud Computing Platform",
+            "official_website": "https://aws.amazon.com/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Microservices",
+        "Web Application Development",
+        "Scrum",
+        "CI/CD",
+        "Backend Development",
+        "Frontend Development",
+        "Mentorship",
+        "Technical Leadership",
+        "Software Development Life Cycle",
+        "Open Source",
+        "Learning & Adaptability"
+    ]
+}

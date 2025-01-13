@@ -1,0 +1,103 @@
+{
+    "title": "Oracle Fusion Technical Consultant",
+    "companyName": "Oracle",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Integration",
+        "Problem Solving",
+        "Creativity",
+        "Professionalism",
+        "Operations",
+        "Innovation",
+        "Business Operations",
+        "Troubleshooting (Problem Solving)",
+        "Professional Project Manager",
+        "Filing"
+    ],
+    "degree_level": [],
+    "education_field": [],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "Senior",
+    "job_location": "Romania",
+    "job_location_type": [],
+    "programming_languages": [
+        {
+            "skill_name": "PL/SQL",
+            "skill_type": "Programming Language",
+            "official_website": "http://www.oracle.com/technology/tech/pl_sql/index.html",
+            "influenced_by": [
+                "SQL",
+                "Ada"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.iso.org/standard/76583.html",
+            "influenced_by": [
+                "first-order logic",
+                "Datalog"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Cascading Style Sheets",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.w3.org/Style/CSS/",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Dashboard",
+        "Data Migration",
+        "Technical Support",
+        "Service Improvement Planning",
+        "Human Development Report",
+        "S Voice",
+        "Support Engineering",
+        "Release Management",
+        "Customer Engagement",
+        "Quality Of Services",
+        "Analytics",
+        "Automation",
+        "Employee Benefits",
+        "Coloring",
+        "Technical Solution Design",
+        "Simple Object Access Protocol",
+        "Visualization",
+        "Templates",
+        "Business Process",
+        "Oracle Fusion Middleware",
+        "Customer Success",
+        "Customer Satisfaction",
+        "Oracle Applications",
+        "MFG/Pro",
+        "Long-Term Care",
+        "SAP Supply Chain Management",
+        "Oracle BI Publisher",
+        "Functional Specification",
+        "Production Improvement",
+        "Patentable Subject Matter",
+        "Cross-Functional Coordination",
+        "User Experience",
+        "Performance Monitor",
+        "Lifecycle Management",
+        "Integrated Services",
+        "Job Descriptions",
+        "Data Import/Export",
+        "Cloud Services",
+        "Technical Consulting",
+        "Disabilities",
+        "Application Programming Interface",
+        "Instrumentation",
+        "Extensible Stylesheet Language",
+        "Term Life Insurance",
+        "Product Adoption Strategies"
+    ]
+}

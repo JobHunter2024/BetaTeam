@@ -1,0 +1,119 @@
+{
+    "title": "Data Engineer",
+    "companyName": "Mega Image",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Problem Solving",
+        "Operations",
+        "Collaboration",
+        "Business Acumen",
+        "Teamwork",
+        "Complex Problem Solving",
+        "Socialization",
+        "Management"
+    ],
+    "degree_level": [
+        "Bachelor's Degree"
+    ],
+    "education_field": [
+        "Data Science",
+        "Finance",
+        "Cybernetics"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Bucharest, Bucharest, Romania",
+    "job_location_type": [],
+    "programming_languages": [
+        {
+            "skill_name": "SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.iso.org/standard/76583.html",
+            "influenced_by": [
+                "first-order logic",
+                "Datalog"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "Icon",
+                "C++",
+                "Modula-3",
+                "Dylan",
+                "CLU",
+                "ALGOL 68",
+                "APL",
+                "Perl",
+                "ABC",
+                "Standard ML",
+                "Haskell",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "C",
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Cyber Security Standards",
+        "Product Data Management",
+        "Phase",
+        "Data Structures",
+        "Finance",
+        "Scaled Agile Framework",
+        "Extract Transform Load",
+        "Data Architecture",
+        "Data Quality",
+        "DevOps",
+        "Analytics",
+        "Data Governance",
+        "Document Process Automation",
+        "Computer Science",
+        "Data Engineering",
+        "Imaging",
+        "Value Chain",
+        "Snowflake Schema",
+        "Cybernetics",
+        "Raw Data",
+        "FourGen Computer-Aided Software Engineering Tools",
+        "Business Process",
+        "Storages",
+        "Source Data",
+        "Data Pipeline",
+        "Self Service Technologies",
+        "Data Science",
+        "Use Case Diagram",
+        "Data Modeling",
+        "Data Visualization",
+        "Cross-Functional Coordination",
+        "Data Lakes",
+        "Star Schema",
+        "Translations",
+        "Power BI",
+        "Data Integrity",
+        "Databricks",
+        "Programming",
+        "Business Requirements",
+        "Logical Data Models",
+        "Workflows",
+        "Amazon Data Pipeline",
+        "Supply Chain",
+        "Mini-DIN Connector",
+        "Azure Data Factory",
+        "Test-Driven Development",
+        "Modelling Skills"
+    ]
+}

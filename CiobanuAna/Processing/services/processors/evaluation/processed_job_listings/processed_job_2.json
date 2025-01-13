@@ -1,0 +1,138 @@
+{
+    "title": "Software Development Engineer Embedded Development",
+    "companyName": "Amazon Development Center Romania",
+    "datePosted": "November 23, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Innovation",
+        "Collaboration",
+        "Complex Problem Solving",
+        "Management",
+        "Consulting"
+    ],
+    "degree_level": [
+        "Bachelor's Degree",
+        "Master's Degree"
+    ],
+    "education_field": [
+        "Computer Engineering",
+        "Computer Science",
+        "Engineering"
+    ],
+    "employment_type": [
+        "internship"
+    ],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "",
+    "job_location_type": [
+        "online"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Rust",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.rust-lang.org/",
+            "influenced_by": [
+                "C++",
+                "C#",
+                "Cyclone",
+                "Erlang",
+                "Ruby",
+                "Alef",
+                "Newsqueak",
+                "OCaml",
+                "Scheme",
+                "Standard ML",
+                "Limbo",
+                "Haskell",
+                "Swift"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "C",
+            "skill_type": "Programming Language",
+            "official_website": "https://winscp.net/",
+            "influenced_by": [
+                "assembly language",
+                "Fortran",
+                "ALGOL 60",
+                "B",
+                "ALGOL 68",
+                "CPL",
+                "BCPL",
+                "PL/I",
+                "ALGOL"
+            ],
+            "programmed_in": [
+                "C++"
+            ]
+        },
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.java.com",
+            "influenced_by": [
+                "C",
+                "Simula 67",
+                "Modula-3",
+                "variadic function",
+                "Oberon",
+                "C#",
+                "Eiffel",
+                "Niklaus Wirth",
+                "Patrick Naughton",
+                "Smalltalk",
+                "Simula",
+                "Java annotation",
+                "Objective-C",
+                "Object Pascal",
+                "Ada",
+                "boxing",
+                "Mesa",
+                "C++",
+                "UCSD Pascal",
+                "foreach loop"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Computer Engineering",
+        "Fault Tolerant Ethernet",
+        "Distributed File Systems",
+        "Linear Programming",
+        "Library For WWW In Perl",
+        "Relational Databases",
+        "Onboarding",
+        "Agile Edge Technologies",
+        "Software Development",
+        "Computer Science",
+        "EN 1993 Building Codes",
+        "Scale",
+        "Storages",
+        "Self Service Technologies",
+        "New Product Development",
+        "Large Scale Multi-Agent Systems",
+        "Distributed Computing",
+        "Distributed Computing Environment",
+        "Product Innovation",
+        "Agility",
+        "Session Description Protocol Security Descriptions",
+        "Programming",
+        "Algorithms",
+        "Disabilities",
+        "Operating Systems",
+        "Scalability",
+        "Multi-Agent Systems",
+        "Prediction",
+        "Fault Tolerance",
+        "Software Quality Management",
+        "Service Design"
+    ]
+}

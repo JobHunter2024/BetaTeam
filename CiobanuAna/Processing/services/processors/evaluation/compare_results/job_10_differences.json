@@ -1,0 +1,113 @@
+{
+    "title": {
+        "json1": "Cloud Developer | Deloitte Technology Delivery Center",
+        "json2": "Cloud Developer Deloitte Technology Delivery Center"
+    },
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "problem solving",
+            "continuous learning",
+            "autonomy",
+            "attention to detail"
+        ],
+        "only_in_json2": [
+            "integration",
+            "consulting",
+            "distributed team management",
+            "administrative skills",
+            "willingness to learn",
+            "management"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "bachelor\u2019s degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "computer science",
+            "software engineering"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ],
+        "only_in_json2": [
+            "contract"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "1+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Junior",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "office work"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json1": [
+            "NodeJS",
+            "Go (Golang)"
+        ],
+        "only_in_json2": [
+            "Kotlin",
+            "Scala",
+            "Nice",
+            "SQL"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Kubernetes"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "serverless ecosystem",
+            "containerized applications",
+            "cloud providers (aws/gcp/azure)",
+            "automation testing",
+            "virtualization solutions",
+            "sql/nosql databases",
+            "version control (git/svn)",
+            "infrastructure as code (iac)"
+        ],
+        "only_in_json2": [
+            "google cloud platform",
+            "git",
+            "kubernetes",
+            "perspective",
+            "serverless computing",
+            "community development",
+            "code testing",
+            "recruitment process outsourcing",
+            "job descriptions",
+            "version control",
+            "build tools",
+            "infrastructure as code",
+            "mobile app",
+            "hostile work environment",
+            "code review",
+            "standard accounting practices",
+            "private cloud",
+            "nosql",
+            "agile edge technologies",
+            "virtualization",
+            "containerization",
+            "prototype"
+        ]
+    }
+}

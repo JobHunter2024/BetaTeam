@@ -1,0 +1,104 @@
+{
+    "title": "Mobile Software Developer Bucharest, Romania",
+    "companyName": "Bitdefender",
+    "datePosted": "November 26, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Problem Solving",
+        "Agile Development",
+        "Collaboration",
+        "Communication",
+        "Creativity",
+        "Algorithmic Thinking",
+        "Technical Articulation"
+    ],
+    "degree_level": [
+        "Bachelor's Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Related Fields"
+    ],
+    "employment_type": [
+        "full-time"
+    ],
+    "experience_years": [
+        "2+ years"
+    ],
+    "experience_level": "",
+    "job_location": "Bucharest, Romania",
+    "job_location_type": [],
+    "programming_languages": [
+        {
+            "skill_name": "Swift",
+            "skill_type": "Programming Language",
+            "official_website": "https://swift.org",
+            "influenced_by": [
+                "Objective-C",
+                "Rust",
+                "Haskell",
+                "Ruby",
+                "C#"
+            ],
+            "programmed_in": [
+                "Swift"
+            ]
+        },
+        {
+            "skill_name": "Kotlin",
+            "skill_type": "Programming Language",
+            "official_website": "https://kotlinlang.org",
+            "influenced_by": [
+                "Java",
+                "Scala",
+                "Groovy",
+                "C#"
+            ],
+            "programmed_in": [
+                "Kotlin"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Flutter",
+            "skill_type": "Framework",
+            "official_website": "https://flutter.dev",
+            "influenced_by": [
+                "React Native",
+                "Dart"
+            ],
+            "programmed_in": [
+                "Dart"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "CocoaPods",
+            "skill_type": "Dependency Management Tool",
+            "official_website": "https://cocoapods.org",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "unclassified_skills": [
+        "iOS Development Tools",
+        "Xcode IDE",
+        "Instruments",
+        "Simulators",
+        "iOS Frameworks",
+        "Swift Packages",
+        "Dependency Management",
+        "RESTful APIs",
+        "Mobile Development Lifecycle",
+        "Apple Distribution Process",
+        "Unit and Functional Tests",
+        "Multithreaded Programming",
+        "Version Control Systems",
+        "Git",
+        "Android Development"
+    ]
+}

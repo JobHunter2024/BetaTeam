@@ -1,0 +1,99 @@
+{
+    "title": "Software Engineer",
+    "companyName": "Sugarcrm",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Writing",
+        "Verbal Communication Skills",
+        "Scheduling",
+        "Communications",
+        "Sales"
+    ],
+    "degree_level": [
+        "Bachelor's Degree"
+    ],
+    "education_field": [
+        "Computer Science"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "",
+    "job_location_type": [
+        "office"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.iso.org/standard/76583.html",
+            "influenced_by": [
+                "first-order logic",
+                "Datalog"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "JavaScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.ecma-international.org/publications-and-standards/standards/ecma-262/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "LiveScript",
+                "Python",
+                "Lua",
+                "HyperTalk",
+                "AWK",
+                "Perl",
+                "Scheme",
+                "Self"
+            ],
+            "programmed_in": []
+        }
+    ],
+    "frameworks": [],
+    "libraries": [
+        {
+            "skill_name": "React.js",
+            "skill_type": "Library",
+            "official_website": "https://react.dev/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Agile Software Development",
+        "Code Review",
+        "Software Development",
+        "Demand Generation",
+        "Data Store",
+        "Professional Services Automation",
+        "Automation",
+        "SugarCRM",
+        "Computer Science",
+        "NoSQL",
+        "RESTful API",
+        "Process Improvements",
+        "Software Design",
+        "Customer Relationship Management",
+        "Front End",
+        "Cross-Functional Coordination",
+        "Personalization",
+        "Customer Profitability",
+        "Customer Relationship Building",
+        "Programming",
+        "Value-Added Reseller",
+        "Software Development Methodologies",
+        "Unit Testing",
+        "Software Architecture",
+        "Customer Experience",
+        "Staging",
+        "Customer Journey Mapping",
+        "Object-Oriented Programming",
+        "Software Quality Management"
+    ]
+}

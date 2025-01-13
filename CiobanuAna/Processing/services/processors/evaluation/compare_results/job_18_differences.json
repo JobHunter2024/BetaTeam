@@ -1,0 +1,108 @@
+{
+    "title": {
+        "json1": "Test Analyst | Belgium team",
+        "json2": "Test Analyst team"
+    },
+    "language_skills": {
+        "only_in_json1": [
+            "dutch"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "organization"
+        ],
+        "only_in_json2": [
+            "planning",
+            "operations",
+            "research",
+            "verbal communication skills",
+            "positivity",
+            "communications",
+            "management"
+        ]
+    },
+    "degree_level": {
+        "only_in_json2": [
+            "bachelor's degree"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "3-5 years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "on-site"
+        ],
+        "only_in_json2": [
+            "online",
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "Nice",
+            "COBOL",
+            "Java"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "user stories",
+            "test data definition",
+            "test documentation",
+            "test case design",
+            "acceptance criteria",
+            "test case capitalization",
+            "test closure",
+            "defect prevention",
+            "defect management",
+            "test execution",
+            "test reporting",
+            "octane",
+            "test automation roadmap",
+            "functional requirements understanding"
+        ],
+        "only_in_json2": [
+            "capitalization",
+            "storages",
+            "life insurance sales",
+            "expert systems",
+            "functional requirement",
+            "collections",
+            "restful api",
+            "scale",
+            "performance testing",
+            "massages",
+            "test data",
+            "transformation",
+            "business development",
+            "postman",
+            "test management",
+            "automation",
+            "gherkin",
+            "virtual system administrator",
+            "executable",
+            "test execution engine",
+            "scenario testing",
+            "dutch language",
+            "user story",
+            "interactivity",
+            "test case",
+            "banking",
+            "test automation"
+        ]
+    }
+}

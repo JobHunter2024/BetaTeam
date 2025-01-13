@@ -1,0 +1,133 @@
+{
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "ownership",
+            "analytical thinking"
+        ],
+        "only_in_json2": [
+            "operations",
+            "complex problem solving",
+            "socialization",
+            "management"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "university degree"
+        ],
+        "only_in_json2": [
+            "bachelor's degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "computer science",
+            "technical disciplines"
+        ],
+        "only_in_json2": [
+            "data science",
+            "finance"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "3-5 years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "hybrid"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json1": [
+            "DAX"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Azure Databricks",
+            "Azure Synapse",
+            "Delta Lake"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "Power BI"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "retail experience",
+            "data warehouse",
+            "data lifecycle management",
+            "marketing experience",
+            "etl/elt",
+            "supply chain experience",
+            "agile methodology",
+            "technical architecture",
+            "scalable data pipelines",
+            "data lake",
+            "finance experience",
+            "data integration",
+            "data modelling",
+            "functional architecture",
+            "business requirements translation",
+            "azure data ecosystem"
+        ],
+        "only_in_json2": [
+            "value chain",
+            "scaled agile framework",
+            "imaging",
+            "data structures",
+            "storages",
+            "use case diagram",
+            "cybernetics",
+            "phase",
+            "azure data factory",
+            "modelling skills",
+            "data lakes",
+            "cross-functional coordination",
+            "power bi",
+            "data science",
+            "product data management",
+            "business requirements",
+            "logical data models",
+            "amazon data pipeline",
+            "source data",
+            "analytics",
+            "supply chain",
+            "programming",
+            "data pipeline",
+            "devops",
+            "computer science",
+            "data engineering",
+            "document process automation",
+            "data architecture",
+            "data visualization",
+            "mini-din connector",
+            "data governance",
+            "business process",
+            "data modeling",
+            "fourgen computer-aided software engineering tools",
+            "databricks",
+            "self service technologies",
+            "cyber security standards",
+            "workflows",
+            "finance",
+            "translations",
+            "raw data",
+            "extract transform load"
+        ]
+    }
+}
