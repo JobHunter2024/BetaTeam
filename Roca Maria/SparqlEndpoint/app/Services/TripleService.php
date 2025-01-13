@@ -84,13 +84,13 @@ class TripleService
             if (isset($data['job_location'])) {
                 $cleanJobLocation = str_replace(' ', '', $data['job_location']);
 
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}jobLocation> \"" . addslashes($data['job_location']) . "\"^^xsd:string .";
+                $triples[] = "<{$baseUri}{$cleanJobLocation}> <{$baseUri}jobLocation> \"" . addslashes($data['job_location']) . "\"^^xsd:string .";
                 $triples[] = "<{$baseUri}{$cleanJobLocation}> rdfs:label \"" . addslashes($data['job_location']) . "\"^^xsd:string .";
             }
 
             if (isset($data['experienceInYears'])) {
                 $cleanExperienceInYears = str_replace(' ', '', $data['experienceInYears']);
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}experienceInYears> \"" . intval($data['experienceInYears']) . "\"^^xsd:int .";
+                $triples[] = "<{$baseUri}{$cleanExperienceInYears}> <{$baseUri}experienceInYears> \"" . intval($data['experienceInYears']) . "\"^^xsd:int .";
                 $triples[] = "<{$baseUri}{$cleanExperienceInYears}> rdfs:label \"" . addslashes($data['experienceInYears']) . "\"^^xsd:string .";
 
             }
@@ -99,7 +99,7 @@ class TripleService
             if (!empty($data['soft_skills'])) {
                 foreach ($data['soft_skills'] as $skill) {
                     $cleanSkill = str_replace(' ', '', $skill);
-                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$cleanSkill}> .";
+                    $triples[] = "<{$baseUri}{$cleanSkill}> <{$baseUri}requiresSkill> <{$baseUri}{$cleanSkill}> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}SoftSkill> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdfs:label \"" . addslashes($skill) . "\"^^xsd:string .";
                 }
@@ -135,7 +135,7 @@ class TripleService
             if (!empty($data['education_field'])) {
                 foreach ($data['education_field'] as $field) {
                     $cleanField = str_replace(' ', '', $field);
-                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresEducation> <{$baseUri}{$cleanField}> .";
+                    $triples[] = "<{$baseUri}{$cleanField}> <{$baseUri}requiresEducation> <{$baseUri}{$cleanField}> .";
                     $triples[] = "<{$baseUri}{$cleanField}> rdf:type <{$baseUri}Education> .";
                     $triples[] = "<{$baseUri}{$cleanField}> rdfs:label \"" . addslashes($field) . "\"^^xsd:string .";
                 }
@@ -145,7 +145,7 @@ class TripleService
             if (!empty($data['unclassified_skills'])) {
                 foreach ($data['unclassified_skills'] as $skill) {
                     $cleanSkill = str_replace(' ', '', $skill);
-                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}hasSkill> <{$baseUri}{$cleanSkill}> .";
+                    $triples[] = "<{$baseUri}{$cleanSkill}> <{$baseUri}hasSkill> <{$baseUri}{$cleanSkill}> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdfs:label \"" . addslashes($skill) . "\"^^xsd:string .";
                 }
