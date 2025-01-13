@@ -105,7 +105,7 @@ class TripleService
                 }
             }
 
-            dd($data["programming_languages"]);
+            //dd($data["programming_languages"]);
             // Programming Languages
             if (!empty($data['programming_languages'])) {
                 foreach ($data['programming_languages'] as $language) {
