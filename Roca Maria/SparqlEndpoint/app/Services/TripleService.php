@@ -99,7 +99,7 @@ class TripleService
             if (!empty($data['soft_skills'])) {
                 foreach ($data['soft_skills'] as $skill) {
                     $cleanSkill = str_replace(' ', '', $skill);
-                    $triples[] = "<{$baseUri}{$cleanSkill}> <{$baseUri}requiresSkill> <{$baseUri}{$cleanSkill}> .";
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$cleanSkill}> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}SoftSkill> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdfs:label \"" . addslashes($skill) . "\"^^xsd:string .";
                 }
