@@ -3,16 +3,11 @@
 namespace App\Http\Controllers;
 
 use Exception;
-use App\Models\Triple;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Services\SparqlService;
 use App\Services\TripleService;
 use Illuminate\Support\Facades\Log;
-use Symfony\Component\Process\Process;
-use Illuminate\Support\Facades\Artisan;
-use App\Repositories\TripleRepositoryInterface;
-use Symfony\Component\Process\Exception\ProcessFailedException;
+use App\Services\Ontology\OntologyGenerator;
 
 class TriplesController extends Controller
 {
@@ -53,20 +48,28 @@ class TriplesController extends Controller
                 foreach ($request_json as $key => $value) {
                     // Execute python script for ontology creation
                     $data = $this->tripleService->executeScript($value);
-
+                    //dd($data);
                     if ($data['output'] != null) {
 
                         // Prepare triples
                         $triples = $this->tripleService->prepareIndividualTriples($data['output']);
-
+                        //dd($triples);
 
                         if (!empty($triples['output'])) {
 
                             // insert entities and propersties
-                            $entitiesTriples = $this->tripleService->createOntologyEntities();
+                            // $entitiesTriples = $this->tripleService->createOntologyEntities();
+                            $baseUri = config('ontology.base_uri');
+
+                            $generator = new OntologyGenerator($baseUri);
+                            $entitiesTriples = $generator->generate();
+                            // dd($entitiesTriples);
+                            Log::info('Generated RDF Triples:', $triples);
+
                             foreach ($entitiesTriples as $triple) {
                                 // Insert triples into Fuseki
                                 $response = $this->tripleService->insertTriples($triple);
+                                //  dd($response);
                             }
 
                             foreach ($triples['output'] as $triple) {
@@ -158,8 +161,9 @@ class TriplesController extends Controller
         $input = $request->json()->all();
 
         // Path to the Python script
-        $scriptPath = 'C:/xampp/htdocs/BetaTeam/CiobanuAna/Processing/services/processors/script.py';
-
+        //$scriptPath = 'C:/xampp/htdocs/BetaTeam/CiobanuAna/Processing/services/processors/script.py';
+        $scriptPath = base_path(env('PYTHON_SCRIPT_PATH'));
+        dd($scriptPath);
         // Encode the input as JSON
         $jsonArgument = json_encode($input, JSON_UNESCAPED_SLASHES);
 
