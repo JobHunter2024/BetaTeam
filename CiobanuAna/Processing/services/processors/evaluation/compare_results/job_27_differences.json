@@ -1,0 +1,134 @@
+{
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "mentorship",
+            "team collaboration",
+            "learning mindset",
+            "problem solving"
+        ],
+        "only_in_json2": [
+            "integration",
+            "innovation",
+            "operations",
+            "adaptability",
+            "research",
+            "teaching",
+            "willingness to learn",
+            "communications",
+            "collaboration",
+            "professionalism",
+            "management"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "university degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "related field"
+        ],
+        "only_in_json2": [
+            "engineering"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "3+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level",
+        "json2": ""
+    },
+    "job_location": {
+        "json1": "Ia\u0219i, Romania (Hybrid work model - 8 days at the office a month)",
+        "json2": "Ia\u0219i, Romania"
+    },
+    "job_location_type": {
+        "only_in_json2": [
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "E"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "React",
+            "Express.js",
+            "GraphQL",
+            "NestJS"
+        ],
+        "only_in_json2": [
+            "Component Object Model"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "AWS"
+        ],
+        "only_in_json2": [
+            "React.js"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "frontend development",
+            "microservices",
+            "mentorship",
+            "backend development",
+            "ci/cd",
+            "learning & adaptability",
+            "open source",
+            "software development life cycle",
+            "technical leadership"
+        ],
+        "only_in_json2": [
+            "software engineering",
+            "technical solution design",
+            "paving",
+            "track",
+            "long-term care",
+            "javascript frameworks",
+            "working model 2d",
+            "phase",
+            "draft",
+            "graphql",
+            "application development",
+            "open source intelligence",
+            "library",
+            "staging",
+            "maintainability",
+            "gitlab",
+            "open access",
+            "platform tools",
+            "web applications",
+            "peer review",
+            "scale",
+            "computer science",
+            "integrated product team",
+            "front end",
+            "software development",
+            "journals",
+            "branding",
+            "unlocker",
+            "templates",
+            "custom backend"
+        ]
+    }
+}

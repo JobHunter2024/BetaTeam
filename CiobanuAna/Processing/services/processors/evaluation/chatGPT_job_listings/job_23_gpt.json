@@ -1,0 +1,109 @@
+{
+    "title": "Software Engineer - Marketing",
+    "companyName": "BOOKING HOLDINGS ROMANIA S.R.L.",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Independent Work",
+        "Technical Decision Making",
+        "Communication",
+        "Collaboration",
+        "Problem Solving",
+        "Customer Focus"
+    ],
+    "degree_level": [
+        "University Degree"
+    ],
+    "education_field": [
+        "Mathematics",
+        "Software Engineering"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "3+ years"
+    ],
+    "experience_level": "Mid-Level",
+    "job_location": "Bucharest, Bucharest, Romania",
+    "job_location_type": [
+        "Hybrid"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.oracle.com/java/",
+            "influenced_by": [
+                "C",
+                "C++"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "C#",
+            "skill_type": "Programming Language",
+            "official_website": "https://learn.microsoft.com/en-us/dotnet/csharp/",
+            "influenced_by": [
+                "C",
+                "Java"
+            ],
+            "programmed_in": [
+                "C#"
+            ]
+        },
+        {
+            "skill_name": "C++",
+            "skill_type": "Programming Language",
+            "official_website": "https://isocpp.org/",
+            "influenced_by": [
+                "C"
+            ],
+            "programmed_in": [
+                "C++"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Spring Boot",
+            "skill_type": "Framework",
+            "official_website": "https://spring.io/projects/spring-boot",
+            "influenced_by": [
+                "Java"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Kafka",
+            "skill_type": "Messaging System",
+            "official_website": "https://kafka.apache.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "API Development",
+        "Distributed Systems",
+        "TDD (Test-Driven Development)",
+        "Observability",
+        "Cloud Computing",
+        "DDD (Domain-Driven Design)",
+        "MySQL",
+        "PostgreSQL",
+        "Large-Scale Software Development",
+        "High-Performance Systems",
+        "Customer-Facing Systems",
+        "Recruitment and Onboarding"
+    ]
+}

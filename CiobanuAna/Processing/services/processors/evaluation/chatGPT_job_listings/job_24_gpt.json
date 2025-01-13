@@ -1,0 +1,113 @@
+{
+    "title": "Software Engineer - Big Data",
+    "companyName": "BOOKING HOLDINGS ROMANIA S.R.L.",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Team Collaboration",
+        "Problem Solving",
+        "Communication",
+        "Mentorship",
+        "Innovation"
+    ],
+    "degree_level": [
+        "University Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Related Field"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "3+ years"
+    ],
+    "experience_level": "Mid-Level",
+    "job_location": "Bucharest, Bucharest, Romania",
+    "job_location_type": [
+        "Hybrid"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "ABC"
+            ],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.oracle.com/java/",
+            "influenced_by": [
+                "C",
+                "C++"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Spark",
+            "skill_type": "Big Data Framework",
+            "official_website": "https://spark.apache.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java",
+                "Scala"
+            ]
+        },
+        {
+            "skill_name": "Kafka Streaming",
+            "skill_type": "Streaming Framework",
+            "official_website": "https://kafka.apache.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Snowflake",
+            "skill_type": "Data Warehouse",
+            "official_website": "https://www.snowflake.com/",
+            "influenced_by": [],
+            "programmed_in": [
+                "SQL"
+            ]
+        },
+        {
+            "skill_name": "Airflow",
+            "skill_type": "Workflow Management",
+            "official_website": "https://airflow.apache.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Big Data",
+        "Distributed Systems",
+        "Data Pipelines",
+        "Scalable Systems",
+        "Machine Learning Models",
+        "AWS",
+        "Problem-Solving",
+        "Data Availability",
+        "Response Time Optimization",
+        "Traffic Patterns",
+        "Mentorship"
+    ]
+}

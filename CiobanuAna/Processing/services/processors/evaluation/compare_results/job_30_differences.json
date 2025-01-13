@@ -1,0 +1,134 @@
+{
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "flexibility",
+            "analytical thinking",
+            "collaboration",
+            "customer engagement",
+            "independent judgment"
+        ],
+        "only_in_json2": [
+            "professional project manager",
+            "integration",
+            "innovation",
+            "operations",
+            "troubleshooting (problem solving)",
+            "business operations",
+            "filing",
+            "creativity",
+            "professionalism"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "university degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "computer science",
+            "related field"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "6-10 years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Senior-Level",
+        "json2": "Senior"
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "remote"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "Cascading Style Sheets",
+            "SQL"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Oracle Fusion Applications"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "Oracle Integration Cloud"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "financials/scm modules",
+            "oracle cloud",
+            "performance monitoring",
+            "bi publisher",
+            "fbdi templates",
+            "soap api",
+            "oracle rest api",
+            "technical design documentation",
+            "dashboards",
+            "report development",
+            "otbi analysis",
+            "oracle integration cloud"
+        ],
+        "only_in_json2": [
+            "disabilities",
+            "instrumentation",
+            "technical solution design",
+            "dashboard",
+            "employee benefits",
+            "s voice",
+            "long-term care",
+            "mfg/pro",
+            "technical support",
+            "oracle applications",
+            "performance monitor",
+            "cross-functional coordination",
+            "customer engagement",
+            "support engineering",
+            "extensible stylesheet language",
+            "oracle fusion middleware",
+            "release management",
+            "application programming interface",
+            "oracle bi publisher",
+            "service improvement planning",
+            "analytics",
+            "sap supply chain management",
+            "production improvement",
+            "integrated services",
+            "patentable subject matter",
+            "job descriptions",
+            "human development report",
+            "data import/export",
+            "simple object access protocol",
+            "customer satisfaction",
+            "term life insurance",
+            "business process",
+            "visualization",
+            "automation",
+            "user experience",
+            "functional specification",
+            "cloud services",
+            "templates",
+            "coloring",
+            "product adoption strategies",
+            "customer success",
+            "quality of services",
+            "technical consulting"
+        ]
+    }
+}

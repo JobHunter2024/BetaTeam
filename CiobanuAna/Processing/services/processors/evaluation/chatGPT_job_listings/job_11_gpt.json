@@ -1,0 +1,63 @@
+{
+    "title": "Junior SQL Developer",
+    "companyName": "Luxoft",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Adaptability",
+        "Communication",
+        "Problem Solving",
+        "Collaboration",
+        "Attention to Detail"
+    ],
+    "degree_level": [
+        "Bachelor’s Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Software Engineering",
+        "Information Systems"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "1-2 years"
+    ],
+    "experience_level": "Junior",
+    "job_location": "Bucharest, Romania",
+    "job_location_type": [
+        "Office Work"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "T-SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://learn.microsoft.com/en-us/sql/t-sql/",
+            "influenced_by": [
+                "SQL"
+            ],
+            "programmed_in": [
+                "T-SQL"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Microsoft SQL Server 2008/2017",
+        "SQL Server Architecture Design",
+        "Performance Tuning",
+        "Data Manipulation",
+        "Stored Procedures",
+        "XML Processing in SQL",
+        "XML Schema Validation (XSD)",
+        "Database Troubleshooting",
+        "Deadlock Issues Resolution",
+        "Data Extraction",
+        "Backup and Restore Databases",
+        "Batch Jobs"
+    ]
+}

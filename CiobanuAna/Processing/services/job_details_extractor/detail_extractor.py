@@ -74,43 +74,44 @@ class JobDetailsExtractor:
         return [f"{match[0]} years" for match in matches if int(match[0]) < 50]
     
     def extract_experience_level(self, title, text):
-        if "junior" in title.lower() or "jr" in title.lower() or "junior" in text.lower() or "jr" in text.lower() or "Intern" in text.lower():
-            return "Junior"
-        elif "mid-level" in title.lower() or "middle" in title.lower() or "mid-level" in text.lower() or "middle" in text.lower():
-            return "Mid-level"
-        elif "associate" in title.lower() or "associate" in text.lower():
-            return "Associate"
-        elif "senior" in title.lower() or "sr" in title.lower() or "senior" in text.lower() or "sr" in text.lower():
-            return "Senior"
+        keywords = {
+            "Junior": ["junior", "jr", "intern"],
+            "Mid-level": ["mid-level", "middle"],
+            "Associate": ["associate"],
+            "Senior": ["senior", "sr"]
+        }
+        
+        for level, words in keywords.items():
+            if any(word in title.lower() or word in text.lower() for word in words):
+                return level
+        
         experience_in_years = self.extract_experience_years(text)
         for exp in experience_in_years:
             level = int(exp.split(" ")[0])
             if level < 3:
                 return "Junior"
-            elif 3 <=level <= 5:
+            elif 3 <= level <= 5:
                 return "Mid-level"
             else:
                 return "Senior"
+        
         return ""
 
     def extract_job_location(self, text):
         locations_it_terms = ["Java", "Python", "Perl", "Scala", "Rust", "Swift", "Ruby", "Go", "Dart","Sage",
                               "Ajax","Kotlin","Shell", "Vim", "Node", "Amazon"]
-        # place_entity = locationtagger.find_locations(text = text)
-        # location_tagger = place_entity.countries + place_entity.regions + place_entity.cities
         locations_found = []
         nlp = stanza.Pipeline(lang='en', processors='tokenize,ner', download_method=None, verbose=False)
         doc = nlp(text)
         for sent in doc.sentences:
             for ent in sent.ents:
                 if ent.type == 'GPE' and ent.text not in locations_it_terms:
-                    locations_found.append(ent.text)
-        # doc = self.nlp(text)
-        # location = []
-        # for ent in doc.ents:
-        #     if ent.label_ in ["GPE","LOC"] and ent.text not in locations_it_terms:
-        #         location.append(ent.text)        
+                    locations_found.append(ent.text)       
         return ", ".join(set(locations_found))
 
     def extract_location_type(self, text):
         return list(set(loc for loc in self.location_type_keywords if loc in text.lower()))
+
+
+example = JobDetailsExtractor()
+print(example.extract_experience_level("Software Engineer","I am looking for a full time senior java developer. I am available for remote. I am from UK. I have 3 years of experience. I am looking for a position."))

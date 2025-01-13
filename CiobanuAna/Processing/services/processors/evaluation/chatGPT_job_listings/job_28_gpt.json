@@ -1,0 +1,86 @@
+{
+    "title": "Senior Data Engineer",
+    "companyName": "Luxoft Romania",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Team Collaboration",
+        "Problem Solving",
+        "Technical Leadership",
+        "Mentorship",
+        "Communication"
+    ],
+    "degree_level": [
+        "University Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Related Field"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "7+ years"
+    ],
+    "experience_level": "Senior-Level",
+    "job_location": "Iasi, Romania",
+    "job_location_type": [
+        "On-site"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.w3schools.com/sql/",
+            "influenced_by": [],
+            "programmed_in": [
+                "SQL"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Informatica",
+            "skill_type": "ETL Framework",
+            "official_website": "https://www.informatica.com/",
+            "influenced_by": [],
+            "programmed_in": [
+                "SQL"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Oracle Database",
+            "skill_type": "Database",
+            "official_website": "https://www.oracle.com/database/",
+            "influenced_by": [],
+            "programmed_in": [
+                "SQL"
+            ]
+        },
+        {
+            "skill_name": "QlikSense",
+            "skill_type": "Reporting Tool",
+            "official_website": "https://www.qlik.com/us/products/qlik-sense",
+            "influenced_by": [],
+            "programmed_in": [
+                "Qlik scripting"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Data Engineering",
+        "ETL",
+        "Data Modeling",
+        "Stored Procedures",
+        "Database Objects",
+        "Performance Tuning",
+        "Investment Banking",
+        "Control-M",
+        "*nix Shell Scripting"
+    ]
+}

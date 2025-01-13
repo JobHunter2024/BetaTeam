@@ -1,0 +1,102 @@
+{
+    "title": "Data Scientist, GenAI (Remote)",
+    "companyName": "CrowdStrike",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Collaboration",
+        "Problem Solving",
+        "Communication",
+        "Continuous Learning",
+        "Critical Thinking",
+        "Curiosity"
+    ],
+    "degree_level": [
+        "Bachelor’s Degree",
+        "Master’s Degree (Preferred)",
+        "Ph.D. (Bonus)"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Statistics",
+        "Mathematics",
+        "Data Science",
+        "Machine Learning",
+        "Artificial Intelligence"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "2+ years"
+    ],
+    "experience_level": "Mid-Level",
+    "job_location": "Bucharest, Bucharest, Romania (Remote)",
+    "job_location_type": [
+        "Remote"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org",
+            "influenced_by": [
+                "ABC",
+                "C",
+                "Modula-3",
+                "Smalltalk",
+                "Java"
+            ],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "TensorFlow",
+            "skill_type": "Deep Learning Framework",
+            "official_website": "https://www.tensorflow.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "PyTorch",
+            "skill_type": "Deep Learning Framework",
+            "official_website": "https://pytorch.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "Hugging Face Transformers",
+            "skill_type": "NLP Framework",
+            "official_website": "https://huggingface.co",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "libraries": [],
+    "unclassified_skills": [
+        "Large Language Models (LLMs)",
+        "AI Assistants",
+        "Deep Learning",
+        "Machine Learning Research",
+        "ML Model Development",
+        "ML Model Fine-Tuning",
+        "Data Pipeline Design",
+        "High-Dimensional Data Analysis",
+        "CUDA",
+        "CuDNN",
+        "TensorRT",
+        "Cloud Technologies",
+        "Cybersecurity"
+    ]
+}

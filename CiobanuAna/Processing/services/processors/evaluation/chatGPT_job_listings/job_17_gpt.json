@@ -1,0 +1,93 @@
+{
+    "title": "Senior Software Engineer",
+    "companyName": "SugarCRM",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Collaboration",
+        "Problem Solving",
+        "Mentorship",
+        "Continuous Learning"
+    ],
+    "degree_level": [
+        "Bachelor’s Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Related Technical Field"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "5-7 years"
+    ],
+    "experience_level": "Senior-Level",
+    "job_location": "Flexible (Remote/On-Site)",
+    "job_location_type": [
+        "Remote",
+        "On-Site"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "JavaScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+            "influenced_by": [
+                "C",
+                "Java"
+            ],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "React",
+            "skill_type": "Front-End Framework",
+            "official_website": "https://reactjs.org/",
+            "influenced_by": [
+                "JavaScript"
+            ],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        },
+        {
+            "skill_name": "Angular",
+            "skill_type": "Front-End Framework",
+            "official_website": "https://angular.io/",
+            "influenced_by": [
+                "JavaScript"
+            ],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "D3",
+            "skill_type": "Data Visualization Library",
+            "official_website": "https://d3js.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "HTML/CSS",
+        "Cross-Browser Compatibility",
+        "Web Accessibility",
+        "Asynchronous Programming",
+        "Closures",
+        "Data Visualization",
+        "Front-End Performance Optimization",
+        "Responsive Web Design",
+        "Real-Time Visualizations",
+        "Product Management Collaboration",
+        "Scalable Front-End Systems"
+    ]
+}

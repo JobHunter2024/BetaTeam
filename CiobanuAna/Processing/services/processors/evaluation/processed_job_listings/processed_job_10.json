@@ -1,0 +1,178 @@
+{
+    "title": "Cloud Developer Deloitte Technology Delivery Center",
+    "companyName": "Deloitte",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Integration",
+        "Collaboration",
+        "Willingness To Learn",
+        "Management",
+        "Administrative Skills",
+        "Consulting",
+        "Distributed Team Management"
+    ],
+    "degree_level": [],
+    "education_field": [],
+    "employment_type": [
+        "contract"
+    ],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Iasi, Iasi, Romania",
+    "job_location_type": [],
+    "programming_languages": [
+        {
+            "skill_name": "Kotlin",
+            "skill_type": "Programming Language",
+            "official_website": "https://kotlinlang.org/",
+            "influenced_by": [
+                "Java",
+                "JavaScript",
+                "C#",
+                "Python",
+                "Gosu",
+                "ML",
+                "Ruby",
+                "Apache Groovy",
+                "Scala"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Nice",
+            "skill_type": "Programming Language",
+            "official_website": "http://nice.sourceforge.net/",
+            "influenced_by": [],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.iso.org/standard/76583.html",
+            "influenced_by": [
+                "first-order logic",
+                "Datalog"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.java.com",
+            "influenced_by": [
+                "C",
+                "Simula 67",
+                "Modula-3",
+                "variadic function",
+                "Oberon",
+                "C#",
+                "Eiffel",
+                "Niklaus Wirth",
+                "Patrick Naughton",
+                "Smalltalk",
+                "Simula",
+                "Java annotation",
+                "Objective-C",
+                "Object Pascal",
+                "Ada",
+                "boxing",
+                "Mesa",
+                "C++",
+                "UCSD Pascal",
+                "foreach loop"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "Icon",
+                "C++",
+                "Modula-3",
+                "Dylan",
+                "CLU",
+                "ALGOL 68",
+                "APL",
+                "Perl",
+                "ABC",
+                "Standard ML",
+                "Haskell",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "C",
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "Scala",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.scala-lang.org/",
+            "influenced_by": [
+                "Java",
+                "Eiffel",
+                "ML",
+                "Common Lisp",
+                "Pizza",
+                "Erlang",
+                "Smalltalk",
+                "Scheme",
+                "OCaml",
+                "Standard ML",
+                "Oz",
+                "Haskell"
+            ],
+            "programmed_in": [
+                "Ada",
+                "Scala"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Docker",
+            "skill_type": "Framework",
+            "official_website": "https://www.docker.com",
+            "influenced_by": [],
+            "programmed_in": [
+                "Go"
+            ]
+        }
+    ],
+    "libraries": [],
+    "unclassified_skills": [
+        "Code Review",
+        "Agile Edge Technologies",
+        "Community Development",
+        "Perspective",
+        "Terraform",
+        "NoSQL",
+        "Private Cloud",
+        "Serverless Computing",
+        "Google Cloud Platform",
+        "Microservices",
+        "Recruitment Process Outsourcing",
+        "Containerization",
+        "Version Control",
+        "Mobile App",
+        "Kubernetes",
+        "Hostile Work Environment",
+        "Virtualization",
+        "Job Descriptions",
+        "Git",
+        "Unit Testing",
+        "Software Architecture",
+        "Standard Accounting Practices",
+        "Prototype",
+        "Code Testing",
+        "Build Tools",
+        "Infrastructure as Code"
+    ]
+}

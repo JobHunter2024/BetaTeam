@@ -1,0 +1,123 @@
+{
+    "companyName": {
+        "json1": "OCEANO MERCADO SRL",
+        "json2": "Oceano Mercado"
+    },
+    "language_skills": {
+        "only_in_json1": [
+            "romanian"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "analytical thinking"
+        ],
+        "only_in_json2": [
+            "reliability",
+            "collaboration",
+            "communications",
+            "innovation"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "bachelor\u2019s degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json2": [
+            "artificial intelligence"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "4+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level",
+        "json2": ""
+    },
+    "job_location": {
+        "json1": "Romania (Flexible/Remote)",
+        "json2": "Poland, Romania, Bulgaria, Hungary"
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "on-site",
+            "remote"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "Nice"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "JMeter",
+            "Jenkins",
+            "RestAssured",
+            "SoapUI",
+            "LoadRunner",
+            "Travis CI",
+            "Appium",
+            "Postman",
+            "Bamboo",
+            "JUnit",
+            "Selenium"
+        ],
+        "only_in_json2": [
+            "Automated Testing Framework"
+        ]
+    },
+    "libraries": {
+        "only_in_json2": [
+            "Selenium"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "ci/cd pipelines",
+            "test result analysis",
+            "test script development",
+            "test automation frameworks",
+            "automation testing",
+            "test strategies",
+            "defect reporting",
+            "api testing"
+        ],
+        "only_in_json2": [
+            "test script",
+            "jenkins",
+            "soapui",
+            "test strategy",
+            "atlassian bamboo",
+            "junit",
+            "travis ci",
+            "gui testing tools",
+            "apache jmeter",
+            "cross-functional team leadership",
+            "application programming interface",
+            "analytics",
+            "programming",
+            "amazon marketplace",
+            "computer science",
+            "artificial intelligence",
+            "postman",
+            "automation",
+            "appium",
+            "machine learning",
+            "romanian language",
+            "e-commerce",
+            "language experience approach",
+            "test automation"
+        ]
+    }
+}

@@ -1,0 +1,90 @@
+{
+    "title": {
+        "json1": "2025 Software Development Engineer - Embedded Development",
+        "json2": "Software Development Engineer Embedded Development"
+    },
+    "companyName": {
+        "json1": "Amazon Development Center (Romania) S.R.L.",
+        "json2": "Amazon Development Center Romania"
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "abstract thinking",
+            "technical articulation",
+            "ambiguity management",
+            "problem solving",
+            "design"
+        ],
+        "only_in_json2": [
+            "complex problem solving",
+            "management",
+            "consulting"
+        ]
+    },
+    "education_field": {
+        "only_in_json2": [
+            "engineering"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ],
+        "only_in_json2": [
+            "internship"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "less than 2 years"
+        ]
+    },
+    "job_location_type": {
+        "only_in_json2": [
+            "online"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "distributed systems",
+            "disaster recovery",
+            "databases",
+            "multi-tiered systems",
+            "nonlinear optimization",
+            "computer science fundamentals",
+            "transactional systems",
+            "system fault-tolerance",
+            "distributed storage",
+            "agile development",
+            "query systems",
+            "kernel internals"
+        ],
+        "only_in_json2": [
+            "disabilities",
+            "distributed computing environment",
+            "storages",
+            "library for www in perl",
+            "large scale multi-agent systems",
+            "computer engineering",
+            "prediction",
+            "programming",
+            "onboarding",
+            "multi-agent systems",
+            "new product development",
+            "scale",
+            "computer science",
+            "software quality management",
+            "software development",
+            "en 1993 building codes",
+            "self service technologies",
+            "distributed computing",
+            "fault tolerant ethernet",
+            "service design",
+            "distributed file systems",
+            "agile edge technologies",
+            "session description protocol security descriptions",
+            "product innovation",
+            "agility"
+        ]
+    }
+}

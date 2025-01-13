@@ -1,0 +1,137 @@
+{
+    "title": {
+        "json1": "Software Development Engineer in Test (SDET)",
+        "json2": "Software Development Engineer in Test Job"
+    },
+    "companyName": {
+        "json1": "NTT DATA Europe & Latam",
+        "json2": "Ntt Data Europe Latam"
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "attention to detail",
+            "adaptability",
+            "good communication skills",
+            "agile/scrum methodology knowledge",
+            "problem solving",
+            "collaboration"
+        ],
+        "only_in_json2": [
+            "itil foundation certification",
+            "reliability",
+            "integration"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "related field",
+            "informatics"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ],
+        "only_in_json2": [
+            "contract"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "6+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "senior",
+        "json2": ""
+    },
+    "job_location": {
+        "json1": "Iasi, Romania",
+        "json2": "Iasi, Iasi, Romania"
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "office work"
+        ],
+        "only_in_json2": [
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "E"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Jest",
+            "Detox"
+        ],
+        "only_in_json2": [
+            "Automated Testing Framework"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "Storybook"
+        ],
+        "only_in_json2": [
+            "Jest",
+            "React.js"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "end-to-end testing",
+            "code testability",
+            "automation framework development",
+            "page object model design",
+            "contract testing",
+            "ci/cd integration"
+        ],
+        "only_in_json2": [
+            "jenkins",
+            "disabilities",
+            "object model",
+            "git",
+            "mobile application software",
+            "atlassian confluence",
+            "genetics",
+            "github",
+            "application development",
+            "jira",
+            "mobile application testing",
+            "software design patterns",
+            "system integration testing",
+            "library",
+            "application programming interface",
+            "teamcity",
+            "asset management",
+            "test suite",
+            "test design",
+            "angular material",
+            "software testing",
+            "integrated product team",
+            "scrum",
+            "learning platforms",
+            "testability",
+            "mobile app",
+            "software development",
+            "code review",
+            "data exchange",
+            "framework design",
+            "automation",
+            "software development engineer in test",
+            "executable",
+            "regression testing",
+            "appium",
+            "grafana",
+            "coloring",
+            "scenario testing",
+            "sharpening",
+            "agility",
+            "test automation",
+            "microservices"
+        ]
+    }
+}

@@ -1,0 +1,158 @@
+{
+    "title": "Senior Artificial Intelligence Machine Learning Engineer",
+    "companyName": "Emerson",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Integration",
+        "Problem Solving",
+        "Presentations",
+        "Professionalism",
+        "Operations",
+        "Innovation",
+        "Collaboration",
+        "Reliability",
+        "Planning",
+        "Scheduling",
+        "Prioritization"
+    ],
+    "degree_level": [
+        "Bachelor's Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Artificial Intelligence",
+        "Engineering"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "Senior",
+    "job_location": "Cluj-Napoca",
+    "job_location_type": [],
+    "programming_languages": [
+        {
+            "skill_name": "Source",
+            "skill_type": "Programming Language",
+            "official_website": "",
+            "influenced_by": [],
+            "programmed_in": [
+                "C++"
+            ]
+        },
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "Icon",
+                "C++",
+                "Modula-3",
+                "Dylan",
+                "CLU",
+                "ALGOL 68",
+                "APL",
+                "Perl",
+                "ABC",
+                "Standard ML",
+                "Haskell",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "C",
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "E",
+            "skill_type": "Programming Language",
+            "official_website": "http://numod.ins.uni-bonn.de/grape/",
+            "influenced_by": [
+                "Java",
+                "Joule"
+            ],
+            "programmed_in": [
+                "C"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [
+        {
+            "skill_name": "PyTorch",
+            "skill_type": "Library",
+            "official_website": "https://pytorch.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "C",
+                "C++",
+                "CUDA",
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "TensorFlow",
+            "skill_type": "Library",
+            "official_website": "https://tensorflow.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "C++",
+                "Python"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Quantization",
+        "Control Systems",
+        "Sustainability",
+        "Diversity And Inclusion",
+        "Digital Transformation",
+        "Data Structures",
+        "Open Source Intelligence",
+        "Machine Learning Methods",
+        "Computing Platforms",
+        "Strategic Business Unit",
+        "Custom Function",
+        "Cloud Computing",
+        "Software Development",
+        "High Performance Computing",
+        "Automation",
+        "A/B Testing",
+        "Natural Language Processing",
+        "Language Model",
+        "Computer Science",
+        "Technical Solution Design",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Balancing",
+        "Production Improvement",
+        "Software Design",
+        "Industrial Automation",
+        "Patentable Subject Matter",
+        "Production Function",
+        "Version Control",
+        "User Experience",
+        "Software Engineering",
+        "Chatbot",
+        "Hostile Work Environment",
+        "Professional Development Programs",
+        "Tracking",
+        "Refining",
+        "Translations",
+        "Continuous Improvement Process",
+        "Energy Production",
+        "Git",
+        "Programming",
+        "Business Requirements",
+        "Life Sciences",
+        "Algorithms",
+        "Workflows",
+        "Scalability",
+        "Cross-Functional Team Leadership",
+        "Branding",
+        "Equities",
+        "Conversational AI",
+        "Customer Support"
+    ]
+}

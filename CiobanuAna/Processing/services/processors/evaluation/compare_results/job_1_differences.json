@@ -1,0 +1,71 @@
+{
+    "soft_skills": {
+        "only_in_json2": [
+            "licensed insurance producer"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "electrical engineering"
+        ],
+        "only_in_json2": [
+            "engineering"
+        ]
+    },
+    "employment_type": {
+        "only_in_json2": [
+            "part-time"
+        ]
+    },
+    "job_location": {
+        "json1": "Timisoara",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "on-site"
+        ]
+    },
+    "frameworks": {
+        "only_in_json2": [
+            "Component Object Model"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "requirement analysis",
+            "emc testing",
+            "optimization of test systems",
+            "electrical tests",
+            "electrical/mechanical engineering knowledge",
+            "supplier management",
+            "test measuring equipment",
+            "test monitoring systems",
+            "system architecture",
+            "well-being policies",
+            "reliability testing",
+            "documentation",
+            "system specification",
+            "test integration"
+        ],
+        "only_in_json2": [
+            "system testing",
+            "automatic test equipment",
+            "projective tests",
+            "system monitoring",
+            "mechanical engineering",
+            "electromagnetic interference and compatibility",
+            "quality management",
+            "systems integration",
+            "electricity",
+            "requisition",
+            "test construction strategies",
+            "model-based definition",
+            "hostile work environment",
+            "requirements analysis",
+            "onboarding",
+            "library for www in perl",
+            "value creation"
+        ]
+    }
+}

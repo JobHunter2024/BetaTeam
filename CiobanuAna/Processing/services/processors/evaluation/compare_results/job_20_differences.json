@@ -1,0 +1,109 @@
+{
+    "companyName": {
+        "json1": "ARTSOFT CONSULT SRL",
+        "json2": "Artsoft Consult"
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "self-motivated",
+            "communication",
+            "team-oriented",
+            "attention to detail",
+            "adaptability",
+            "analytical thinking"
+        ],
+        "only_in_json2": [
+            "professional project manager",
+            "operations",
+            "team oriented",
+            "consulting",
+            "self-motivation",
+            "communications",
+            "writing",
+            "professionalism",
+            "management"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "bachelor's degree",
+            "master's degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "related technical fields"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "2+ years"
+        ]
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "on-site"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json1": [
+            "SQL"
+        ],
+        "only_in_json2": [
+            "Source"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "database scripts",
+            "issue tracking",
+            "support tools",
+            "network communication",
+            "software logs",
+            "api",
+            "jira"
+        ],
+        "only_in_json2": [
+            "software engineering",
+            "professional development programs",
+            "business process outsourcing",
+            "global market access",
+            "agile software development",
+            "network communications",
+            "project-based solutions",
+            "technical support",
+            "scholastic read 180",
+            "issue tracking systems",
+            "hospitality industry",
+            "service provider",
+            "library for www in perl",
+            "benefits enrollment processes",
+            "application programming interface",
+            "problem reports",
+            "analytics",
+            "amazon marketplace",
+            "computer science",
+            "software systems",
+            "career development",
+            "business process",
+            "production management",
+            "system requirements",
+            "interconnection",
+            "software development",
+            "hostile work environment",
+            "information retrieval",
+            "project management",
+            "scripting",
+            "product support",
+            "international marketing",
+            "romanian language",
+            "productivity software",
+            "custom software"
+        ]
+    }
+}

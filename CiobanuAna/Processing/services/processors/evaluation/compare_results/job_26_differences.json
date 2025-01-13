@@ -1,0 +1,127 @@
+{
+    "title": {
+        "json1": ".Net Developer (Mid-Level & Senior)",
+        "json2": "Net Developer Mid Level Senior"
+    },
+    "companyName": {
+        "json1": "ROLOWAY TECH SRL",
+        "json2": "Roloway Tech"
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "agile mindset",
+            "team collaboration",
+            "adaptability",
+            "problem solving"
+        ],
+        "only_in_json2": [
+            "integration",
+            "innovation",
+            "solutions focused",
+            "verbal communication skills",
+            "collaboration",
+            "writing"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "university degree"
+        ],
+        "only_in_json2": [
+            "bachelor's degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "computer science",
+            "related field"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "3+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level & Senior",
+        "json2": "Mid-level"
+    },
+    "job_location": {
+        "json1": "Targu-Mures, Strada Braila 2-4, Targu Mures, Romania",
+        "json2": "Targu-Mures , Strada Braila 2-4, Targu Mures"
+    },
+    "job_location_type": {
+        "only_in_json2": [
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json1": [
+            ".NET Core",
+            "ASP.NET MVC"
+        ],
+        "only_in_json2": [
+            "Nice",
+            "Cascading Style Sheets",
+            "JavaScript"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "ASP.NET Web API",
+            "Bootstrap"
+        ],
+        "only_in_json2": [
+            "ASP.NET Core",
+            "ASP.NET"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "Microsoft Azure"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "angular",
+            "asp.net zero",
+            "problem-solving",
+            "collaboration",
+            "agile development",
+            "javascript",
+            "integration with external services"
+        ],
+        "only_in_json2": [
+            "professional development programs",
+            "agile management",
+            "european training programs",
+            "long-term care",
+            "automated code review",
+            "debugging",
+            "high resolution transmission",
+            "functional requirement",
+            "microsoft azure",
+            "application programming interface",
+            "eyes",
+            "user experience design",
+            "backlogs",
+            "angular material",
+            "sustainable design",
+            "good laboratory practice",
+            "web design programs",
+            "software development",
+            "hostile work environment",
+            "workflows",
+            "executable",
+            "hypertext markup language",
+            "agility",
+            "decision-making software"
+        ]
+    }
+}

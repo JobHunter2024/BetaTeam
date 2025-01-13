@@ -1,0 +1,103 @@
+{
+    "title": "Senior Full Stack Engineer",
+    "companyName": "Synthesia",
+    "datePosted": "December 08, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Team Building",
+        "Leadership",
+        "Operations",
+        "Collaboration",
+        "Planning",
+        "Management"
+    ],
+    "degree_level": [],
+    "education_field": [
+        "Engineering"
+    ],
+    "employment_type": [
+        "contract",
+        "full-time"
+    ],
+    "experience_years": [
+        "7 years"
+    ],
+    "experience_level": "Senior",
+    "job_location": "Khostinskiy, Krasnodar Krai, 354054, Russian Federation",
+    "job_location_type": [
+        "online",
+        "remote"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "Icon",
+                "C++",
+                "Modula-3",
+                "Dylan",
+                "CLU",
+                "ALGOL 68",
+                "APL",
+                "Perl",
+                "ABC",
+                "Standard ML",
+                "Haskell",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "C",
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [
+        {
+            "skill_name": "React.js",
+            "skill_type": "Library",
+            "official_website": "https://react.dev/",
+            "influenced_by": [],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Application Client",
+        "Real Time Data",
+        "Server-Side",
+        "Films",
+        "Employee Stock Option",
+        "Online Charging Systems",
+        "Onboarding",
+        "Transcoding",
+        "Technical Recruitment",
+        "Production Management",
+        "Scale",
+        "Syntax",
+        "Automated Tiered Storage",
+        "Real-Time Computing",
+        "Data Pipeline",
+        "Billing Systems",
+        "Scripting",
+        "Long-Term Care",
+        "Integrated Delivery Systems",
+        "Video Production",
+        "Personalization",
+        "Monoliths",
+        "Low Latency",
+        "Scholastic READ 180",
+        "Software Engineering",
+        "Performance Engineering",
+        "Sage SAFE X3",
+        "Custom Backend",
+        "Branding",
+        "Experimentation",
+        "Database Queries"
+    ]
+}

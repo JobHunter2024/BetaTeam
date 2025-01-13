@@ -1,0 +1,95 @@
+{
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "mentorship",
+            "team collaboration",
+            "problem solving",
+            "technical leadership"
+        ],
+        "only_in_json2": [
+            "planning",
+            "writing",
+            "real estate"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "university degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "computer science",
+            "related field"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "7+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Senior-Level",
+        "json2": "Senior"
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "on-site"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json1": [
+            "SQL"
+        ],
+        "only_in_json2": [
+            "Nice"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Informatica"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "Oracle Database",
+            "QlikSense"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "etl",
+            "data engineering",
+            "database objects",
+            "*nix shell scripting",
+            "stored procedures"
+        ],
+        "only_in_json2": [
+            "architectural development",
+            "track",
+            "very large databases",
+            "support engineering",
+            "calculations",
+            "enforcement",
+            "stored procedure",
+            "extract transform load",
+            "web application development",
+            "code review",
+            "performance management",
+            "process validation",
+            "oracle databases",
+            "reporting tools",
+            "shell script",
+            "zope object databases",
+            "solution design",
+            "learning experience design",
+            "real estate investments"
+        ]
+    }
+}

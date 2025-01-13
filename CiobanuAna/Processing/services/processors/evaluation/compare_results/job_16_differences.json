@@ -1,0 +1,108 @@
+{
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "team collaboration",
+            "continuous learning",
+            "mentoring"
+        ],
+        "only_in_json2": [
+            "verbal communication skills",
+            "sales",
+            "communications",
+            "scheduling",
+            "writing"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "related field"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "2 - 5 years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level",
+        "json2": ""
+    },
+    "job_location": {
+        "json1": "Flexible (Remote/On-Site)",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "on-site",
+            "remote"
+        ],
+        "only_in_json2": [
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json2": [
+            "SQL"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "React"
+        ]
+    },
+    "libraries": {
+        "only_in_json2": [
+            "React.js"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "enterprise software development",
+            "mentorship",
+            "web programming",
+            "agile methodologies",
+            "sql",
+            "distributed saas systems",
+            "restful apis",
+            "code reviews",
+            "process improvement",
+            "object-oriented programming (oop)",
+            "software design and architecture"
+        ],
+        "only_in_json2": [
+            "sugarcrm",
+            "software architecture",
+            "customer experience",
+            "agile software development",
+            "data store",
+            "software development methodologies",
+            "cross-functional coordination",
+            "object-oriented programming",
+            "staging",
+            "customer relationship building",
+            "value-added reseller",
+            "restful api",
+            "customer relationship management",
+            "programming",
+            "personalization",
+            "customer journey mapping",
+            "demand generation",
+            "computer science",
+            "software quality management",
+            "customer profitability",
+            "front end",
+            "software development",
+            "professional services automation",
+            "code review",
+            "software design",
+            "process improvements",
+            "automation"
+        ]
+    }
+}

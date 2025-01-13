@@ -1,0 +1,84 @@
+{
+    "title": "Oracle Fusion Technical Consultant",
+    "companyName": "Oracle",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Problem Solving",
+        "Independent Judgment",
+        "Customer Engagement",
+        "Collaboration",
+        "Analytical Thinking",
+        "Flexibility"
+    ],
+    "degree_level": [
+        "University Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Related Field"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "6-10 years"
+    ],
+    "experience_level": "Senior-Level",
+    "job_location": "Romania",
+    "job_location_type": [
+        "Remote"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "PL/SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.oracle.com/database/technologies/appdev/plsql.html",
+            "influenced_by": [],
+            "programmed_in": [
+                "PL/SQL"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Oracle Fusion Applications",
+            "skill_type": "ERP Software",
+            "official_website": "https://www.oracle.com/applications/fusion/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Oracle Fusion"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Oracle Integration Cloud",
+            "skill_type": "Integration Platform",
+            "official_website": "https://www.oracle.com/middleware/integration/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java",
+                "Oracle"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Data Migration",
+        "FBDI Templates",
+        "BI Publisher",
+        "OTBI Analysis",
+        "Dashboards",
+        "Oracle Integration Cloud",
+        "Performance Monitoring",
+        "Oracle REST API",
+        "SOAP API",
+        "Technical Design Documentation",
+        "Lifecycle Management",
+        "Oracle Cloud",
+        "Financials/SCM Modules",
+        "Report Development"
+    ]
+}

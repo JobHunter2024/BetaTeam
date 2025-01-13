@@ -1,0 +1,125 @@
+{
+    "title": "Test Analyst team",
+    "companyName": "Central Europe Technologies",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English",
+        "French"
+    ],
+    "soft_skills": [
+        "Positivity",
+        "Problem Solving",
+        "Operations",
+        "Collaboration",
+        "Verbal Communication Skills",
+        "Planning",
+        "Research",
+        "Time Management",
+        "Management",
+        "Communications",
+        "Adaptability"
+    ],
+    "degree_level": [
+        "Bachelor's Degree"
+    ],
+    "education_field": [],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Bucharest, Bucharest, Romania",
+    "job_location_type": [
+        "office",
+        "online",
+        "hybrid"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "COBOL",
+            "skill_type": "Programming Language",
+            "official_website": "",
+            "influenced_by": [
+                "FACT",
+                "COMTRAN",
+                "FLOW-MATIC"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Nice",
+            "skill_type": "Programming Language",
+            "official_website": "http://nice.sourceforge.net/",
+            "influenced_by": [],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.java.com",
+            "influenced_by": [
+                "C",
+                "Simula 67",
+                "Modula-3",
+                "variadic function",
+                "Oberon",
+                "C#",
+                "Eiffel",
+                "Niklaus Wirth",
+                "Patrick Naughton",
+                "Smalltalk",
+                "Simula",
+                "Java annotation",
+                "Objective-C",
+                "Object Pascal",
+                "Ada",
+                "boxing",
+                "Mesa",
+                "C++",
+                "UCSD Pascal",
+                "foreach loop"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Life Insurance Sales",
+        "Test Data",
+        "Test Planning",
+        "Test Management",
+        "Regression Testing",
+        "Test Strategy",
+        "Peer Review",
+        "KPI Reporting",
+        "Functional Requirement",
+        "Interactivity",
+        "Executable",
+        "Automation",
+        "Agile Methodology",
+        "Test Execution Engine",
+        "Virtual System Administrator",
+        "Test Design",
+        "Scale",
+        "Storages",
+        "Performance Testing",
+        "RESTful API",
+        "Transformation",
+        "Scenario Testing",
+        "User Story",
+        "Expert Systems",
+        "Business Development",
+        "Collections",
+        "Test Case",
+        "Test Automation",
+        "JIRA",
+        "Gherkin",
+        "Massages",
+        "Banking",
+        "Postman",
+        "Dutch Language",
+        "Capitalization",
+        "Manual Testing"
+    ]
+}

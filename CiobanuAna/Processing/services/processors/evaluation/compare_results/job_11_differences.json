@@ -1,0 +1,113 @@
+{
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "collaboration",
+            "problem solving",
+            "attention to detail"
+        ],
+        "only_in_json2": [
+            "planning",
+            "infrastructure",
+            "troubleshooting (problem solving)",
+            "management"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "bachelor\u2019s degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "computer science",
+            "software engineering",
+            "information systems"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "1-2 years"
+        ]
+    },
+    "job_location_type": {
+        "only_in_json1": [
+            "office work"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json1": [
+            "T-SQL"
+        ],
+        "only_in_json2": [
+            "SQL",
+            "JavaScript",
+            "Transact-SQL",
+            "Java"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "batch jobs",
+            "backup and restore databases",
+            "sql server architecture design",
+            "xml schema validation (xsd)",
+            "microsoft sql server 2008/2017",
+            "deadlock issues resolution",
+            "data extraction",
+            "database troubleshooting",
+            "xml processing in sql",
+            "stored procedures"
+        ],
+        "only_in_json2": [
+            "economy",
+            "technical solution design",
+            "extensible markup language",
+            "oracle sql developer",
+            "financial market",
+            "minimum data set",
+            "professional services",
+            "validations",
+            "business requirements",
+            "codesynthesis xsd/e",
+            "stored procedure",
+            "backup and restore",
+            "rich internet application",
+            "sales tax management services",
+            "scalability",
+            "project stakeholders",
+            "sustainable growth rate",
+            "cleaning validation",
+            "microsoft sql servers",
+            "front end",
+            "software development",
+            "data validation",
+            "back end",
+            "workflows",
+            "product management",
+            "document management systems",
+            "technical writing",
+            "customer support",
+            "architectural design",
+            "translations",
+            "user story",
+            "interactivity",
+            "xml schema",
+            "financial business solution",
+            "hypertext markup language",
+            "mapping",
+            "hosting",
+            "native sql"
+        ]
+    }
+}

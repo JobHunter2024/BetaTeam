@@ -1,0 +1,121 @@
+{
+    "title": "Data Engineer",
+    "companyName": "Awin Global",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Decision Making",
+        "Collaboration",
+        "Team Oriented",
+        "Professionalism",
+        "Problem Solving",
+        "Writing",
+        "Socialization",
+        "Adaptability",
+        "Communications"
+    ],
+    "degree_level": [
+        "Master's Degree",
+        "Bachelor's Degree"
+    ],
+    "education_field": [
+        "Statistics",
+        "Computer Science",
+        "Data Engineering",
+        "Engineering",
+        "Data Science"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Iasi, Romania",
+    "job_location_type": [
+        "remote",
+        "hybrid",
+        "office"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.iso.org/standard/76583.html",
+            "influenced_by": [
+                "Datalog",
+                "first-order logic"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "Icon",
+                "Standard ML",
+                "CLU",
+                "Perl",
+                "C",
+                "C++",
+                "Java",
+                "ALGOL 68",
+                "ABC",
+                "Modula-3",
+                "Lisp",
+                "Dylan",
+                "Haskell",
+                "APL"
+            ],
+            "programmed_in": [
+                "C",
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "Project Planning",
+        "Mental Health",
+        "Statistics",
+        "Cloud Technologies",
+        "Staging",
+        "Data Extraction",
+        "Sanitization",
+        "Apex Data Loader",
+        "Data Quality",
+        "Amazon Data Pipeline",
+        "Knowledge Base",
+        "Reduction",
+        "Computer Science",
+        "Consolidation",
+        "Continuous Improvement Process",
+        "Embedding",
+        "Voucher",
+        "Data Collection",
+        "Machine Learning Methods",
+        "Statistical Methods",
+        "Analytics",
+        "Agility",
+        "Personality Development",
+        "Customer Support",
+        "Dataset",
+        "Azure Data Lake",
+        "Natural Language Processing",
+        "Data Transformation Services",
+        "Data Ingestion",
+        "Conceptualization",
+        "Databricks",
+        "Cross-Functional Team Leadership",
+        "Scripting",
+        "Scrum",
+        "Storages",
+        "Vectorization",
+        "Data Engineering",
+        "Peer-To-Peer",
+        "Big Data",
+        "Virtual Environment",
+        "Indexing",
+        "Transformation",
+        "Campaign Management"
+    ]
+}

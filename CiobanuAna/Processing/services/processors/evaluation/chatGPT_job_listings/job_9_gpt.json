@@ -1,0 +1,120 @@
+{
+    "title": "AI/ML Engineer",
+    "companyName": "AMD",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Collaboration",
+        "Problem Solving",
+        "Innovation",
+        "Critical Thinking",
+        "Communication"
+    ],
+    "degree_level": [
+        "Bachelor’s Degree",
+        "Master’s Degree (Preferred)",
+        "Ph.D. (Preferred)"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Computer Engineering",
+        "Related Field"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "3+ years"
+    ],
+    "experience_level": "Mid-Senior",
+    "job_location": "Iasi, Iasi, Romania",
+    "job_location_type": [
+        "Office Work"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org",
+            "influenced_by": [
+                "ABC",
+                "C",
+                "Modula-3",
+                "Smalltalk",
+                "Java"
+            ],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "C++",
+            "skill_type": "Programming Language",
+            "official_website": "https://isocpp.org/",
+            "influenced_by": [
+                "C",
+                "Simula"
+            ],
+            "programmed_in": [
+                "C++"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "TensorFlow",
+            "skill_type": "Machine Learning Framework",
+            "official_website": "https://www.tensorflow.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "PyTorch",
+            "skill_type": "Machine Learning Framework",
+            "official_website": "https://pytorch.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "Keras",
+            "skill_type": "Machine Learning Framework",
+            "official_website": "https://keras.io",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "Scikit-learn",
+            "skill_type": "Machine Learning Library",
+            "official_website": "https://scikit-learn.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Data Ingestion",
+        "Fine Tuning LLM",
+        "Benchmarking",
+        "Neural Networks",
+        "Deep Learning",
+        "Semi-Conductors/Silicon Design/Embedded Systems Knowledge",
+        "Model Optimization",
+        "AI Solutions",
+        "Model Deployment",
+        "AMD Hardware (GPU, CPU, APU)",
+        "ROCm",
+        "OpenCL",
+        "HIP"
+    ]
+}

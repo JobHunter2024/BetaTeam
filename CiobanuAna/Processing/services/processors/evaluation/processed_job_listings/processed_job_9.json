@@ -1,0 +1,187 @@
+{
+    "title": "AI ML Engineer",
+    "companyName": "Amd",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Supervision",
+        "Problem Solving",
+        "Innovation",
+        "Collaboration",
+        "Critical Thinking",
+        "Verbal Communication Skills",
+        "Research",
+        "Communications"
+    ],
+    "degree_level": [
+        "Doctorate",
+        "Bachelor's Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Computer Engineering",
+        "Artificial Intelligence",
+        "Engineering"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Iasi, Iasi, Romania",
+    "job_location_type": [],
+    "programming_languages": [
+        {
+            "skill_name": "C++",
+            "skill_type": "Programming Language",
+            "official_website": "https://isocpp.org/",
+            "influenced_by": [
+                "C",
+                "CLU",
+                "ML",
+                "ALGOL 68",
+                "Ada",
+                "Simula"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Java",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.java.com",
+            "influenced_by": [
+                "C",
+                "Simula 67",
+                "Modula-3",
+                "variadic function",
+                "Oberon",
+                "C#",
+                "Eiffel",
+                "Niklaus Wirth",
+                "Patrick Naughton",
+                "Smalltalk",
+                "Simula",
+                "Java annotation",
+                "Objective-C",
+                "Object Pascal",
+                "Ada",
+                "boxing",
+                "Mesa",
+                "C++",
+                "UCSD Pascal",
+                "foreach loop"
+            ],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "Icon",
+                "C++",
+                "Modula-3",
+                "Dylan",
+                "CLU",
+                "ALGOL 68",
+                "APL",
+                "Perl",
+                "ABC",
+                "Standard ML",
+                "Haskell",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "C",
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [
+        {
+            "skill_name": "OpenCL",
+            "skill_type": "Library",
+            "official_website": "https://www.khronos.org/opencl",
+            "influenced_by": [],
+            "programmed_in": [
+                "C",
+                "C++11",
+                "C++"
+            ]
+        },
+        {
+            "skill_name": "PyTorch",
+            "skill_type": "Library",
+            "official_website": "https://pytorch.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "C",
+                "C++",
+                "CUDA",
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "Keras",
+            "skill_type": "Library",
+            "official_website": "https://keras.io/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "Threading Building Blocks",
+            "skill_type": "Library",
+            "official_website": "https://oneapi-src.github.io/oneTBB/",
+            "influenced_by": [],
+            "programmed_in": [
+                "C++"
+            ]
+        },
+        {
+            "skill_name": "TensorFlow",
+            "skill_type": "Library",
+            "official_website": "https://tensorflow.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "C++",
+                "Python"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Silicone",
+        "Data Ingestion",
+        "Deep Learning",
+        "Personal Communications Service Systems",
+        "Unsupervised Learning",
+        "Computer Engineering",
+        "Machine Learning Methods",
+        "Embedded Systems",
+        "Amd Processor",
+        "Data Centers",
+        "Software Development",
+        "Analytics",
+        "Graphics Processing Unit",
+        "Computer Science",
+        "pH Meters",
+        "Coloring",
+        "Production Management",
+        "Recurrent Neural Network",
+        "Library",
+        "KM Programming Language",
+        "Artificial Intelligence",
+        "Benchmarking",
+        "Job Descriptions",
+        "Reinforcement Learning",
+        "Scikit-learn",
+        "Algorithms",
+        "Disabilities",
+        "Cross-Functional Team Leadership",
+        "Embedding"
+    ]
+}

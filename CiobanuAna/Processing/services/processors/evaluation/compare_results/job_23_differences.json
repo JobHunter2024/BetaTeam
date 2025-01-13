@@ -1,0 +1,127 @@
+{
+    "title": {
+        "json1": "Software Engineer - Marketing",
+        "json2": "Software Engineer Marketing"
+    },
+    "companyName": {
+        "json1": "BOOKING HOLDINGS ROMANIA S.R.L.",
+        "json2": "Booking Holdings Romania"
+    },
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "communication",
+            "customer focus",
+            "problem solving",
+            "independent work",
+            "technical decision making"
+        ],
+        "only_in_json2": [
+            "communications",
+            "prioritization",
+            "integration",
+            "innovation"
+        ]
+    },
+    "degree_level": {
+        "only_in_json1": [
+            "university degree"
+        ],
+        "only_in_json2": [
+            "bachelor's degree"
+        ]
+    },
+    "education_field": {
+        "only_in_json1": [
+            "software engineering"
+        ],
+        "only_in_json2": [
+            "engineering"
+        ]
+    },
+    "employment_type": {
+        "only_in_json1": [
+            "full-time"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "3+ years"
+        ]
+    },
+    "experience_level": {
+        "json1": "Mid-Level",
+        "json2": ""
+    },
+    "job_location_type": {
+        "only_in_json2": [
+            "onsite",
+            "online",
+            "office"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json1": [
+            "C++"
+        ],
+        "only_in_json2": [
+            "Nice",
+            "High Performance Fortran"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "Spring Boot"
+        ],
+        "only_in_json2": [
+            "Component Object Model"
+        ]
+    },
+    "libraries": {
+        "only_in_json1": [
+            "Kafka"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "high-performance systems",
+            "distributed systems",
+            "api development",
+            "tdd (test-driven development)",
+            "recruitment and onboarding",
+            "large-scale software development",
+            "customer-facing systems",
+            "ddd (domain-driven design)",
+            "observability"
+        ],
+        "only_in_json2": [
+            "software engineering",
+            "test-driven development",
+            "acting",
+            "new business development",
+            "synoptic scale meteorology",
+            "life insurance sales",
+            "service provider",
+            "library for www in perl",
+            "server-side",
+            "emerging technologies",
+            "application programming interface",
+            "continuous quality improvement",
+            "scale",
+            "voucher",
+            "good laboratory practice",
+            "ddd service",
+            "learning platforms",
+            "software development",
+            "process improvements",
+            "booking",
+            "distributed file systems",
+            "relational databases",
+            "km programming language"
+        ]
+    }
+}

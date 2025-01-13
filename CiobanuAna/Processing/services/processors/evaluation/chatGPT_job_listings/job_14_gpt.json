@@ -1,0 +1,187 @@
+{
+    "title": "QA Engineer",
+    "companyName": "OCEANO MERCADO SRL",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English",
+        "Romanian"
+    ],
+    "soft_skills": [
+        "Communication",
+        "Problem Solving",
+        "Teamwork",
+        "Analytical Thinking"
+    ],
+    "degree_level": [
+        "Bachelor’s Degree"
+    ],
+    "education_field": [
+        "Computer Science"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "4+ years"
+    ],
+    "experience_level": "Mid-Level",
+    "job_location": "Romania (Flexible/Remote)",
+    "job_location_type": [
+        "Remote",
+        "On-Site"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "ABC"
+            ],
+            "programmed_in": [
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "JavaScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+            "influenced_by": [
+                "C",
+                "Java"
+            ],
+            "programmed_in": [
+                "JavaScript"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Selenium",
+            "skill_type": "Automation Testing Framework",
+            "official_website": "https://www.selenium.dev/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java",
+                "Python",
+                "C#"
+            ]
+        },
+        {
+            "skill_name": "Appium",
+            "skill_type": "Automation Testing Framework",
+            "official_website": "http://appium.io/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java",
+                "JavaScript",
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "JUnit",
+            "skill_type": "Testing Framework",
+            "official_website": "https://junit.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "TestNG",
+            "skill_type": "Testing Framework",
+            "official_website": "https://testng.org/doc/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "Jenkins",
+            "skill_type": "CI/CD Tool",
+            "official_website": "https://www.jenkins.io/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "Bamboo",
+            "skill_type": "CI/CD Tool",
+            "official_website": "https://www.atlassian.com/software/bamboo",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "Travis CI",
+            "skill_type": "CI/CD Tool",
+            "official_website": "https://travis-ci.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Various (YAML configuration)"
+            ]
+        },
+        {
+            "skill_name": "Postman",
+            "skill_type": "API Testing Tool",
+            "official_website": "https://www.postman.com/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Various (API Testing)"
+            ]
+        },
+        {
+            "skill_name": "RestAssured",
+            "skill_type": "API Testing Framework",
+            "official_website": "https://rest-assured.io/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "SoapUI",
+            "skill_type": "API Testing Tool",
+            "official_website": "https://www.soapui.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "JMeter",
+            "skill_type": "Performance Testing Tool",
+            "official_website": "https://jmeter.apache.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "Java"
+            ]
+        },
+        {
+            "skill_name": "LoadRunner",
+            "skill_type": "Performance Testing Tool",
+            "official_website": "https://www.microfocus.com/en-us/products/loadrunner-professional/overview",
+            "influenced_by": [],
+            "programmed_in": [
+                "Various"
+            ]
+        }
+    ],
+    "libraries": [],
+    "unclassified_skills": [
+        "API Testing",
+        "Automation Testing",
+        "Performance Testing",
+        "Security Testing",
+        "Test Automation Frameworks",
+        "CI/CD Pipelines",
+        "Test Strategies",
+        "Test Script Development",
+        "Defect Reporting",
+        "Test Result Analysis"
+    ]
+}

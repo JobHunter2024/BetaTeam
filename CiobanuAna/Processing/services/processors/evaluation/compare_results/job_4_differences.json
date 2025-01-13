@@ -1,0 +1,112 @@
+{
+    "language_skills": {
+        "only_in_json1": [
+            "english"
+        ]
+    },
+    "soft_skills": {
+        "only_in_json1": [
+            "simplification",
+            "focus on commercial success",
+            "adaptability",
+            "ownership",
+            "problem solving",
+            "outcome orientation"
+        ],
+        "only_in_json2": [
+            "operations",
+            "planning",
+            "management",
+            "team building"
+        ]
+    },
+    "education_field": {
+        "only_in_json2": [
+            "engineering"
+        ]
+    },
+    "employment_type": {
+        "only_in_json2": [
+            "contract"
+        ]
+    },
+    "experience_years": {
+        "only_in_json1": [
+            "7+ years"
+        ],
+        "only_in_json2": [
+            "7 years"
+        ]
+    },
+    "job_location": {
+        "json1": "Khostinskiy, Krasnodar Krai, Russian Federation",
+        "json2": "Khostinskiy, Krasnodar Krai, 354054, Russian Federation"
+    },
+    "job_location_type": {
+        "only_in_json2": [
+            "online"
+        ]
+    },
+    "programming_languages": {
+        "only_in_json1": [
+            "JavaScript"
+        ]
+    },
+    "frameworks": {
+        "only_in_json1": [
+            "React"
+        ]
+    },
+    "libraries": {
+        "only_in_json2": [
+            "React.js"
+        ]
+    },
+    "unclassified_skills": {
+        "only_in_json1": [
+            "frontend development",
+            "saas product development",
+            "optimizing database queries",
+            "backend development",
+            "experimentation platforms",
+            "online editors",
+            "real-time collaboration",
+            "video delivery systems",
+            "data pipeline frameworks",
+            "ai video generation",
+            "ui interactions"
+        ],
+        "only_in_json2": [
+            "software engineering",
+            "long-term care",
+            "real time data",
+            "database queries",
+            "low latency",
+            "scholastic read 180",
+            "video production",
+            "monoliths",
+            "server-side",
+            "application client",
+            "sage safe x3",
+            "integrated delivery systems",
+            "syntax",
+            "technical recruitment",
+            "personalization",
+            "onboarding",
+            "data pipeline",
+            "films",
+            "transcoding",
+            "scale",
+            "employee stock option",
+            "production management",
+            "performance engineering",
+            "real-time computing",
+            "scripting",
+            "branding",
+            "experimentation",
+            "online charging systems",
+            "custom backend",
+            "automated tiered storage"
+        ]
+    }
+}

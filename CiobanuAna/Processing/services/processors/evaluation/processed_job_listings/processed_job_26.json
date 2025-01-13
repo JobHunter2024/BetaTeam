@@ -1,0 +1,134 @@
+{
+    "title": "Net Developer Mid Level Senior",
+    "companyName": "Roloway Tech",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English",
+        "English"
+    ],
+    "soft_skills": [
+        "Integration",
+        "Innovation",
+        "Collaboration",
+        "Solutions Focused",
+        "Writing",
+        "Verbal Communication Skills"
+    ],
+    "degree_level": [
+        "Bachelor's Degree"
+    ],
+    "education_field": [],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "Mid-level",
+    "job_location": "Targu-Mures , Strada Braila 2-4, Targu Mures",
+    "job_location_type": [
+        "office",
+        "hybrid"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Nice",
+            "skill_type": "Programming Language",
+            "official_website": "http://nice.sourceforge.net/",
+            "influenced_by": [],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "JavaScript",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.ecma-international.org/publications-and-standards/standards/ecma-262/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "LiveScript",
+                "Python",
+                "Lua",
+                "HyperTalk",
+                "AWK",
+                "Perl",
+                "Scheme",
+                "Self"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "C#",
+            "skill_type": "Programming Language",
+            "official_website": "https://docs.microsoft.com/ja-jp/dotnet/csharp/",
+            "influenced_by": [
+                "Visual J++",
+                "C",
+                "Icon",
+                "C++",
+                "Java",
+                "Modula-3",
+                "Haskell",
+                "J#",
+                "Eiffel",
+                "C\u03c9",
+                "ML",
+                "Object Pascal",
+                "Visual Basic",
+                "F#",
+                "Rust",
+                "delete"
+            ],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Cascading Style Sheets",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.w3.org/Style/CSS/",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "ASP.NET Core",
+            "skill_type": "Framework",
+            "official_website": "https://docs.microsoft.com/aspnet/core/",
+            "influenced_by": [],
+            "programmed_in": [
+                "C#"
+            ]
+        },
+        {
+            "skill_name": "ASP.NET",
+            "skill_type": "Framework",
+            "official_website": "https://dotnet.microsoft.com/en-us/apps/aspnet",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "libraries": [],
+    "unclassified_skills": [
+        "Eyes",
+        "European Training Programs",
+        "Sustainable Design",
+        "Decision-Making Software",
+        "Web Design Programs",
+        "Software Development",
+        "DevOps",
+        "Functional Requirement",
+        "Executable",
+        "Debugging",
+        "HyperText Markup Language",
+        "Long-Term Care",
+        "User Experience Design",
+        "Angular Material",
+        "Agile Management",
+        "High Resolution Transmission",
+        "Good Laboratory Practice",
+        "Professional Development Programs",
+        "Hostile Work Environment",
+        "JIRA",
+        "Agility",
+        "Automated Code Review",
+        "Workflows",
+        "Application Programming Interface",
+        "Microsoft Azure",
+        "Backlogs"
+    ]
+}

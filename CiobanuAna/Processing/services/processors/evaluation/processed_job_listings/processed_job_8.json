@@ -1,0 +1,83 @@
+{
+    "title": "Intern Software Engineer Python",
+    "companyName": "Adobe",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Collaboration",
+        "Management",
+        "Communications"
+    ],
+    "degree_level": [
+        "Doctorate"
+    ],
+    "education_field": [
+        "Computer Science"
+    ],
+    "employment_type": [
+        "internship"
+    ],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Bucharest, Romania",
+    "job_location_type": [
+        "office",
+        "online",
+        "hybrid"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "Icon",
+                "C++",
+                "Modula-3",
+                "Dylan",
+                "CLU",
+                "ALGOL 68",
+                "APL",
+                "Perl",
+                "ABC",
+                "Standard ML",
+                "Haskell",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "C",
+                "Python"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Component Object Model",
+            "skill_type": "Framework",
+            "official_website": "https://docs.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "libraries": [],
+    "unclassified_skills": [
+        "Refining",
+        "Online Assessments",
+        "Software Development",
+        "Adobe Audience Manager",
+        "Amazon Marketplace",
+        "Workflows",
+        "Disabilities",
+        "Computer Science",
+        "pH Meters",
+        "Coloring",
+        "Customer Experience",
+        "Registration Evaluation Authorisation And Restriction Of Chemicals Regulations",
+        "Recruitment Process Outsourcing",
+        "Email Processing",
+        "Good Laboratory Practice",
+        "Corporate Social Responsibility"
+    ]
+}

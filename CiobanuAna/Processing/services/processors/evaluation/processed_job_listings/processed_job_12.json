@@ -1,0 +1,149 @@
+{
+    "title": "Data Scientist GenAI",
+    "companyName": "Crowdstrike",
+    "datePosted": "January 01, 2024",
+    "language_skills": [],
+    "soft_skills": [
+        "Team Building",
+        "Integration",
+        "Problem Solving",
+        "Presentations",
+        "Professionalism",
+        "Friendliness",
+        "Innovation",
+        "Collaboration",
+        "Curiosity",
+        "Critical Thinking",
+        "Research",
+        "Self Starter"
+    ],
+    "degree_level": [
+        "Doctorate"
+    ],
+    "education_field": [
+        "Statistics",
+        "Data Science",
+        "Computer Science",
+        "Mathematics"
+    ],
+    "employment_type": [],
+    "experience_years": [],
+    "experience_level": "",
+    "job_location": "Bucharest, Bucharest, Romania",
+    "job_location_type": [
+        "remote"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "Python",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.python.org/",
+            "influenced_by": [
+                "C",
+                "Java",
+                "Icon",
+                "C++",
+                "Modula-3",
+                "Dylan",
+                "CLU",
+                "ALGOL 68",
+                "APL",
+                "Perl",
+                "ABC",
+                "Standard ML",
+                "Haskell",
+                "Lisp"
+            ],
+            "programmed_in": [
+                "C",
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "E",
+            "skill_type": "Programming Language",
+            "official_website": "http://numod.ins.uni-bonn.de/grape/",
+            "influenced_by": [
+                "Java",
+                "Joule"
+            ],
+            "programmed_in": [
+                "C"
+            ]
+        }
+    ],
+    "frameworks": [
+        {
+            "skill_name": "Component Object Model",
+            "skill_type": "Framework",
+            "official_website": "https://docs.microsoft.com/en-us/windows/win32/com/component-object-model--com--portal",
+            "influenced_by": [],
+            "programmed_in": []
+        }
+    ],
+    "libraries": [
+        {
+            "skill_name": "PyTorch",
+            "skill_type": "Library",
+            "official_website": "https://pytorch.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "C",
+                "C++",
+                "CUDA",
+                "Python"
+            ]
+        },
+        {
+            "skill_name": "TensorFlow",
+            "skill_type": "Library",
+            "official_website": "https://tensorflow.org",
+            "influenced_by": [],
+            "programmed_in": [
+                "C++",
+                "Python"
+            ]
+        }
+    ],
+    "unclassified_skills": [
+        "Dissemination",
+        "Deep Learning",
+        "Self Host",
+        "Linux",
+        "Cybersecurity Compliance",
+        "Machine Learning Methods",
+        "Production Systems",
+        "Peer Review",
+        "Graphics Processing Unit",
+        "Thought Leadership",
+        "Computer Science",
+        "Language Model",
+        "Coloring",
+        "Production Management",
+        "Adoptions",
+        "Visualization",
+        "Scale",
+        "Machine Learning",
+        "Intelligent Virtual Assistant",
+        "Diving",
+        "Data Science",
+        "Model-Based Definition",
+        "Sparse",
+        "Interactive Design",
+        "Cudnn",
+        "Software Engineering",
+        "Professional Development Programs",
+        "Nvidia CUDA",
+        "Data Collection",
+        "Mathematical Statistics",
+        "Cloud Technologies",
+        "Disabilities",
+        "Scalability",
+        "Sage SAFE X3",
+        "Prototype",
+        "Transformers",
+        "Track",
+        "Equities",
+        "Information Access"
+    ]
+}

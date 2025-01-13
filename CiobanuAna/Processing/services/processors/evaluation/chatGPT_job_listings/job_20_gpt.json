@@ -1,0 +1,63 @@
+{
+    "title": "Software Support Engineer",
+    "companyName": "ARTSOFT CONSULT SRL",
+    "datePosted": "January 01, 2024",
+    "language_skills": [
+        "English"
+    ],
+    "soft_skills": [
+        "Attention to Detail",
+        "Analytical Thinking",
+        "Problem Solving",
+        "Team-Oriented",
+        "Self-Motivated",
+        "Adaptability",
+        "Communication"
+    ],
+    "degree_level": [
+        "Bachelor's Degree",
+        "Master's Degree"
+    ],
+    "education_field": [
+        "Computer Science",
+        "Engineering",
+        "Related Technical Fields"
+    ],
+    "employment_type": [
+        "Full-time"
+    ],
+    "experience_years": [
+        "2+ years"
+    ],
+    "experience_level": "Mid-Level",
+    "job_location": "Apahida, Baciu, Cluj-Napoca, Floresti, Gilau",
+    "job_location_type": [
+        "On-Site"
+    ],
+    "programming_languages": [
+        {
+            "skill_name": "SQL",
+            "skill_type": "Programming Language",
+            "official_website": "https://www.sql.org/",
+            "influenced_by": [],
+            "programmed_in": [
+                "SQL"
+            ]
+        }
+    ],
+    "frameworks": [],
+    "libraries": [],
+    "unclassified_skills": [
+        "API",
+        "Postman",
+        "SoapUI",
+        "MongoDB",
+        "MySQL",
+        "Network Communication",
+        "Jira",
+        "Software Logs",
+        "Database Scripts",
+        "Support Tools",
+        "Issue Tracking"
+    ]
+}
