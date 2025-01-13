@@ -21,6 +21,7 @@ class OntologyGenerator
         $this->addInverseProperties();
         $this->addDataProperties();
         $this->addNamedIndividuals();
+        $this->addGlobalPropertyLabels();
 
         return $this->triples;
     }
@@ -215,6 +216,16 @@ class OntologyGenerator
             $this->triples[] = "<{$this->baseUri}{$property}> rdfs:range {$range} .";
         }
     }
+
+    private function addGlobalPropertyLabels(): void
+    {
+        // Label for rdfs:label
+        $this->triples[] = "<http://www.w3.org/2000/01/rdf-schema#label> rdfs:label \"Label\"^^xsd:string .";
+
+        // Label for rdf:type
+        $this->triples[] = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> rdfs:label \"Instance Of\"^^xsd:string .";
+    }
+
 
     private function addNamedIndividuals(): void
     {
