@@ -47,13 +47,13 @@ class TripleService
             // Core Job Information
             if (isset($data['title'])) {
                 $cleanTitle = str_replace(' ', '', $data['title']);
-                //--$triples[] = "<{$baseUri}{$cleanTitle}> rdf:type <{$baseUri}Job> .";
+                $triples[] = "<{$baseUri}{$cleanTitle}> rdf:type <{$baseUri}Job> .";
                 $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}jobTitle> \"" . addslashes($data['title']) . "\"^^xsd:string .";
             }
 
             if (isset($data['companyName'])) {
                 $cleanCompanyName = str_replace(' ', '', $data['companyName']);
-                //--$triples[] = "<{$baseUri}{$cleanCompanyName}> rdf:type <{$baseUri}Company> .";
+                $triples[] = "<{$baseUri}{$cleanCompanyName}> rdf:type <{$baseUri}Company> .";
                 $triples[] = "<{$baseUri}{$cleanCompanyName}> <{$baseUri}companyName> \"" . addslashes($data['companyName']) . "\"^^xsd:string .";
                 $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}postedByCompany> <{$baseUri}{$cleanCompanyName}> .";
             }
@@ -88,7 +88,7 @@ class TripleService
                 foreach ($data['soft_skills'] as $skill) {
                     $cleanSkill = str_replace(' ', '', $skill);
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$cleanSkill}> .";
-                    //--$triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Soft Skill> .";
+                    $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Soft Skill> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdfs:label \"" . addslashes($skill) . "\"^^xsd:string .";
                 }
             }
@@ -97,9 +97,9 @@ class TripleService
             if (!empty($data['programming_languages'])) {
                 foreach ($data['programming_languages'] as $language) {
                     $langName = str_replace(' ', '', $language['skill_name'] ?? 'Unknown');
-                    //-- $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Programming Language> .";
-                    //-- $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Technical Skill> .";
-                    //-- $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Skill> .";
+                    $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Programming Language> .";
+                    $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Technical Skill> .";
+                    $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$langName}> rdfs:label \"" . addslashes($language['skill_name']) . "\"^^xsd:string .";
                     if (!empty($language['official_website'])) {
                         $triples[] = "<{$baseUri}{$langName}> <{$baseUri}officialWebsite> \"" . addslashes($language['official_website']) . "\"^^xsd:anyURI .";
@@ -124,7 +124,7 @@ class TripleService
                 foreach ($data['education_field'] as $field) {
                     $cleanField = str_replace(' ', '', $field);
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresEducation> <{$baseUri}{$cleanField}> .";
-                    //-- $triples[] = "<{$baseUri}{$cleanField}> rdf:type <{$baseUri}Education> .";
+                    $triples[] = "<{$baseUri}{$cleanField}> rdf:type <{$baseUri}Education> .";
                     $triples[] = "<{$baseUri}{$cleanField}> rdfs:label \"" . addslashes($field) . "\"^^xsd:string .";
                 }
             }
@@ -134,7 +134,7 @@ class TripleService
                 foreach ($data['unclassified_skills'] as $skill) {
                     $cleanSkill = str_replace(' ', '', $skill);
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}hasSkill> <{$baseUri}{$cleanSkill}> .";
-                    //-- $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Skill> .";
+                    $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdfs:label \"" . addslashes($skill) . "\"^^xsd:string .";
                 }
             }
@@ -143,9 +143,9 @@ class TripleService
             if (!empty($data['libraries'])) {
                 foreach ($data['libraries'] as $library) {
                     $libName = str_replace(' ', '', $library['skill_name'] ?? 'UnknownLibrary');
-                    //-- $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Library> .";
-                    //-- $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
-                    //-- $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Skill> .";
+                    $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Library> .";
+                    $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
+                    $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$libName}> rdfs:label \"" . addslashes($library['skill_name']) . "\"^^xsd:string .";
                     if (!empty($library['influenced_by'])) {
                         foreach ($library['influenced_by'] as $influenced) {
@@ -166,9 +166,9 @@ class TripleService
             if (!empty($data['frameworks'])) {
                 foreach ($data['frameworks'] as $framework) {
                     $fwName = str_replace(' ', '', $framework['skill_name'] ?? 'UnknownFramework');
-                    //-- $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Framework> .";
-                    //-- $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
-                    //-- $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Skill> .";
+                    $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Framework> .";
+                    $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
+                    $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$fwName}> rdfs:label \"" . addslashes($framework['skill_name']) . "\"^^xsd:string .";
                     if (!empty($framework['influenced_by'])) {
                         foreach ($framework['influenced_by'] as $influenced) {
