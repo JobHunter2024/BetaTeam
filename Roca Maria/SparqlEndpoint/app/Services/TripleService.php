@@ -515,7 +515,7 @@ class TripleService
                 if ($data['topic'] != "None" || $data['topic'] != "none") {
                     $cleanTopic = str_replace(' ', '', $data['topic']);
                     // type topic
-                    $triples[] = "<{$baseUri}{$cleanTitle}> rdf:type <{$baseUri}Topic> .";
+                    $triples[] = "<{$baseUri}{$cleanTopic}> rdf:type <{$baseUri}Topic> .";
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}topic> \"" . addslashes($data['topic']) . "\"^^xsd:string .";
                     $triples[] = "<{$baseUri}{$cleanTopic}> rdfs:label \"" . addslashes($data['topic']) . "\"^^xsd:string .";
                     // hasTopic
@@ -532,7 +532,7 @@ class TripleService
                         if ($data['city'] != "None" || $data['city'] != "none") {
                             $cleanCity = str_replace(' ', '', $data['city']);
                             // type city
-                            $triples[] = "<{$baseUri}{$cleanTitle}> rdf:type <{$baseUri}City> .";
+                            $triples[] = "<{$baseUri}{$cleanCity}> rdf:type <{$baseUri}City> .";
                             $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}city> \"" . addslashes($data['city']) . "\"^^xsd:string .";
                             $triples[] = "<{$baseUri}{$cleanCity}> rdfs:label \"" . addslashes($data['city']) . "\"^^xsd:string .";
                             $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}takesPlaceIn> <{$baseUri}{$cleanCity}> .";
@@ -548,7 +548,7 @@ class TripleService
                         if ($data['country'] != "None" || $data['country'] != "none") {
                             $cleanCountry = str_replace(' ', '', $data['country']);
                             //type country
-                            $triples[] = "<{$baseUri}{$cleanTitle}> rdf:type <{$baseUri}Country> .";
+                            $triples[] = "<{$baseUri}{$cleanCountry}> rdf:type <{$baseUri}Country> .";
                             $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}country> \"" . addslashes($data['country']) . "\"^^xsd:string .";
                             $triples[] = "<{$baseUri}{$cleanCountry}> rdfs:label \"" . addslashes($data['country']) . "\"^^xsd:string .";
                         }
