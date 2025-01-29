@@ -458,32 +458,39 @@ class TripleService
             // "eventTitle": "Chaos Engineering"
             // Core Job Information
             if (isset($data['eventTitle'])) {
-                $cleanTitle = str_replace(' ', '', $data['eventTitle']);
-                // $triples[] = "<{$baseUri}{$cleanTitle}> rdf:type <{$baseUri}Event> .";
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventTitle> \"" . addslashes($data['eventTitle']) . "\"^^xsd:string .";
-                $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['eventTitle']) . "\"^^xsd:string .";
-
+                if ($data['eventTitle'] != "None" || $data['eventTitle'] != "none") {
+                    $cleanTitle = str_replace(' ', '', $data['eventTitle']);
+                    $triples[] = "<{$baseUri}{$cleanTitle}> rdf:type <{$baseUri}Event> .";
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventTitle> \"" . addslashes($data['eventTitle']) . "\"^^xsd:string .";
+                    $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['eventTitle']) . "\"^^xsd:string .";
+                }
             }
             //dd($triples);
             // "eventDate": "12-2-2025",
             if (isset($data['eventDate'])) {
-                try {
-                    // // Parse the date using Carbon
-                    // $formattedDate = Carbon::createFromFormat('F d, Y', $data['eventDate'])->format('d-m-Y');
+                if ($data['eventDate'] != "None" || $data['eventDate'] != "none") {
 
-                    // Use the formatted date in the triple
-                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventDate> \"" . $data['eventDate'] . "\"^^xsd:dateTime .";
-                    $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['eventDate']) . "\"^^xsd:dateTime .";
-                } catch (Exception $e) {
-                    // Handle invalid date format if necessary
-                    throw new Exception("Invalid date format for eventDate: " . $data['eventDate']);
+                    try {
+                        // // Parse the date using Carbon
+                        // $formattedDate = Carbon::createFromFormat('F d, Y', $data['eventDate'])->format('d-m-Y');
+
+                        // Use the formatted date in the triple
+                        $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventDate> \"" . $data['eventDate'] . "\"^^xsd:dateTime .";
+                        $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['eventDate']) . "\"^^xsd:dateTime .";
+                    } catch (Exception $e) {
+                        // Handle invalid date format if necessary
+                        throw new Exception("Invalid date format for eventDate: " . $data['eventDate']);
+                    }
                 }
             }
             // "eventType": "conference",
             if (isset($data['eventType'])) {
-                $cleanEventType = str_replace(' ', '', $data['eventType']);
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventType> \"" . addslashes($data['eventType']) . "\"^^xsd:string .";
-                $triples[] = "<{$baseUri}{$cleanEventType}> rdfs:label \"" . addslashes($data['eventType']) . "\"^^xsd:string .";
+                if ($data['eventType'] != "None" || $data['eventType'] != "none") {
+
+                    $cleanEventType = str_replace(' ', '', $data['eventType']);
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventType> \"" . addslashes($data['eventType']) . "\"^^xsd:string .";
+                    $triples[] = "<{$baseUri}{$cleanEventType}> rdfs:label \"" . addslashes($data['eventType']) . "\"^^xsd:string .";
+                }
             }
             // // "isOnline": "True",
             // if (isset($data['isOnline'])) {
@@ -493,30 +500,52 @@ class TripleService
             //     $triples[] = "<{$baseUri}{$cleanIsOnline}> rdfs:label \"" . addslashes($data['isOnline']) . "\"^^xsd:boolean .";
             // }
             if (isset($data['isOnline'])) {
-                // Normalize boolean value (ensure lowercase and valid RDF boolean format)
-                $cleanIsOnline = filter_var($data['isOnline'], FILTER_VALIDATE_BOOLEAN) ? "true" : "false";
+                if ($data['isOnline'] != "None" || $data['isOnline'] != "none") {
 
-                // Construct the triple correctly
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isOnline>  \"" . trim($cleanIsOnline) . "\"^^xsd:boolean .";
+                    // Normalize boolean value (ensure lowercase and valid RDF boolean format)
+                    $cleanIsOnline = filter_var($data['isOnline'], FILTER_VALIDATE_BOOLEAN) ? "true" : "false";
+
+                    // Construct the triple correctly
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isOnline>  \"" . trim($cleanIsOnline) . "\"^^xsd:boolean .";
+                }
             }
 
             // "topic": "DevOps"
             if (isset($data['topic'])) {
-                $cleanTopic = str_replace(' ', '', $data['topic']);
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}topic> \"" . addslashes($data['topic']) . "\"^^xsd:string .";
-                $triples[] = "<{$baseUri}{$cleanTopic}> rdfs:label \"" . addslashes($data['topic']) . "\"^^xsd:string .";
+                if ($data['topic'] != "None" || $data['topic'] != "none") {
+                    $cleanTopic = str_replace(' ', '', $data['topic']);
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}topic> \"" . addslashes($data['topic']) . "\"^^xsd:string .";
+                    $triples[] = "<{$baseUri}{$cleanTopic}> rdfs:label \"" . addslashes($data['topic']) . "\"^^xsd:string .";
+                    // hasTopic
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}hasTopic> <{$baseUri}{$cleanTopic}> .";
+                }
             }
-            // "city" : "Iasi"
-            if (isset($data['city'])) {
-                $cleanCity = str_replace(' ', '', $data['city']);
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}city> \"" . addslashes($data['city']) . "\"^^xsd:string .";
-                $triples[] = "<{$baseUri}{$cleanCity}> rdfs:label \"" . addslashes($data['city']) . "\"^^xsd:string .";
-            }
-            // "country": "Romania"
-            if (isset($data['country'])) {
-                $cleanCountry = str_replace(' ', '', $data['country']);
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}country> \"" . addslashes($data['country']) . "\"^^xsd:string .";
-                $triples[] = "<{$baseUri}{$cleanCountry}> rdfs:label \"" . addslashes($data['country']) . "\"^^xsd:string .";
+
+            if (isset($data['isOnline'])) {  // daca eventul nu e online
+                if (!$cleanIsOnline) {
+                    // "city" : "Iasi"
+                    if (isset($data['city'])) {
+                        if ($data['city'] != "None" || $data['city'] != "none") {
+                            $cleanCity = str_replace(' ', '', $data['city']);
+                            $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}city> \"" . addslashes($data['city']) . "\"^^xsd:string .";
+                            $triples[] = "<{$baseUri}{$cleanCity}> rdfs:label \"" . addslashes($data['city']) . "\"^^xsd:string .";
+                            $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}takesPlaceIn> <{$baseUri}{$cleanCity}> .";
+                            //isLocatedIn
+                            if (isset($data['country'])) {
+                                $cleanCountry = str_replace(' ', '', $data['country']);
+                                $triples[] = "<{$baseUri}{$cleanCity}> <{$baseUri}isLocatedIn> <{$baseUri}{$cleanCountry}> .";
+                            }
+                        }
+                    }
+                    // "country": "Romania"
+                    if (isset($data['country'])) {
+                        if ($data['country'] != "None" || $data['country'] != "none") {
+                            $cleanCountry = str_replace(' ', '', $data['country']);
+                            $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}country> \"" . addslashes($data['country']) . "\"^^xsd:string .";
+                            $triples[] = "<{$baseUri}{$cleanCountry}> rdfs:label \"" . addslashes($data['country']) . "\"^^xsd:string .";
+                        }
+                    }
+                }
             }
         } catch (Exception $e) {
             return [
