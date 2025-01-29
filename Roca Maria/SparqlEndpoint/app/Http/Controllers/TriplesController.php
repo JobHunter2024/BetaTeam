@@ -146,7 +146,17 @@ class TriplesController extends Controller
             $baseUri = config('ontology.base_uri');
             $generator = new OntologyGenerator($baseUri);
             $entitiesTriples = $generator->generate();
-            // dd($entitiesTriples);
+
+            foreach ($entitiesTriples as $triple) {
+                // Insert triples into Fuseki
+                $response = $this->tripleService->insertTriples($triple);
+
+                if ($response['status'] !== 200) {
+                    Log::error('Triple insertion failed', ['triple' => $triple, 'response' => $response]);
+                } else {
+                    Log::info('Triple inserted successfully', ['triple' => $triple]);
+                }
+            }
 
             // Prepare triples
             $triples = $this->tripleService->prepareEventTriples($request_json);
