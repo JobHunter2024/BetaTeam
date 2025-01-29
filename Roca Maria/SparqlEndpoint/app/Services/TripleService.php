@@ -476,7 +476,7 @@ class TripleService
 
                         // Use the formatted date in the triple
                         $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventDate> \"" . $data['eventDate'] . "\"^^xsd:dateTime .";
-                        $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['eventDate']) . "\"^^xsd:dateTime .";
+                        // $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['eventDate']) . "\"^^xsd:dateTime .";
                     } catch (Exception $e) {
                         // Handle invalid date format if necessary
                         throw new Exception("Invalid date format for eventDate: " . $data['eventDate']);
