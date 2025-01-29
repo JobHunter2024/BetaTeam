@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
+use App\Services\Ontology\OntologyGenerator;
 
 class TripleService
 {
@@ -40,6 +41,7 @@ class TripleService
 
     function prepareIndividualTriples(array $data)
     {
+        // dd($data);
         try {
             $baseUri = "http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#";
             $triples = [];
@@ -62,10 +64,6 @@ class TripleService
 
             }
 
-            // if (isset($data['datePosted'])) {
-            //     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}datePosted> \"" . addslashes($data['datePosted']) . "\"^^xsd:dateTime .";
-            // }
-            // dd($data['datePosted']);
             if (isset($data['datePosted'])) {
                 try {
                     // Parse the date using Carbon
@@ -83,7 +81,6 @@ class TripleService
 
             if (isset($data['job_location'])) {
                 $cleanJobLocation = str_replace(' ', '', $data['job_location']);
-
                 $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}jobLocation> \"" . addslashes($data['job_location']) . "\"^^xsd:string .";
                 $triples[] = "<{$baseUri}{$cleanJobLocation}> rdfs:label \"" . addslashes($data['job_location']) . "\"^^xsd:string .";
             }
@@ -105,7 +102,6 @@ class TripleService
                 }
             }
 
-            //dd($data["programming_languages"]);
             // Programming Languages
             if (!empty($data['programming_languages'])) {
                 foreach ($data['programming_languages'] as $language) {
@@ -117,6 +113,9 @@ class TripleService
                     $triples[] = "<{$baseUri}{$langName}> rdfs:label \"" . addslashes($language['skill_name']) . "\"^^xsd:string .";
                     if (!empty($language['official_website'])) {
                         $triples[] = "<{$baseUri}{$langName}> <{$baseUri}officialWebsite> \"" . addslashes($language['official_website']) . "\"^^xsd:anyURI .";
+                    }
+                    if (!empty($language['wikidataURI'])) {
+                        $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidataUri']) . "\"^^xsd:anyURI .";
                     }
                     if (!empty($library['influenced_by'])) {
                         foreach ($language['influenced_by'] as $influenced) {
@@ -163,6 +162,9 @@ class TripleService
                     $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
                     $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$libName}> rdfs:label \"" . addslashes($library['skill_name']) . "\"^^xsd:string .";
+                    if (!empty($language['wikidataURI'])) {
+                        $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidataUri']) . "\"^^xsd:anyURI .";
+                    }
                     if (!empty($library['influenced_by'])) {
                         foreach ($library['influenced_by'] as $influenced) {
                             $cleanInfluenced = str_replace(' ', '', $influenced);
@@ -187,6 +189,9 @@ class TripleService
                     $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
                     $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$fwName}> rdfs:label \"" . addslashes($framework['skill_name']) . "\"^^xsd:string .";
+                    if (!empty($language['wikidataURI'])) {
+                        $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidataUri']) . "\"^^xsd:anyURI .";
+                    }
                     if (!empty($framework['influenced_by'])) {
                         foreach ($framework['influenced_by'] as $influenced) {
                             $cleanInfluenced = str_replace(' ', '', $influenced);
@@ -200,6 +205,20 @@ class TripleService
                         }
                     }
                 }
+            }
+
+            // isAvailable
+            if (!empty($data['isAvailable'])) {
+                $cleanIsAvailable = str_replace(' ', '', $data['isAvailable']);
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isAvailable> \"" . addslashes($data['isAvailable']) . "\"^^xsd:boolean .";
+                $triples[] = "<{$baseUri}{$cleanIsAvailable}> rdfs:label \"" . addslashes($data['isAvailable']) . "\"^^xsd:boolean .";
+            }
+
+            // isReal
+            if (!empty($data['isReal'])) {
+                $cleanIsReal = str_replace(' ', '', $data['isReal']);
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isReal> \"" . addslashes($data['isReal']) . "\"^^xsd:boolean .";
+                $triples[] = "<{$baseUri}{$cleanIsReal}> rdfs:label \"" . addslashes($data['isReal']) . "\"^^xsd:boolean .";
             }
 
         } catch (Exception $e) {
@@ -243,14 +262,31 @@ class TripleService
             }
         ";
 
-        $response = SparqlService::executeUpdate($sparqlUpdate);
+        try {
+            $response = SparqlService::executeUpdate($sparqlUpdate);
 
-        // Handle unexpected responses
-        return [
-            'message' => 'Triples inserted, but response was unexpected.',
-            'response' => $response,
-            'status' => 202  // If the response was unexpected, you might want to return 202
-        ];
+            // If response indicates success
+            if ($response === true || $response === "success") {
+                return [
+                    'message' => 'Triples inserted successfully.',
+                    'status' => 201 // Created
+                ];
+            }
+
+            // Handle unexpected responses
+            return [
+                'message' => 'Triples inserted, but response was unexpected.',
+                'response' => $response,
+                'status' => 202 // Accepted but unexpected
+            ];
+        } catch (Exception $e) {
+            // Catch and return the error
+            return [
+                'message' => 'Failed to insert triples.',
+                'error' => $e->getMessage(),
+                'status' => 500 // Internal server error
+            ];
+        }
     }
 
     /**
@@ -327,8 +363,9 @@ class TripleService
         $error = "";
         try {
             // Path to the Python script
-            $scriptPath = 'C:/xampp/htdocs/BetaTeam/CiobanuAna/Processing/services/processors/script.py';
-
+            //  $scriptPath = 'C:/xampp/htdocs/BetaTeam/CiobanuAna/Processing/services/processors/script.py';
+            $scriptPath = base_path(env('PYTHON_SCRIPT_PATH'));
+            //  dd($scriptPath);
             // Convert the associative array to a JSON string
             $json = json_encode($input);
 
@@ -345,7 +382,7 @@ class TripleService
             try {
                 // Execute the command
                 $output = shell_exec($command);
-                // dd($output);
+
             } catch (Exception $e) {
                 return [
                     'output' => null,
@@ -369,6 +406,7 @@ class TripleService
             $result = $this->extractJson($output);
             if ($result["success"]) {
                 $decodedOutput = json_decode($result["output"], true);
+
             } else {
                 return [
                     'output' => null,
@@ -411,4 +449,67 @@ class TripleService
 
     }
 
+    public function prepareEventTriples($data)
+    {
+        // dd($data);
+        try {
+            $baseUri = "http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#";
+            $triples = [];
+            // "eventTitle": "Chaos Engineering"
+            // Core Job Information
+            if (isset($data['eventTitle'])) {
+                $cleanTitle = str_replace(' ', '', $data['eventTitle']);
+                // $triples[] = "<{$baseUri}{$cleanTitle}> rdf:type <{$baseUri}Event> .";
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventTitle> \"" . addslashes($data['eventTitle']) . "\"^^xsd:string .";
+                $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['eventTitle']) . "\"^^xsd:string .";
+
+            }
+            //dd($triples);
+            // "eventDate": "12-2-2025",
+            if (isset($data['eventDate'])) {
+                try {
+                    // // Parse the date using Carbon
+                    // $formattedDate = Carbon::createFromFormat('F d, Y', $data['eventDate'])->format('d-m-Y');
+
+                    // Use the formatted date in the triple
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventDate> \"" . $data['eventDate'] . "\"^^xsd:dateTime .";
+                    $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['eventDate']) . "\"^^xsd:dateTime .";
+                } catch (Exception $e) {
+                    // Handle invalid date format if necessary
+                    throw new Exception("Invalid date format for eventDate: " . $data['eventDate']);
+                }
+            }
+            // "eventType": "conference",
+            if (isset($data['eventType'])) {
+                $cleanEventType = str_replace(' ', '', $data['eventType']);
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventType> \"" . addslashes($data['eventType']) . "\"^^xsd:string .";
+                $triples[] = "<{$baseUri}{$cleanEventType}> rdfs:label \"" . addslashes($data['eventType']) . "\"^^xsd:string .";
+            }
+            // "isOnline": "True",
+            if (isset($data['isOnline'])) {
+                //$cleanIsOnline = boolean($data['isOnline']);
+                $cleanIsOnline = $data['isOnline'];
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isOnline> \"" . addslashes($data['isOnline']) . "\"^^xsd:boolean .";
+                $triples[] = "<{$baseUri}{$cleanIsOnline}> rdfs:label \"" . addslashes($data['isOnline']) . "\"^^xsd:boolean .";
+            }
+            // "topic": "DevOps"
+            if (isset($data['topic'])) {
+                $cleanTopic = str_replace(' ', '', $data['topic']);
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}topic> \"" . addslashes($data['topic']) . "\"^^xsd:string .";
+                $triples[] = "<{$baseUri}{$cleanTopic}> rdfs:label \"" . addslashes($data['topic']) . "\"^^xsd:string .";
+            }
+        } catch (Exception $e) {
+            return [
+                'output' => [],
+                'error' => $e->getMessage(),
+                'status' => 500
+            ];
+        }
+        //dd($triples);
+        return [
+            'output' => $triples,
+            'error' => null,
+            'status' => 200,
+        ];
+    }
 }

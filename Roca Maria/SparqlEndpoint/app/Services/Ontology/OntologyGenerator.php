@@ -44,6 +44,10 @@ class OntologyGenerator
             'Skill' => 'Skill',
             'SoftSkill' => 'Soft Skill',
             'TechnicalSkill' => 'Technical Skill',
+            'Event' => 'Event',
+            'City' => 'City',
+            'Country' => 'Country',
+            'Topic' => 'Topic',
         ];
 
         foreach ($classes as $class => $label) {
@@ -120,13 +124,29 @@ class OntologyGenerator
                 'domain' => 'Job',
                 'range' => 'Skill',
                 'label' => 'Requires Skill'
+            ],
+            'hasTopic' => [
+                'domain' => 'Event',
+                'range' => ['Topic', 'TechnicalSkill'],
+                'label' => 'Has Topic'
+            ],
+            'isLocatedIn' => [
+                'domain' => 'City', //['City', 'Country'],
+                'range' => 'Country',
+                'label' => 'is Located In'
+            ],
+            'takesPlace' => [
+                'domain' => 'Event',
+                'range' => 'City',
+                'label' => 'Takes Place'
             ]
         ];
 
         foreach ($objectProperties as $property => $details) {
             $this->triples[] = "<{$this->baseUri}{$property}> rdf:type owl:ObjectProperty .";
             $this->addPropertyDomains($property, $details['domain']);
-            $this->triples[] = "<{$this->baseUri}{$property}> rdfs:range <{$this->baseUri}{$details['range']}> .";
+            $this->addPropertyRanges($property, $details['range']);
+            //$this->triples[] = "<{$this->baseUri}{$property}> rdfs:range <{$this->baseUri}{$details['range']}> .";
             $this->triples[] = "<{$this->baseUri}{$property}> rdfs:label \"" . addslashes($details['label']) . "\"^^xsd:string .";
         }
     }
@@ -139,6 +159,17 @@ class OntologyGenerator
 
         foreach ($domains as $domain) {
             $this->triples[] = "<{$this->baseUri}{$property}> rdfs:domain <{$this->baseUri}{$domain}> .";
+        }
+    }
+
+    private function addPropertyRanges(string $property, $ranges): void
+    {
+        if (!is_array($ranges)) {
+            $ranges = [$ranges];
+        }
+
+        foreach ($ranges as $range) {
+            $this->triples[] = "<{$this->baseUri}{$property}> rdfs:range <{$this->baseUri}{$range}> .";
         }
     }
 
@@ -200,7 +231,35 @@ class OntologyGenerator
             'officialWebsite' => [
                 'domain' => 'TechnicalSkill',
                 'label' => 'Official Website'
-            ]
+            ],
+            'eventDate' => [
+                'domain' => 'Event',
+                'label' => 'Event Date'
+            ],
+            'eventTitle' => [
+                'domain' => 'Event',
+                'label' => 'Event Title'
+            ],
+            'eventType' => [
+                'domain' => 'Event',
+                'label' => 'Event Type'
+            ],
+            'isOnline' => [
+                'domain' => 'Event',
+                'label' => 'Is Online'
+            ],
+            'isAvailable' => [
+                'domain' => 'Job',
+                'label' => 'Is Available'
+            ],
+            'isReal' => [
+                'domain' => 'Job',
+                'label' => 'Is Real'
+            ],
+            'wikidataURI' => [
+                'domain' => 'TechnicalSkill',
+                'label' => 'Wikidata URI'
+            ],
         ];
 
         foreach ($dataProperties as $property => $details) {
@@ -211,6 +270,11 @@ class OntologyGenerator
             $range = match ($property) {
                 'datePosted' => 'xsd:dateTime',
                 'experienceInYears' => 'xsd:int',
+                'eventDate' => 'xsd:dateTime',
+                'isOnline' => 'xsd:boolean',
+                'isAvailable' => 'xsd:boolean',
+                'isReal' => 'xsd:boolean',
+                'wikidataURI' => 'xsd:anyURI',
                 default => 'xsd:string'
             };
             $this->triples[] = "<{$this->baseUri}{$property}> rdfs:range {$range} .";

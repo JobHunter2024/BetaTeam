@@ -8,6 +8,9 @@ use App\Services\SparqlService;
 use App\Services\TripleService;
 use Illuminate\Support\Facades\Log;
 use App\Services\Ontology\OntologyGenerator;
+use App\Events\DataValidationEvent;
+use App\Events\TripleGenerationEvent;
+use App\Events\TripleInsertionEvent;
 
 class TriplesController extends Controller
 {
@@ -43,33 +46,52 @@ class TriplesController extends Controller
         try {
             $request_json = $request->json()->all();
 
+            Log::info('Received POST data', ['data' => $request_json]); // Log incoming data
+
+
             if (!empty($request_json)) {
 
                 foreach ($request_json as $key => $value) {
+
+                    event(new DataValidationEvent($value));
+
+                    // Log ontology creation start
+                    Log::info("Processing job data for key: {$key}");
+
                     // Execute python script for ontology creation
                     $data = $this->tripleService->executeScript($value);
-                    //dd($data);
+
                     if ($data['output'] != null) {
+
+                        Log::info('Ontology creation successful', ['key' => $key]);
 
                         // Prepare triples
                         $triples = $this->tripleService->prepareIndividualTriples($data['output']);
-                        //dd($triples);
+
+                        event(new TripleGenerationEvent($triples['output']));
 
                         if (!empty($triples['output'])) {
 
-                            // insert entities and propersties
-                            // $entitiesTriples = $this->tripleService->createOntologyEntities();
-                            $baseUri = config('ontology.base_uri');
+                            Log::info('Triples prepared successfully', ['triples' => $triples['output']]);
 
+                            // insert entities and propersties
+                            $baseUri = config('ontology.base_uri');
                             $generator = new OntologyGenerator($baseUri);
                             $entitiesTriples = $generator->generate();
-                            // dd($entitiesTriples);
+
                             Log::info('Generated RDF Triples:', $triples);
 
                             foreach ($entitiesTriples as $triple) {
                                 // Insert triples into Fuseki
                                 $response = $this->tripleService->insertTriples($triple);
-                                //  dd($response);
+
+                                event(new TripleInsertionEvent($response));
+
+                                if ($response['status'] !== 200) {
+                                    Log::error('Triple insertion failed', ['triple' => $triple, 'response' => $response]);
+                                } else {
+                                    Log::info('Triple inserted successfully', ['triple' => $triple]);
+                                }
                             }
 
                             foreach ($triples['output'] as $triple) {
@@ -77,11 +99,13 @@ class TriplesController extends Controller
                                 $response = $this->tripleService->insertTriples($triple);
                             }
                         } else {
-                            $error .= "Eroare pentru job: " . $key . " a aparut eroarea: " . $triples["error"] . "\n";
+                            $error .= "Error for job {$key}: " . $triples["error"] . "\n";
+                            Log::error('Triple preparation failed', ['key' => $key, 'error' => $triples['error']]);
                         }
 
                     } else {
-                        $error .= "Eroare pentru job: " . $key . " a aparut eroarea: " . $data["error"] . "\n";
+                        $error .= "Error for job {$key}: " . $data["error"] . "\n";
+                        Log::error('Ontology creation failed', ['key' => $key, 'error' => $data['error']]);
                     }
                 }
                 $response["errors"] = $error;
@@ -90,12 +114,86 @@ class TriplesController extends Controller
                     $response
                 );
             } else {
+                Log::warning('No data provided in POST request');
                 return response()->json(['error' => 'No data provided'], 400);
             }
         } catch (Exception $e) {
+            Log::error('Unexpected error occurred', ['exception' => $e->getMessage()]);
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+
+    /**
+     * Store a newly created triple in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeEventTriple(Request $request)
+    {
+        $request_json = $request->json()->all();
+
+        // Validate the input data
+        if (empty($request_json)) {
+            return response()->json([
+                "message" => "No data provided!"
+            ], 400); // Bad Request
+        }
+
+        try {
+
+            // insert entities and propersties
+            $baseUri = config('ontology.base_uri');
+            $generator = new OntologyGenerator($baseUri);
+            $entitiesTriples = $generator->generate();
+            // dd($entitiesTriples);
+
+            // Prepare triples
+            $triples = $this->tripleService->prepareEventTriples($request_json);
+        } catch (Exception $e) {
+            return response()->json([
+                "message" => "Failed to prepare triples.",
+                "error" => $e->getMessage()
+            ], 500); // Internal Server Error
+        }
+
+        $results = [];
+        foreach ($triples['output'] as $triple) {
+            try {
+                // Insert triples into Fuseki
+                $response = $this->tripleService->insertTriples($triple);
+
+                if ($response['status'] === 201) {
+                    $results[] = [
+                        "triple" => $triple,
+                        "message" => "Triple inserted successfully.",
+                        "status" => 201
+                    ];
+                } else {
+                    $results[] = [
+                        "triple" => $triple,
+                        "message" => $response['message'],
+                        "status" => $response['status'],
+                        "details" => $response['response'] ?? null
+                    ];
+                }
+            } catch (Exception $e) {
+                $results[] = [
+                    "triple" => $triple,
+                    "message" => "Failed to insert triple.",
+                    "error" => $e->getMessage(),
+                    "status" => 500
+                ];
+            }
+        }
+
+        // Return a summary of all results
+        return response()->json([
+            "message" => "Operation completed.",
+            "results" => $results
+        ], 207); // Multi-Status
+    }
+
     /**
      * Display the specified triple.
      *
@@ -163,7 +261,7 @@ class TriplesController extends Controller
         // Path to the Python script
         //$scriptPath = 'C:/xampp/htdocs/BetaTeam/CiobanuAna/Processing/services/processors/script.py';
         $scriptPath = base_path(env('PYTHON_SCRIPT_PATH'));
-        dd($scriptPath);
+
         // Encode the input as JSON
         $jsonArgument = json_encode($input, JSON_UNESCAPED_SLASHES);
 
