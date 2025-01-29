@@ -498,6 +498,18 @@ class TripleService
                 $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}topic> \"" . addslashes($data['topic']) . "\"^^xsd:string .";
                 $triples[] = "<{$baseUri}{$cleanTopic}> rdfs:label \"" . addslashes($data['topic']) . "\"^^xsd:string .";
             }
+            // "city" : "Iasi"
+            if (isset($data['city'])) {
+                $cleanCity = str_replace(' ', '', $data['city']);
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}city> \"" . addslashes($data['city']) . "\"^^xsd:string .";
+                $triples[] = "<{$baseUri}{$cleanCity}> rdfs:label \"" . addslashes($data['city']) . "\"^^xsd:string .";
+            }
+            // "country": "Romania"
+            if (isset($data['country'])) {
+                $cleanCountry = str_replace(' ', '', $data['country']);
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}country> \"" . addslashes($data['country']) . "\"^^xsd:string .";
+                $triples[] = "<{$baseUri}{$cleanCountry}> rdfs:label \"" . addslashes($data['country']) . "\"^^xsd:string .";
+            }
         } catch (Exception $e) {
             return [
                 'output' => [],
