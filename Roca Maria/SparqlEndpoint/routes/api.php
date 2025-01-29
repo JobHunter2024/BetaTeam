@@ -39,6 +39,8 @@ Route::prefix('triples')->group(function () {
     Route::post('/fuseki/insert', [TriplesController::class, 'insertTriples']);
 
     Route::post('store', [TriplesController::class, 'storeJobTriples']);
+    Route::post('storeEventTriple', [TriplesController::class, 'storeEventTriple']);
+
 
     // Route::get('/', [TripleController::class, 'index'])->name('triples.index');
     // Route::delete('/{id}', [TripleController::class, 'destroy'])->name('triples.destroy');

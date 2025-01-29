@@ -485,13 +485,21 @@ class TripleService
                 $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventType> \"" . addslashes($data['eventType']) . "\"^^xsd:string .";
                 $triples[] = "<{$baseUri}{$cleanEventType}> rdfs:label \"" . addslashes($data['eventType']) . "\"^^xsd:string .";
             }
-            // "isOnline": "True",
+            // // "isOnline": "True",
+            // if (isset($data['isOnline'])) {
+            //     //$cleanIsOnline = boolean($data['isOnline']);
+            //     $cleanIsOnline = $data['isOnline'];
+            //     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isOnline> \"" . addslashes($data['isOnline']) . "\"^^xsd:boolean .";
+            //     $triples[] = "<{$baseUri}{$cleanIsOnline}> rdfs:label \"" . addslashes($data['isOnline']) . "\"^^xsd:boolean .";
+            // }
             if (isset($data['isOnline'])) {
-                //$cleanIsOnline = boolean($data['isOnline']);
-                $cleanIsOnline = $data['isOnline'];
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isOnline> \"" . addslashes($data['isOnline']) . "\"^^xsd:boolean .";
-                $triples[] = "<{$baseUri}{$cleanIsOnline}> rdfs:label \"" . addslashes($data['isOnline']) . "\"^^xsd:boolean .";
+                // Normalize boolean value (ensure lowercase and valid RDF boolean format)
+                $cleanIsOnline = filter_var($data['isOnline'], FILTER_VALIDATE_BOOLEAN) ? "true" : "false";
+
+                // Construct the triple correctly
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isOnline>  \"" . trim($cleanIsOnline) . "\"^^xsd:boolean .";
             }
+
             // "topic": "DevOps"
             if (isset($data['topic'])) {
                 $cleanTopic = str_replace(' ', '', $data['topic']);
