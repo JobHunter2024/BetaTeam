@@ -67,7 +67,7 @@ class TripleService
             if (isset($data['datePosted'])) {
                 try {
                     // // Parse the date using Carbon
-                    $formattedDate = self::convertDateFormat($data['datePosted']);
+                    $formattedDate = Carbon::createFromFormat('F d, Y', $data['datePosted'])->format('Y-m-d');
                     // Use the formatted date in the triple
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}datePosted> \"" . $formattedDate . "\"^^xsd:dateTime .";
                     //     $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['datePosted']) . "\"^^xsd:dateTime .";
@@ -362,7 +362,7 @@ class TripleService
         $error = "";
         try {
             // Path to the Python script
-            $scriptPath = 'C:/xampp/htdocs/BetaTeam/CiobanuAna/Processing/services/processors/script.py';
+            $scriptPath = env('PYTHON_SCRIPT_PATH');
             // $scriptPath = base_path(env('PYTHON_SCRIPT_PATH'));
             //  dd($scriptPath);
             // Convert the associative array to a JSON string
