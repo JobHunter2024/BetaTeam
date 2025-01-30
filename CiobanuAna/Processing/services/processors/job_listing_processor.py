@@ -22,6 +22,7 @@ class JobListingProcessor:
 
         # Extract fields from JSON
         date_posted = job_data.get("date", "")
+        is_available = job_data.get("isAvailable")
         job_title = job_data.get("jobTitle", "")
         company_name = job_data.get("company", "")
         location_from_scraping = job_data.get("location","")
@@ -71,6 +72,7 @@ class JobListingProcessor:
             experience_in_years,
             experience_level,
             job_location,job_location_type,
+            is_available,
             programming_languages,
             frameworks,
             libraries,
