@@ -66,9 +66,8 @@ class TripleService
 
             if (isset($data['datePosted'])) {
                 try {
-                    // Parse the date using Carbon
-                    $formattedDate = Carbon::createFromFormat('F d, Y', $data['datePosted'])->format('d-m-Y');
-
+                    // // Parse the date using Carbon
+                    $formattedDate = self::convertDateFormat($data['datePosted']);
                     // Use the formatted date in the triple
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}datePosted> \"" . $formattedDate . "\"^^xsd:dateTime .";
                     //     $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['datePosted']) . "\"^^xsd:dateTime .";
@@ -114,8 +113,8 @@ class TripleService
                     if (!empty($language['official_website'])) {
                         $triples[] = "<{$baseUri}{$langName}> <{$baseUri}officialWebsite> \"" . addslashes($language['official_website']) . "\"^^xsd:anyURI .";
                     }
-                    if (!empty($language['wikidataURI'])) {
-                        $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidataUri']) . "\"^^xsd:anyURI .";
+                    if (!empty($language['wikidata_uri'])) {
+                        $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidata_uri']) . "\"^^xsd:anyURI .";
                     }
                     if (!empty($library['influenced_by'])) {
                         foreach ($language['influenced_by'] as $influenced) {
@@ -162,8 +161,8 @@ class TripleService
                     $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
                     $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$libName}> rdfs:label \"" . addslashes($library['skill_name']) . "\"^^xsd:string .";
-                    if (!empty($language['wikidataURI'])) {
-                        $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidataUri']) . "\"^^xsd:anyURI .";
+                    if (!empty($language['wikidata_uri'])) {
+                        $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidata_uri']) . "\"^^xsd:anyURI .";
                     }
                     if (!empty($library['influenced_by'])) {
                         foreach ($library['influenced_by'] as $influenced) {
@@ -189,8 +188,8 @@ class TripleService
                     $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
                     $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$fwName}> rdfs:label \"" . addslashes($framework['skill_name']) . "\"^^xsd:string .";
-                    if (!empty($language['wikidataURI'])) {
-                        $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidataUri']) . "\"^^xsd:anyURI .";
+                    if (!empty($language['wikidata_uri'])) {
+                        $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidata_uri']) . "\"^^xsd:anyURI .";
                     }
                     if (!empty($framework['influenced_by'])) {
                         foreach ($framework['influenced_by'] as $influenced) {
@@ -363,8 +362,8 @@ class TripleService
         $error = "";
         try {
             // Path to the Python script
-            //  $scriptPath = 'C:/xampp/htdocs/BetaTeam/CiobanuAna/Processing/services/processors/script.py';
-            $scriptPath = base_path(env('PYTHON_SCRIPT_PATH'));
+            $scriptPath = 'C:/xampp/htdocs/BetaTeam/CiobanuAna/Processing/services/processors/script.py';
+            // $scriptPath = base_path(env('PYTHON_SCRIPT_PATH'));
             //  dd($scriptPath);
             // Convert the associative array to a JSON string
             $json = json_encode($input);
@@ -375,14 +374,14 @@ class TripleService
 
             // Build command to execute the Python script with the temporary file as an argument
             $command = "python $scriptPath " . escapeshellarg($tempFile);
-
+            //dd($command);
             // Set execution timeout
             set_time_limit(500);
 
             try {
                 // Execute the command
                 $output = shell_exec($command);
-
+                //dd($output);
             } catch (Exception $e) {
                 return [
                     'output' => null,
@@ -472,10 +471,9 @@ class TripleService
 
                     try {
                         // // Parse the date using Carbon
-                        // $formattedDate = Carbon::createFromFormat('F d, Y', $data['eventDate'])->format('d-m-Y');
-
+                        $formattedDate = self::convertDateFormat($data['eventDate']);
                         // Use the formatted date in the triple
-                        $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventDate> \"" . $data['eventDate'] . "\"^^xsd:dateTime .";
+                        $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventDate> \"" . $formattedDate . "\"^^xsd:dateTime .";
                         // $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['eventDate']) . "\"^^xsd:dateTime .";
                     } catch (Exception $e) {
                         // Handle invalid date format if necessary
@@ -568,5 +566,18 @@ class TripleService
             'error' => null,
             'status' => 200,
         ];
+    }
+
+    /**
+     * Convert date format from DD-MM-YYYY to YYYY-MM-DD
+     */
+    private function convertDateFormat($date)
+    {
+        try {
+            return Carbon::createFromFormat('d-m-Y', $date)->format('Y-m-d');
+        } catch (Exception $e) {
+            Log::error("Invalid date format: " . $date);
+            return $date; // Return original if conversion fails
+        }
     }
 }

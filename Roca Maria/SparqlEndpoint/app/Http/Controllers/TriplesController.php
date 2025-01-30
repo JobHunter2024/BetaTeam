@@ -53,7 +53,7 @@ class TriplesController extends Controller
 
                 foreach ($request_json as $key => $value) {
 
-                    event(new DataValidationEvent($value));
+                    //---- event(new DataValidationEvent($value));
 
                     // Log ontology creation start
                     Log::info("Processing job data for key: {$key}");
@@ -67,8 +67,8 @@ class TriplesController extends Controller
 
                         // Prepare triples
                         $triples = $this->tripleService->prepareIndividualTriples($data['output']);
-
-                        event(new TripleGenerationEvent($triples['output']));
+                        // dd($triples);
+                        //---- event(new TripleGenerationEvent($triples['output']));
 
                         if (!empty($triples['output'])) {
 
@@ -78,14 +78,14 @@ class TriplesController extends Controller
                             $baseUri = config('ontology.base_uri');
                             $generator = new OntologyGenerator($baseUri);
                             $entitiesTriples = $generator->generate();
-
+                            //  dd($entitiesTriples);
                             Log::info('Generated RDF Triples:', $triples);
 
                             foreach ($entitiesTriples as $triple) {
                                 // Insert triples into Fuseki
                                 $response = $this->tripleService->insertTriples($triple);
-
-                                event(new TripleInsertionEvent($response));
+                                //   dd($response);
+                                //------  event(new TripleInsertionEvent($response));
 
                                 if ($response['status'] !== 200) {
                                     Log::error('Triple insertion failed', ['triple' => $triple, 'response' => $response]);
