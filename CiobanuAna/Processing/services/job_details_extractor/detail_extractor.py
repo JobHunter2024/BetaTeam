@@ -69,7 +69,7 @@ class JobDetailsExtractor:
         return list(set(emp for emp in self.employment_type_keywords if emp in text.lower()))
 
     def extract_experience_years(self, text):
-        experience_pattern = r"\((\d+)\)\+?\s?(years?|yrs?)\s?(of)?(experience)?"
+        experience_pattern = r"\(?(\d+)\)?\+?\s?(years?|yrs?)\s?(of)?(.*)?(experience)?"
         matches = re.findall(experience_pattern, text, re.IGNORECASE)
         return [f"{match[0]} years" for match in matches if int(match[0]) < 50]
     
@@ -111,7 +111,3 @@ class JobDetailsExtractor:
 
     def extract_location_type(self, text):
         return list(set(loc for loc in self.location_type_keywords if loc in text.lower()))
-
-
-example = JobDetailsExtractor()
-print(example.extract_experience_level("Software Engineer","I am looking for a full time senior java developer. I am available for remote. I am from UK. I have 3 years of experience. I am looking for a position."))

@@ -102,12 +102,14 @@ class TechnicalSkillExtractor():
                             set_programmed_in.add(programmed_in)
                         if not official_website:    
                             official_website = binding.get("officialWebsite", {}).get("value", "")
+                        wikidata_uri = binding.get("item", {}).get("value", "")    
 
                     return {"skill_name": skill_name,
                             "skill_type": skill_type, 
                             "official_website": official_website,
                             "influenced_by": list(set_influenced_by),
-                            "programmed_in": list(set_programmed_in)}
+                            "programmed_in": list(set_programmed_in),
+                            "wikidata_uri": wikidata_uri}
                 
                 return {"skill_name": skill_name,
                         "skill_type": "Unclassified"}
@@ -158,7 +160,7 @@ WHERE {{
             cleaned_skill_text = re.sub(r'\s?\(.*\)', '', skill)
             technical_skills_rev.append(cleaned_skill_text)
 
-        # filter out technical skills already added to fuseki
+        # check technical skills already added to fuseki
         already_added_technical_skills = self.check_technical_skills_already_added(JOB_HUNTER_QUERY_API_URL, technical_skills_rev)
         skills_to_classify = list(set(technical_skills_rev) - set(already_added_technical_skills))
 
@@ -174,4 +176,4 @@ WHERE {{
                 unclassified.append(skill)
 
         return programming_languages, frameworks, libraries, list(set(unclassified)), list(set(already_added_technical_skills))
-       
+              
