@@ -10,11 +10,11 @@
     },
     "soft_skills": {
         "only_in_json1": [
-            "communication",
-            "adaptability",
-            "problem solving",
             "continuous learning",
-            "curiosity"
+            "adaptability",
+            "communication",
+            "curiosity",
+            "problem solving"
         ],
         "only_in_json2": [
             "management",
@@ -41,8 +41,8 @@
     },
     "job_location_type": {
         "only_in_json2": [
-            "online",
-            "office"
+            "office",
+            "online"
         ]
     },
     "frameworks": {
@@ -52,25 +52,25 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
+            "problem identification",
             "collaboration with designers",
-            "testing",
-            "problem identification"
+            "testing"
         ],
         "only_in_json2": [
-            "amazon marketplace",
-            "disabilities",
-            "online assessments",
-            "email processing",
             "adobe audience manager",
-            "workflows",
-            "computer science",
-            "good laboratory practice",
-            "registration evaluation authorisation and restriction of chemicals regulations",
-            "coloring",
-            "corporate social responsibility",
-            "recruitment process outsourcing",
             "ph meters",
-            "refining"
+            "registration evaluation authorisation and restriction of chemicals regulations",
+            "online assessments",
+            "coloring",
+            "recruitment process outsourcing",
+            "refining",
+            "computer science",
+            "disabilities",
+            "workflows",
+            "amazon marketplace",
+            "corporate social responsibility",
+            "good laboratory practice",
+            "email processing"
         ]
     }
 }

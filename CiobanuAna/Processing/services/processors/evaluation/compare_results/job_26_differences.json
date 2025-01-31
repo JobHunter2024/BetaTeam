@@ -9,19 +9,19 @@
     },
     "soft_skills": {
         "only_in_json1": [
-            "communication",
-            "agile mindset",
             "team collaboration",
             "adaptability",
+            "agile mindset",
+            "communication",
             "problem solving"
         ],
         "only_in_json2": [
             "integration",
-            "innovation",
             "solutions focused",
             "verbal communication skills",
             "collaboration",
-            "writing"
+            "writing",
+            "innovation"
         ]
     },
     "degree_level": {
@@ -67,19 +67,19 @@
             "ASP.NET MVC"
         ],
         "only_in_json2": [
-            "Nice",
             "Cascading Style Sheets",
-            "JavaScript"
+            "JavaScript",
+            "Nice"
         ]
     },
     "frameworks": {
         "only_in_json1": [
-            "ASP.NET Web API",
-            "Bootstrap"
+            "Bootstrap",
+            "ASP.NET Web API"
         ],
         "only_in_json2": [
-            "ASP.NET Core",
-            "ASP.NET"
+            "ASP.NET",
+            "ASP.NET Core"
         ]
     },
     "libraries": {
@@ -90,38 +90,38 @@
     "unclassified_skills": {
         "only_in_json1": [
             "angular",
-            "asp.net zero",
+            "javascript",
             "problem-solving",
             "collaboration",
-            "agile development",
-            "javascript",
-            "integration with external services"
+            "integration with external services",
+            "asp.net zero",
+            "agile development"
         ],
         "only_in_json2": [
-            "professional development programs",
-            "agile management",
-            "european training programs",
-            "long-term care",
-            "automated code review",
             "debugging",
-            "high resolution transmission",
-            "functional requirement",
-            "microsoft azure",
-            "application programming interface",
             "eyes",
-            "user experience design",
-            "backlogs",
-            "angular material",
-            "sustainable design",
             "good laboratory practice",
-            "web design programs",
-            "software development",
-            "hostile work environment",
-            "workflows",
-            "executable",
+            "high resolution transmission",
+            "user experience design",
+            "european training programs",
+            "microsoft azure",
+            "backlogs",
             "hypertext markup language",
+            "web design programs",
+            "executable",
+            "long-term care",
+            "agile management",
+            "sustainable design",
+            "automated code review",
+            "workflows",
+            "angular material",
+            "application programming interface",
+            "professional development programs",
+            "functional requirement",
             "agility",
-            "decision-making software"
+            "software development",
+            "decision-making software",
+            "hostile work environment"
         ]
     }
 }

@@ -1,16 +1,16 @@
 {
     "soft_skills": {
         "only_in_json1": [
-            "communication",
-            "mentorship",
             "team collaboration",
-            "problem solving",
-            "technical leadership"
+            "mentorship",
+            "technical leadership",
+            "communication",
+            "problem solving"
         ],
         "only_in_json2": [
+            "real estate",
             "planning",
-            "writing",
-            "real estate"
+            "writing"
         ]
     },
     "degree_level": {
@@ -58,38 +58,38 @@
     },
     "libraries": {
         "only_in_json1": [
-            "Oracle Database",
-            "QlikSense"
+            "QlikSense",
+            "Oracle Database"
         ]
     },
     "unclassified_skills": {
         "only_in_json1": [
             "etl",
             "data engineering",
-            "database objects",
+            "stored procedures",
             "*nix shell scripting",
-            "stored procedures"
+            "database objects"
         ],
         "only_in_json2": [
-            "architectural development",
-            "track",
-            "very large databases",
-            "support engineering",
-            "calculations",
-            "enforcement",
-            "stored procedure",
-            "extract transform load",
-            "web application development",
-            "code review",
-            "performance management",
             "process validation",
+            "very large databases",
             "oracle databases",
-            "reporting tools",
-            "shell script",
+            "stored procedure",
+            "performance management",
             "zope object databases",
-            "solution design",
+            "calculations",
+            "web application development",
+            "track",
+            "code review",
+            "reporting tools",
             "learning experience design",
-            "real estate investments"
+            "support engineering",
+            "shell script",
+            "enforcement",
+            "real estate investments",
+            "architectural development",
+            "solution design",
+            "extract transform load"
         ]
     }
 }

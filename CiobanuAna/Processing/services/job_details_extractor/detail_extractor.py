@@ -15,9 +15,6 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 # nltk.download('punkt',force=True)
 # nltk.download('averaged_perceptron_tagger', force=True)
 
-#Download English resources to the specific directory
-# stanza.download('en', model_dir='C:/Users/magda/stanza_resources')
-
 @log_aspect
 @exception_handling_aspect
 class JobDetailsExtractor:
@@ -108,6 +105,17 @@ class JobDetailsExtractor:
                 if ent.type == 'GPE' and ent.text not in locations_it_terms:
                     locations_found.append(ent.text)       
         return ", ".join(set(locations_found))
+    
+    def extract_city(self, text):
+        pattern = r',\s([A-Za-z]+),\sRomania'
+        match = re.search(pattern, text)
+        
+        if match:          
+            # Extract the city name from the match
+            city = match.group(1).strip()
+            return city
+        else:
+            return None
 
     def extract_location_type(self, text):
         return list(set(loc for loc in self.location_type_keywords if loc in text.lower()))

@@ -14,11 +14,11 @@
             "organization"
         ],
         "only_in_json2": [
-            "planning",
-            "operations",
+            "positivity",
             "research",
             "verbal communication skills",
-            "positivity",
+            "planning",
+            "operations",
             "communications",
             "management"
         ]
@@ -47,62 +47,62 @@
             "on-site"
         ],
         "only_in_json2": [
-            "online",
-            "office"
+            "office",
+            "online"
         ]
     },
     "programming_languages": {
         "only_in_json2": [
-            "Nice",
+            "Java",
             "COBOL",
-            "Java"
+            "Nice"
         ]
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "user stories",
-            "test data definition",
-            "test documentation",
-            "test case design",
-            "acceptance criteria",
             "test case capitalization",
-            "test closure",
-            "defect prevention",
-            "defect management",
+            "functional requirements understanding",
+            "test documentation",
             "test execution",
+            "test case design",
+            "test closure",
             "test reporting",
+            "user stories",
+            "defect prevention",
             "octane",
+            "test data definition",
+            "acceptance criteria",
             "test automation roadmap",
-            "functional requirements understanding"
+            "defect management"
         ],
         "only_in_json2": [
-            "capitalization",
-            "storages",
-            "life insurance sales",
-            "expert systems",
-            "functional requirement",
-            "collections",
-            "restful api",
-            "scale",
-            "performance testing",
-            "massages",
-            "test data",
-            "transformation",
-            "business development",
+            "test automation",
             "postman",
-            "test management",
-            "automation",
-            "gherkin",
-            "virtual system administrator",
-            "executable",
-            "test execution engine",
-            "scenario testing",
-            "dutch language",
-            "user story",
-            "interactivity",
+            "transformation",
+            "scale",
             "test case",
+            "capitalization",
+            "restful api",
+            "user story",
             "banking",
-            "test automation"
+            "business development",
+            "collections",
+            "virtual system administrator",
+            "life insurance sales",
+            "performance testing",
+            "interactivity",
+            "executable",
+            "test management",
+            "expert systems",
+            "test data",
+            "functional requirement",
+            "gherkin",
+            "dutch language",
+            "test execution engine",
+            "storages",
+            "massages",
+            "scenario testing",
+            "automation"
         ]
     }
 }

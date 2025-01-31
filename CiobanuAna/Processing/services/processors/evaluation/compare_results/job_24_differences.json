@@ -19,10 +19,10 @@
             "mentorship"
         ],
         "only_in_json2": [
-            "collaboration",
             "communications",
             "positivity",
-            "written communication"
+            "written communication",
+            "collaboration"
         ]
     },
     "degree_level": {
@@ -57,8 +57,8 @@
             "hybrid"
         ],
         "only_in_json2": [
-            "online",
-            "office"
+            "office",
+            "online"
         ]
     },
     "programming_languages": {
@@ -86,46 +86,46 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "data availability",
+            "data pipelines",
+            "problem-solving",
+            "response time optimization",
             "distributed systems",
             "mentorship",
             "aws",
-            "machine learning models",
-            "data pipelines",
-            "problem-solving",
             "scalable systems",
-            "response time optimization"
+            "data availability",
+            "machine learning models"
         ],
         "only_in_json2": [
-            "kubernetes",
-            "distributed computing environment",
-            "apache cassandra",
-            "accounting",
-            "life insurance sales",
-            "electronic data processing",
-            "service provider",
-            "library for www in perl",
-            "server-side",
-            "emerging technologies",
-            "survey data analysis",
-            "user accounts",
-            "amazon data pipeline",
-            "data streaming",
-            "scalability",
             "high performance computing",
-            "computer science",
-            "spark framework",
-            "voucher",
+            "emerging technologies",
+            "server-side",
+            "service provider",
             "machine learning methods",
-            "mysql",
-            "learning platforms",
-            "algorithms",
-            "health care benefits",
+            "user accounts",
+            "survey data analysis",
+            "apache cassandra",
             "snowflake",
-            "booking",
-            "good documentation practices",
+            "voucher",
+            "km programming language",
+            "electronic data processing",
+            "spark framework",
             "distributed file systems",
-            "km programming language"
+            "learning platforms",
+            "distributed computing environment",
+            "good documentation practices",
+            "data streaming",
+            "amazon data pipeline",
+            "mysql",
+            "life insurance sales",
+            "health care benefits",
+            "scalability",
+            "computer science",
+            "algorithms",
+            "library for www in perl",
+            "kubernetes",
+            "accounting",
+            "booking"
         ]
     }
 }
