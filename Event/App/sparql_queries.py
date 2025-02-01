@@ -121,3 +121,19 @@ SELECT  ?eventTitle ?eventType ?topic ?isOnline ?location ?date WHERE {{
                :eventDate ?date.
 
 """
+
+events_per_specific_technical_skill_query = f"""
+PREFIX : <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?topic ?topicType (COUNT(DISTINCT ?event) AS ?eventCount)
+WHERE {{
+  ?event rdf:type :Event .
+  ?event :hasTopic ?topic .
+  ?topic rdf:type ?topicType .
+  FILTER (?topicType IN (:ProgrammingLanguage, :Framework, :Library))
+}}
+GROUP BY ?topic ?topicType
+ORDER BY DESC(?eventCount)
+"""

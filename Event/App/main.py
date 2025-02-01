@@ -14,15 +14,12 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[FRONTEND_URL],  # Allow your React frontend's origin
+    allow_origins=[FRONTEND_URL],  # Allow React frontend's origin
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
 )
 
-# def format_date(date_str):
-#     date_obj = datetime.strptime(date_str, "%d-%m-%Y")
-#     return date_obj.strftime("%Y-%m-%d")
 
 @app.get("/events-by-type")
 async def get_events_by_type():
@@ -109,7 +106,23 @@ async def get_events_locations():
 
     result = [ binding['location']['value'].split('#')[-1] for binding in bindings]
     
-    return result     
+    return result   
+
+@app.get("/events-per-technical-skill")
+async def get_events_per_technical_skill():
+    sparql_results = fuseki_querying.query_fuseki(sparql_queries.events_per_specific_technical_skill_query)
+    bindings = sparql_results['results']['bindings']
+
+    result = [
+        {
+            'name': binding['topic']['value'].split('#')[-1], 
+            'count': int(binding['eventCount']['value']),  
+            'category': binding['topicType']['value'].split('#')[-1]
+        }
+        for binding in bindings
+    ]  
+    
+    return result
 
 @app.get("/events")
 async def get_events(
@@ -119,8 +132,9 @@ async def get_events(
     is_online: Optional[bool] = Query(None, alias="isOnline"),
     dates: Optional[str] = Query(None)
 ):
+    
     filters = []
-
+    print("isOnline value", is_online)
     if is_online is not None:
         if is_online:
             is_online_str = "true" 
@@ -148,19 +162,19 @@ async def get_events(
     if topics:
         topics_list = topics.split(",")
         if len(topics_list) > 1:
-            values_clause = " ".join(f'"{topic}"' for topic in topics_list)
+            values_clause = " ".join(f':{topic}' for topic in topics_list)
             if is_online is not None:
                 sparql_query += f"\n  VALUES ?topic {{ {values_clause} }}"
             else:
                 sparql_query1 += f"\n  VALUES ?topic {{ {values_clause} }}"
                 sparql_query2 += f"\n  VALUES ?topic {{ {values_clause} }}"
         else:
-            filters.append(f'FILTER regex(str(?topic), "{topics_list[0]}", "i")')
+            filters.append(f'FILTER (?topic = :{topics_list[0]})')
 
     if locations:
         locations_list = locations.split(",")
         if len(locations_list) > 1:
-            values_clause = " ".join(f'"{location}"' for location in locations_list)
+            values_clause = " ".join(f':{location}' for location in locations_list)
             if is_online is not None:
                 sparql_query += f"\n  VALUES ?location {{ {values_clause} }}"
             else:
