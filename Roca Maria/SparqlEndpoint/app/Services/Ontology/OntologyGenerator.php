@@ -263,7 +263,7 @@ class OntologyGenerator
                 'domain' => 'Event',
                 'label' => 'Is Online'
             ],
-            'offerEndDate' => [
+            'dateRemoved' => [
                 'domain' => 'Job',
                 'label' => 'Offer End Date'
             ],
@@ -295,7 +295,7 @@ class OntologyGenerator
                 'isReal' => 'xsd:boolean',
                 'wikidataURI' => 'xsd:anyURI',
                 'eventURL' => 'xsd:anyURI',
-                'offerEndDate' => 'xsd:date',
+                'dateRemoved' => 'xsd:date',
                 default => 'xsd:string'
             };
             $this->triples[] = "<{$this->baseUri}{$property}> rdfs:range {$range} .";

@@ -41,7 +41,6 @@ class TripleService
 
     function prepareIndividualTriples(array $data)
     {
-        // dd($data);
         try {
             $baseUri = "http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#";
             $triples = [];
@@ -66,6 +65,12 @@ class TripleService
             if (isset($data['datePosted'])) {
                 $formattedDate = self::convertDateFormatString($data['datePosted']);
                 $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}datePosted> \"{$formattedDate}\"^^xsd:date .";
+            }
+
+            // dateRemoved
+            if (isset($data['dateRemoved'])) {
+                $formattedDate = self::convertDateFormatString($data['dateRemoved']);
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}dateRemoved> \"{$formattedDate}\"^^xsd:date .";
             }
             // Log::info("datePosted: " . $data['datePosted']);
             // if (isset($data['datePosted'])) {
@@ -102,6 +107,7 @@ class TripleService
                     $cleanSkill = str_replace(' ', '', $skill);
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$cleanSkill}> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}SoftSkill> .";
+                    $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdfs:label \"" . addslashes($skill) . "\"^^xsd:string .";
                 }
             }
