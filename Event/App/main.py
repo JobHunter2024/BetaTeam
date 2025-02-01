@@ -1,6 +1,5 @@
 from fastapi import FastAPI, Query
 import fuseki_querying, sparql_queries
-from datetime import datetime
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
 import os
@@ -9,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 FRONTEND_URL = os.getenv('FRONTEND_URL')
+ONTOLOGY_URL = os.getenv('ONTOLOGY_URL')
 
 app = FastAPI()
 
@@ -134,7 +134,7 @@ async def get_events(
 ):
     
     filters = []
-    print("isOnline value", is_online)
+
     if is_online is not None:
         if is_online:
             is_online_str = "true" 
@@ -149,51 +149,39 @@ async def get_events(
 
     if event_types:
         event_types_list = event_types.split(",")
-        if len(event_types_list) > 1:
-            values_clause = " ".join(f'"{event_type}"' for event_type in event_types_list)
-            if is_online is not None:
-                sparql_query += f"\n  VALUES ?eventType {{ {values_clause} }}"
-            else:
-                sparql_query1 += f"\n  VALUES ?eventType {{ {values_clause} }}"
-                sparql_query2 += f"\n  VALUES ?eventType {{ {values_clause} }}"    
-        else:    
-            filters.append(f'FILTER regex(str(?eventType), "{event_types_list[0]}", "i")')
+        values_clause = " ".join(f'"{event_type}"' for event_type in event_types_list)
+        if is_online is not None:
+            sparql_query += f"\n  VALUES ?eventType {{ {values_clause} }}"
+        else:
+            sparql_query1 += f"\n  VALUES ?eventType {{ {values_clause} }}"
+            sparql_query2 += f"\n  VALUES ?eventType {{ {values_clause} }}"    
 
     if topics:
         topics_list = topics.split(",")
-        if len(topics_list) > 1:
-            values_clause = " ".join(f':{topic}' for topic in topics_list)
-            if is_online is not None:
-                sparql_query += f"\n  VALUES ?topic {{ {values_clause} }}"
-            else:
-                sparql_query1 += f"\n  VALUES ?topic {{ {values_clause} }}"
-                sparql_query2 += f"\n  VALUES ?topic {{ {values_clause} }}"
+        values_clause = " ".join(f'<{ONTOLOGY_URL}#{topic}>' for topic in topics_list)
+        if is_online is not None:
+            sparql_query += f"\n  VALUES ?topic {{ {values_clause} }}"
         else:
-            filters.append(f'FILTER (?topic = :{topics_list[0]})')
+            sparql_query1 += f"\n  VALUES ?topic {{ {values_clause} }}"
+            sparql_query2 += f"\n  VALUES ?topic {{ {values_clause} }}"
 
     if locations:
         locations_list = locations.split(",")
-        if len(locations_list) > 1:
-            values_clause = " ".join(f':{location}' for location in locations_list)
-            if is_online is not None:
-                sparql_query += f"\n  VALUES ?location {{ {values_clause} }}"
-            else:
-                sparql_query1 += f"\n  VALUES ?location {{ {values_clause} }}"
-                sparql_query2 += f"\n  VALUES ?location {{ {values_clause} }}"
+        values_clause = " ".join(f':{location}' for location in locations_list)
+        if is_online is not None:
+            sparql_query += f"\n  VALUES ?location {{ {values_clause} }}"
         else:
-            filters.append(f'FILTER regex(str(?location), "{locations_list[0]}", "i")')
+            sparql_query1 += f"\n  VALUES ?location {{ {values_clause} }}"
+            sparql_query2 += f"\n  VALUES ?location {{ {values_clause} }}"
 
     if dates:
         dates_list = dates.split(",")
-        if len(dates_list) > 1:
-            values_clause = " ".join(f'"{date}"' for date in dates_list)
-            if is_online is not None:
-                sparql_query += f"\n  VALUES ?date {{ {values_clause} }}"
-            else:
-                sparql_query1 += f"\n  VALUES ?date {{ {values_clause} }}"
-                sparql_query2 += f"\n  VALUES ?date {{ {values_clause} }}"
-        else:    
-            filters.append(f'FILTER(str(?date) = "{dates_list[0]}")')
+        values_clause = " ".join(f'"{date}"' for date in dates_list)
+        if is_online is not None:
+            sparql_query += f"\n  VALUES ?date {{ {values_clause} }}"
+        else:
+            sparql_query1 += f"\n  VALUES ?date {{ {values_clause} }}"
+            sparql_query2 += f"\n  VALUES ?date {{ {values_clause} }}"
     
     # Add filters to query
     if filters:
