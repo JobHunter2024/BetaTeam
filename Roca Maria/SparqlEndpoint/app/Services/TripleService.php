@@ -151,7 +151,7 @@ class TripleService
                 foreach ($data['unclassified_skills'] as $skill) {
                     $cleanSkill = str_replace(' ', '', $skill);
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$cleanSkill}> .";
-                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}hasSkill> <{$baseUri}{$cleanSkill}> .";
+                    //  $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}hasSkill> <{$baseUri}{$cleanSkill}> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$cleanSkill}> rdfs:label \"" . addslashes($skill) . "\"^^xsd:string .";
                 }
@@ -213,11 +213,11 @@ class TripleService
             }
 
             // is_available
-            if (!empty($data['is_available'])) {
-                $cleanIsAvailable = str_replace(' ', '', $data['is_available']);
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isAvailable> \"" . addslashes($data['is_available']) . "\"^^xsd:boolean .";
-                $triples[] = "<{$baseUri}{$cleanIsAvailable}> rdfs:label \"" . addslashes($data['is_available']) . "\"^^xsd:boolean .";
-            }
+            // if (!empty($data['is_available'])) {
+            //     $cleanIsAvailable = str_replace(' ', '', $data['is_available']);
+            //     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isAvailable> \"" . addslashes($data['is_available']) . "\"^^xsd:boolean .";
+            //     $triples[] = "<{$baseUri}{$cleanIsAvailable}> rdfs:label \"" . addslashes($data['is_available']) . "\"^^xsd:boolean .";
+            // }
 
             // isReal
             if (!empty($data['isReal'])) {
@@ -504,14 +504,13 @@ class TripleService
             //     $triples[] = "<{$baseUri}{$cleanIsOnline}> rdfs:label \"" . addslashes($data['isOnline']) . "\"^^xsd:boolean .";
             // }
             if (isset($data['isOnline'])) {
-                if ($data['isOnline'] == "true" || $data['isOnline'] != "false") {
+                if ($data['isOnline'] != "None" || $data['isOnline'] != "none") {
 
                     // Normalize boolean value (ensure lowercase and valid RDF boolean format)
                     $cleanIsOnline = filter_var($data['isOnline'], FILTER_VALIDATE_BOOLEAN) ? "true" : "false";
 
                     // Construct the triple correctly
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isOnline>  \"" . trim($cleanIsOnline) . "\"^^xsd:boolean .";
-                    // dd($triples);
                 }
             }
 
@@ -586,12 +585,12 @@ class TripleService
                                 }
                             }
 
-                            dd($triples);
+                            // dd($triples);
                         } else if ($data['topicCategory'] == 'Framework') {
                             // Fremework
                             $framework = $data['topicCategoryDetails'];
                             $fwName = str_replace(' ', '', $framework['skill_name'] ?? 'UnknownFramework');
-                            $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$fwName}> .";
+                            //    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$fwName}> .";
                             $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Framework> .";
                             $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
                             $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Skill> .";
@@ -615,7 +614,6 @@ class TripleService
                     }
                 }
             }
-
             if (isset($data['isOnline'])) {
                 // daca eventul nu e online
                 if ($data['isOnline'] == "false") {
@@ -649,6 +647,9 @@ class TripleService
                 }
             }
 
+            if (isset($data['eventURL'])) {
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}eventURL> \"" . addslashes($data['eventURL']) . "\"^^xsd:anyURI .";
+            }
         } catch (Exception $e) {
             return [
                 'output' => [],

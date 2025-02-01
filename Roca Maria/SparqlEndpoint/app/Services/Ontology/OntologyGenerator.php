@@ -111,7 +111,7 @@ class OntologyGenerator
                 'label' => 'Posted Job'
             ],
             'programmedIn' => [
-                'domain' => ['Framework', 'Library'],
+                'domain' => ['Framework', 'Library', 'ProgrammingLanguage'],
                 'range' => 'ProgrammingLanguage',
                 'label' => 'Programmed In'
             ],
@@ -135,10 +135,15 @@ class OntologyGenerator
                 'range' => 'Country',
                 'label' => 'is Located In'
             ],
-            'takesPlace' => [
+            'takesPlaceIn' => [
                 'domain' => 'Event',
                 'range' => 'City',
                 'label' => 'Takes Place'
+            ],
+            'jobLocatedIn' => [
+                'domain' => 'Job',
+                'range' => 'City',
+                'label' => 'Job Located In'
             ]
         ];
 
@@ -258,9 +263,9 @@ class OntologyGenerator
                 'domain' => 'Event',
                 'label' => 'Is Online'
             ],
-            'isAvailable' => [
+            'offerEndDate' => [
                 'domain' => 'Job',
-                'label' => 'Is Available'
+                'label' => 'Offer End Date'
             ],
             'isReal' => [
                 'domain' => 'Job',
@@ -269,6 +274,10 @@ class OntologyGenerator
             'wikidataURI' => [
                 'domain' => 'TechnicalSkill',
                 'label' => 'Wikidata URI'
+            ],
+            'eventURL' => [
+                'domain' => 'Event',
+                'label' => 'Event URL'
             ],
         ];
 
@@ -285,6 +294,8 @@ class OntologyGenerator
                 'isAvailable' => 'xsd:boolean',
                 'isReal' => 'xsd:boolean',
                 'wikidataURI' => 'xsd:anyURI',
+                'eventURL' => 'xsd:anyURI',
+                'offerEndDate' => 'xsd:date',
                 default => 'xsd:string'
             };
             $this->triples[] = "<{$this->baseUri}{$property}> rdfs:range {$range} .";
