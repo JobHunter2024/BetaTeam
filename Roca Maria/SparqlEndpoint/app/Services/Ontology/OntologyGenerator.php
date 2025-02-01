@@ -244,6 +244,16 @@ class OntologyGenerator
                 'domain' => 'Event',
                 'label' => 'Event Type'
             ],
+            // topicCategoy
+            'topicCategory' => [
+                'domain' => 'Topic',
+                'label' => 'Topic Category'
+            ],
+            // topicCategoryDetails
+            'topicCategoryDetails' => [
+                'domain' => 'Topic',
+                'label' => 'Topic Category Details'
+            ],
             'isOnline' => [
                 'domain' => 'Event',
                 'label' => 'Is Online'
@@ -268,7 +278,7 @@ class OntologyGenerator
             $this->triples[] = "<{$this->baseUri}{$property}> rdfs:label \"" . addslashes($details['label']) . "\"^^xsd:string .";
 
             $range = match ($property) {
-                'datePosted' => 'xsd:dateTime',
+                'datePosted' => 'xsd:date',
                 'experienceInYears' => 'xsd:int',
                 'eventDate' => 'xsd:dateTime',
                 'isOnline' => 'xsd:boolean',
