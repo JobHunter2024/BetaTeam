@@ -22,7 +22,7 @@ class JobListingProcessor:
 
         # Extract fields from JSON
         date_posted = job_data.get("date", "")
-        data_removed = job_data.get("dataRemoved", "")
+        date_removed = job_data.get("dateRemoved", "")
         job_title = job_data.get("jobTitle", "")
         company_name = job_data.get("company", "")
         location_from_scraping = job_data.get("location","")
@@ -75,7 +75,7 @@ class JobListingProcessor:
             experience_level,
             job_location,job_location_type,
             job_city,
-            data_removed,
+            date_removed,
             programming_languages,
             frameworks,
             libraries,
