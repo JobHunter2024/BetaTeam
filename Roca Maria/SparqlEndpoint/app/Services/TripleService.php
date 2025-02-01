@@ -63,20 +63,25 @@ class TripleService
                 $triples[] = "<{$baseUri}{$cleanCompanyName}> rdfs:label \"" . addslashes($data['companyName']) . "\"^^xsd:string .";
 
             }
-
             if (isset($data['datePosted'])) {
-                try {
-                    // // Parse the date using Carbon
-                    $formattedDate = Carbon::createFromFormat('F d, Y', $data['datePosted'])->format('Y-m-d');
-                    // Use the formatted date in the triple
-                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}datePosted> \"" . $formattedDate . "\"^^xsd:dateTime .";
-                    //     $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['datePosted']) . "\"^^xsd:dateTime .";
-
-                } catch (Exception $e) {
-                    // Handle invalid date format if necessary
-                    throw new Exception("Invalid date format for datePosted: " . $data['datePosted']);
-                }
+                $formattedDate = self::convertDateFormatString($data['datePosted']);
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}datePosted> \"{$formattedDate}\"^^xsd:date .";
             }
+            // Log::info("datePosted: " . $data['datePosted']);
+            // if (isset($data['datePosted'])) {
+            //     try {
+            //         // Format date using strtotime
+            //         $formattedDate = date('Y-m-d', strtotime($data['datePosted']));
+            //         Log::info("datePosted strtotime: " . $formattedDate);
+            //         // Use the formatted date in the triple
+            //         $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}datePosted> \"" . $formattedDate . "\"^^xsd:date .";
+            //         //     $triples[] = "<{$baseUri}{$cleanTitle}> rdfs:label \"" . addslashes($data['datePosted']) . "\"^^xsd:date .";
+
+            //     } catch (Exception $e) {
+            //         // Handle invalid date format if necessary
+            //         throw new Exception("Invalid date format for datePosted: " . $data['datePosted']);
+            //     }
+            // }
 
             if (isset($data['job_location'])) {
                 $cleanJobLocation = str_replace(' ', '', $data['job_location']);
@@ -161,8 +166,9 @@ class TripleService
                     $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
                     $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$libName}> rdfs:label \"" . addslashes($library['skill_name']) . "\"^^xsd:string .";
-                    if (!empty($language['wikidata_uri'])) {
-                        $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidata_uri']) . "\"^^xsd:anyURI .";
+                    if (!empty($library['wikidata_uri'])) {
+                        //    $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($library['wikidata_uri']) . "\"^^xsd:anyURI .";
+                        $triples[] = "<{$baseUri}{$libName}> <{$baseUri}wikidataURI> \"" . addslashes($library['wikidata_uri']) . "\"^^xsd:anyURI .";
                     }
                     if (!empty($library['influenced_by'])) {
                         foreach ($library['influenced_by'] as $influenced) {
@@ -188,8 +194,8 @@ class TripleService
                     $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
                     $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Skill> .";
                     $triples[] = "<{$baseUri}{$fwName}> rdfs:label \"" . addslashes($framework['skill_name']) . "\"^^xsd:string .";
-                    if (!empty($language['wikidata_uri'])) {
-                        $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidata_uri']) . "\"^^xsd:anyURI .";
+                    if (!empty($framework['wikidata_uri'])) {
+                        $triples[] = "<{$baseUri}{$fwName}> <{$baseUri}wikidataURI> \"" . addslashes($framework['wikidata_uri']) . "\"^^xsd:anyURI .";
                     }
                     if (!empty($framework['influenced_by'])) {
                         foreach ($framework['influenced_by'] as $influenced) {
@@ -206,11 +212,11 @@ class TripleService
                 }
             }
 
-            // isAvailable
-            if (!empty($data['isAvailable'])) {
-                $cleanIsAvailable = str_replace(' ', '', $data['isAvailable']);
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isAvailable> \"" . addslashes($data['isAvailable']) . "\"^^xsd:boolean .";
-                $triples[] = "<{$baseUri}{$cleanIsAvailable}> rdfs:label \"" . addslashes($data['isAvailable']) . "\"^^xsd:boolean .";
+            // is_available
+            if (!empty($data['is_available'])) {
+                $cleanIsAvailable = str_replace(' ', '', $data['is_available']);
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isAvailable> \"" . addslashes($data['is_available']) . "\"^^xsd:boolean .";
+                $triples[] = "<{$baseUri}{$cleanIsAvailable}> rdfs:label \"" . addslashes($data['is_available']) . "\"^^xsd:boolean .";
             }
 
             // isReal
@@ -450,7 +456,7 @@ class TripleService
 
     public function prepareEventTriples($data)
     {
-        // dd($data);
+        //  dd($data);
         try {
             $baseUri = "http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#";
             $triples = [];
@@ -498,13 +504,14 @@ class TripleService
             //     $triples[] = "<{$baseUri}{$cleanIsOnline}> rdfs:label \"" . addslashes($data['isOnline']) . "\"^^xsd:boolean .";
             // }
             if (isset($data['isOnline'])) {
-                if ($data['isOnline'] != "None" || $data['isOnline'] != "none") {
+                if ($data['isOnline'] == "true" || $data['isOnline'] != "false") {
 
                     // Normalize boolean value (ensure lowercase and valid RDF boolean format)
                     $cleanIsOnline = filter_var($data['isOnline'], FILTER_VALIDATE_BOOLEAN) ? "true" : "false";
 
                     // Construct the triple correctly
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isOnline>  \"" . trim($cleanIsOnline) . "\"^^xsd:boolean .";
+                    // dd($triples);
                 }
             }
 
@@ -521,9 +528,97 @@ class TripleService
                 }
             }
 
+            if (isset($data['topicCategory'])) {
+                //  dd($data['topicCategory']);
+                if ($data['topicCategory'] != 'Topic') {
+                    if (!empty($data['topicCategoryDetails'])) {
+                        if ($data['topicCategory'] == 'Programming Language') {
+                            // Programming Languages
+                            $language = $data['topicCategoryDetails'];
+
+                            $langName = str_replace(' ', '', $language['skill_name'] ?? 'Unknown');
+                            // $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$langName}> .";
+                            $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}ProgrammingLanguage> .";
+                            $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}TechnicalSkill> .";
+                            $triples[] = "<{$baseUri}{$langName}> rdf:type <{$baseUri}Skill> .";
+                            $triples[] = "<{$baseUri}{$langName}> rdfs:label \"" . addslashes($language['skill_name']) . "\"^^xsd:string .";
+                            if (!empty($language['official_website'])) {
+                                $triples[] = "<{$baseUri}{$langName}> <{$baseUri}officialWebsite> \"" . addslashes($language['official_website']) . "\"^^xsd:anyURI .";
+                            }
+                            if (!empty($language['wikidata_uri'])) {
+                                $triples[] = "<{$baseUri}{$langName}> <{$baseUri}wikidataURI> \"" . addslashes($language['wikidata_uri']) . "\"^^xsd:anyURI .";
+                            }
+                            if (!empty($library['influenced_by'])) {
+                                foreach ($language['influenced_by'] as $influenced) {
+                                    $cleanInfluenced = str_replace(' ', '', $influenced);
+                                    $triples[] = "<{$baseUri}{$langName}> <{$baseUri}influencedBy> <{$baseUri}{$cleanInfluenced}> .";
+                                }
+                            }
+                            if (!empty($library['programmed_in'])) {
+                                foreach ($language['programmed_in'] as $programmed) {
+                                    $cleanProgrammed = str_replace(' ', '', $programmed);
+                                    $triples[] = "<{$baseUri}{$langName}> <{$baseUri}programmedIn> <{$baseUri}{$cleanProgrammed}> .";
+                                }
+                            }
+
+                        } else if ($data['topicCategory'] == "Library") {
+                            // Library
+                            $library = $data['topicCategoryDetails'];
+                            $libName = str_replace(' ', '', $library['skill_name'] ?? 'UnknownLibrary');
+                            //     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$libName}> .";
+                            $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Library> .";
+                            $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
+                            $triples[] = "<{$baseUri}{$libName}> rdf:type <{$baseUri}Skill> .";
+                            $triples[] = "<{$baseUri}{$libName}> rdfs:label \"" . addslashes($library['skill_name']) . "\"^^xsd:string .";
+                            if (!empty($library['wikidata_uri'])) {
+                                $triples[] = "<{$baseUri}{$libName}> <{$baseUri}wikidataURI> \"" . addslashes($library['wikidata_uri']) . "\"^^xsd:anyURI .";
+                            }
+                            if (!empty($library['influenced_by'])) {
+                                foreach ($library['influenced_by'] as $influenced) {
+                                    $cleanInfluenced = str_replace(' ', '', $influenced);
+                                    $triples[] = "<{$baseUri}{$libName}> <{$baseUri}influencedBy> <{$baseUri}{$cleanInfluenced}> .";
+                                }
+                            }
+                            if (!empty($library['programmed_in'])) {
+                                foreach ($library['programmed_in'] as $programmed) {
+                                    $cleanProgrammed = str_replace(' ', '', $programmed);
+                                    $triples[] = "<{$baseUri}{$libName}> <{$baseUri}programmedIn> <{$baseUri}{$cleanProgrammed}> .";
+                                }
+                            }
+
+                            dd($triples);
+                        } else if ($data['topicCategory'] == 'Framework') {
+                            // Fremework
+                            $framework = $data['topicCategoryDetails'];
+                            $fwName = str_replace(' ', '', $framework['skill_name'] ?? 'UnknownFramework');
+                            $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}requiresSkill> <{$baseUri}{$fwName}> .";
+                            $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Framework> .";
+                            $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}TechnicalSkill> ."; // Optional
+                            $triples[] = "<{$baseUri}{$fwName}> rdf:type <{$baseUri}Skill> .";
+                            $triples[] = "<{$baseUri}{$fwName}> rdfs:label \"" . addslashes($framework['skill_name']) . "\"^^xsd:string .";
+                            if (!empty($framework['wikidata_uri'])) {
+                                $triples[] = "<{$baseUri}{$fwName}> <{$baseUri}wikidataURI> \"" . addslashes($framework['wikidata_uri']) . "\"^^xsd:anyURI .";
+                            }
+                            if (!empty($framework['influenced_by'])) {
+                                foreach ($framework['influenced_by'] as $influenced) {
+                                    $cleanInfluenced = str_replace(' ', '', $influenced);
+                                    $triples[] = "<{$baseUri}{$fwName}> <{$baseUri}influencedBy> <{$baseUri}{$cleanInfluenced}> .";
+                                }
+                            }
+                            if (!empty($framework['programmed_in'])) {
+                                foreach ($framework['programmed_in'] as $programmed) {
+                                    $cleanProgrammed = str_replace(' ', '', $programmed);
+                                    $triples[] = "<{$baseUri}{$fwName}> <{$baseUri}programmedIn> <{$baseUri}{$cleanProgrammed}> .";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             if (isset($data['isOnline'])) {
                 // daca eventul nu e online
-                if ($cleanIsOnline == "false") {
+                if ($data['isOnline'] == "false") {
 
                     // "city" : "Iasi"
                     if (isset($data['city'])) {
@@ -553,6 +648,7 @@ class TripleService
                     }
                 }
             }
+
         } catch (Exception $e) {
             return [
                 'output' => [],
@@ -578,6 +674,15 @@ class TripleService
         } catch (Exception $e) {
             Log::error("Invalid date format: " . $date);
             return $date; // Return original if conversion fails
+        }
+    }
+    public static function convertDateFormatString($dateString)
+    {
+        try {
+            // Convertim în format ISO 8601 (YYYY-MM-DD)
+            return Carbon::parse($dateString)->format('Y-m-d');
+        } catch (Exception $e) {
+            throw new Exception("Invalid date format: " . $dateString);
         }
     }
 }
