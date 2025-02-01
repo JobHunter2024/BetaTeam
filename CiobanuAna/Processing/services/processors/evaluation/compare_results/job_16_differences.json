@@ -3,12 +3,12 @@
         "only_in_json1": [
             "communication",
             "team collaboration",
-            "continuous learning",
-            "mentoring"
+            "mentoring",
+            "continuous learning"
         ],
         "only_in_json2": [
-            "verbal communication skills",
             "sales",
+            "verbal communication skills",
             "communications",
             "scheduling",
             "writing"
@@ -39,8 +39,8 @@
     },
     "job_location_type": {
         "only_in_json1": [
-            "on-site",
-            "remote"
+            "remote",
+            "on-site"
         ],
         "only_in_json2": [
             "office"
@@ -63,45 +63,45 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "enterprise software development",
-            "mentorship",
-            "web programming",
             "agile methodologies",
-            "sql",
+            "web programming",
             "distributed saas systems",
-            "restful apis",
-            "code reviews",
             "process improvement",
+            "mentorship",
+            "sql",
+            "enterprise software development",
+            "restful apis",
+            "software design and architecture",
             "object-oriented programming (oop)",
-            "software design and architecture"
+            "code reviews"
         ],
         "only_in_json2": [
-            "sugarcrm",
-            "software architecture",
-            "customer experience",
-            "agile software development",
             "data store",
-            "software development methodologies",
-            "cross-functional coordination",
+            "programming",
+            "professional services automation",
+            "customer experience",
+            "front end",
+            "restful api",
+            "software quality management",
+            "process improvements",
+            "customer journey mapping",
             "object-oriented programming",
             "staging",
-            "customer relationship building",
             "value-added reseller",
-            "restful api",
-            "customer relationship management",
-            "programming",
-            "personalization",
-            "customer journey mapping",
-            "demand generation",
-            "computer science",
-            "software quality management",
             "customer profitability",
-            "front end",
-            "software development",
-            "professional services automation",
             "code review",
+            "demand generation",
+            "agile software development",
+            "sugarcrm",
             "software design",
-            "process improvements",
+            "customer relationship management",
+            "cross-functional coordination",
+            "customer relationship building",
+            "software development methodologies",
+            "software architecture",
+            "computer science",
+            "personalization",
+            "software development",
             "automation"
         ]
     }

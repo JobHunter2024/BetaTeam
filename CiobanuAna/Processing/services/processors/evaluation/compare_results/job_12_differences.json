@@ -14,21 +14,21 @@
             "continuous learning"
         ],
         "only_in_json2": [
-            "self starter",
-            "friendliness",
             "integration",
-            "team building",
-            "innovation",
-            "research",
             "presentations",
-            "professionalism"
+            "professionalism",
+            "friendliness",
+            "team building",
+            "research",
+            "self starter",
+            "innovation"
         ]
     },
     "degree_level": {
         "only_in_json1": [
-            "bachelor\u2019s degree",
             "ph.d. (bonus)",
-            "master\u2019s degree (preferred)"
+            "master's degree (preferred)",
+            "bachelor's degree"
         ],
         "only_in_json2": [
             "doctorate"
@@ -36,8 +36,8 @@
     },
     "education_field": {
         "only_in_json1": [
-            "artificial intelligence",
-            "machine learning"
+            "machine learning",
+            "artificial intelligence"
         ]
     },
     "employment_type": {
@@ -65,8 +65,8 @@
     },
     "frameworks": {
         "only_in_json1": [
-            "Hugging Face Transformers",
             "PyTorch",
+            "Hugging Face Transformers",
             "TensorFlow"
         ],
         "only_in_json2": [
@@ -81,54 +81,54 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "large language models (llms)",
-            "ml model fine-tuning",
-            "cuda",
-            "high-dimensional data analysis",
-            "ml model development",
-            "ai assistants",
             "data pipeline design",
-            "cybersecurity",
+            "ml model development",
             "machine learning research",
-            "tensorrt"
+            "ml model fine-tuning",
+            "ai assistants",
+            "cuda",
+            "cybersecurity",
+            "high-dimensional data analysis",
+            "tensorrt",
+            "large language models (llms)"
         ],
         "only_in_json2": [
-            "disabilities",
-            "software engineering",
-            "professional development programs",
-            "track",
-            "interactive design",
-            "sparse",
-            "cybersecurity compliance",
+            "language model",
+            "machine learning methods",
             "nvidia cuda",
-            "model-based definition",
+            "intelligent virtual assistant",
+            "scale",
             "equities",
-            "production systems",
-            "dissemination",
-            "information access",
-            "data science",
-            "mathematical statistics",
             "transformers",
-            "graphics processing unit",
+            "coloring",
+            "machine learning",
+            "cybersecurity compliance",
+            "diving",
+            "dissemination",
+            "disabilities",
+            "model-based definition",
+            "information access",
+            "sparse",
+            "data science",
+            "track",
+            "adoptions",
+            "mathematical statistics",
             "sage safe x3",
             "thought leadership",
-            "peer review",
-            "self host",
-            "scalability",
-            "scale",
-            "computer science",
-            "machine learning methods",
-            "production management",
-            "linux",
-            "intelligent virtual assistant",
-            "data collection",
-            "visualization",
-            "adoptions",
-            "machine learning",
-            "coloring",
-            "diving",
             "prototype",
-            "language model"
+            "data collection",
+            "peer review",
+            "scalability",
+            "professional development programs",
+            "software engineering",
+            "graphics processing unit",
+            "production management",
+            "visualization",
+            "self host",
+            "computer science",
+            "interactive design",
+            "production systems",
+            "linux"
         ]
     }
 }

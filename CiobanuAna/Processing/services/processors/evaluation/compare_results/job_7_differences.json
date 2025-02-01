@@ -8,13 +8,13 @@
         "only_in_json1": [
             "communication",
             "problem solving",
-            "adaptability",
-            "continuous learning"
+            "continuous learning",
+            "adaptability"
         ],
         "only_in_json2": [
-            "verbal communication skills",
             "friendliness",
-            "professionalism"
+            "professionalism",
+            "verbal communication skills"
         ]
     },
     "degree_level": {
@@ -24,8 +24,8 @@
     },
     "education_field": {
         "only_in_json1": [
-            "computer science",
-            "machine learning"
+            "machine learning",
+            "computer science"
         ]
     },
     "employment_type": {
@@ -65,25 +65,25 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "model life cycle management",
-            "model deployment",
-            "ai tools",
-            "ml optimization",
-            "large language models (llm)",
             "data pipeline design",
-            "open-source ml techniques"
+            "open-source ml techniques",
+            "ai tools",
+            "model life cycle management",
+            "ml optimization",
+            "model deployment",
+            "large language models (llm)"
         ],
         "only_in_json2": [
-            "data science",
-            "technical training",
             "library",
             "cross-functional team leadership",
-            "machine learning methods",
+            "technical training",
+            "data pipeline",
             "amazon data pipeline",
+            "continuous improvement process",
+            "machine learning methods",
             "model-based definition",
             "project cycle management",
-            "data pipeline",
-            "continuous improvement process"
+            "data science"
         ]
     }
 }

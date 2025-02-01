@@ -6,24 +6,24 @@
     },
     "soft_skills": {
         "only_in_json1": [
-            "communication",
-            "mentorship",
             "team collaboration",
             "learning mindset",
+            "mentorship",
+            "communication",
             "problem solving"
         ],
         "only_in_json2": [
             "integration",
-            "innovation",
-            "operations",
+            "professionalism",
             "adaptability",
-            "research",
-            "teaching",
             "willingness to learn",
+            "research",
+            "operations",
             "communications",
             "collaboration",
-            "professionalism",
-            "management"
+            "teaching",
+            "management",
+            "innovation"
         ]
     },
     "degree_level": {
@@ -69,9 +69,9 @@
     },
     "frameworks": {
         "only_in_json1": [
-            "React",
             "Express.js",
             "GraphQL",
+            "React",
             "NestJS"
         ],
         "only_in_json2": [
@@ -88,47 +88,47 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "frontend development",
-            "microservices",
-            "mentorship",
             "backend development",
             "ci/cd",
             "learning & adaptability",
-            "open source",
             "software development life cycle",
-            "technical leadership"
+            "frontend development",
+            "mentorship",
+            "technical leadership",
+            "open source",
+            "microservices"
         ],
         "only_in_json2": [
-            "software engineering",
-            "technical solution design",
-            "paving",
-            "track",
-            "long-term care",
-            "javascript frameworks",
-            "working model 2d",
-            "phase",
-            "draft",
-            "graphql",
-            "application development",
-            "open source intelligence",
-            "library",
-            "staging",
-            "maintainability",
-            "gitlab",
             "open access",
-            "platform tools",
-            "web applications",
-            "peer review",
-            "scale",
-            "computer science",
-            "integrated product team",
-            "front end",
-            "software development",
-            "journals",
             "branding",
-            "unlocker",
+            "scale",
+            "javascript frameworks",
+            "application development",
+            "paving",
+            "front end",
+            "platform tools",
+            "graphql",
+            "staging",
+            "journals",
+            "gitlab",
+            "phase",
+            "library",
+            "track",
+            "maintainability",
+            "long-term care",
+            "draft",
             "templates",
-            "custom backend"
+            "peer review",
+            "custom backend",
+            "open source intelligence",
+            "integrated product team",
+            "software engineering",
+            "working model 2d",
+            "computer science",
+            "technical solution design",
+            "software development",
+            "unlocker",
+            "web applications"
         ]
     }
 }

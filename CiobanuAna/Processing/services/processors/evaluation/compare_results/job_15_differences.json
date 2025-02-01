@@ -5,21 +5,21 @@
     },
     "soft_skills": {
         "only_in_json1": [
-            "verbal communication",
-            "written communication",
             "organization",
+            "written communication",
+            "verbal communication",
             "attention to detail"
         ],
         "only_in_json2": [
+            "microsoft office",
+            "research",
+            "verbal communication skills",
             "planning",
             "operations",
-            "governance",
-            "research",
+            "collaboration",
             "infrastructure",
-            "verbal communication skills",
-            "microsoft office",
-            "creativity",
-            "collaboration"
+            "governance",
+            "creativity"
         ]
     },
     "degree_level": {
@@ -46,59 +46,59 @@
     },
     "programming_languages": {
         "only_in_json2": [
-            "Nice",
-            "Source"
+            "Source",
+            "Nice"
         ]
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "know your customer (kyc)",
-            "open-source research methods",
-            "microsoft office applications",
-            "financial crime",
-            "fluency in english and arabic",
             "publicly exposed persons (pep)",
-            "corruption risk identification",
+            "open-source research methods",
             "research skills",
+            "know your customer (kyc)",
+            "fluency in english and arabic",
+            "microsoft office applications",
+            "corruption risk identification",
+            "financial crime",
+            "anti-money laundering (aml)",
             "regulatory compliance",
-            "collaboration with global teams",
-            "anti-money laundering (aml)"
+            "collaboration with global teams"
         ],
         "only_in_json2": [
-            "narcotics",
-            "economy",
-            "disabilities",
-            "anti money laundering",
-            "financial market",
-            "organized crime investigation",
-            "analytical thinking",
-            "life insurance sales",
-            "scholastic read 180",
-            "financial risk",
-            "economics",
-            "open source intelligence",
-            "medical insurance claims",
-            "economic growth",
-            "risk management",
-            "shared whois project",
-            "latin",
-            "emergency medical services",
-            "investments",
             "open access",
-            "collections",
-            "sustainability",
-            "voucher",
-            "sustainable growth rate",
-            "mental health",
-            "reputational risk",
-            "personality development",
             "innovation management",
-            "purchasing",
-            "retirement planning",
+            "medical insurance claims",
+            "sustainable growth rate",
+            "voucher",
+            "sustainability",
+            "reputational risk",
+            "economics",
             "infrastructure management services",
+            "know your customer",
+            "scholastic read 180",
+            "analytical thinking",
+            "investments",
+            "disabilities",
+            "retirement planning",
+            "risk management",
+            "economy",
+            "collections",
+            "life insurance sales",
             "law enforcement",
             "romanian language",
-            "know your customer"
+            "purchasing",
+            "latin",
+            "financial risk",
+            "mental health",
+            "open source intelligence",
+            "narcotics",
+            "organized crime investigation",
+            "economic growth",
+            "financial market",
+            "shared whois project",
+            "anti money laundering",
+            "emergency medical services",
+            "personality development"
         ]
     }
 }

@@ -44,6 +44,8 @@ class JobListingProcessor:
         education_field = self.detail_extractor.extract_education_field(job_description)
         employment_type = self.detail_extractor.extract_employment_type(job_description)
         experience_in_years = self.detail_extractor.extract_experience_years(job_description)
+        job_city = self.detail_extractor.extract_city(location_from_scraping)
+
         if not location_from_scraping:
             if not job_location_from_title:
                 job_location = self.detail_extractor.extract_job_location(job_description)
@@ -72,6 +74,7 @@ class JobListingProcessor:
             experience_in_years,
             experience_level,
             job_location,job_location_type,
+            job_city,
             is_available,
             programming_languages,
             frameworks,

@@ -17,16 +17,16 @@
         ],
         "only_in_json2": [
             "integration",
-            "consulting",
-            "distributed team management",
-            "administrative skills",
             "willingness to learn",
+            "administrative skills",
+            "distributed team management",
+            "consulting",
             "management"
         ]
     },
     "degree_level": {
         "only_in_json1": [
-            "bachelor\u2019s degree"
+            "bachelor's degree"
         ]
     },
     "education_field": {
@@ -59,8 +59,8 @@
     },
     "programming_languages": {
         "only_in_json1": [
-            "NodeJS",
-            "Go (Golang)"
+            "Go (Golang)",
+            "NodeJS"
         ],
         "only_in_json2": [
             "Kotlin",
@@ -76,38 +76,38 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "serverless ecosystem",
-            "containerized applications",
-            "cloud providers (aws/gcp/azure)",
-            "automation testing",
-            "virtualization solutions",
-            "sql/nosql databases",
             "version control (git/svn)",
+            "containerized applications",
+            "virtualization solutions",
+            "cloud providers (aws/gcp/azure)",
+            "sql/nosql databases",
+            "automation testing",
+            "serverless ecosystem",
             "infrastructure as code (iac)"
         ],
         "only_in_json2": [
-            "google cloud platform",
-            "git",
-            "kubernetes",
+            "nosql",
+            "standard accounting practices",
+            "build tools",
+            "agile edge technologies",
+            "private cloud",
+            "mobile app",
+            "virtualization",
             "perspective",
-            "serverless computing",
             "community development",
-            "code testing",
-            "recruitment process outsourcing",
             "job descriptions",
             "version control",
-            "build tools",
-            "infrastructure as code",
-            "mobile app",
-            "hostile work environment",
             "code review",
-            "standard accounting practices",
-            "private cloud",
-            "nosql",
-            "agile edge technologies",
-            "virtualization",
+            "prototype",
+            "google cloud platform",
+            "code testing",
+            "git",
+            "recruitment process outsourcing",
+            "infrastructure as code",
+            "hostile work environment",
+            "kubernetes",
             "containerization",
-            "prototype"
+            "serverless computing"
         ]
     }
 }

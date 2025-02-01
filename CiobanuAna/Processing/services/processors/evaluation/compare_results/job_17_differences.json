@@ -12,7 +12,7 @@
     },
     "degree_level": {
         "only_in_json1": [
-            "bachelor\u2019s degree"
+            "bachelor's degree"
         ]
     },
     "education_field": {
@@ -40,8 +40,8 @@
     },
     "job_location_type": {
         "only_in_json1": [
-            "on-site",
-            "remote"
+            "remote",
+            "on-site"
         ],
         "only_in_json2": [
             "office"
@@ -54,8 +54,8 @@
     },
     "frameworks": {
         "only_in_json1": [
-            "React",
-            "Angular"
+            "Angular",
+            "React"
         ]
     },
     "libraries": {
@@ -69,43 +69,43 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "product management collaboration",
-            "html/css",
-            "closures",
             "web accessibility",
-            "cross-browser compatibility",
-            "asynchronous programming",
-            "scalable front-end systems",
             "front-end performance optimization",
-            "real-time visualizations"
+            "scalable front-end systems",
+            "real-time visualizations",
+            "html/css",
+            "cross-browser compatibility",
+            "product management collaboration",
+            "asynchronous programming",
+            "closures"
         ],
         "only_in_json2": [
-            "sugarcrm",
+            "programming",
+            "end systems",
+            "professional services automation",
             "customer experience",
+            "front end",
+            "product management",
+            "customer journey mapping",
             "real time data",
             "staging",
-            "customer relationship building",
             "value-added reseller",
-            "customer relationship management",
-            "web applications",
-            "programming",
-            "personalization",
-            "scalability",
-            "customer journey mapping",
-            "demand generation",
-            "angular material",
-            "computer science",
-            "end systems",
-            "customer profitability",
-            "front end",
-            "browser compatibility",
-            "professional services automation",
-            "visualization",
-            "automation",
             "hypertext markup language",
-            "product management",
+            "customer profitability",
             "interactivity",
-            "learning experience design"
+            "demand generation",
+            "sugarcrm",
+            "customer relationship management",
+            "learning experience design",
+            "angular material",
+            "scalability",
+            "customer relationship building",
+            "visualization",
+            "computer science",
+            "personalization",
+            "browser compatibility",
+            "automation",
+            "web applications"
         ]
     }
 }

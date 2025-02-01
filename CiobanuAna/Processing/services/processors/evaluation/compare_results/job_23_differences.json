@@ -14,16 +14,16 @@
     },
     "soft_skills": {
         "only_in_json1": [
-            "communication",
             "customer focus",
-            "problem solving",
+            "technical decision making",
             "independent work",
-            "technical decision making"
+            "communication",
+            "problem solving"
         ],
         "only_in_json2": [
-            "communications",
-            "prioritization",
             "integration",
+            "prioritization",
+            "communications",
             "innovation"
         ]
     },
@@ -60,8 +60,8 @@
     "job_location_type": {
         "only_in_json2": [
             "onsite",
-            "online",
-            "office"
+            "office",
+            "online"
         ]
     },
     "programming_languages": {
@@ -69,8 +69,8 @@
             "C++"
         ],
         "only_in_json2": [
-            "Nice",
-            "High Performance Fortran"
+            "High Performance Fortran",
+            "Nice"
         ]
     },
     "frameworks": {
@@ -88,40 +88,40 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "high-performance systems",
-            "distributed systems",
             "api development",
-            "tdd (test-driven development)",
-            "recruitment and onboarding",
-            "large-scale software development",
             "customer-facing systems",
+            "large-scale software development",
+            "tdd (test-driven development)",
+            "distributed systems",
             "ddd (domain-driven design)",
-            "observability"
+            "observability",
+            "high-performance systems",
+            "recruitment and onboarding"
         ],
         "only_in_json2": [
-            "software engineering",
-            "test-driven development",
-            "acting",
-            "new business development",
-            "synoptic scale meteorology",
-            "life insurance sales",
-            "service provider",
-            "library for www in perl",
-            "server-side",
+            "relational databases",
             "emerging technologies",
-            "application programming interface",
-            "continuous quality improvement",
+            "server-side",
+            "test-driven development",
+            "service provider",
             "scale",
             "voucher",
             "good laboratory practice",
-            "ddd service",
-            "learning platforms",
-            "software development",
+            "km programming language",
+            "new business development",
             "process improvements",
-            "booking",
             "distributed file systems",
-            "relational databases",
-            "km programming language"
+            "learning platforms",
+            "acting",
+            "life insurance sales",
+            "synoptic scale meteorology",
+            "application programming interface",
+            "continuous quality improvement",
+            "ddd service",
+            "software engineering",
+            "software development",
+            "library for www in perl",
+            "booking"
         ]
     }
 }

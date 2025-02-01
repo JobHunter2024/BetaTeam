@@ -14,15 +14,15 @@
             "analytical thinking"
         ],
         "only_in_json2": [
-            "reliability",
-            "collaboration",
             "communications",
-            "innovation"
+            "reliability",
+            "innovation",
+            "collaboration"
         ]
     },
     "degree_level": {
         "only_in_json1": [
-            "bachelor\u2019s degree"
+            "bachelor's degree"
         ]
     },
     "education_field": {
@@ -50,8 +50,8 @@
     },
     "job_location_type": {
         "only_in_json1": [
-            "on-site",
-            "remote"
+            "remote",
+            "on-site"
         ]
     },
     "programming_languages": {
@@ -61,17 +61,17 @@
     },
     "frameworks": {
         "only_in_json1": [
-            "JMeter",
-            "Jenkins",
-            "RestAssured",
-            "SoapUI",
-            "LoadRunner",
-            "Travis CI",
-            "Appium",
-            "Postman",
             "Bamboo",
+            "Appium",
+            "JMeter",
+            "Selenium",
+            "SoapUI",
+            "Postman",
+            "LoadRunner",
             "JUnit",
-            "Selenium"
+            "Jenkins",
+            "Travis CI",
+            "RestAssured"
         ],
         "only_in_json2": [
             "Automated Testing Framework"
@@ -84,40 +84,40 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "ci/cd pipelines",
-            "test result analysis",
-            "test script development",
-            "test automation frameworks",
-            "automation testing",
+            "api testing",
             "test strategies",
+            "automation testing",
             "defect reporting",
-            "api testing"
+            "test automation frameworks",
+            "test script development",
+            "test result analysis",
+            "ci/cd pipelines"
         ],
         "only_in_json2": [
-            "test script",
-            "jenkins",
-            "soapui",
+            "test automation",
             "test strategy",
-            "atlassian bamboo",
+            "postman",
+            "programming",
+            "e-commerce",
+            "artificial intelligence",
+            "jenkins",
             "junit",
-            "travis ci",
-            "gui testing tools",
+            "machine learning",
+            "analytics",
             "apache jmeter",
             "cross-functional team leadership",
-            "application programming interface",
-            "analytics",
-            "programming",
-            "amazon marketplace",
-            "computer science",
-            "artificial intelligence",
-            "postman",
-            "automation",
-            "appium",
-            "machine learning",
             "romanian language",
-            "e-commerce",
+            "test script",
+            "atlassian bamboo",
+            "travis ci",
             "language experience approach",
-            "test automation"
+            "application programming interface",
+            "gui testing tools",
+            "computer science",
+            "appium",
+            "amazon marketplace",
+            "automation",
+            "soapui"
         ]
     }
 }

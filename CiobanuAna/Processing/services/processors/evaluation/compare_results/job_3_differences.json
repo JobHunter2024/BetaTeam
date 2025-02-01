@@ -5,19 +5,19 @@
     },
     "soft_skills": {
         "only_in_json1": [
+            "algorithmic thinking",
             "communication",
             "technical articulation",
-            "problem solving",
             "agile development",
-            "algorithmic thinking"
+            "problem solving"
         ],
         "only_in_json2": [
-            "innovation",
-            "governance",
+            "professionalism",
             "complex problem solving",
             "verbal communication skills",
             "writing",
-            "professionalism"
+            "governance",
+            "innovation"
         ]
     },
     "education_field": {
@@ -36,7 +36,18 @@
     "experience_years": {
         "only_in_json1": [
             "2+ years"
+        ],
+        "only_in_json2": [
+            "2 years"
         ]
+    },
+    "experience_level": {
+        "json1": "",
+        "json2": "Junior"
+    },
+    "job_location": {
+        "json1": "Bucharest, Romania",
+        "json2": "Romania, Bucharest"
     },
     "job_location_type": {
         "only_in_json2": [
@@ -45,7 +56,7 @@
     },
     "programming_languages": {
         "only_in_json2": [
-            "E"
+            "High Performance Fortran"
         ]
     },
     "frameworks": {
@@ -60,56 +71,58 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "mobile development lifecycle",
-            "ios development tools",
-            "version control systems",
-            "instruments",
-            "unit and functional tests",
+            "multithreaded programming",
             "simulators",
-            "xcode ide",
-            "apple distribution process",
-            "ios frameworks",
-            "swift packages",
+            "version control systems",
+            "mobile development lifecycle",
+            "git",
+            "instruments",
             "restful apis",
-            "multithreaded programming"
+            "ios frameworks",
+            "ios development tools",
+            "xcode ide",
+            "swift packages",
+            "apple distribution process",
+            "unit and functional tests"
         ],
         "only_in_json2": [
-            "instrumentation",
-            "codebase",
             "mobile application software",
-            "cybersecurity compliance",
-            "licensing",
-            "library for www in perl",
-            "multithreading",
-            "functional testing",
-            "investments",
-            "restful api",
-            "behavioral analytics",
             "programming",
-            "research and development",
-            "version control",
-            "high performance computing",
-            "computer science",
-            "ios development",
-            "artificial intelligence",
-            "cyber resilience",
-            "scrum",
-            "progress openedge",
-            "algorithms",
-            "mobile app",
-            "hostile work environment",
-            "process driven development",
             "cocoapods",
-            "control systems",
-            "usability",
-            "mobile application development",
-            "back end",
+            "artificial intelligence",
+            "behavioral analytics",
+            "git flow",
+            "codebase",
+            "restful api",
             "apple xcode",
+            "licensing",
+            "mobile app",
+            "process driven development",
+            "cybersecurity compliance",
             "bitbucket",
-            "agile methodology",
+            "investments",
+            "mobile application development",
+            "version control",
+            "ios development",
+            "research and development",
+            "multithreading",
+            "control systems",
             "simulations",
+            "instrumentation",
+            "usability",
+            "progress openedge",
+            "functional testing",
+            "computer science",
             "agility",
-            "github"
+            "algorithms",
+            "scrum",
+            "hostile work environment",
+            "library for www in perl",
+            "back end",
+            "cyber resilience",
+            "github",
+            "agile methodology"
         ]
-    }
+    },
+    "already_added_technical_skills": "Key 'already_added_technical_skills' is missing in the first JSON"
 }

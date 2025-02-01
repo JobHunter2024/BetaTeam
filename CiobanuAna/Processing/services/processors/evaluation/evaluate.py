@@ -109,14 +109,14 @@ def process_job_listings():
     # Create a processor
     processor = JobListingProcessor(job_title_normalizer, company_name_normalizer, date_normalizer, 
                                     language_skill_extractor, basic_cleaner, skill_extractor, soft_skill_extractor, job_details, technical_skill_extractor)
-# encoding="utf-8"
+
     for filename in os.listdir(input_folder):
-         if filename.endswith(".json"):
-            # Read the input file
+         if filename.endswith("_3.json"):
+
             input_file = os.path.join(input_folder, filename)
             print("Input file", input_file)
             with open(input_file, "r", encoding="utf-8") as file:
-                input_json = file.read()  # Read file as string 
+                input_json = file.read() 
             
             # Process the data
             try:
@@ -130,6 +130,6 @@ def process_job_listings():
 
 
 if __name__ == "__main__":
-    # write_compare_results()
     process_job_listings()
+    write_compare_results()
          

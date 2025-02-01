@@ -6,14 +6,14 @@
         "English"
     ],
     "soft_skills": [
-        "Creativity",
-        "Professionalism",
-        "Innovation",
-        "Collaboration",
         "Writing",
-        "Verbal Communication Skills",
         "Complex Problem Solving",
-        "Governance"
+        "Verbal Communication Skills",
+        "Innovation",
+        "Governance",
+        "Professionalism",
+        "Creativity",
+        "Collaboration"
     ],
     "degree_level": [
         "Bachelor's Degree"
@@ -23,106 +23,105 @@
         "Artificial Intelligence"
     ],
     "employment_type": [],
-    "experience_years": [],
-    "experience_level": "",
-    "job_location": "Bucharest, Romania",
+    "experience_years": [
+        "2 years"
+    ],
+    "experience_level": "Junior",
+    "job_location": "Romania, Bucharest",
     "job_location_type": [
         "office"
     ],
     "programming_languages": [
         {
-            "skill_name": "Kotlin",
-            "skill_type": "Programming Language",
-            "official_website": "https://kotlinlang.org/",
-            "influenced_by": [
-                "Java",
-                "JavaScript",
-                "C#",
-                "Python",
-                "Gosu",
-                "ML",
-                "Ruby",
-                "Apache Groovy",
-                "Scala"
-            ],
-            "programmed_in": []
-        },
-        {
             "skill_name": "Swift",
             "skill_type": "Programming Language",
             "official_website": "https://swift.org/",
             "influenced_by": [
-                "Java",
-                "C",
-                "D",
-                "C++",
+                "Haskell",
                 "C#",
-                "Rust",
-                "Python",
+                "Java",
                 "CLU",
-                "Objective-C",
-                "Ruby",
+                "C++",
+                "Rust",
                 "Apache Groovy",
+                "D",
                 "Smalltalk",
+                "Objective-C",
+                "C",
+                "Python",
                 "Scala",
-                "Haskell"
+                "Ruby"
             ],
             "programmed_in": []
         },
         {
-            "skill_name": "E",
+            "skill_name": "High Performance Fortran",
             "skill_type": "Programming Language",
-            "official_website": "http://numod.ins.uni-bonn.de/grape/",
+            "official_website": "http://hpff.rice.edu/",
+            "influenced_by": [],
+            "programmed_in": []
+        },
+        {
+            "skill_name": "Kotlin",
+            "skill_type": "Programming Language",
+            "official_website": "https://kotlinlang.org/",
             "influenced_by": [
+                "ML",
+                "Apache Groovy",
+                "C#",
                 "Java",
-                "Joule"
+                "Gosu",
+                "JavaScript",
+                "Python",
+                "Scala",
+                "Ruby"
             ],
-            "programmed_in": [
-                "C"
-            ]
+            "programmed_in": []
         }
     ],
     "frameworks": [],
     "libraries": [],
     "unclassified_skills": [
-        "Behavioral Analytics",
-        "Control Systems",
-        "Licensing",
-        "Dependency Management",
-        "Bitbucket",
-        "Android Development",
-        "Cybersecurity Compliance",
-        "Progress OpenEdge",
-        "Library For WWW In Perl",
-        "Cyber Resilience",
-        "High Performance Computing",
-        "Agile Methodology",
-        "Computer Science",
-        "Codebase",
-        "Usability",
-        "Artificial Intelligence",
-        "RESTful API",
-        "Simulations",
-        "IOS Development",
-        "Mobile Application Development",
-        "Back End",
-        "Version Control",
-        "Mobile App",
         "Github",
-        "Process Driven Development",
-        "Scrum",
-        "Hostile Work Environment",
-        "Apple Xcode",
-        "Agility",
-        "Git",
+        "Bitbucket",
+        "Licensing",
         "Programming",
+        "Codebase",
+        "Agility",
+        "Computer Science",
+        "Android Development",
+        "Cocoapods",
+        "Functional Testing",
+        "Simulations",
+        "Behavioral Analytics",
+        "Artificial Intelligence",
+        "Research And Development",
         "Investments",
         "Algorithms",
-        "Research And Development",
-        "Cocoapods",
+        "Git Flow",
+        "Agile Methodology",
+        "RESTful API",
+        "Apple Xcode",
+        "Control Systems",
+        "Version Control",
+        "Mobile App",
         "Multithreading",
+        "Usability",
+        "Progress OpenEdge",
+        "Mobile Application Software",
+        "Mobile Application Development",
+        "Process Driven Development",
+        "Scrum",
+        "Cybersecurity Compliance",
+        "IOS Development",
+        "Hostile Work Environment",
+        "Back End",
         "Instrumentation",
-        "Functional Testing",
-        "Mobile Application Software"
+        "Dependency Management",
+        "Library For WWW In Perl",
+        "Cyber Resilience"
+    ],
+    "already_added_technical_skills": [
+        "E"
     ]
 }

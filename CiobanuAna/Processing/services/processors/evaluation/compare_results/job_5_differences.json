@@ -9,23 +9,23 @@
     },
     "soft_skills": {
         "only_in_json1": [
-            "attention to detail",
-            "adaptability",
-            "good communication skills",
             "agile/scrum methodology knowledge",
-            "problem solving",
-            "collaboration"
+            "good communication skills",
+            "adaptability",
+            "collaboration",
+            "attention to detail",
+            "problem solving"
         ],
         "only_in_json2": [
+            "integration",
             "itil foundation certification",
-            "reliability",
-            "integration"
+            "reliability"
         ]
     },
     "education_field": {
         "only_in_json1": [
-            "related field",
-            "informatics"
+            "informatics",
+            "related field"
         ]
     },
     "employment_type": {
@@ -58,14 +58,14 @@
         ]
     },
     "programming_languages": {
-        "only_in_json2": [
-            "E"
+        "only_in_json1": [
+            "JavaScript"
         ]
     },
     "frameworks": {
         "only_in_json1": [
-            "Jest",
-            "Detox"
+            "Detox",
+            "Jest"
         ],
         "only_in_json2": [
             "Automated Testing Framework"
@@ -76,62 +76,61 @@
             "Storybook"
         ],
         "only_in_json2": [
-            "Jest",
-            "React.js"
+            "Jest"
         ]
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "end-to-end testing",
-            "code testability",
             "automation framework development",
-            "page object model design",
             "contract testing",
+            "end-to-end testing",
+            "page object model design",
+            "code testability",
             "ci/cd integration"
         ],
         "only_in_json2": [
-            "jenkins",
-            "disabilities",
-            "object model",
-            "git",
-            "mobile application software",
-            "atlassian confluence",
-            "genetics",
-            "github",
-            "application development",
-            "jira",
-            "mobile application testing",
-            "software design patterns",
-            "system integration testing",
-            "library",
-            "application programming interface",
-            "teamcity",
-            "asset management",
-            "test suite",
-            "test design",
-            "angular material",
-            "software testing",
-            "integrated product team",
-            "scrum",
-            "learning platforms",
-            "testability",
-            "mobile app",
-            "software development",
-            "code review",
-            "data exchange",
-            "framework design",
-            "automation",
-            "software development engineer in test",
-            "executable",
-            "regression testing",
-            "appium",
-            "grafana",
-            "coloring",
-            "scenario testing",
-            "sharpening",
-            "agility",
             "test automation",
+            "grafana",
+            "regression testing",
+            "test suite",
+            "framework design",
+            "test design",
+            "software testing",
+            "application development",
+            "object model",
+            "software development engineer in test",
+            "jenkins",
+            "git flow",
+            "automation",
+            "coloring",
+            "learning platforms",
+            "mobile app",
+            "teamcity",
+            "software design patterns",
+            "disabilities",
+            "mobile application testing",
+            "genetics",
+            "jira studio",
+            "library",
+            "code review",
+            "executable",
+            "sharpening",
+            "testability",
+            "angular material",
+            "asset management",
+            "application programming interface",
+            "atlassian confluence",
+            "integrated product team",
+            "data exchange",
+            "agility",
+            "appium",
+            "scenario testing",
+            "scrum",
+            "software development",
+            "system integration testing",
+            "github",
             "microservices"
         ]
-    }
+    },
+    "already_added_technical_skills": "Key 'already_added_technical_skills' is missing in the first JSON"
 }

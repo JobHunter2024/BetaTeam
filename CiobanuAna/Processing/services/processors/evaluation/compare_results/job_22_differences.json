@@ -19,15 +19,15 @@
         "only_in_json1": [
             "communication",
             "structured work approach",
-            "teamwork",
-            "independence"
+            "independence",
+            "teamwork"
         ],
         "only_in_json2": [
-            "planning",
-            "operations",
-            "infrastructure",
-            "verbal communication skills",
             "supervision",
+            "verbal communication skills",
+            "operations",
+            "planning",
+            "infrastructure",
             "management"
         ]
     },
@@ -72,25 +72,25 @@
     },
     "unclassified_skills": {
         "only_in_json1": [
+            "it infrastructure optimization",
+            "client/server environments",
+            "backup systems",
+            "network architectures",
             "windows ad infrastructure",
             "security solutions",
-            "network architectures",
-            "client/server environments",
-            "software and license management",
-            "backup systems",
-            "it infrastructure optimization"
+            "software and license management"
         ],
         "only_in_json2": [
-            "workstations",
+            "licensing",
             "support vector machine",
-            "reatogo-x-pe",
-            "system monitor",
             "it infrastructure",
-            "mini-din connector",
-            "network infrastructure",
-            "network architecture",
             "client server models",
-            "licensing"
+            "system monitor",
+            "reatogo-x-pe",
+            "mini-din connector",
+            "workstations",
+            "network infrastructure",
+            "network architecture"
         ]
     }
 }

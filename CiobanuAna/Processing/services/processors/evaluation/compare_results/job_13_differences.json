@@ -9,27 +9,27 @@
     },
     "soft_skills": {
         "only_in_json1": [
-            "communication",
-            "problem solving",
             "documentation",
             "collaboration",
+            "communication",
+            "problem solving",
             "interpersonal skills"
         ],
         "only_in_json2": [
-            "planning",
             "integration",
-            "non-verbal communication",
-            "training and development",
-            "prioritization",
-            "troubleshooting (problem solving)",
             "cooperation",
+            "training and development",
+            "sales",
+            "non-verbal communication",
+            "planning",
             "infrastructure",
-            "sales"
+            "prioritization",
+            "troubleshooting (problem solving)"
         ]
     },
     "degree_level": {
         "only_in_json1": [
-            "bachelor\u2019s degree (preferred)"
+            "bachelor's degree (preferred)"
         ]
     },
     "education_field": {
@@ -68,51 +68,51 @@
     "frameworks": {
         "only_in_json1": [
             "Azure",
-            "Hyper-V",
-            "VMware vSphere"
+            "VMware vSphere",
+            "Hyper-V"
         ]
     },
     "unclassified_skills": {
         "only_in_json1": [
-            "service-desk tools",
+            "backup solutions (veritas backupexec, veeam b&r)",
+            "system integration",
+            "xml",
+            "networking (routers, switches)",
+            "hardware for servers",
             "windows server (2012/2016/2019/2022)",
             "server health monitoring",
-            "data backup",
-            "networking (routers, switches)",
-            "storage management",
-            "hardware for servers",
-            "system integration",
             "troubleshooting and debugging",
-            "xml",
-            "backup solutions (veritas backupexec, veeam b&r)"
+            "service-desk tools",
+            "data backup",
+            "storage management"
         ],
         "only_in_json2": [
-            "customer experience",
-            "storages",
-            "extensible markup language",
-            "network operating system",
-            "vmware vsphere",
-            "debugging",
-            "issue tracking systems",
-            "product quality",
-            "medical insurance claims",
-            "logistics",
-            "veeam",
-            "windows servers",
             "programming",
+            "debugging",
+            "logistics",
+            "medical insurance claims",
+            "service desk",
+            "customer experience",
+            "installation",
+            "vmware vsphere",
+            "windows servers",
+            "issue tracking systems",
+            "network operating system",
+            "romanian language",
+            "executable",
+            "purchasing",
+            "systems integration",
+            "business process",
+            "extensible markup language",
+            "service level",
+            "visualization",
+            "storages",
+            "veeam",
+            "product quality",
             "integration platforms",
             "veritas software",
-            "business process",
-            "systems integration",
-            "visualization",
-            "purchasing",
-            "hyper-v",
-            "service level",
             "unlocker",
-            "executable",
-            "installation",
-            "service desk",
-            "romanian language"
+            "hyper-v"
         ]
     }
 }
