@@ -504,13 +504,14 @@ class TripleService
             //     $triples[] = "<{$baseUri}{$cleanIsOnline}> rdfs:label \"" . addslashes($data['isOnline']) . "\"^^xsd:boolean .";
             // }
             if (isset($data['isOnline'])) {
-                if ($data['isOnline'] != "None" || $data['isOnline'] != "none") {
+                if ($data['isOnline'] == "true" || $data['isOnline'] != "false") {
 
                     // Normalize boolean value (ensure lowercase and valid RDF boolean format)
                     $cleanIsOnline = filter_var($data['isOnline'], FILTER_VALIDATE_BOOLEAN) ? "true" : "false";
 
                     // Construct the triple correctly
                     $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isOnline>  \"" . trim($cleanIsOnline) . "\"^^xsd:boolean .";
+                    // dd($triples);
                 }
             }
 
@@ -614,6 +615,7 @@ class TripleService
                     }
                 }
             }
+
             if (isset($data['isOnline'])) {
                 // daca eventul nu e online
                 if ($data['isOnline'] == "false") {
