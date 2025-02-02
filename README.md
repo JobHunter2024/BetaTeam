@@ -29,7 +29,6 @@ O platformă inteligentă pentru vizualizarea joburilor în România, integrand:
 - Apache Jena Fuseki (SPARQL endpoint)
 - Ontologie OWL2 pentru domeniul joburilor
 - Python
-- Java
 - PHP
 
 ## 📦 Instalare
