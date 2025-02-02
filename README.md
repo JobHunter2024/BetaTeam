@@ -33,6 +33,14 @@ O platformă inteligentă pentru vizualizarea joburilor în România și evenime
 - Python
 - PHP
 - FastAPI
+- 
+### :key: Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`API_KEY`
+
+`ANOTHER_API_KEY`
 
 ## 📦 Instalare
 1. Clonează repository-ul:
