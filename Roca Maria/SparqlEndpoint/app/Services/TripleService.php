@@ -190,7 +190,6 @@ class TripleService
                     }
                 }
             }
-
             // Frameworks
             if (!empty($data['frameworks'])) {
                 foreach ($data['frameworks'] as $framework) {
@@ -231,6 +230,7 @@ class TripleService
                 $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}isReal> \"" . addslashes($data['isReal']) . "\"^^xsd:boolean .";
                 $triples[] = "<{$baseUri}{$cleanIsReal}> rdfs:label \"" . addslashes($data['isReal']) . "\"^^xsd:boolean .";
             }
+            //dd($triples);
 
         } catch (Exception $e) {
             return [
@@ -621,8 +621,8 @@ class TripleService
                 }
             }
             if (isset($data['isOnline'])) {
-                // daca eventul nu e online
-                if ($data['isOnline'] == "false") {
+                // daca eventul este onsite
+                if ($data['isOnline'] == "false" || $data['isOnline'] == false) {
 
                     // "city" : "Iasi"
                     if (isset($data['city'])) {
