@@ -101,6 +101,14 @@ class TripleService
 
             }
 
+            // experienceLevel
+            if (isset($data['experienceLevel'])) {
+                $cleanExperienceLevel = str_replace(' ', '', $data['experienceLevel']);
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}experienceLevel> <{$baseUri}{$cleanExperienceLevel}> .";
+                $triples[] = "<{$baseUri}{$cleanExperienceLevel}> rdfs:label \"" . addslashes($data['experienceLevel']) . "\"^^xsd:string .";
+            }
+
+            // Employment Type
             // Soft Skills
             if (!empty($data['soft_skills'])) {
                 foreach ($data['soft_skills'] as $skill) {

@@ -2,9 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\SparqlController;
-use App\Http\Controllers\ResourcesController;
 use App\Http\Controllers\TriplesController;
+use App\Http\Controllers\ResourcesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +47,7 @@ Route::prefix('triples')->group(function () {
     // Route::delete('/{id}', [TripleController::class, 'destroy'])->name('triples.destroy');
 
     Route::post('test', [TriplesController::class, 'test']);
+
+    // Route::get('/map-data', [MapController::class, 'getMapData']);
+
 });

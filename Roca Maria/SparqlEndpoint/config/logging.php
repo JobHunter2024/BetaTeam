@@ -96,18 +96,18 @@ return [
         // ],
 
 
-        'papertrail' => [
-            'driver' => 'monolog',
-            'handler' => Monolog\Handler\SyslogUdpHandler::class,
-            'handler_with' => [
-                'host' => env('PAPERTRAIL_HOST', 'logsN.papertrailapp.com'),
-                'port' => env('PAPERTRAIL_PORT', 12345),
-            ],
-            'formatter' => Monolog\Formatter\LineFormatter::class,
-            'formatter_with' => [
-                'format' => "[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n",
-            ],
-        ],
+        // 'papertrail' => [
+        //     'driver' => 'monolog',
+        //     'handler' => Monolog\Handler\SyslogUdpHandler::class,
+        //     'handler_with' => [
+        //         'host' => env('PAPERTRAIL_HOST', 'logsN.papertrailapp.com'),
+        //         'port' => env('PAPERTRAIL_PORT', 12345),
+        //     ],
+        //     'formatter' => Monolog\Formatter\LineFormatter::class,
+        //     'formatter_with' => [
+        //         'format' => "[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n",
+        //     ],
+        // ],
 
 
         'stderr' => [
