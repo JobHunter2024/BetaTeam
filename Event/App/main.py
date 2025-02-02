@@ -12,6 +12,7 @@ ONTOLOGY_URL = os.getenv('ONTOLOGY_URL')
 
 app = FastAPI()
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[FRONTEND_URL],  # Allow React frontend's origin
@@ -19,6 +20,7 @@ app.add_middleware(
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
 )
+
 
 
 @app.get("/events-by-type")
