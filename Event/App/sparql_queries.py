@@ -96,12 +96,13 @@ PREFIX : <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT  ?eventTitle ?eventType ?topic ?isOnline ?date WHERE {{
+SELECT  ?eventTitle ?eventType ?topic ?isOnline ?date ?eventURL WHERE {{
         ?event rdf:type :Event ;
                :eventTitle ?eventTitle;
                :eventType ?eventType;
                :hasTopic ?topic;
                :isOnline ?isOnline;
+               :eventURL ?eventURL;
                :eventDate ?date.
 
 """
@@ -111,13 +112,14 @@ PREFIX : <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT  ?eventTitle ?eventType ?topic ?isOnline ?location ?date WHERE {{
+SELECT  ?eventTitle ?eventType ?topic ?isOnline ?location ?date ?eventURL WHERE {{
         ?event rdf:type :Event ;
                :eventTitle ?eventTitle;
                :eventType ?eventType;
                :hasTopic ?topic;
                :isOnline ?isOnline;
                :takesPlaceIn ?location;
+               :eventURL ?eventURL;
                :eventDate ?date.
 
 """

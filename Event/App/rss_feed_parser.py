@@ -4,11 +4,17 @@ import re
 from datetime import datetime
 import requests
 import os
+from CiobanuAna.Processing.services.skills_extractor.technical_skill_extractor import TechnicalSkillExtractor
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 API_STORE_EVENT_TRIPLE = os.getenv('API_STORE_EVENT_TRIPLE')
 RSS_FEED_URL = os.getenv('RSS_FEED_URL')
 
 url = API_STORE_EVENT_TRIPLE
+technicalSkillExtractor = TechnicalSkillExtractor()
 
 def extract_location(description):
     pattern = r'in\s([A-Za-z\s]+),\sRomania'
@@ -79,18 +85,33 @@ for item in soup.find_all("item"):
         continue
 
     # Extract all <category> fields
-    categories = [category.text for category in item.find_all("category")]
+    try:
+        categories = [category.text for category in item.find_all("category")]
+        topic_category_details = technicalSkillExtractor.query_skill(categories[0])
+        if topic_category_details["skill_type"] == "Programming Language":
+            topic_category = "Programming Language"
+        elif topic_category_details["skill_type"] == "Framework":
+            topic_category = "Framework"
+        elif topic_category_details["skill_type"] == "Library":
+            topic_category = "Library"
+        else:
+            topic_category = "Topic"
 
-    event = {
-    "eventTitle": title,
-    "isOnline": str(isOnline),
-    "city": city if not isOnline else None,
-    "country": country if not isOnline else None,
-    "eventDate": f"{day}-{month}-{year}",
-    "topic": categories[0],
-    "eventType": categories[1],
-    }
-    print(event)
-    response = requests.post(url, json=event)  # Send JSON data
-
-    print(response.json())
+        event = {
+        "eventTitle": title,
+        "isOnline": str(isOnline),
+        "city": city if not isOnline else None,
+        "country": country if not isOnline else None,
+        "eventDate": f"{day}-{month}-{year}",
+        "eventURL": item.find("link").text, 
+        "topic": categories[0],
+        "eventType": categories[1],
+        "topicCategory": topic_category,
+        "topicCategoryDetails": topic_category_details
+        }
+        if isOnline == False:
+            print(event)
+            response = requests.post(url, json=event)  # Send JSON data
+            print(response.json())
+    except Exception as e:
+        print(e)
