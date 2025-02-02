@@ -38,9 +38,16 @@ O platformă inteligentă pentru vizualizarea joburilor în România și evenime
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
+`API_STORE_EVENT_TRIPLE`
+`FRONTEND_URL`
+`RSS_FEED_URL`
+`JOB_HUNTER_QUERY_API_URL`
+`JOB_HUNTER_API_USERNAME`
+`JOB_HUNTER_API_PASSWORD`
+`ONTOLOGY_URL`
+`PAPERTRAIL_HOST`
+`PAPERTRAIL_PORT`
 
-`ANOTHER_API_KEY`
 
 ## 📦 Instalare
 1. Clonează repository-ul:
