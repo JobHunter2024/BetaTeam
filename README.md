@@ -3,10 +3,12 @@
 [![React Version](https://img.shields.io/badge/react-18.2.0-blue)](https://reactjs.org/)
 [![Leaflet Version](https://img.shields.io/badge/leaflet-1.9.4-green)](https://leafletjs.com/)
 
-O platformă inteligentă pentru vizualizarea joburilor în România, integrand:
+O platformă inteligentă pentru vizualizarea joburilor în România și evenimentelor din domeniul IT, integrând:
 - **Hărți interactive** cu clustere de locații 
-- **Ontologie semantică** pentru clasificarea joburilor
+- **Ontologie semantică** pentru clasificarea joburilor și a evenimentelor
 - **Sistem de recomandare** bazat pe preferințe
+- **Event statistics**
+- **Search for events**
 
 ![Demo Screenshot](screenshot.png)
 
@@ -30,6 +32,7 @@ O platformă inteligentă pentru vizualizarea joburilor în România, integrand:
 - Ontologie OWL2 pentru domeniul joburilor
 - Python
 - PHP
+- FastAPI
 
 ## 📦 Instalare
 1. Clonează repository-ul:
