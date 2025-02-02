@@ -621,8 +621,9 @@ class TripleService
                 }
             }
             if (isset($data['isOnline'])) {
+                //dd($data);
                 // daca eventul este onsite
-                if ($data['isOnline'] == "false" || $data['isOnline'] == false) {
+                if ($data['isOnline'] == "false" || $data['isOnline'] == "False" || $data['isOnline'] == false) {
 
                     // "city" : "Iasi"
                     if (isset($data['city'])) {
