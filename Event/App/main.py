@@ -12,6 +12,7 @@ ONTOLOGY_URL = os.getenv('ONTOLOGY_URL')
 
 app = FastAPI()
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[FRONTEND_URL],  # Allow React frontend's origin
@@ -19,6 +20,7 @@ app.add_middleware(
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
 )
+
 
 
 @app.get("/events-by-type")
@@ -177,11 +179,7 @@ async def get_events(
     if dates:
         dates_list = dates.split(",")
         values_clause = " ".join(f'"{date}"' for date in dates_list)
-        if is_online is not None:
-            sparql_query += f"\n  VALUES ?date {{ {values_clause} }}"
-        else:
-            sparql_query1 += f"\n  VALUES ?date {{ {values_clause} }}"
-            sparql_query2 += f"\n  VALUES ?date {{ {values_clause} }}"
+        filters.append(f'FILTER(str(?date) = {values_clause})')
     
     # Add filters to query
     if filters:
@@ -193,9 +191,12 @@ async def get_events(
 
     if is_online is not None:
         sparql_query += " }"
+        # print(sparql_query)
     else:
         sparql_query1 += " }"
         sparql_query2 += " }"
+        # print(sparql_query1)
+        # print(sparql_query2)
 
     if is_online is not None:
         sparql_results = fuseki_querying.query_fuseki(sparql_query)
@@ -215,6 +216,7 @@ async def get_events(
                     "type": binding["eventType"]["value"],
                     "topic": binding["topic"]["value"].split("#")[-1],
                     "isOnline": binding["isOnline"]["value"] == "true",
+                    "eventURL": binding["eventURL"]["value"],
                     "date": binding["date"]["value"]
                 }
                 for binding in bindings
@@ -227,6 +229,7 @@ async def get_events(
                     "topic": binding["topic"]["value"].split("#")[-1],
                     "isOnline": binding["isOnline"]["value"] == "true",
                     "location": binding["location"]["value"].split("#")[-1],
+                    "eventURL": binding["eventURL"]["value"],
                     "date": binding["date"]["value"]
                 }
                 for binding in bindings
@@ -239,6 +242,7 @@ async def get_events(
                 "topic": binding["topic"]["value"].split("#")[-1],
                 "isOnline": binding["isOnline"]["value"] == "true",
                 "location": binding["location"]["value"].split("#")[-1],
+                "eventURL": binding["eventURL"]["value"],
                 "date": binding["date"]["value"]
             }
             for binding in bindings1
@@ -250,6 +254,7 @@ async def get_events(
                     "topic": binding["topic"]["value"].split("#")[-1],
                     "isOnline": binding["isOnline"]["value"] == "true",
                     "location": "-",
+                    "eventURL": binding["eventURL"]["value"],
                     "date": binding["date"]["value"]
                 }
                 for binding in bindings2
