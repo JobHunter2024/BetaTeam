@@ -83,31 +83,31 @@ return [
             'replace_placeholders' => true,
         ],
 
-        // 'papertrail' => [
-        //     'driver' => 'monolog',
-        //     'level' => env('LOG_LEVEL', 'debug'),
-        //     'handler' => env('LOG_PAPERTRAIL_HANDLER', SyslogUdpHandler::class),
-        //     'handler_with' => [
-        //         'host' => env('PAPERTRAIL_URL'),
-        //         'port' => env('PAPERTRAIL_PORT'),
-        //         'connectionString' => 'tls://' . env('PAPERTRAIL_URL') . ':' . env('PAPERTRAIL_PORT'),
-        //     ],
-        //     'processors' => [PsrLogMessageProcessor::class],
-        // ],
-
-
         'papertrail' => [
             'driver' => 'monolog',
-            'handler' => Monolog\Handler\SyslogUdpHandler::class,
+            'level' => env('LOG_LEVEL', 'debug'),
+            'handler' => env('LOG_PAPERTRAIL_HANDLER', SyslogUdpHandler::class),
             'handler_with' => [
-                'host' => env('PAPERTRAIL_HOST', 'logsN.papertrailapp.com'),
-                'port' => env('PAPERTRAIL_PORT', 12345),
+                'host' => env('PAPERTRAIL_URL'),
+                'port' => env('PAPERTRAIL_PORT'),
+                'connectionString' => 'tls://' . env('PAPERTRAIL_URL') . ':' . env('PAPERTRAIL_PORT'),
             ],
-            'formatter' => Monolog\Formatter\LineFormatter::class,
-            'formatter_with' => [
-                'format' => "[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n",
-            ],
+            'processors' => [PsrLogMessageProcessor::class],
         ],
+
+
+        // 'papertrail' => [
+        //     'driver' => 'monolog',
+        //     'handler' => Monolog\Handler\SyslogUdpHandler::class,
+        //     'handler_with' => [
+        //         'host' => env('PAPERTRAIL_HOST', 'logsN.papertrailapp.com'),
+        //         'port' => env('PAPERTRAIL_PORT', 12345),
+        //     ],
+        //     'formatter' => Monolog\Formatter\LineFormatter::class,
+        //     'formatter_with' => [
+        //         'format' => "[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n",
+        //     ],
+        // ],
 
 
         'stderr' => [

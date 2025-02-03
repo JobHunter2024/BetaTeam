@@ -20,7 +20,7 @@ class OntologyGenerator
         $this->addObjectProperties();
         $this->addInverseProperties();
         $this->addDataProperties();
-        $this->addNamedIndividuals();
+        // $this->addNamedIndividuals();
         $this->addGlobalPropertyLabels();
 
         return $this->triples;
@@ -217,7 +217,7 @@ class OntologyGenerator
                 'domain' => 'Job',
                 'label' => 'Experience in Years'
             ],
-            'experinceLevel' => [
+            'experienceLevel' => [
                 'domain' => 'Job',
                 'label' => 'Experience Level'
             ],
@@ -265,7 +265,7 @@ class OntologyGenerator
             ],
             'dateRemoved' => [
                 'domain' => 'Job',
-                'label' => 'Offer End Date'
+                'label' => 'Date Removed'
             ],
             'isReal' => [
                 'domain' => 'Job',
@@ -312,15 +312,15 @@ class OntologyGenerator
     }
 
 
-    private function addNamedIndividuals(): void
-    {
-        $individuals = [
-            'Numpy' => 'Library',
-            'Software_Developer' => 'Job'
-        ];
+    // private function addNamedIndividuals(): void
+    // {
+    //     $individuals = [
+    //         'Numpy' => 'Library',
+    //         'Software_Developer' => 'Job'
+    //     ];
 
-        foreach ($individuals as $individual => $type) {
-            $this->triples[] = "<{$this->baseUri}{$individual}> rdf:type <{$this->baseUri}{$type}> .";
-        }
-    }
+    //     foreach ($individuals as $individual => $type) {
+    //         $this->triples[] = "<{$this->baseUri}{$individual}> rdf:type <{$this->baseUri}{$type}> .";
+    //     }
+    // }
 }

@@ -66,11 +66,13 @@ class TripleService
                 $formattedDate = self::convertDateFormatString($data['datePosted']);
                 $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}datePosted> \"{$formattedDate}\"^^xsd:date .";
             }
-
+            // dd($data);
             // dateRemoved
-            if (isset($data['dateRemoved'])) {
-                $formattedDate = self::convertDateFormatString($data['dateRemoved']);
-                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}dateRemoved> \"{$formattedDate}\"^^xsd:date .";
+            if (isset($data['date_removed'])) {
+                if ($data['date_removed'] != "") {
+                    $formattedDate = self::convertDateFormatString($data['date_removed']);
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}dateRemoved> \"{$formattedDate}\"^^xsd:date .";
+                }
             }
             // Log::info("datePosted: " . $data['datePosted']);
             // if (isset($data['datePosted'])) {
@@ -94,6 +96,14 @@ class TripleService
                 $triples[] = "<{$baseUri}{$cleanJobLocation}> rdfs:label \"" . addslashes($data['job_location']) . "\"^^xsd:string .";
             }
 
+
+            // jobLocatedIn
+            if (isset($data['job_city'])) {
+                $cleanJobCity = str_replace(' ', '', $data['job_city']);
+                $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}jobLocatedIn> <{$baseUri}{$cleanJobCity}> .";
+                $triples[] = "<{$baseUri}{$cleanJobCity}> rdfs:label \"" . addslashes($data['job_city']) . "\"^^xsd:string .";
+            }
+
             if (isset($data['experienceInYears'])) {
                 $cleanExperienceInYears = str_replace(' ', '', $data['experienceInYears']);
                 $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}experienceInYears> \"" . intval($data['experienceInYears']) . "\"^^xsd:int .";
@@ -101,6 +111,15 @@ class TripleService
 
             }
 
+            // experienceLevel
+            if (isset($data['experienceLevel'])) {
+                if ($data['experienceLevel'] != "") {
+                    $cleanExperienceLevel = str_replace(' ', '', $data['experienceLevel']);
+                    $triples[] = "<{$baseUri}{$cleanTitle}> <{$baseUri}experienceLevel> <{$baseUri}{$cleanExperienceLevel}> .";
+                    $triples[] = "<{$baseUri}{$cleanExperienceLevel}> rdfs:label \"" . addslashes($data['experienceLevel']) . "\"^^xsd:string .";
+                }
+            }
+            // Employment Type
             // Soft Skills
             if (!empty($data['soft_skills'])) {
                 foreach ($data['soft_skills'] as $skill) {
@@ -320,46 +339,9 @@ class TripleService
             }
         ";
 
-        // Log the ASK query for debugging
-        Log::info('SPARQL ASK Query:', ['query' => $askQuery]);
-
-        // Execute the ASK query with authentication
-        // $response = Http::withBasicAuth(
-        //     config('services.jobhunter_query.username'),
-        //     config('services.jobhunter_query.password')
-        // )
-        //     ->withHeaders([
-        //         'Accept' => 'application/sparql-results+json', // Ensure JSON response
-        //         'Content-Type' => 'application/x-www-form-urlencoded'
-        //     ])
-        //     ->asForm()->post(config('services.jobhunter_query.url'), [
-        //             'query' => $askQuery,
-        //         ]);
-
-        // Log the raw response for debugging
-        // Log::info('Raw ASK query response:', ['response' => $response->body()]);
-        // Parse the response
-        // $result = $response->json();
-
-        // if ($response->failed()) {
-        //     throw new Exception('Failed to query Fuseki: ' . $response->body());
-        // }
-
-        //Log::info("ask query response: " . json_encode($response));
-
-        // Decode the JSON response from Fuseki
-        // $askResult = json_decode($response->body(), true);
-
-        // if (isset($result['boolean'])) {
-        //     Log::info('ASK query result:', ['exists' => $result['boolean']]);
-        // } else {
-        //     Log::error('ASK query did not return a valid boolean result', ['response' => $result]);
-        // }
-
         //return $askResult['boolean'] ?? true;
         $result = SparqlService::query($askQuery);
-        //  dd($result, $askQuery);
-        //  dd($result);
+
         return $result['boolean'];
     }
 
