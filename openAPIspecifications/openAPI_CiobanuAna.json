@@ -1,0 +1,486 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+      "title": "FastAPI",
+      "description": "\n    # Welcome to the Events API 🚀\n              \n    This API allows users to fetch event data, filter events by type, topic, location, and date.\n\n    ## 📌 **Use Cases (Case Studies)**\n    - **Find all Conference Event:** Use the `/events?type=conference` filter.\n    - **List Online Events Only:** Use `/events?isOnline=true`.\n    - **Search Events on a Specific Date:** Try `/events?dates=2025-02-01`.\n    - **List Events which have a specific Topic:** Try `/events?topic=Java`.\n    \n    ## 🏆 **Example Queries**\n    - `GET /events?type=meetup&isOnline=true` → Find all online meetups events.\n    - `GET /events?locations=Bucharest` → List all events happening in Bucharest.\n    - `GET /events-by-type` → List all event types, and their respective counts.\n    - `GET /events?topic=AWS&type=meetup&isOnline=false` → Find all events that are meetups, have the topic AWS and are onsite.\n\n    ---\n    ",
+      "version": "0.1.0"
+    },
+    "paths": {
+      "/events-by-type": {
+        "get": {
+          "summary": "Get Events By Type",
+          "operationId": "get_events_by_type_events_by_type_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "type": "string",
+                          "description": "The type of event (e.g., meetup, conference, hackathon, etc.).",
+                          "example": "meetup"
+                        },
+                        "value": {
+                          "type": "integer",
+                          "description": "The number of events of this type.",
+                          "example": 461
+                        }
+                      },
+                      "required": ["label", "value"]
+                    }
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/events-per-date": {
+        "get": {
+          "summary": "Get Events Per Date",
+          "operationId": "get_events_per_date_events_per_date_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "type": "string",
+                          "format": "date",
+                          "description": "The date of the events in YYYY-MM-DD format.",
+                          "example": "2025-02-01"
+                        },
+                        "value": {
+                          "type": "integer",
+                          "description": "The number of events scheduled for this date.",
+                          "example": 16
+                        }
+                      },
+                      "required": ["label", "value"]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/events-is-online": {
+        "get": {
+          "summary": "Get Events Is Online",
+          "operationId": "get_events_is_online_events_is_online_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "type": "string",
+                          "enum": ["true", "false"],
+                          "description": "Indicates whether the event is online ('true') or in-person ('false').",
+                          "example": "true"
+                        },
+                        "value": {
+                          "type": "integer",
+                          "description": "The number of events that match the given online/offline status.",
+                          "example": 650
+                        }
+                      },
+                      "required": ["label", "value"]
+                    }
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/events-per-topic": {
+        "get": {
+          "summary": "Get Events Per Topic",
+          "operationId": "get_events_per_topic_events_per_topic_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "label": {
+                          "type": "string",
+                          "description": "The topic of the events (e.g., AI/ML, Agile, Gamedev, etc.).",
+                          "example": "AI/ML"
+                        },
+                        "value": {
+                          "type": "integer",
+                          "description": "The number of events associated with this topic.",
+                          "example": 61
+                        }
+                      },
+                      "required": ["label", "value"]
+                    }
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/events-topics": {
+        "get": {
+          "summary": "Get Events Per Topic",
+          "operationId": "get_events_per_topic_events_topics_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "A topic related to events, such as programming languages, cloud services, or development methodologies.",
+                      "example": "AI/ML"
+                    }
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/events-types": {
+        "get": {
+          "summary": "Get Events Types",
+          "operationId": "get_events_types_events_types_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "description": "A type of event, such as masterclass, meetup, hackathon, or conference.",
+                          "example": "meetup"
+                        }
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/events-locations": {
+        "get": {
+          "summary": "Get Events Locations",
+          "operationId": "get_events_locations_events_locations_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "description": "A city where events are held",
+                      "example": "Bucharest"
+                    }
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/events-per-technical-skill": {
+        "get": {
+          "summary": "Get Events Per Technical Skill",
+          "operationId": "get_events_per_technical_skill_events_per_technical_skill_get",
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "The name of the technical skill (e.g., programming language, framework, or library).",
+                          "example": "Rust"
+                        },
+                        "count": {
+                          "type": "integer",
+                          "description": "The number of events related to this technical skill.",
+                          "example": 21
+                        },
+                        "category": {
+                          "type": "string",
+                          "enum": ["ProgrammingLanguage", "Framework", "Library"],
+                          "description": "The category of the technical skill, such as a programming language, framework, or library.",
+                          "example": "ProgrammingLanguage"
+                        }
+                      },
+                      "required": ["name", "count", "category"]
+                    }
+  
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/events": {
+        "get": {
+          "summary": "Get Events",
+          "operationId": "get_events_events_get",
+          "parameters": [
+            {
+              "name": "type",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Type"
+              }
+            },
+            {
+              "name": "topics",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Topics"
+              }
+            },
+            {
+              "name": "locations",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Locations"
+              }
+            },
+            {
+              "name": "isOnline",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Isonline"
+              }
+            },
+            {
+              "name": "dates",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Dates"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful Response",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "description": "The title of the event.",
+                          "example": "Cloud Native Days Romania"
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": ["masterclass", "meetup", "hackathon", "conference"],
+                          "description": "The type of the event (e.g., conference, meetup, etc.).",
+                          "example": "conference"
+                        },
+                        "topic": {
+                          "type": "string",
+                          "description": "The main topic or theme of the event.",
+                          "example": "Cloud"
+                        },
+                        "isOnline": {
+                          "type": "boolean",
+                          "description": "Indicates whether the event is online (true) or in-person (false).",
+                          "example": true
+                        },
+                        "location": {
+                          "type": "string",
+                          "description": "The location where the event takes place. This is required if the event is not online.",
+                          "example": "Bucharest",
+                          "nullable": true
+                        },
+                        "eventURL": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "The URL to the event details.",
+                          "example": "https://dev.events/conferences/cloud-native-days-romania-c7sgxlfp"
+                        },
+                        "date": {
+                          "type": "string",
+                          "format": "date",
+                          "description": "The date of the event in YYYY-MM-DD format.",
+                          "example": "2025-05-05"
+                        }
+                      },
+                      "required": ["title", "type", "topic", "eventURL", "date"],
+                      "oneOf": [
+                        {
+                          "properties": {
+                            "isOnline": { "const": true },
+                            "location": { "type": "null" }
+                          }
+                        },
+                        {
+                          "properties": {
+                            "isOnline": { "const": false },
+                            "location": { "type": "string" }
+                          },
+                          "required": ["location"]
+                        }
+                      ]
+                    }
+  
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Validation Error",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HTTPValidationError"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "HTTPValidationError": {
+          "properties": {
+            "detail": {
+              "items": {
+                "$ref": "#/components/schemas/ValidationError"
+              },
+              "type": "array",
+              "title": "Detail"
+            }
+          },
+          "type": "object",
+          "title": "HTTPValidationError"
+        },
+        "ValidationError": {
+          "properties": {
+            "loc": {
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "type": "array",
+              "title": "Location"
+            },
+            "msg": {
+              "type": "string",
+              "title": "Message"
+            },
+            "type": {
+              "type": "string",
+              "title": "Error Type"
+            }
+          },
+          "type": "object",
+          "required": [
+            "loc",
+            "msg",
+            "type"
+          ],
+          "title": "ValidationError"
+        }
+      }
+    }
+  }
