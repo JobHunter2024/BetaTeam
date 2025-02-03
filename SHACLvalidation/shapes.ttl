@@ -1,0 +1,148 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ex: <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Shape for 'Job' Class
+ex:JobShape
+  a sh:NodeShape ;
+  sh:targetClass ex:Job ;  # Apply to all instances of Job class
+  sh:property [
+    sh:path ex:postedByCompany ;  # Constraint on the postedByCompany property
+    sh:class ex:Company ;  # Expect the range to be instances of Company class
+    sh:minCount 1 ;  # The property must be present
+  ] ;
+  sh:property [
+    sh:path ex:requiresEducation ;
+    sh:class ex:Education ;
+    sh:optional true ;  # Education is optional for a Job
+  ] ;
+  sh:property [
+    sh:path ex:experienceInYears ;
+    sh:datatype xsd:int ;  # Experience must be an integer
+  ] .
+
+# Shape for 'Company' Class
+ex:CompanyShape
+  a sh:NodeShape ;
+  sh:targetClass ex:Company ;  # Apply to all instances of Company class
+  sh:property [
+    sh:path ex:companyName ;
+    sh:datatype xsd:string ;  # Company name should be a string
+    sh:minCount 1 ;  # Company name must be present
+  ] .
+
+# Shape for 'Education' Class
+ex:EducationShape
+  a sh:NodeShape ;
+  sh:targetClass ex:Education ;  # Apply to all instances of Education class
+  sh:property [
+    sh:path ex:educationDegreeLevel ;
+    sh:datatype xsd:string ;  # Degree level should be a string
+  ] ;
+  sh:property [
+    sh:path ex:educationField ;
+    sh:datatype xsd:string ;  # Education field should be a string
+  ] .
+
+# Shape for 'Event' Class
+ex:EventShape 
+    a sh:NodeShape ;
+    sh:targetClass ex:Event ;
+    
+    sh:property [
+        sh:path ex:eventTitle ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ex:eventType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ex:eventDate ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ex:isOnline ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ex:eventURL ;
+        sh:datatype xsd:anyURI ;
+        sh:minCount 1 ;
+    ] ;
+
+    sh:property [
+        sh:path ex:takesPlaceIn ;
+        sh:class ex:City ;
+    ] .
+
+# Shape for City
+ex:CityShape 
+    a sh:NodeShape ;
+    sh:targetClass ex:City ;
+    
+    sh:property [
+        sh:path ex:isLocatedIn ;
+        sh:class ex:Country ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+# Shape for Country
+ex:CountryShape 
+    a sh:NodeShape ;
+    sh:targetClass ex:Country .
+
+# Shape for Framework
+ex:FrameworkShape a sh:NodeShape ;
+    sh:targetClass ex:Framework .
+
+# Shape for LanguageSkill
+ex:LanguageSkillShape a sh:NodeShape ;
+    sh:targetClass ex:LanguageSkill .
+
+# Shape for Library
+ex:LibraryShape a sh:NodeShape ;
+    sh:targetClass ex:Library .
+
+# Shape for ProgrammingLanguage
+ex:ProgrammingLanguageShape a sh:NodeShape ;
+    sh:targetClass ex:ProgrammingLanguage .
+
+# Shape for Skill
+ex:SkillShape a sh:NodeShape ;
+    sh:targetClass ex:Skill .
+
+# Shape for SoftSkill
+ex:SoftSkillShape a sh:NodeShape ;
+    sh:targetClass ex:SoftSkill .
+
+# Shape for TechnicalSkill
+ex:TechnicalSkillShape a sh:NodeShape ;
+    sh:targetClass ex:TechnicalSkill .
+
+# Disjointness constraints between TechnicalSkill, LanguageSkill, and SoftSkill
+ex:TechnicalSkillDisjointWithLanguageAndSoftSkill a sh:NodeShape ;
+    sh:targetClass ex:TechnicalSkill ;
+    sh:disjointWith ex:LanguageSkill, ex:SoftSkill .
+
+ex:LanguageSkillDisjointWithTechnicalAndSoftSkill a sh:NodeShape ;
+    sh:targetClass ex:LanguageSkill ;
+    sh:disjointWith ex:TechnicalSkill, ex:SoftSkill .
+
+ex:SoftSkillDisjointWithTechnicalAndLanguageSkill a sh:NodeShape ;
+    sh:targetClass ex:SoftSkill ;
+    sh:disjointWith ex:TechnicalSkill, ex:LanguageSkill .
