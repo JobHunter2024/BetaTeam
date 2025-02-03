@@ -1,0 +1,446 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology/"
+     xml:base="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#hasFramework -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#hasFramework">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isFrameworkOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#ProgrammingLanguage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Framework"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#hasLibrary -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#hasLibrary">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isLibraryOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#ProgrammingLanguage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Library"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#hasTopic -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#hasTopic">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Topic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#influencedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#influencedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isFrameworkOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isFrameworkOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Framework"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#ProgrammingLanguage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isLibraryOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isLibraryOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Library"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#ProgrammingLanguage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isLocatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isLocatedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#City"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#jobLocatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#jobLocatedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#postedByCompany -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#postedByCompany">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#postedJob"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Company"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#postedJob -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#postedJob">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Company"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#programmedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#programmedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Framework"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Library"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#ProgrammingLanguage"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#ProgrammingLanguage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#requiresEducation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#requiresEducation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Education"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#requiresSkill -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#requiresSkill">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Skill"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#takesPlaceIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#takesPlaceIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#companyName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#companyName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Company"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#datePosted -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#datePosted">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#educationDegreeLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#educationDegreeLevel">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Education"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#educationField -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#educationField">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Education"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#employmentType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#employmentType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#eventDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#eventDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#eventTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#eventTitle">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#eventType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#eventType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#experienceInYears -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#experienceInYears">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#experienceLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#experienceLevel">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isOnline -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isOnline">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isReal -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#isReal">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#jobLocation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#jobLocation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#jobLocationType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#jobLocationType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#jobTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#jobTitle">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#offerEndDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#offerEndDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#officialWebsite -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#officialWebsite">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#wikidataURI -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#wikidataURI">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#City -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#City"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Company -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Company"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Country -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Country"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Education -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Education"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Event -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Event"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Framework -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Framework">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Library"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#ProgrammingLanguage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Job"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#LanguageSkill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#LanguageSkill">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Skill"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#SoftSkill"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Library -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Library">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#ProgrammingLanguage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#ProgrammingLanguage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#ProgrammingLanguage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Skill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Skill">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Topic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#SoftSkill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#SoftSkill">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Skill"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#TechnicalSkill">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Skill"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Topic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Topic"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
