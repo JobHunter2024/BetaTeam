@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', function () {
+    return view('app');
+});
+
+// return jobs data
+Route::get('/api/map-data', [MapController::class, 'getMapData']);
+//returns events data
+Route::get('/api/events-map-data', [MapController::class, 'getEventsData']);
+

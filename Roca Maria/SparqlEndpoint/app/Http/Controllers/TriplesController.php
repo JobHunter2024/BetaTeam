@@ -49,80 +49,75 @@ class TriplesController extends Controller
             Log::info('Received POST data', ['data' => $request_json]); // Log incoming data
 
             //dd($request_json);
-            if (!empty($request_json)) {
-
-                // Împarte datele în batch-uri de câte 5
-                $batches = array_chunk($request_json, 5);
-
-                foreach ($batches as $batchIndex => $batch) {
-                    Log::info("Processing batch #" . ($batchIndex + 1));
-                    //  dd($batch);
-                    foreach ($batch as $key => $value) {
-
-                        //---- event(new DataValidationEvent($value));
-
-                        // Log ontology creation start
-                        Log::info("Processing job data for key: {$key}");
-
-                        // Execute python script for ontology creation
-                        $data = $this->tripleService->executeScript($value);
-
-                        if ($data['output'] != null) {
-
-                            Log::info('Ontology creation successful', ['key' => $key]);
-
-                            // Prepare triples
-                            $triples = $this->tripleService->prepareIndividualTriples($data['output']);
-                            // dd($triples);
-                            //---- event(new TripleGenerationEvent($triples['output']));
-
-                            if (!empty($triples['output'])) {
-
-                                Log::info('Triples prepared successfully', ['triples' => $triples['output']]);
-
-                                // insert entities and propersties
-                                $baseUri = config('ontology.base_uri');
-                                $generator = new OntologyGenerator($baseUri);
-                                $entitiesTriples = $generator->generate();
-                                //  dd($entitiesTriples);
-                                Log::info('Generated RDF Triples:', $triples);
-
-                                foreach ($entitiesTriples as $triple) {
-                                    // Insert triples into Fuseki
-                                    $response = $this->tripleService->insertTriples($triple);
-                                    //   dd($response);
-                                    //------  event(new TripleInsertionEvent($response));
-
-                                    if ($response['status'] !== 200) {
-                                        Log::error('Triple insertion failed', ['triple' => $triple, 'response' => $response]);
-                                    } else {
-                                        Log::info('Triple inserted successfully', ['triple' => $triple]);
-                                    }
-                                }
-
-                                foreach ($triples['output'] as $triple) {
-                                    // Insert triples into Fuseki
-                                    $response = $this->tripleService->insertTriples($triple);
-                                }
-                            } else {
-                                $error .= "Error for job {$key}: " . $triples["error"] . "\n";
-                                Log::error('Triple preparation failed', ['key' => $key, 'error' => $triples['error']]);
-                            }
-
-                        } else {
-                            $error .= "Error for job {$key}: " . $data["error"] . "\n";
-                            Log::error('Ontology creation failed', ['key' => $key, 'error' => $data['error']]);
-                        }
-                    }
-                    $response["errors"] = $error;
-                }
-                return response()->json(
-                    $response
-                );
-            } else {
+            if (empty($request_json)) {
                 Log::warning('No data provided in POST request');
                 return response()->json(['error' => 'No data provided'], 400);
             }
+
+            // insert entities and propersties
+            $baseUri = config('ontology.base_uri');
+            $generator = new OntologyGenerator($baseUri);
+            $entitiesTriples = $generator->generate();
+            //  dd($entitiesTriples);
+
+            foreach ($entitiesTriples as $triple) {
+                // Insert triples into Fuseki
+                $response = $this->tripleService->insertTriples($triple);
+                //   dd($response);
+                //------  event(new TripleInsertionEvent($response));
+
+                if ($response['status'] !== 200) {
+                    Log::error('Triple insertion failed', ['triple' => $triple, 'response' => $response]);
+                } else {
+                    Log::info('Triple inserted successfully', ['triple' => $triple]);
+                }
+            }
+
+            // Împarte datele în batch-uri de câte 5
+            $batches = array_chunk($request_json, 5);
+
+            foreach ($batches as $batchIndex => $batch) {
+                Log::info("Processing batch #" . ($batchIndex + 1));
+                //  dd($batch);
+                foreach ($batch as $key => $value) {
+
+                    //---- event(new DataValidationEvent($value));
+
+                    // Log ontology creation start
+                    Log::info("Processing job data for key: {$key}");
+
+                    // Execute python script for ontology creation
+                    $data = $this->tripleService->executeScript($value);
+
+                    if ($data['output'] != null) {
+
+                        // Prepare triples
+                        $triples = $this->tripleService->prepareIndividualTriples($data['output']);
+
+                        //---- event(new TripleGenerationEvent($triples['output']));
+
+                        if (!empty($triples['output'])) {
+
+                            foreach ($triples['output'] as $triple) {
+                                // Insert triples into Fuseki
+                                $response = $this->tripleService->insertTriples($triple);
+                            }
+                        } else {
+                            $error .= "Error for job {$key}: " . $triples["error"] . "\n";
+                            Log::error('Triple preparation failed', ['key' => $key, 'error' => $triples['error']]);
+                        }
+
+                    } else {
+                        $error .= "Error for job {$key}: " . $data["error"] . "\n";
+                        Log::error('Ontology creation failed', ['key' => $key, 'error' => $data['error']]);
+                    }
+                }
+                $response["errors"] = $error;
+            }
+            return response()->json(
+                $response
+            );
+
         } catch (Exception $e) {
             Log::error('Unexpected error occurred', ['exception' => $e->getMessage()]);
             return response()->json(['error' => $e->getMessage()], 500);

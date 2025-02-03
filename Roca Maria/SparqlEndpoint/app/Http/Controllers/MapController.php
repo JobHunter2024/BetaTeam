@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use Illuminate\Http\Request;
 use App\Services\SparqlService;
 use Illuminate\Support\Facades\Log;
-use App\Services\Map\CoordinatesService;
-use App\Services\Map\GeocodingService;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
+use App\Services\Map\GeocodingService;
+use App\Services\Map\CoordinatesService;
 
 class MapController extends Controller
 {
@@ -22,29 +23,16 @@ class MapController extends Controller
 
     }
 
-    public function getMapData()
+    public function getMapData(Request $request)
     {
-        $sparqlQuery = '
-        PREFIX jh: <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#> 
+        $filters = [
+            'employmentType' => $request->input('employmentType'),
+            'experienceLevel' => $request->input('experienceLevel'),
+            'jobLocationType' => $request->input('jobLocationType'),
+            'dateRange' => $request->input('dateRange', 'all'),
+        ];
 
-        SELECT ?job ?jobTitle ?companyName ?location ?employmentType ?datePosted 
-        WHERE {  
-            ?job a jh:Job ;        
-                jh:jobTitle ?jobTitle ;
-                jh:postedByCompany ?company .  
-            ?company jh:companyName ?companyName .  
-            OPTIONAL { ?job jh:jobLocation ?location . } 
-            OPTIONAL { ?job jh:employmentType ?employmentType . }  
-            OPTIONAL { ?job jh:datePosted ?datePosted . }  
-            OPTIONAL { ?job jh:dateRemoved ?dateRemoved . }  # Data când jobul a fost eliminat
-
-            # Filtrăm joburile localizate în România
-            FILTER(CONTAINS(LCASE(?location), "romania"))
-
-            # Excludem joburile care au fost eliminate
-            FILTER(!BOUND(?dateRemoved))
-        }
-        ORDER BY DESC(?datePosted)';
+        $sparqlQuery = $this->buildSparqlQuery($filters);
 
         $response = $this->sparqlService->query($sparqlQuery, 'json');
 
@@ -56,7 +44,7 @@ class MapController extends Controller
 
         foreach ($jobs as &$job) {
             $locationString = $job['location']['value'] ?? null;
-            $jobIRI = $job['job']['value'] ?? null; // Adăugăm IRI-ul jobului
+            $jobIRI = $job['job']['value'] ?? null;
 
             if ($locationString) {
                 $coordinates = $this->geocodingService->getCoordinates($locationString);
@@ -65,137 +53,269 @@ class MapController extends Controller
                 $job['coordinates'] = null;
             }
 
-            $job['jobIRI'] = $jobIRI; // Adăugăm IRI-ul în răspuns
+            $job['jobIRI'] = $jobIRI;
         }
 
         return response()->json($jobs);
     }
 
-    // public function getMapData()
-    // {
-    //     $sparqlQuery =
-
-    //         'PREFIX jh: <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#> 
-
-    //     SELECT ?jobTitle ?companyName ?location ?employmentType ?datePosted 
-    //     WHERE {  
-    //         ?job a jh:Job ;        
-    //             jh:jobTitle ?jobTitle ;
-    //             jh:postedByCompany ?company .  
-    //         ?company jh:companyName ?companyName .  
-    //         OPTIONAL { ?job jh:jobLocation ?location . } 
-    //         OPTIONAL { ?job jh:employmentType ?employmentType . }  
-    //         OPTIONAL { ?job jh:datePosted ?datePosted . }
-
-    //         # Filter jobs located in Romania
-    //         FILTER(CONTAINS(LCASE(?location), "romania"))
-    //     }
-    //     ORDER BY DESC(?datePosted)';
-
-    //     $response = $this->sparqlService->query($sparqlQuery, 'json');
-
-    //     if (empty($response)) {
-    //         return response()->json(['error' => 'No jobs data found'], 404);
-    //     }
-
-    //     $jobs = $response['results']['bindings'] ?? [];
-
-    //     foreach ($jobs as &$job) {
-    //         $locationString = $job['location']['value'] ?? null;
-
-    //         if ($locationString) {
-    //             $coordinates = $this->geocodingService->getCoordinates($locationString);
-    //             $job['coordinates'] = $coordinates;
-    //         } else {
-    //             $job['coordinates'] = null;
-    //         }
-    //     }
-
-    //     return response()->json($jobs);
-    // }
-
-    public function getJobsMapData()
+    private function buildSparqlQuery(array $filters): string
     {
-        // Define SPARQL query to fetch job locations
-        $sparqlQuery =
-            'PREFIX jh: <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#> 
-
-            SELECT ?jobTitle ?companyName ?location ?employmentType ?datePosted 
+        $query = '
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX jh: <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#> 
+            SELECT ?job ?jobTitle ?companyName ?location ?employmentType 
+                ?datePosted ?experienceLevel ?jobLocationType
             WHERE {  
                 ?job a jh:Job ;        
                     jh:jobTitle ?jobTitle ;
                     jh:postedByCompany ?company .  
                 ?company jh:companyName ?companyName .  
-                OPTIONAL { ?job jh:jobLocation ?location . } 
-                OPTIONAL { ?job jh:employmentType ?employmentType . }  
-                OPTIONAL { ?job jh:datePosted ?datePosted . }
+                OPTIONAL { ?job jh:jobLocation ?location . }
+              OPTIONAL { ?job jh:dateRemoved ?dateRemoved . }';
 
-                # Filter jobs located in Romania
+        // Employment Type filter
+        if ($filters['employmentType']) {
+            $query .= "\n    ?job jh:employmentType \"{$filters['employmentType']}\" .";
+        } else {
+            $query .= "\n    OPTIONAL { ?job jh:employmentType ?employmentType . }";
+        }
+
+        // Experience Level filter
+        if ($filters['experienceLevel']) {
+            $query .= "\n    ?job jh:experienceLevel \"{$filters['experienceLevel']}\" .";
+        } else {
+            $query .= "\n    OPTIONAL { ?job jh:experienceLevel ?experienceLevel . }";
+        }
+
+        // Location Type filter
+        if ($filters['jobLocationType']) {
+            $query .= "\n    ?job jh:jobLocationType \"{$filters['jobLocationType']}\" .";
+        } else {
+            $query .= "\n    OPTIONAL { ?job jh:jobLocationType ?jobLocationType . }";
+        }
+
+        // Date Range filter
+        if ($filters['dateRange'] && $filters['dateRange'] !== 'all') {
+            $startDate = $this->calculateStartDate($filters['dateRange']);
+            $query .= "\n    ?job jh:datePosted ?datePosted .";
+            $query .= "\n    FILTER (?datePosted >= \"$startDate\"^^xsd:date)";
+        } else {
+            $query .= "\n    OPTIONAL { ?job jh:datePosted ?datePosted . }";
+        }
+        $query .= '
                 FILTER(CONTAINS(LCASE(?location), "romania"))
+                FILTER(!BOUND(?dateRemoved))
             }
             ORDER BY DESC(?datePosted)';
 
-        // Fetch job data from SPARQL service
+        return $query;
+    }
+
+    private function calculateStartDate(string $dateRange): string
+    {
+        $now = new DateTime();
+        switch ($dateRange) {
+            case 'lastWeek':
+                $now->modify('-1 week');
+                break;
+            case 'lastMonth':
+                $now->modify('-1 month');
+                break;
+            case 'last3Months':
+                $now->modify('-3 months');
+                break;
+            case 'lastYear':
+                $now->modify('-1 year');
+                break;
+            default:
+                return '';
+        }
+        return $now->format('Y-m-d');
+    }
+    public function getEventsMapData(Request $request)
+    {
+        $sparqlQuery = '
+       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX jh: <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT DISTINCT ?event ?eventTitle ?cityLabel  ?country ?eventDate ?eventType
+WHERE {
+    # Selectăm toate evenimentele
+    ?event a jh:Event ;
+           rdfs:label ?eventTitle .
+    
+  
+    
+    # Proprietăți optionale
+    OPTIONAL { ?event jh:eventDate ?eventDate }
+    OPTIONAL { ?event jh:eventType ?eventType }
+    
+   
+}
+ORDER BY DESC(?eventDate)';
+
         $response = $this->sparqlService->query($sparqlQuery, 'json');
 
         if (empty($response)) {
-            return response()->json(['error' => 'No location data found'], 404);
+            return response()->json(['error' => 'No events data found'], 404);
         }
 
-        $eventData = [];
-        $eventsData = [];
+        $events = $response['results']['bindings'] ?? [];
+        $processedEvents = [];
 
-        foreach ($response as $event) {
-            //  dd($event);
-            //$locationString = $event['location']['value'];
-            //   dd($locationString);
+        foreach ($events as $event) {
+            $cityString = $event['city']['value'] ?? null;
+            $eventIRI = $event['event']['value'] ?? null;
 
-            $locationString = $event['city']['value'];
-            // // Convert location string to coordinates using OpenStreetMap Nominatim API
-            // $geoResponse = Http::get("https://nominatim.openstreetmap.org/search", [
-            //     'q' => $locationString,
-            //     'format' => 'json',
-            //     'limit' => 1,
-            // ]);
-            //$locationString = "Krasnodar Krai, Russian Federation";
+            if ($cityString) {
+                $coordinates = $this->geocodingService->getCoordinates($cityString . ', Romania');
 
-            // Convert location string to coordinates using OpenStreetMap Nominatim API
-            $geoResponse = Http::withHeaders([
-                'User-Agent' => 'YourAppName/1.0 (your@email.com)' // Replace with your app name and contact info
-            ])->get("https://nominatim.openstreetmap.org/search", [
-                        'q' => $locationString,
-                        'format' => 'json',
-                        'limit' => 1,
-                    ]);
-
-            // Check if the request was successful
-            if ($geoResponse->successful()) {
-                $data = $geoResponse->json();
-
-                // Add coordinates to the response
-                $eventData['location'] = [
-                    'latitude' => $data[0]['lat'],
-                    'longitude' => $data[0]['lon'],
+                $processedEvent = [
+                    'eventIRI' => $eventIRI,
+                    'title' => $event['eventTitle']['value'],
+                    'date' => $event['eventDate']['value'],
+                    'city' => $cityString,
+                    'coordinates' => $coordinates,
+                    'isOnline' => isset($event['isOnline']) ? ($event['isOnline']['value'] === 'true') : false,
+                    'eventType' => $event['eventType']['value'] ?? 'Not specified',
+                    'topic' => $event['topic']['value'] ?? null,
+                    'relatedJobs' => []
                 ];
-                // add event title
-                $eventData['eventTitle'] = $event['eventTitle']['value'];
 
-                // Add event date
-                $eventData['eventDate'] = $event['eventDate']['value'];
-
-                // Check if the response contains data
-                if (!empty($data)) {
-                    //   dd($data); // Dump the first result
-                } else {
-                    //   dd('No results found for the given location.');
+                // Add related job if exists
+                if (isset($event['relatedJob'])) {
+                    $processedEvent['relatedJobs'][] = [
+                        'jobIRI' => $event['relatedJob']['value'],
+                        'title' => $event['jobTitle']['value'],
+                        'company' => $event['companyName']['value']
+                    ];
                 }
-            } else {
-                //   dd('Failed to retrieve data from the Nominatim API.');
+
+                $processedEvents[] = $processedEvent;
             }
-            // Add event data to the events array
-            $eventsData[] = $eventData;
         }
 
-        return response()->json($eventsData);
+        return response()->json($processedEvents);
+    }
+    // public function getEventMapData()
+    // {
+    //     $sparqlQuery = '
+    //         PREFIX jh: <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#> 
+    //         SELECT ?event ?eventTitle ?eventDate ?cityName ?eventType ?isOnline ?eventURL
+    //         WHERE {
+    //             ?event a jh:Event ;
+    //                 jh:eventTitle ?eventTitle ;
+    //                 jh:takesPlaceIn ?city .
+    //             ?city jh:cityName ?cityName .
+    //             OPTIONAL { ?event jh:eventDate ?eventDate . }
+    //             OPTIONAL { ?event jh:eventType ?eventType . }
+    //             OPTIONAL { ?event jh:isOnline ?isOnline . }
+    //             OPTIONAL { ?event jh:eventURL ?eventURL . }
+    //         }
+    //         ORDER BY DESC(?eventDate)';
+
+    //     $response = $this->sparqlService->query($sparqlQuery, 'json');
+
+    //     if (empty($response)) {
+    //         return response()->json(['error' => 'No events data found'], 404);
+    //     }
+
+    //     $events = $response['results']['bindings'] ?? [];
+
+    //     foreach ($events as &$event) {
+    //         $locationString = $event['cityName']['value'] ?? null;
+    //         $eventIRI = $event['event']['value'] ?? null;
+
+    //         if ($locationString) {
+    //             $coordinates = $this->geocodingService->getCoordinates($locationString);
+    //             $event['coordinates'] = $coordinates;
+    //         } else {
+    //             $event['coordinates'] = null;
+    //         }
+
+    //         $event['eventIRI'] = $eventIRI;
+    //     }
+
+    //     return response()->json($events);
+    // }
+
+    public function getEventsData(Request $request)
+    {
+        $filters = [
+            'eventType' => $request->input('eventType'),
+            'dateRange' => $request->input('dateRange', 'all'),
+            'isFromRomania' => $request->input('isFromRomania', true),
+        ];
+
+        $sparqlQuery = $this->buildEventSparqlQuery($filters);
+        $response = $this->sparqlService->query($sparqlQuery, 'json');
+
+        if (empty($response)) {
+            return response()->json(['error' => 'No events data found'], 404);
+        }
+
+        $events = $response['results']['bindings'] ?? [];
+
+        foreach ($events as &$event) {
+            $locationString = $event['location']['value'] ?? null;
+            $eventIRI = $event['event']['value'] ?? null;
+
+            if ($locationString) {
+                $coordinates = $this->geocodingService->getCoordinates($locationString);
+                $event['coordinates'] = $coordinates;
+            } else {
+                $event['coordinates'] = null;
+            }
+
+            $event['eventIRI'] = $eventIRI;
+
+            // is from romania or România
+            $event['isFromRomania'] = (strpos($locationString, 'Romania') || strpos($locationString, 'România')) !== false;
+        }
+
+        return response()->json($events);
+    }
+
+    private function buildEventSparqlQuery(array $filters): string
+    {
+        $query = '
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+        PREFIX jh: <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#> 
+        SELECT ?event ?eventTitle ?eventType ?location ?eventDate ?eventURL
+        WHERE {
+            ?event a jh:Event ;
+                jh:eventTitle ?eventTitle ;
+                jh:eventType ?eventType ;
+                jh:takesPlaceIn ?city .
+                ?city rdfs:label ?location .
+                OPTIONAL { ?event jh:eventDate ?eventDate . }
+                OPTIONAL { ?event jh:eventURL ?eventURL . }';
+
+
+        // Event Type filter
+        if ($filters['eventType']) {
+            $query .= "    ?event jh:eventType \"{$filters['eventType']}\" .";
+        }
+
+        // Date Range filter
+        if ($filters['dateRange'] && $filters['dateRange'] !== 'all') {
+            $startDate = $this->calculateStartDate($filters['dateRange']);
+            $query .= "    ?event jh:eventDate ?eventDate .";
+            $query .= "    FILTER (?eventDate >= \"$startDate\"^^xsd:date)";
+        }
+
+        // Is from Romania filter
+        // if ($filters['isFromRomania']) {
+        //     $query .= "FILTER(CONTAINS(LCASE(?location), 'romania'))";
+        // }
+        $query .= '            }
+            ORDER BY DESC(?eventDate)';
+        ;
+        return $query;
     }
 }
