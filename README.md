@@ -3,38 +3,62 @@
 [![React Version](https://img.shields.io/badge/react-18.2.0-blue)](https://reactjs.org/)
 [![Leaflet Version](https://img.shields.io/badge/leaflet-1.9.4-green)](https://leafletjs.com/)
 
-O platformă inteligentă pentru vizualizarea joburilor în România și evenimentelor din domeniul IT, integrând:
-- **Hărți interactive** cu clustere de locații 
-- **Ontologie semantică** pentru clasificarea joburilor și a evenimentelor
-- **Sistem de recomandare** bazat pe preferințe
+An intelligent platform for viewing jobs in Romania and IT events, integrating:
+- **Interactive maps** with location clusters
+- **Semantic ontology** for classifying jobs and events
+- **Recommendation system** based on preferences
 - **Event statistics**
 - **Search for events**
 
 ![Demo Screenshot](screenshot.png)
 
-## 🚀 Caracteristici cheie
-- ✔️ Vizualizare geografică a joburilor cu clustere dinamice
-- 🔍 Filtrare inteligentă bazată pe ontologie
-- 📌 Sistem de recomandare semantică
-- 📊 Dashboard cu statistici 
-- 🔗 Integrare SPARQL endpoint
+## 🚀 Key Features
+- ✔️ Geographical view of jobs with dynamic clusters
+- 🔍 Ontology-based intelligent filtering
+- 📌 Semantic recommendation system
+- 📊 Dashboard with statistics
+- 🔗 SPARQL endpoint integration
 
-## 🛠️ Tehnologii utilizate
+## 🛠️ Tech Stack
 **Frontend:**
 - React 18 + TypeScript
-- Leaflet + React-Leaflet (hărți interactive)
+- Leaflet + React-Leaflet
 - React-Bootstrap (UI)
 - Axios (comunicare API)
 
 **Backend/Semantic:**
 - API Node.js
 - Apache Jena Fuseki (SPARQL endpoint)
-- Ontologie OWL2 pentru domeniul joburilor
+- Ontologie OWL2 
 - Python
 - PHP
 - FastAPI
+- 
+### :key: Environment Variables
 
-## 📦 Instalare
-1. Clonează repository-ul:
+To run this project, you will need to add the following environment variables to your .env file
+
+`API_STORE_EVENT_TRIPLE`
+`FRONTEND_URL`
+`RSS_FEED_URL`
+`JOB_HUNTER_QUERY_API_URL`
+`JOB_HUNTER_API_USERNAME`
+`JOB_HUNTER_API_PASSWORD`
+`ONTOLOGY_URL`
+`PAPERTRAIL_HOST`
+`PAPERTRAIL_PORT`
+
+
+## 📦 Installation
+1. Clone the repository:
 ```bash
 git clone https://github.com/JobHunter2024/BetaTeam.git
+```
+
+## 💎 Acknowledgements
+Useful resources and libraries that we have used in out project.
+
+skillNer
+Protégé
+Stanza
+spaCY
