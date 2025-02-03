@@ -53,8 +53,9 @@ To run this project, you will need to add the following environment variables to
 1. Clone the repository:
 ```bash
 git clone https://github.com/JobHunter2024/BetaTeam.git
+```
 
-💎 Acknowledgements
+## 💎 Acknowledgements
 Useful resources and libraries that we have used in out project.
 
 skillNer
