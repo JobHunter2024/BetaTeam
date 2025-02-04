@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use DateTime;
 use Illuminate\Http\Request;
 use App\Services\SparqlService;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Cache;
 use App\Services\Map\GeocodingService;
-use App\Services\Map\CoordinatesService;
+
 
 class MapController extends Controller
 {
@@ -22,7 +19,63 @@ class MapController extends Controller
         $this->geocodingService = $geocodingService;
 
     }
-
+    /**
+     * @OA\Get(
+     *     path="/api/map-data",
+     *     summary="Returnează datele job-urilor pentru hartă cu filtrare",
+     *     tags={"Jobs"},
+     *     @OA\Parameter(
+     *         name="dateRange",
+     *         in="query",
+     *         description="Intervalul temporal",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="string",
+     *             enum={"all", "lastWeek", "last3Months", "lastYear", "upcoming", "past"},
+     *             default="all",
+     *             example="lastWeek"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Listă de job-uri cu coordonate geografice",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             example={{
+     *                 "job": {"value": "http://jobs.example.com/job/123"},
+     *                 "location": {"value": "București, Romania"},
+     *                 "coordinates": {"lat": 44.4268, "lng": 26.1025},
+     *                 "jobIRI": "http://jobs.example.com/job/123",
+     *                 "title": {"value": "Senior Software Developer"}
+     *             }},
+     *             @OA\Items(
+     *                 @OA\Property(property="job", type="object",
+     *                     @OA\Property(property="value", type="string", example="http://jobs.example.com/job/123")
+     *                 ),
+     *                 @OA\Property(property="location", type="object",
+     *                     @OA\Property(property="value", type="string", example="Cluj-Napoca, Romania")
+     *                 ),
+     *                 @OA\Property(property="coordinates", type="object",
+     *                     @OA\Property(property="lat", type="number", format="float", example=46.7712),
+     *                     @OA\Property(property="lng", type="number", format="float", example=23.6236)
+     *                 ),
+     *                 @OA\Property(property="jobIRI", type="string", example="http://jobs.example.com/job/123"),
+     *                 @OA\Property(property="title", type="object",
+     *                     @OA\Property(property="value", type="string", example="Full Stack Developer")
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Nu s-au găsit job-uri",
+     *         @OA\JsonContent(
+     *             example={"error": "No jobs data found"},
+     *             @OA\Property(property="error", type="string", example="No jobs data found")
+     *         )
+     *     )
+     * )
+     */
     public function getMapData(Request $request)
     {
         $filters = [
@@ -201,48 +254,61 @@ ORDER BY DESC(?eventDate)';
 
         return response()->json($processedEvents);
     }
-    // public function getEventMapData()
-    // {
-    //     $sparqlQuery = '
-    //         PREFIX jh: <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#> 
-    //         SELECT ?event ?eventTitle ?eventDate ?cityName ?eventType ?isOnline ?eventURL
-    //         WHERE {
-    //             ?event a jh:Event ;
-    //                 jh:eventTitle ?eventTitle ;
-    //                 jh:takesPlaceIn ?city .
-    //             ?city jh:cityName ?cityName .
-    //             OPTIONAL { ?event jh:eventDate ?eventDate . }
-    //             OPTIONAL { ?event jh:eventType ?eventType . }
-    //             OPTIONAL { ?event jh:isOnline ?isOnline . }
-    //             OPTIONAL { ?event jh:eventURL ?eventURL . }
-    //         }
-    //         ORDER BY DESC(?eventDate)';
-
-    //     $response = $this->sparqlService->query($sparqlQuery, 'json');
-
-    //     if (empty($response)) {
-    //         return response()->json(['error' => 'No events data found'], 404);
-    //     }
-
-    //     $events = $response['results']['bindings'] ?? [];
-
-    //     foreach ($events as &$event) {
-    //         $locationString = $event['cityName']['value'] ?? null;
-    //         $eventIRI = $event['event']['value'] ?? null;
-
-    //         if ($locationString) {
-    //             $coordinates = $this->geocodingService->getCoordinates($locationString);
-    //             $event['coordinates'] = $coordinates;
-    //         } else {
-    //             $event['coordinates'] = null;
-    //         }
-
-    //         $event['eventIRI'] = $eventIRI;
-    //     }
-
-    //     return response()->json($events);
-    // }
-
+    /**
+     * @OA\Get(
+     *     path="/api/events-map-data",
+     *     summary="Returnează datele evenimentelor pentru hartă cu posibilitate de filtrare",
+     *     tags={"Events"},
+     *     @OA\Parameter(
+     *         name="eventType",
+     *         in="query",
+     *         description="Tipul evenimentului pentru filtrare",
+     *         required=false,
+     *         @OA\Schema(
+     *             type="string",
+     *             example="conference"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Lista de evenimente cu coordonate geografice",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             example={
+     *                  { 
+     *                      "event": {"value": "http://cultural-events.org/event/123"},
+     *                      "location": {"value": "Sibiu, Romania"},
+     *                      "coordinates": {"lat": 45.7983, "lng": 24.1253},
+     *                      "eventIRI": "http://cultural-events.org/event/123",
+     *                      "isFromRomania": true
+     *                  }
+     *              },
+     *             @OA\Items(
+     *                 @OA\Property(property="event", type="object",
+     *                     @OA\Property(property="value", type="string", example="http://cultural-events.org/event/123")
+     *                 ),
+     *                 @OA\Property(property="location", type="object",
+     *                     @OA\Property(property="value", type="string", example="Sibiu, Romania")
+     *                 ),
+     *                 @OA\Property(property="coordinates", type="object",
+     *                     @OA\Property(property="lat", type="number", format="float", example=45.7983),
+     *                     @OA\Property(property="lng", type="number", format="float", example=24.1253)
+     *                 ),
+     *                 @OA\Property(property="eventIRI", type="string", example="http://cultural-events.org/event/123"),
+     *                 @OA\Property(property="isFromRomania", type="boolean", example=true)
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Nu s-au găsit evenimente",
+     *         @OA\JsonContent(
+     *             example={"error": "No events data found"},
+     *             @OA\Property(property="error", type="string", example="No events data found")
+     *         )
+     *     )
+     * )
+     */
     public function getEventsData(Request $request)
     {
         $filters = [

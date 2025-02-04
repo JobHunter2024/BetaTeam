@@ -12,6 +12,7 @@ use App\Events\DataValidationEvent;
 use App\Events\TripleGenerationEvent;
 use App\Events\TripleInsertionEvent;
 
+
 class TriplesController extends Controller
 {
     protected $tripleService;
@@ -39,6 +40,70 @@ class TriplesController extends Controller
      * Stores a list of triples.
      *
      * @return \Illuminate\Http\Response
+     */
+    /**
+     * @OA\Post(
+     *     path="/api/triples/store",
+     *     summary="Store job-related triples in the knowledge base",
+     *     tags={"Triples"},
+     *     description="Stores RDF triples for jobs with batch processing and error logging",
+     *     security={{"bearerAuth": {}}},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         description="Job data for triple generation",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(
+     *                 type="object",
+     *                 required={"jobTitle", "company", "location"},
+     *                 @OA\Property(property="date", type="string", example="27 May 2024"),
+     *                 @OA\Property(property="jobTitle", type="string", example="Senior Developer"),
+     *                 @OA\Property(property="company", type="string", example="Tech Corp"),
+     *                 @OA\Property(property="location", type="string", example="New York, USA"),
+     *                 @OA\Property(property="jobDescription", type="string", example="What you need to know: - .NET Core, ASP.NET MVC, Web API - C# - HTML and CSS"),
+     *            ),
+     *             example={
+     *                 {"date": "12 December 2024", "jobTitle": "Backend Engineer", "company": "StartupX", "location": "Remote", "jobDescription": "Experience with Node.js, Express, MongoDB"},
+     *                 {"date": "15 November 2024", "jobTitle": "Data Scientist", "company": "AI Labs", "location": "London, UK", "jobDescription": "Python, TensorFlow, Keras"}
+     *             }
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Triples stored successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="inserted_triples", type="integer", example=42),
+     *             @OA\Property(property="errors", type="array", 
+     *                 @OA\Items(type="string", example="Error processing job 3: Invalid data format")
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid input",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="error", type="string", example="No data provided")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="error", type="object",
+     *                 @OA\Property(property="jobTitle", type="array",
+     *                     @OA\Items(type="string", example="The jobTitle field is required")
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Server error",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="error", type="string", example="Internal server error")
+     *         )
+     *     )
+     * )
      */
     public function storeJobTriples(Request $request)
     {
@@ -129,6 +194,78 @@ class TriplesController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     */
+    /**
+     * @OA\Post(
+     *     path="/api/triples/storeEventTriple",
+     *     summary="Store event-related RDF triples in the knowledge base",
+     *     tags={"Triples"},
+     *     description="Stores event triples with batch processing and detailed status reporting",
+     *     security={{"bearerAuth": {}}},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         description="Event data for triple generation",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(
+     *                 type="object",
+     *                 required={"eventTitle", "location", "startDate"},
+     *                 @OA\Property(property="eventTitle", type="string", example="Jazz Festival"),
+     *                 @OA\Property(property="location", type="string", example="Sibiu, Romania"),
+     *                 @OA\Property(property="startDate", type="string", format="date-time", example="2024-07-15T19:00:00Z"),
+     *                 @OA\Property(property="endDate", type="string", format="date-time", example="2024-07-18T22:00:00Z"),
+     *                 @OA\Property(property="eventType", type="string", example="music festival"),
+     *                 @OA\Property(property="description", type="string", example="Annual international jazz event"),
+     *                  @OA\Property(property="isOnline", type="boolean", example=true ),
+     *                 @OA\Property(property="city", type="string", example="Sibiu"),
+     *                 @OA\Property(property="country", type="string", example="Romania"),
+     *                  @OA\Property(property="topicCategory", type="string", example="Framework"),
+     *                  @OA\Property(property="topicCategoryDetails", type="string", example="Angular"),
+     * ),
+     *             example={
+     *                 {
+     *                     "eventTitle": "Tech Conference",
+     *                     "location": "Cluj-Napoca",
+     *                     "startDate": "2024-09-01T09:00:00Z"
+     *                 }
+     *             }
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=207,
+     *         description="Multi-status response with individual operation results",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Operation completed."),
+     *             @OA\Property(property="results", type="array",
+     *                 @OA\Items(
+     *                     @OA\Property(property="triple", type="object",
+     *                         @OA\Property(property="subject", type="string"),
+     *                         @OA\Property(property="predicate", type="string"),
+     *                         @OA\Property(property="object", type="string")
+     *                     ),
+     *                     @OA\Property(property="message", type="string", example="Triple inserted successfully."),
+     *                     @OA\Property(property="status", type="integer", example=201),
+     *                     @OA\Property(property="details", type="object", nullable=true)
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid input data",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="No data provided!")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Server error during triple preparation",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Failed to prepare triples."),
+     *             @OA\Property(property="error", type="string", example="Specific error message")
+     *         )
+     *     )
+     * )
      */
     public function storeEventTriple(Request $request)
     {
