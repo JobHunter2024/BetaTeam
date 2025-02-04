@@ -1,12 +1,11 @@
 # 🗺️ Job Hunter 2024- Intelligent Job Board
   <p>
     <a href="https://www.python.org/" target="_blank"><img src="https://img.shields.io/badge/python-3.9-blue" alt="Python Version"></a>
+    <a href="https://www.php.net/" target="_blank"><img src="https://img.shields.io/badge/php-8.0-blue" alt="PHP Version"></a>
     <a href="https://reactjs.org/" target="_blank"><img src="https://img.shields.io/badge/react-18.2.0-blue" alt="React Version"></a>
-    <a href="https://leafletjs.com/" target="_blank"><img src="https://img.shields.io/badge/leaflet-1.9.4-green" alt="Leaflet Version"></a>
     <a href="https://www.typescriptlang.org/" target="_blank"><img src="https://img.shields.io/badge/typescript-4.9-blue" alt="TypeScript"></a>
     <a href="https://nodejs.org/" target="_blank"><img src="https://img.shields.io/badge/node.js-18.16.0-green" alt="Node.js"></a>
     <a href="https://laravel.com/" target="_blank"><img src="https://img.shields.io/badge/laravel-8.0-red" alt="Laravel Version"></a>
-    <a href="https://www.php.net/" target="_blank"><img src="https://img.shields.io/badge/php-8.0-blue" alt="PHP Version"></a>
 
   </p>
 
