@@ -149,10 +149,10 @@ php artisan serve
   <h2 id="acknowledgements">💎 Acknowledgements</h2>
   <p>Useful resources and libraries that we have used in our project:</p>
   <ul>
-    <li>🛠️ <strong>skillNER</strong> – Named Entity Recognition for job classification</li>
-    <li>🏢 <strong>Protégé</strong> – OWL ontology development</li>
-    <li>📚 <strong>Stanza</strong> – NLP framework for job text processing</li>
-    <li>🧠 <strong>spaCy</strong> – Semantic parsing and job categorization</li>
+    <li>🛠️ <strong>skillNER</strong> – Python library for skills extraction</li>
+    <li>🏢 <strong>Protégé</strong> – Ontology development tool</li>
+    <li>📚 <strong>Stanza</strong> – NLP library for location extraction</li>
+    <li>🧠 <strong>spaCy</strong> – Used for job details extraction(degree level)</li>
   </ul>
 
   <h2 id="contributing">🤝 Contributing</h2>
