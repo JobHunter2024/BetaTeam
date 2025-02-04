@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--responsive-->
+        <title>Documentația proiectului</title>
+        <link href="scholarly_doc.css" rel="stylesheet">
+        <style>
+            img {
+            margin-left: 0;
+
+            border: 1px solid #ffffff;
+            align-self: center;
+            }
+        </style>
+    </head>
+    <body prefix="schema: http://schema.org">
+        <article typeof="schema:ScholarlyArticle" resource="#">
+            <header>
+                <h1>Job Hunter</h1>
+            </header>
+            <div role="contentinfo">
+                <section typeof="sa:AuthorsList">
+                    <h2>Authors</h2>
+                    <ul>
+                        <li typeof="sa:ContributorRole" property="schema:author">
+                            <span typeof="schema:Person">
+                                <meta property="schema:givenName" content="Ana">
+                                <meta property="schema:familyName" content="Ciobanu">
+                                <span property="schema:name">Ciobanu Ana</span>
+                            </span>
+                        </li>
+                        <li typeof="sa:ContributorRole" property="schema:author">
+                            <span typeof="schema:Person">
+                                <meta property="schema:givenName" content="Maria-Magdalena">
+                                <meta property="schema:familyName" content="Roca">
+                                <span property="schema:name">Roca Maria-Magdalena</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <section id="introduction" role="doc-introduction">
+                <h2>1.Introduction</h2>
+                <section>
+                    <h3>1.1 Purpose of the Report</h3>
+                    <p>
+                        The purpose of this report is to give you information and guidance on
+                        the implementation, functionalities and usage of
+                        an app that provide different services.
+                        The app stores, manipulates and displays information on the jobs and events from IT domain,
+                        giving the users possibility to view, filter, visualize and get suggestions based on their preferences.
+                    </p>
+                </section>
+                <section>
+                    <h3>1.2 Scope of the Report</h3>
+                    <p>
+                        The app is intended to help job seekers find jobs and events, that might interest them, as well to understand the
+                        current market situation and get suggestions based on their preferences.
+                    </p>
+                </section>
+            </section>
+            <section>
+                <h2>2.Overall Description</h2>
+                <section>
+                    <h3>2.1 Product Functions</h3>
+                    <p>
+                      Major features of our program include:
+                        <ol>
+                          <li>Filter events</li>
+                          <li>Visualization of statistics</li>
+                          <li>Explore jobs and events on a interacting map</li>
+                        </ol>                       
+
+                </section>
+                <section>
+                    <h3>2.2 User Classes and Characteristics</h3>
+                    <p>The program was designed to be used by an average user.
+                      The functionalities are easy and straightforward,
+                      so it is not needed any preliminary guidance. <br>
+                      <b>- Frequency of use.</b> An average user should access the site twice per week to check for updates and new jobs he might be interested in.
+                      <br>
+                      <b>- Subset of product functions used.</b> The product has basic functions like authentication, browsing, filtering and visualization. For the general user they are easy to use.
+                      <br>
+                      <b>- Education level and expirience.</b> There is not much need for advanced knowledge in order to use the application, yet the app target audience are the persons who have studies in the IT domain or interested to learn about it or are looking for a new job in IT.
+                      <br>
+
+                    </p>
+                </section>
+                </section>
+                <section id="architecture">
+                  <h2>3. General architecture</h2>
+                </section>
+                <section id="technical_aspects">
+                  <h2>4. Technical aspects</h2>
+                  <section>
+                    <h3>4.1 Knowledge model</h3>
+                    <h3>4.1.1 Ontology creation</h3>
+                    <p>To better structure and represent data, we developed a domain-specific ontology using Protégé, a widely adopted ontology development tool. This ontology is designed to model job descriptions and IT-related events systematically, allowing for efficient data integration, retrieval, and reasoning.
+                      The ontology defines several key classes, which can be seen in Fig. x and Fig. xx
+                      <figure typeof="sa:Image">
+                        <img src="documentation_images/ThingOwlViz.png"  width="880"
+                        height="625" alt="" >
+                        <figcaption>
+                         Fig.1 Ontology part 1
+                        </figcaption>
+                      </figure>
+                      <figure typeof="sa:Image">
+                        <img src="documentation_images/SkillOwlViz.png"  width="880"
+                        height="625" alt="" >
+                        <figcaption>
+                         Fig.2-Ontology part2
+                        </figcaption>
+                      </figure>
+                      Each of these classes is linked through well-defined relationships. For example:
+                      <ul>
+                        <li>Job &rarr; requiresSkill &rarr; TechnicalSkill</li>
+                        <li>Job &rarr; postedByCompany &rarr; Company</li>
+                        <li>Event &rarr; takesPlaceIn &rarr; City</li>
+                        <li>Event &rarr; hasTopic &rarr; Topic, TechnicalSkill</li>
+                    </ul>
+                      For each class there are specific data properties, such as eventDate(xsd:dateTime), eventType(xsd:string), isOnline(xsd:boolean).
+                      By structuring job-related and IT event data through these semantic relationships, the ontology supports complex queries and facilitates meaningful insights.
+                      <br>
+                      The ontology follows key design patterns to ensure clarity and consistency:
+                      <ul>
+                          <li><strong>Class Hierarchy:</strong> The ontology maintains a structured hierarchy:
+                              <ul>
+                                  <li>Skill (superclass)
+                                      <ul>
+                                          <li>SoftSkill (disjoint with TechnicalSkill and LanguageSkill)</li>
+                                          <li>TechnicalSkill
+                                              <ul>
+                                                  <li>ProgrammingLanguage (disjoint with Framework and Library)</li>
+                                                  <li>Framework (disjoint with ProgrammingLanguage and Library)</li>
+                                                  <li>Library (disjoint with ProgrammingLanguage and Framework)</li>
+                                              </ul>
+                                          </li>
+                                          <li>LanguageSkill (disjoint with SoftSkill and TechnicalSkill)</li>
+                                      </ul>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li><strong>Disjoint Classes:</strong> The classes Framework, Library, and ProgrammingLanguage are explicitly disjoint, ensuring that an entity cannot belong to more than one of these categories. Similarly, SoftSkill, LanguageSkill, and TechnicalSkill are disjoint, preserving semantic clarity.</li>
+                          <li><strong>Inverse Relations:</strong> The ontology incorporates inverse relationships, such as:
+                              <ul>
+                                  <li>Job → postedByCompany → Company</li>
+                                  <li>Company → postedJob → Job</li>
+                              </ul>
+                          </li>
+                          <li><strong>Object Properties with Specific Domains and Ranges:</strong>
+                              <ul>
+                                  <li>The use of Object Properties with specific rdfs:domain and rdfs:range constraints (e.g., requiresSkill, takesPlaceIn, and influencedBy) helps formalize relationships between different classes. These properties represent real-world relations like a job requiring a skill or an event taking place in a city.</li>
+                              </ul>
+                          </li>
+                          <li><strong>Datatype Properties:</strong>
+                              <ul>
+                                  <li>Several Datatype Properties like jobTitle, companyName, datePosted, and experienceLevel are defined with appropriate domains and ranges (e.g., xsd:string, xsd:int). This pattern ensures that the ontology can handle data types in a structured and semantically consistent way.</li>
+                              </ul>
+                          </li>
+                          <li><strong>Annotation Properties:</strong>
+                              <ul>
+                                  <li>While not explicitly shown, annotation properties such as rdfs:label or rdfs:comment provide human-readable descriptions. This pattern is important for enhancing the usability and understandability of the ontology.</li>
+                              </ul>
+                          </li>
+                          <li><strong>Separation of Concerns:</strong>
+                              <ul>
+                                  <li>The ontology adheres to a separation of concerns by clearly dividing different concepts into distinct classes such as City, Country, Event, and Job. Each of these classes serves a specific role and helps maintain the clarity of the ontology, reducing complexity.</li>
+                              </ul>
+                          </li>
+                      </ul>
+                      <p>By structuring job-related and IT event data through these semantic relationships and ontology design patterns, the model supports complex queries and facilitates meaningful insights.</p>  
+                    </p>
+
+                    <h3>4.1.2 Pragmatic Use of Knowledge Sources</h3>
+                    <p>To enhance the expressiveness and relevance of the ontology, we integrated external knowledge from Wikidata using SPARQL queries. Specifically, we enriched the <strong>TechnicalSkill</strong> class by classifying skills into Programming Languages, Frameworks, and Libraries using a structured query.</p>
+                    <p>A representative SPARQL query dynamically categorizes a skill into one of these subclasses while retrieving additional relevant data:</p>
+                    <pre>
+                SELECT ?item ?influencedByLabel ?programmedInLabel ?officialWebsite ?type 
+                ?description WHERE {
+                  ?item (rdfs:label|skos:altLabel) "{skill_name}"@en.
+                  ?item wdt:P31/wdt:P279* ?type.
+                  OPTIONAL { ?item wdt:P737 ?influencedBy. }
+                  OPTIONAL { ?item wdt:P277 ?programmedIn. }
+                  OPTIONAL { ?item wdt:P856 ?officialWebsite. }
+                  OPTIONAL {
+                      ?item schema:description ?description.
+                      FILTER(LANG(?description) = "en")
+                  }
+                  FILTER (?type IN (wd:Q9143, wd:Q29642950, wd:Q188860, wd:Q783866, wd:Q271680,
+                   wd:Q1330336, wd:Q17155032, wd:Q506883, wd:Q7397, wd:Q110509708, wd:Q1130645))
+                  SERVICE wikibase:label {
+                    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en".
+                    ?influencedBy rdfs:label ?influencedByLabel.
+                    ?programmedIn rdfs:label ?programmedInLabel.
+                  }
+                }
+                    </pre>
+                    <p>This query enables the system to:</p>
+                    <ul>
+                        <li>Identify whether a skill belongs to <strong>ProgrammingLanguage, Framework, or Library</strong>.</li>
+                        <li>Retrieve external references such as the <strong>official website</strong>.</li>
+                        <li>Extract metadata like <strong>influencedBy</strong> and <strong>programmedIn</strong> relationships.</li>
+                    </ul>
+                    <h3>4.1.3 Conformance to Linked Data Principles</h3>
+                    <p>The system adheres to the Linked Data principles, ensuring interoperability and ease of data exchange.
+                       The ontology and its concepts are stored in Apache Jena Fuseki, utilizing URIs with the prefix <http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#>
+                      To enable seamless data access, the ontology is hosted on an Apache Jena Fuseki server, 
+                      which provides SPARQL endpoints for querying and retrieving data. Additionally, external resources,
+                       such as Wikidata URIs, allow direct access to global knowledge graphs, enhancing data integration and reuse.
+                      The ontology also establishes strong interlinks with external datasets. Job descriptions reference 
+                      Wikidata skills, ensuring a standardized taxonomy for classification. Similarly, event data is linked to 
+                      external event pages, promoting seamless integration with relevant datasets and knowledge bases.
+                      For data representation and querying, the ontology relies on standardized formats such as RDF and OWL,
+                       which define relationships and structure the ontology. The data is stored in Apache Jena Fuseki and 
+                       queried using SPARQL, adhering to semantic web standards. Furthermore, relationships within the 
+                       ontology are explicitly defined through properties like rdfs:label, ensuring human-readable descriptions.
+                      By implementing these principles, the ontology guarantees scalability, interoperability, and consistency,
+                       making it a robust solution for representing job listings and IT-related events while seamlessly
+                        integrating with external knowledge sources.</p>
+                    <h3>4.2 Data preparation</h3>
+                    <h3>4.2.1 Data cleaning</h3>
+                    <p></p>
+                    <h3>4.2.2 Data normalization</h3>
+                    <p></p>
+                    <h3>4.2.3 Data extraction</h3>
+                    <p></p>
+                    <h3>4.2.4 Data enrichement</h3>
+                    <p></p>
+                    <h3>4.3 Triple Insertion API</h3>
+                    <p></p>
+                    <h3>4.4 Apache Jena Fuseki</h3>
+                    <p></p>
+                    <h3>4.5 SPARQL Query APIs</h3>
+                    <h3>4.5.1 Events data query</h3>
+                    <p></p>
+                    <h3>4.6 Map visualization</h3>
+                    <h3>4.7 Statistics visualization</h3>
+                    <h3>4.8 Search events</h3>
+                    <p></p>
+                    <h3>4.9 Events data fetch</h3>
+                  </section>
+                </section>
+                <section id="conclusion">
+                  <h2>Conclusion</h2>
+                </section>
+                <section id="references">
+                  <h2>References</h2>
+                </section>
+        </article>
+    </body>
+</html>
