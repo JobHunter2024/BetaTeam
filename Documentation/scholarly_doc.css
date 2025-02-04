@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 h1, h2 {
   color: black;
 }
-/* h2 {
+h2 {
   margin-top: 3em;
 }
 h3 {
@@ -44,7 +44,7 @@ h3 {
 }
 h4 {
   margin-top: 2em;
-} */
+}
 
 /* contentinfo */
 [role="contentinfo"] a {
