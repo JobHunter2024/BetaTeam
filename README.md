@@ -18,7 +18,7 @@
 
 ## About the Project
 
-This **project** is part of a larger collaborative initiative that we built together with our colleagues for the **Wade** class at Alexandru Ioan Cuza University of Iași (**infoiasi**). As part of our **Web Development** course, we combined our skills and ideas to create a cutting-edge **web** application that addresses real-world challenges in the job listing domain. This endeavor not only highlights our technical expertise but also our commitment to teamwork and innovation.
+This **#project** is part of a larger collaborative initiative that we built together with our colleagues for the **#Wade** class at Alexandru Ioan Cuza University of Iași (**#infoiasi**). As part of our **#Web Development** course, we combined our skills and ideas to create a cutting-edge **#web** application that addresses real-world challenges in the job listing domain. This endeavor not only highlights our technical expertise but also our commitment to teamwork and innovation.
 
 ## 📂 Resources (Deliverables)
 
@@ -31,7 +31,7 @@ This **project** is part of a larger collaborative initiative that we built toge
 - **Ciobanu Ana**
 - **Roca Maria-Magdalena**
 
-## 🙌 Contributors ( Job Hunter 2024 - Team Gamma) 
+## 🙌 Contributors ( Job Hunter 2024 - Team Gamma) **#JobHunter**
 
 - **Harton Amalia**
 - **Habasescu Andrei**
@@ -39,7 +39,7 @@ This **project** is part of a larger collaborative initiative that we built toge
 ## 📸 Screenshot
 <div style="text-align: left;"> 
     <img src="https://github.com/JobHunter2024/BetaTeam/blob/main/Documentation/map.png" alt="screenshot" style="width: 50%; max-width: 600px; height: auto;"/>
-<p>This is a preview of the interactive map displaying job/event clusters in **JobHunter** .</p>
+<p>This is a preview of the interactive map displaying job/event clusters in **#JobHunter** .</p>
     <p> <img src="https://github.com/JobHunter2024/BetaTeam/blob/main/Documentation/documentation_images/pieChart.png" alt="screenshot" style="width: 50%; max-width: 600px; height: auto;"/></p>
 Here we have diffresent event distributions pie charts.
 
@@ -60,9 +60,6 @@ Here we have diffresent event distributions pie charts.
     <li><a href="#environment-variables">🔧 Environment Variables</a></li>
     <li><a href="#installation">📦 Installation</a></li>
     <li><a href="#acknowledgements">💎 Acknowledgements</a></li>
-    <li><a href="#contributing">🤝 Contributing</a></li>
-    <li><a href="#license">📝 License</a></li>
-    <li><a href="#developers">🧑‍💻 Developers</a></li>
     <li><a href="#tags">🏷️ Tags</a></li>
   </ol>
 
