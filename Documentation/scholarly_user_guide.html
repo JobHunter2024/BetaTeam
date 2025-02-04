@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--responsive-->
+        <title>Documentația proiectului</title>
+        <link href="scholarly_doc.css" rel="stylesheet">
+        <style>
+            img {
+            margin-left: 0;
+
+            border: 1px solid #ffffff;
+            align-self: center;
+            }
+        </style>
+    </head>
+    <body prefix="schema: http://schema.org">
+        <article typeof="schema:ScholarlyArticle" resource="#">
+            <header>
+                <h1>Job Hunter</h1>
+            </header>
+            <div role="contentinfo">
+                <section typeof="sa:AuthorsList">
+                    <h2>Authors</h2>
+                    <ul>
+                        <li typeof="sa:ContributorRole" property="schema:author">
+                            <span typeof="schema:Person">
+                                <meta property="schema:givenName" content="Ana">
+                                <meta property="schema:familyName" content="Ciobanu">
+                                <span property="schema:name">Ciobanu Ana</span>
+                            </span>
+                        </li>
+                        <li typeof="sa:ContributorRole" property="schema:author">
+                            <span typeof="schema:Person">
+                                <meta property="schema:givenName" content="Maria-Magdalena">
+                                <meta property="schema:familyName" content="Roca">
+                                <span property="schema:name">Pricopi Bianca</span>
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <section>
+                <h2>Event Statistics Page</h2>
+                <p>The <code>EventStatisticsPage</code> component is a data visualization page that presents event-related statistics using various charts and graphs.</p>
+                <figure typeof="sa:Image">
+                    <img src="documentation_images/pieChart.png"  width="880"
+                    height="625" alt="" >
+                    <figcaption>
+                     Fig. Pie chart on the number of events by type and pie chart on the number of events online vs offline
+                    </figcaption>
+                  </figure>
+                  <figure typeof="sa:Image">
+                    <img src="documentation_images/barChart1.png"  width="880"
+                    height="625" alt="" >
+                    <figcaption>
+                     Fig. Bar chart on the number of event per topic
+                    </figcaption>
+                  </figure>
+                  <figure typeof="sa:Image">
+                    <img src="documentation_images/barChart2.png"  width="880"
+                    height="625" alt="" >
+                    <figcaption>
+                     Fig. Bar chart on the number of events per technical skill
+                    </figcaption>
+                  </figure>
+                  <figure typeof="sa:Image">
+                    <img src="documentation_images/calendarHeatmap.png"  width="880"
+                    height="625" alt="" >
+                    <figcaption>
+                     Fig. Calendar Heatmap on the density of events
+                    </figcaption>
+                  </figure>
+                  <h2>Search Event Page</h2>
+                  <p>The <strong>Event Search Page</strong> allows users to search and filter IT-related events. Users can apply filters such as event type, topic, location, online status, and date.
+                    In the example below, we can see how the search results are displayed based on the selected filters:</p>
+                    For case 1 the user only selected the type of events, in the case 2 the user selected both type, topic, and location, in the case 3 the user selected type, topic and a date.
+                    <figure typeof="sa:Image">
+                        <img src="documentation_images/eventCase1.png"  width="880"
+                        height="625" alt="" >
+                        <figcaption>
+                         Fig. Search Event Case 1
+                        </figcaption>
+                      </figure>
+                      <figure typeof="sa:Image">
+                        <img src="documentation_images/eventCase2.png"  width="880"
+                        height="625" alt="" >
+                        <figcaption>
+                         Fig. Search Event Case 2
+                        </figcaption>
+                      </figure>
+                      <figure typeof="sa:Image">
+                        <img src="documentation_images/eventCase3.png"  width="880"
+                        height="625" alt="" >
+                        <figcaption>
+                         Fig. Search Event Case 3
+                        </figcaption>
+                      </figure>
+                </section>
+        </article>
+    </body>
+</html>

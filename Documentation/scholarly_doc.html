@@ -105,6 +105,20 @@
                 </section>
                 <section id="architecture">
                   <h2>3. General architecture</h2>
+                  <figure typeof="sa:Image">
+                    <img src="documentation_images/bpmn.png"  width="880"
+                    height="625" alt="" >
+                    <figcaption>
+                     Fig.Data processing component
+                    </figcaption>
+                  </figure>
+                  <figure typeof="sa:Image">
+                    <img src="documentation_images/useCaseDiagram.png"  width="880"
+                    height="625" alt="" >
+                    <figcaption>
+                     Fig.Use case diagram
+                    </figcaption>
+                  </figure>
                 </section>
                 <section id="technical_aspects">
                   <h2>4. Technical aspects</h2>
@@ -112,19 +126,19 @@
                     <h3>4.1 Knowledge model</h3>
                     <h3>4.1.1 Ontology creation</h3>
                     <p>To better structure and represent data, we developed a domain-specific ontology using Protégé, a widely adopted ontology development tool. This ontology is designed to model job descriptions and IT-related events systematically, allowing for efficient data integration, retrieval, and reasoning.
-                      The ontology defines several key classes, which can be seen in Fig. x and Fig. xx
+                      The ontology defines several key classes, which can be seen in the next images.
                       <figure typeof="sa:Image">
                         <img src="documentation_images/ThingOwlViz.png"  width="700"
                         height="500" alt="" >
                         <figcaption>
-                         Fig.1 Ontology part 1
+                         Fig. Ontology part 1
                         </figcaption>
                       </figure>
                       <figure typeof="sa:Image">
                         <img src="documentation_images/SkillOwlViz.png"  width="880"
                         height="625" alt="" >
                         <figcaption>
-                         Fig.2-Ontology part2
+                         Fig. Ontology part2
                         </figcaption>
                       </figure>
                       Each of these classes is linked through well-defined relationships. For example:
@@ -253,14 +267,14 @@
                         <img src="documentation_images/exJob.png"  width="880"
                         height="625" alt="" >
                         <figcaption>
-                         Fig.2-JSON Job listing input
+                         Fig. JSON Job listing input
                         </figcaption>
                       </figure>
                       <figure typeof="sa:Image">
                         <img src="documentation_images/resultsExtraction.png"  width="880"
                         height="625" alt="" >
                         <figcaption>
-                         Fig.2-Output data extraction
+                         Fig. Output data extraction
                         </figcaption>
                       </figure>
                     <h3>4.2.3 Data enrichement</h3>
@@ -272,28 +286,430 @@
                           <img src="documentation_images/dataEnrichement.png"  width="700"
                           height="500" alt="" >
                           <figcaption>
-                           Fig.2-Data enrichement of a technical skill
+                           Fig. Data enrichement of a technical skill
                           </figcaption>
                         </figure>
                     <h3>4.3 Triple Insertion API</h3>
-                    <p></p>
-                    <h3>4.4 Apache Jena Fuseki</h3>
-                    <p></p>
-                    <h3>4.5 SPARQL Query APIs</h3>
-                    <h3>4.5.1 Events data query</h3>
-                    <p></p>
-                    <h3>4.6 Map visualization</h3>
-                    <h3>4.7 Statistics visualization</h3>
-                    <h3>4.8 Search events</h3>
-                    <p></p>
-                    <h3>4.9 Events data fetch</h3>
+                    <p><strong>Overview</strong></p>
+                    <p>The Triple Insertion API is a RESTful service designed to convert structured job/event data into RDF triples compliant with the Job Hunter ontology and persist them into an Apache Jena Fuseki triplestore.</p>
+                    <p>It acts as the bridge between raw data and semantic knowledge representation, ensuring data integrity and adherence to ontology constraints.</p>
+                
+                    <h3>Key Implementation Components</h3>
+                
+                    <h3>Endpoints</h3>
+                    <ul>
+                        <li><strong>POST /api/triples/store</strong>: Ingests job data (title, company, skills, etc.).</li>
+                        <li><strong>POST /api/triples/storeEventTriple</strong>: Processes event data (title, location, topics, etc.).</li>
+                    </ul>
+                    <figure typeof="sa:Image">
+                      <img src="documentation_images/api_triple_store.png"  width="700"
+                      height="500" alt="" >
+                      <figcaption>
+                       Fig. Triple insertion API
+                      </figcaption>
+                    </figure>
+                    <h3>1. Request Handling & Validation</h3>
+                    <p>Uses Laravel’s Validator to enforce schema rules, ensuring required fields such as <code>jobTitle</code> and <code>eventDate</code> are present.</p>
+                
+                    <h3>2. Ontology Initialization</h3>
+                    <h3>OntologyGenerator Class:</h3>
+                    <p>Responsible for generating foundational ontology triples (classes, properties, hierarchies) on API startup.</p>
+                    <p>It creates:</p>
+                    <ul>
+                        <li><strong>Classes</strong>: Job, Company, Skill, Event, City, etc.</li>
+                        <li><strong>Object Properties</strong>: postedByCompany, requiresSkill, hasTopic.</li>
+                        <li><strong>Data Properties</strong>: jobTitle, eventDate, isOnline.</li>
+                    </ul>
+                    <p>These triples are inserted into Fuseki first to ensure ontology consistency.</p>
+                
+                    <h3>3. Data-to-RDF Transformation</h3>
+                    <h3>TripleService Class:</h3>
+                
+                    <h4>prepareIndividualTriples(array $data)</h4>
+                    <p>Maps job data to RDF triples using the ontology.</p>
+                    
+                    <h4>Example Transformation for a Job:</h4>
+                    <p><strong>Input:</strong></p>
+                    <pre><code>{
+                    "jobTitle": "Senior Developer",
+                    "companyName": "Tech Corp"
+                }</code></pre>
+                
+                    <p><strong>Output Triples:</strong></p>
+                    <pre><code>&lt;{$baseUri}SeniorDeveloper&gt; rdf:type :Job ;
+                                             :jobTitle "Senior Developer" ;
+                                             :postedByCompany &lt;{$baseUri}TechCorp&gt; .</code></pre>
+                
+                    <p>Handles nested structures (e.g., skills, frameworks) by iterating through arrays and linking entities.</p>
+                
+                    <h4>prepareEventTriples(array $data)</h4>
+                    <p>Similar logic applies for events, with additional handling for location (City/Country) and topics.</p>
+                
+                    <p><strong>Example Event Triple:</strong></p>
+                    <pre><code>&lt;http://.../DevCon2024&gt; rdf:type :Event ;
+                                        :eventTitle "DevCon 2024" ;
+                                        :takesPlaceIn &lt;http://.../Cluj&gt; ;
+                                        :hasTopic &lt;http://.../AI&gt; .</code></pre>
+                
+                    <h3>4. Batch Processing & SPARQL Insertion</h3>
+                    <p>To avoid timeouts, large datasets are split into batches (e.g., 5 items/batch).</p>
+                
+                    <h3>Batch Processing Steps:</h3>
+                    <ol>
+                        <li>Execute Python script to classify skills.</li>
+                        <li>Generate triples for jobs/events and their relationships.</li>
+                        <li>Insert triples into Fuseki via SPARQL <code>INSERT DATA</code>.</li>
+                    </ol>
+                
+                    <h3>Duplicate Prevention</h3>
+                    <p>The method <code>TripleService::tripleExists()</code> checks for existing triples using SPARQL <code>ASK</code> queries before insertion.</p>
+                
+                    <h3>SPARQL Insert Example:</h3>
+                    <pre><code>PREFIX : &lt;http://.../JobHunterOntology#&gt;
+                INSERT DATA {
+                    &lt;http://.../SeniorDeveloper&gt; :jobTitle "Senior Developer" ;
+                                                  :postedByCompany &lt;http://.../TechCorp&gt; .
+                }</code></pre>
+                    <h3>4.4 SPARQL Query APIs</h3>
+                    <h3>4.4.1 Events data query API</h3>
+                    <p>The Events data query API is designed to be accessed by the frontend application to provide job seekers with relevant IT-related events. It allows users to filter events based on multiple criteria such as type, topic, location, and date.</p>
+                    <figure typeof="sa:Image">
+                      <img src="documentation_images/fastAPI.png"  width="700"
+                      height="500" alt="" >
+                      <figcaption>
+                       Fig. Triple insertion API
+                      </figcaption>
+                    </figure>
+                    <p>The API queries the Apache Jena Fuseki server and returns structured data in JSON format for display in the frontend.</p>
+                    <h2>Query Formation & Filtering</h2>
+                    <p>Each API call retrieves data from a Fuseki SPARQL database using a structured query. The queries follow a two-step process:</p>
+                
+                    <h3>Base Query</h3>
+                    <p>Each query starts with a predefined SPARQL query, for example:</p>
+                    <pre><code>SELECT ?eventTitle ?eventType ?topic ?isOnline ?date ?eventURL WHERE {
+                    ?event rdf:type :Event ;
+                           :eventTitle ?eventTitle;
+                           :eventType ?eventType;
+                           :hasTopic ?topic;
+                           :isOnline ?isOnline;
+                           :eventURL ?eventURL;
+                           :eventDate ?date.
+                }</code></pre>
+                
+                    <h3>Dynamic Filters</h3>
+                    <p>Based on the request parameters, additional <code>FILTER</code> conditions or <code>VALUES</code> clauses are appended to refine the results.</p>
+                
+                    <p>If the request includes a filter for <strong>event type</strong>, the query is extended:</p>
+                    <pre><code>VALUES ?eventType { "Conference" "Meetup" }</code></pre>
+                
+                    <p>If the request includes a filter for <strong>topics</strong>, the query is extended:</p>
+                    <pre><code>VALUES ?topic { &lt;http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#AI&gt; &lt;http://www.semanticweb.org/ana/ontologies/2024/10/JobHunterOntology#Cloud&gt; }</code></pre>
+                
+                    <p>If filtering by <strong>location</strong>, an additional condition is added:</p>
+                    <pre><code>VALUES ?location { :Iasi :Bucharest }</code></pre>
+                
+                    <p>If filtering by <strong>date</strong>, a condition ensures only events on those dates are included:</p>
+                    <pre><code>FILTER(str(?date) = "2024-05-01")</code></pre>
+                
+                    <h3>Handling Online/Offline Events</h3>
+                    <ul>
+                        <li>If an event is <strong>online</strong>, a specific base query is used that excludes location.</li>
+                        <li>If an event is <strong>offline</strong>, a different base query includes location filtering.</li>
+                        <li>If no online filter is provided, two queries are executed—one for online events and one for offline events—and the results are merged.</li>
+                    </ul>
+                
+                    <h3>Data Source & Authentication</h3>
+                    <p>The API retrieves data from a Fuseki SPARQL database using authenticated queries.</p>
+                    <p>Environment variables are used to store sensitive credentials such as the API URL, username, and password.</p>
+                
+                    <h3>Frontend Integration</h3>
+                    <p>The API is <strong>designed to be consumed by the frontend</strong>, which uses it to display events from Tech domain dynamically.</p>
+                    <ul>
+                        <li>The frontend makes requests with user-selected filters, and the API constructs SPARQL queries accordingly.</li>
+                        <li>The returned JSON is formatted for easy consumption by charts, tables, and other UI components.</li>
+                    </ul>
+                    <figure typeof="sa:Image">
+                      <img src="documentation_images/apiExample.png"  width="700"
+                      height="500" alt="" >
+                      <figcaption>
+                       Fig. Get events API
+                      </figcaption>
+                    </figure>
+                    <h3>4.4.2 Job query API</h3>
+                    <p>Job Query API enables users to retrieve job listings from the triplestore based on dynamic filters such as date posted, experience level, location, criteria defined in the Job Hunter ontology. These queries leverage SPARQL’s flexibility to traverse RDF relationships and filter results semantically.
+
+                      Queries are dynamically constructed using the ontology’s classes and properties. A base template ensures consistency while allowing parameterization:
+                      The /api/map-data API executes generic queries, returning JSON response. 
+                      </p>
+                      <figure typeof="sa:Image">
+                        <img src="documentation_images/apiMap.png"  width="700"
+                        height="500" alt="" >
+                        <figcaption>
+                         Fig. API for map data
+                        </figcaption>
+                      </figure>
+                    <h3>4.4.3 Event query API for map</h3>
+                    <p>The /api/events-map-data retrieves IT events by topic, date, or location.
+                      These last endpoints are used in displaying jobs and events on the map.
+                      
+                      
+                      MapPage Implementation
+                      
+                      The MapPage implementation is a React-based interactive map that displays both job and event locations retrieved from an API. It utilizes the Leaflet library for mapping functionalities, supports marker clustering, and includes a search control for enhanced user interaction.
+                      
+                      This report details the technologies used, data processing, and key implementation aspects that make the map efficient and user-friendly.
+                      
+                      1 Technologies & Libraries Used
+                      Frontend Framework
+                      React.js – Used to build a modular and efficient UI.
+                      React Bootstrap – Provides responsive UI components like containers, rows, and cards.
+                      React Router DOM – Handles page navigation.
+                      Data Fetching & State Management
+                      Axios – Used to fetch data from API endpoints asynchronously.
+                      useState & useEffect (React Hooks) – Manage component state and trigger API requests on mount.
+                      Mapping Library
+                      Leaflet.js – The main library used for rendering the interactive map.
+                      Leaflet.markercluster – Enables clustering of markers to improve map readability.
+                      Leaflet-geosearch – Provides a search bar for users to find locations.
+                      Styling & UI Enhancements
+                      CSS – Custom styling for map and loading state.
+                      
+                      2 Implementation Details
+                      
+                      The implementation fetches job and event location data from two separate API endpoints:
+                      
+                      http://localhost:8000/api/map-data (Jobs)
+                      http://localhost:8000/api/events-map-data (Events)
+                      Once the data is retrieved:
+                      
+                      It is filtered to include only locations that contain valid latitude and longitude.
+                      Jobs and events are differentiated by their type property (job or event).
+                      The data is stored in React state (useState) for rendering.
+                      
+                      Rendering the Map and Markers
+                      Map Initialization uses useRef to maintain a reference to the Leaflet map.
+                      Marker Handling:
+                      The job markers and event markers are managed separately to allow filtering.
+                      Leaflet.markercluster is used to group nearby markers dynamically.
+                      A small jitter (randomized coordinate offset) is applied to avoid overlapping markers.
+                      
+                      Search & Layer Control
+                      Leaflet GeoSearch allows users to search for locations within the map.
+                      Layer Control enables toggling between job and event markers dynamically.
+                      </p>
+                    <h3>4.5 Statistics visualization</h3>
+                    <p>The <code>EventStatisticsPage</code> component is a React-based data visualization page that presents event-related statistics using various charts and graphs. It fetches data from APIs and renders the insights dynamically.</p>
+
+                    <h3>Technologies Used</h3>
+                    <ul>
+                        <li><strong>React</strong> - Frontend framework for building the UI.</li>
+                        <li><strong>Chart.js</strong> - For rendering bar and pie charts.</li>
+                        <li><strong>react-chartjs-2</strong> - React wrapper for Chart.js.</li>
+                        <li><strong>Axios</strong> - For API calls.</li>
+                        <li><strong>CalendarHeatmap</strong> - For rendering a heatmap representation of event density.</li>
+                        <li><strong>schema-dts</strong> - Provides structured data in JSON-LD format for SEO optimization.</li>
+                    </ul>
+
+                    <h3>Data Flow</h3>
+                    <h3>API Data Fetching</h3>
+                    <p>The component uses <code>useEffect</code> to fetch data from multiple APIs upon mounting. The data is stored in React state variables using <code>useState</code>.</p>
+
+                    <h4>APIs Used:</h4>
+                    <ul>
+                        <li><code>VITE_API_EVENTS_PER_TYPE</code> - Fetches event distribution by type.</li>
+                        <li><code>VITE_API_EVENTS_IS_ONLINE</code> - Fetches online vs onsite event statistics.</li>
+                        <li><code>VITE_API_EVENTS_PER_TOPIC</code> - Fetches events grouped by topic.</li>
+                        <li><code>VITE_API_EVENTS_PER_DATE</code> - Fetches event occurrences over time.</li>
+                        <li><code>VITE_API_EVENTS_PER_TECHNICAL_SKILL</code> - Fetches events by technical skill (programming languages, frameworks, libraries).</li>
+                    </ul>
+
+                    <h3>Component Structure</h3>
+                    <pre><code>
+                EventStatisticsPage
+                ├── useEffect (fetchData)
+                │   ├── Fetches data from APIs using Axios
+                │   ├── Stores data in state variables
+                │   ├── Handles API errors gracefully
+                │
+                ├── Pie Charts (Chart.js)
+                │   ├── Events by Type
+                │   ├── Online vs Onsite Events
+                │
+                ├── Bar Charts (Chart.js)
+                │   ├── Events per Topic
+                │   ├── Events per Technical Skill (Grouped by category)
+                │
+                ├── Calendar Heatmap
+                │   ├── Displays event occurrences per date
+                │
+                ├── JSON-LD Metadata (SEO)
+                    </code></pre>
+
+                    <h2>Charts and Visualizations</h2>
+
+                    <h3>Pie Charts</h3>
+                    <ul>
+                        <li><strong>Events Distribution by Type:</strong> Displays event counts categorized by type.</li>
+                        <li><strong>Online vs Onsite Events:</strong> Differentiates between online and onsite events in Romania.</li>
+                    </ul>
+
+                    <h3>Bar Charts</h3>
+                    <ul>
+                        <li><strong>Events per Topic:</strong> Shows event counts per topic.</li>
+                        <li><strong>Events per Technical Skill:</strong> Displays grouped bar charts for programming languages, frameworks, and libraries.</li>
+                    </ul>
+
+                    <h3>Calendar Heatmap</h3>
+                    <p>Visualizes event density throughout the year, helping users identify high-activity periods.</p>
+
+                    <h3>JSON-LD Metadata</h3>
+                    <p>The component includes JSON-LD metadata for search engines to understand the statistical data catalog.</p>
+
+                    <h4>Example JSON-LD Output:</h4>
+                    <pre><code>{
+                  "@context": "https://schema.org",
+                  "@type": "DataCatalog",
+                  "name": "IT events statistics",
+                  "audience": "IT professionals and job seekers",
+                  "dateCreated": "2025",
+                  "inLanguage": "English",
+                  "keywords": "IT, events, statistics, Romania",
+                  "description": "Statistics on IT-related events in Romania and online."
+                }</code></pre>
+                <p>The component includes RDFa structured data for search engines to understand the statistical data catalog.</p>
+                    <h3>4.7 Search events</h3>
+                    <p>The <strong>Event Search Page</strong> is a React-based web component that allows users to search and filter IT-related events. Users can apply filters such as event type, topic, location, online status, and date.</p>
+
+                  <h3>4.7.1. Technologies Used</h3>
+                  <ul>
+                      <li><strong>React</strong> - Frontend framework</li>
+                      <li><strong>Axios</strong> - HTTP client for API calls</li>
+                      <li><strong>React-Select</strong> - Multi-select dropdowns</li>
+                      <li><strong>Schema.org JSON-LD</strong> - Structured data for SEO</li>
+                      <li><strong>CSS</strong> - Custom styling</li>
+                  </ul>
+
+                  <h3>4.7.2. API Endpoints</h3>
+                  <p>The component fetches data from the following APIs:</p>
+                  <ul>
+                      <li><code>VITE_API_EVENTS_TYPES</code> - Fetches available event types.</li>
+                      <li><code>VITE_API_EVENTS_TOPICS</code> - Fetches available event topics.</li>
+                      <li><code>VITE_API_EVENTS_LOCATIONS</code> - Fetches available event locations.</li>
+                      <li><code>VITE_API_EVENTS</code> - Fetches events based on selected filters.</li>
+                  </ul>
+
+                  <h3>4.7.3 Component Functionality</h3>
+                  <h3>State Management</h3>
+                  <p>The component uses <code>useState</code> for managing filter options, selected values, and fetched event data.</p>
+                  
+                  <h3>Data Fetching</h3>
+                  <p>Two main <code>useEffect</code> hooks are used:</p>
+                  <ul>
+                      <li>Fetching event filter options on page load.</li>
+                      <li>Fetching events dynamically when filters change.</li>
+                  </ul>
+
+                  <h3>Event Filtering System</h3>
+                  <p>The following filters can be applied:</p>
+                  <ul>
+                      <li><strong>Event Type</strong> - Multi-select dropdown</li>
+                      <li><strong>Topic</strong> - Multi-select dropdown</li>
+                      <li><strong>Location</strong> - Multi-select dropdown</li>
+                      <li><strong>Online / Onsite</strong> - Single select (dropdown)</li>
+                      <li><strong>Date</strong> - Date picker</li>
+                  </ul>
+
+                  <h3>JSON-LD Structured Data</h3>
+                  <p>The page includes structured data for better search engine indexing.</p>
+                  <pre><code>
+                    {
+                      "@context": "https://schema.org",
+                      "@type": "WebPage",
+                      "name": "Search Event Webpage",
+                      "author": "Ciobanu Ana",
+                      "inLanguage": "English",
+                      "about": "A web page where users can search and filter IT-related events from Romania or online events.",
+                      "datePublished": "2025-02-03",
+                      "isPartOf": "Job Hunter Project",
+                      "keywords": "IT events, Tech, Romania, Online Events"
+                    }
+                            </code></pre>
+                    <h3>RDFa Structured Data</h3>
+                    <p>The EventSearchPage component uses RDFa (Resource Description Framework in Attributes) as part of 
+                      its structured data implementation. RDFa is embedded within HTML elements to help search engines and 
+                      other applications better understand the content of the page. 
+                      The RDFa markup uses Schema.org vocabulary to structure event data. Properties like name, about, location,
+                       startDate, and eventAttendanceMode provide structured metadata for better indexing and search visibility.</p>
+                    <h3>4.8 Events data fetch</h3>
+                      <p>The event fetching program automates the extraction of IT-related events from a RSS feed and stores them
+                         in the Apache Jena Fuseki triplestore.</p>
+                  
+                      <h3>4.8.1 Core Technologies Used</h3>
+                      <ul>
+                          <li><strong>Python</strong> - For data fetching and processing</li>
+                          <li><strong>APScheduler</strong> - For scheduling daily event fetches</li>
+                          <li><strong>Asyncio</strong> - For handling asynchronous operations</li>
+                          <li><strong>BeautifulSoup</strong> - For parsing XML data from RSS feeds</li>
+                          <li><strong>REST API</strong> - For inserting extracted events into the database</li>
+                      </ul>
+      
+                      <h3>4.8.2 Scheduled RSS Fetching</h3>
+                      <p>The script fetches events daily at midnight using the following scheduler:</p>
+                      <pre><code>from apscheduler.schedulers.blocking import BlockingScheduler
+              import asyncio
+              from rss_feed_parser import rss_fetch_and_store_events
+              
+              def scheduled_rss_fetching():
+                  loop = asyncio.new_event_loop()
+                  asyncio.set_event_loop(loop)
+                  loop.run_until_complete(rss_fetch_and_store_events())
+              
+              scheduler = BlockingScheduler()
+              scheduler.add_job(scheduled_rss_fetching, 'cron', hour=0, minute=0)
+              scheduler.start()</code></pre>
+                      
+                      <h3>4.8.3 RSS Data Extraction</h3>
+                      <p>Data is extracted using <code>requests</code> and <code>BeautifulSoup</code>. Relevant fields include:</p>
+                      <ul>
+                          <li><strong>Event Title</strong></li>
+                          <li><strong>Date</strong> (Extracted via regex)</li>
+                          <li><strong>Location</strong> (City & Country identified if not online)</li>
+                          <li><strong>Topic</strong> (Classified using <code>TechnicalSkillExtractor</code>)</li>
+                          <li><strong>Event Type</strong></li>
+                      </ul>
+                      
+                      <h3>4.8.4 Data Storage in Apache Jena Fuseki</h3>
+                      <p>Extracted data is structured into JSON and sent to the API:</p>
+                      <pre><code>event = {
+                  "eventTitle": title,
+                  "isOnline": str(isOnline),
+                  "city": city if not isOnline else None,
+                  "country": country if not isOnline else None,
+                  "eventDate": f"{day}-{month}-{year}",
+                  "eventURL": item.find("link").text,
+                  "topic": categories[0],
+                  "eventType": categories[1],
+                  "topicCategory": topic_category,
+                  "topicCategoryDetails": topic_category_details
+              }
+              requests.post(url, json=event)</code></pre>
                   </section>
                 </section>
                 <section id="conclusion">
-                  <h2>Conclusion</h2>
+                  <h2>Conclusions</h2>
+                  <p>The project combine multiple components to provide a comprehensive solution for job seekers in the IT industry. It addresses the challenges of finding relevant IT-related events and job opportunities.
+                    The user interface is user-friendly and easy to navigate, making it accessible to both individuals and organizations.
+                    The backend infrastructure ensures efficient data processing and storage, while the data processing mechanisms optimize the user experience.
+                  </p>
                 </section>
-                <section id="references">
-                  <h2>References</h2>
+                  <section typeof="sa:ReferenceList">
+                    <h2>References</h2>
+                    <p>
+                      <ul>
+                        <li  typeof="schema:WebPage"><a href="https://profs.info.uaic.ro/sabin.buraga/teach/courses/wade/index.html">Course Page, Sabin-Corneliu Buraga, 2025</a></li>
+                        <li  typeof="schema:WebPage"><a href="https://skillner.vercel.app/">skillNer library</a></li>
+                        <li  typeof="schema:WebPage"><a href="https://protege.stanford.edu/publications/ontology_development/ontology101.pdf">Ontology development in Protege</a></li>
+                      </ul>
                 </section>
         </article>
     </body>
