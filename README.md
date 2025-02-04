@@ -16,14 +16,33 @@
 - 📊 **Event statistics** and real-time insights  
 - 🔍 **Advanced job & event search**  
 
+## About the Project
+
+This **project** is part of a larger collaborative initiative that we built together with our colleagues for the **Wade** class at Alexandru Ioan Cuza University of Iași (**infoiasi**). As part of our **Web Development** course, we combined our skills and ideas to create a cutting-edge **web** application that addresses real-world challenges in the job listing domain. This endeavor not only highlights our technical expertise but also our commitment to teamwork and innovation.
+
 ## 📂 Resources (Deliverables)
 
 - 📄 [Technical Report](https://github.com/JobHunter2024/BetaTeam/tree/main/Documentation)  
 - 📜 [OpenAPI Specification Directory](https://github.com/JobHunter2024/BetaTeam/tree/main/openAPIspecifications)
 - 🎥 [Demo Video](https://drive.google.com/file/d/1TtBJh8zh-k3DXM9MzoIYm6JunJv8VYH9/view?usp=sharing)
-- 
+
+## 👥 Members
+
+- **Ciobanu Ana**
+- **Roca Maria-Magdalena**
+
+## 🙌 Contributors ( Job Hunter 2024 - Team Gamma) 
+
+- **Harton Amalia**
+- **Habasescu Andrei**
+
+## 📸 Screenshot
 <div style="text-align: left;"> 
     <img src="https://github.com/JobHunter2024/BetaTeam/blob/main/Documentation/map.png" alt="screenshot" style="width: 50%; max-width: 600px; height: auto;"/>
+<p>This is a preview of the interactive map displaying job/event clusters in **JobHunter** .</p>
+    <p> <img src="https://github.com/JobHunter2024/BetaTeam/blob/main/Documentation/documentation_images/pieChart.png" alt="screenshot" style="width: 50%; max-width: 600px; height: auto;"/></p>
+Here we have diffresent event distributions pie charts.
+
 </div>
 
 
@@ -155,24 +174,6 @@ php artisan serve
     <li>🧠 <strong>spaCy</strong> – Used for job details extraction(degree level)</li>
   </ul>
 
-  <h2 id="contributing">🤝 Contributing</h2>
-  <p>We welcome contributions! To get started:</p>
-  <ol>
-    <li>Fork the repository</li>
-    <li>Create a feature branch (`feature/new-feature`)</li>
-    <li>Commit your changes (`git commit -m "Added new feature"`) </li>
-    <li>Push to your branch (`git push origin feature/new-feature`)</li>
-    <li>Open a pull request</li>
-  </ol>
-
-  <h2 id="license">📝 License</h2>
-  <p>This project is <strong>open-source</strong> and available under the <a href="LICENSE" target="_blank">MIT License</a>.</p>
-
-  <h2 id="developers">🧑‍💻 Developers</h2>
-  <ul>
-    <li><strong>Roca Maria-Magdalena</strong></li>
-    <li><strong>Ciobanu Ana</strong></li>
-  </ul>
 
   <h2 id="tags">🏷️ Tags</h2>
   <p>project, infoiasi, wade, web, Web Development</p>
