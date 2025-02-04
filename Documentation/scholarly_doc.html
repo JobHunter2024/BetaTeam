@@ -56,8 +56,14 @@
                 <section>
                     <h3>1.2 Scope of the Report</h3>
                     <p>
-                        The app is intended to help job seekers find jobs and events, that might interest them, as well to understand the
-                        current market situation and get suggestions based on their preferences.
+                      This report provides an in-depth overview of the application designed to assist job seekers
+                       in finding relevant job opportunities and events. The app also helps users understand the current job 
+                       market and search jobs based on location by exploring the interactive map, also events based on multiple criteria.
+
+                      The report covers the key components of the application, including its user interface, backend 
+                      infrastructure, and data processing mechanisms. It details how job listings and events are sourced,
+                       processed, and presented to users. Additionally, the report outlines the technologies used, the data
+                        flow architecture, and the recommendation system that enhances user experience.
                     </p>
                 </section>
             </section>
@@ -66,12 +72,20 @@
                 <section>
                     <h3>2.1 Product Functions</h3>
                     <p>
-                      Major features of our program include:
+                      Major features of our program available for users include:
                         <ol>
                           <li>Filter events</li>
-                          <li>Visualization of statistics</li>
+                          <li>Visualization of events statistics</li>
                           <li>Explore jobs and events on a interacting map</li>
-                        </ol>                       
+                        </ol>  
+                        Major backend functions of our program include:
+                        <ol>
+                          <li>Data enrichement</li>
+                          <li>Data processing</li>
+                          <li>Triple insertion API</li>
+                          <li>SPARQL Query Data APIs</li>
+                          <li>Ontology creation</li>
+                        </ol>                     
 
                 </section>
                 <section>
@@ -79,11 +93,11 @@
                     <p>The program was designed to be used by an average user.
                       The functionalities are easy and straightforward,
                       so it is not needed any preliminary guidance. <br>
-                      <b>- Frequency of use.</b> An average user should access the site twice per week to check for updates and new jobs he might be interested in.
+                      <b>- Frequency of use.</b> An average user should access the site twice per week to check for updates and new events or jobs he might be interested in.
                       <br>
-                      <b>- Subset of product functions used.</b> The product has basic functions like authentication, browsing, filtering and visualization. For the general user they are easy to use.
+                      <b>- Subset of product functions used.</b> The product has basic functions like browsing, filtering and visualization. For the general user they are easy to use.
                       <br>
-                      <b>- Education level and expirience.</b> There is not much need for advanced knowledge in order to use the application, yet the app target audience are the persons who have studies in the IT domain or interested to learn about it or are looking for a new job in IT.
+                      <b>- Education level and expirience.</b> There is not much need for advanced knowledge in order to use the application, yet the app target audience are the persons who have studies in the IT domain or interested to learn about it and are looking for a new job in IT.
                       <br>
 
                     </p>
@@ -100,8 +114,8 @@
                     <p>To better structure and represent data, we developed a domain-specific ontology using Protégé, a widely adopted ontology development tool. This ontology is designed to model job descriptions and IT-related events systematically, allowing for efficient data integration, retrieval, and reasoning.
                       The ontology defines several key classes, which can be seen in Fig. x and Fig. xx
                       <figure typeof="sa:Image">
-                        <img src="documentation_images/ThingOwlViz.png"  width="880"
-                        height="625" alt="" >
+                        <img src="documentation_images/ThingOwlViz.png"  width="700"
+                        height="500" alt="" >
                         <figcaption>
                          Fig.1 Ontology part 1
                         </figcaption>
@@ -220,14 +234,47 @@
                        making it a robust solution for representing job listings and IT-related events while seamlessly
                         integrating with external knowledge sources.</p>
                     <h3>4.2 Data preparation</h3>
-                    <h3>4.2.1 Data cleaning</h3>
-                    <p></p>
-                    <h3>4.2.2 Data normalization</h3>
-                    <p></p>
-                    <h3>4.2.3 Data extraction</h3>
-                    <p></p>
-                    <h3>4.2.4 Data enrichement</h3>
-                    <p></p>
+                    <h3>4.2.1 Data cleaning and normalization</h3>
+                    <p>Since job listings came from various sources, certain data fields required preprocessing. Company names were
+                       cleaned by removing special characters, trailing whitespace, and abbreviations like "LLC" or "Ltd."
+                        Similarly, job titles were refined by extracting terms such as "remote" or "full-time" and storing
+                         them separately in a designated field within the final JSON.</p>
+                    <h3>4.2.2 Data extraction</h3>
+                    <p>To extract information from job descriptions, we combined multiple techniques tailored to different 
+                      types of data. For skills extraction, we utilized a skillNER python library specifically designed to 
+                      identify and extract both technical and soft skills from unstructured text. Regular expressions were 
+                      employed to identify structured details such as education fields and experience levels, ensuring 
+                      precision in extracting these elements. For other data points, such as job locations, natural language 
+                      processing (NLP) techniques and libraries (e.g., stanza) were applied to parse and extract relevant
+                       information. This hybrid approach of combining specialized libraries, pattern matching, and NLP 
+                       techniques ensured that the program could handle the diverse and often unstructured nature of job 
+                       descriptions effectively.</p>
+                       <figure typeof="sa:Image">
+                        <img src="documentation_images/exJob.png"  width="880"
+                        height="625" alt="" >
+                        <figcaption>
+                         Fig.2-JSON Job listing input
+                        </figcaption>
+                      </figure>
+                      <figure typeof="sa:Image">
+                        <img src="documentation_images/resultsExtraction.png"  width="880"
+                        height="625" alt="" >
+                        <figcaption>
+                         Fig.2-Output data extraction
+                        </figcaption>
+                      </figure>
+                    <h3>4.2.3 Data enrichement</h3>
+                    <p>To enhance the extracted data, technical skills identified in the job descriptions were enriched
+                       using Wikidata. Each skill was queried against Wikidata to retrieve additional information such as
+                        its official website, influences, and other relevant properties. The technical skills were classified
+                        into categories such as "Framework," "Library," or "Programming Language"using the query presented above(section 4.1.2).</p>
+                        <figure typeof="sa:Image">
+                          <img src="documentation_images/dataEnrichement.png"  width="700"
+                          height="500" alt="" >
+                          <figcaption>
+                           Fig.2-Data enrichement of a technical skill
+                          </figcaption>
+                        </figure>
                     <h3>4.3 Triple Insertion API</h3>
                     <p></p>
                     <h3>4.4 Apache Jena Fuseki</h3>
