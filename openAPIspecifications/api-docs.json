@@ -1,0 +1,598 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Beta Team API Documentation",
+        "description": "Description of your API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/map-data": {
+            "get": {
+                "tags": [
+                    "Jobs"
+                ],
+                "summary": "Returnează datele job-urilor pentru hartă cu filtrare",
+                "operationId": "276a5220e4ede3b34c1f2238a8315e49",
+                "parameters": [
+                    {
+                        "name": "dateRange",
+                        "in": "query",
+                        "description": "Intervalul temporal",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "default": "all",
+                            "enum": [
+                                "all",
+                                "lastWeek",
+                                "last3Months",
+                                "lastYear",
+                                "upcoming",
+                                "past"
+                            ],
+                            "example": "lastWeek"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Listă de job-uri cu coordonate geografice",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "job": {
+                                                "properties": {
+                                                    "value": {
+                                                        "type": "string",
+                                                        "example": "http://jobs.example.com/job/123"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "location": {
+                                                "properties": {
+                                                    "value": {
+                                                        "type": "string",
+                                                        "example": "Cluj-Napoca, Romania"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "coordinates": {
+                                                "properties": {
+                                                    "lat": {
+                                                        "type": "number",
+                                                        "format": "float",
+                                                        "example": 46.7712
+                                                    },
+                                                    "lng": {
+                                                        "type": "number",
+                                                        "format": "float",
+                                                        "example": 23.6236
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "jobIRI": {
+                                                "type": "string",
+                                                "example": "http://jobs.example.com/job/123"
+                                            },
+                                            "title": {
+                                                "properties": {
+                                                    "value": {
+                                                        "type": "string",
+                                                        "example": "Full Stack Developer"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "job": {
+                                            "value": "http://jobs.example.com/job/123"
+                                        },
+                                        "location": {
+                                            "value": "București, Romania"
+                                        },
+                                        "coordinates": {
+                                            "lat": 44.4268,
+                                            "lng": 26.1025
+                                        },
+                                        "jobIRI": "http://jobs.example.com/job/123",
+                                        "title": {
+                                            "value": "Senior Software Developer"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Nu s-au găsit job-uri",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "No jobs data found"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "error": "No jobs data found"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/events-map-data": {
+            "get": {
+                "tags": [
+                    "Events"
+                ],
+                "summary": "Returnează datele evenimentelor pentru hartă cu posibilitate de filtrare",
+                "operationId": "245b95a738aedbab9fe4c9c9db2cd64a",
+                "parameters": [
+                    {
+                        "name": "eventType",
+                        "in": "query",
+                        "description": "Tipul evenimentului pentru filtrare",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "conference"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de evenimente cu coordonate geografice",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "event": {
+                                                "properties": {
+                                                    "value": {
+                                                        "type": "string",
+                                                        "example": "http://cultural-events.org/event/123"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "location": {
+                                                "properties": {
+                                                    "value": {
+                                                        "type": "string",
+                                                        "example": "Sibiu, Romania"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "coordinates": {
+                                                "properties": {
+                                                    "lat": {
+                                                        "type": "number",
+                                                        "format": "float",
+                                                        "example": 45.7983
+                                                    },
+                                                    "lng": {
+                                                        "type": "number",
+                                                        "format": "float",
+                                                        "example": 24.1253
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "eventIRI": {
+                                                "type": "string",
+                                                "example": "http://cultural-events.org/event/123"
+                                            },
+                                            "isFromRomania": {
+                                                "type": "boolean",
+                                                "example": true
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "event": {
+                                            "value": "http://cultural-events.org/event/123"
+                                        },
+                                        "location": {
+                                            "value": "Sibiu, Romania"
+                                        },
+                                        "coordinates": {
+                                            "lat": 45.7983,
+                                            "lng": 24.1253
+                                        },
+                                        "eventIRI": "http://cultural-events.org/event/123",
+                                        "isFromRomania": true
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Nu s-au găsit evenimente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "No events data found"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "example": {
+                                    "error": "No events data found"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/triples/store": {
+            "post": {
+                "tags": [
+                    "Triples"
+                ],
+                "summary": "Store job-related triples in the knowledge base",
+                "description": "Stores RDF triples for jobs with batch processing and error logging",
+                "operationId": "326576dd2b2eee4dd0772f95c32f103f",
+                "requestBody": {
+                    "description": "Job data for triple generation",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "required": [
+                                        "jobTitle",
+                                        "company",
+                                        "location"
+                                    ],
+                                    "properties": {
+                                        "date": {
+                                            "type": "string",
+                                            "example": "27 May 2024"
+                                        },
+                                        "jobTitle": {
+                                            "type": "string",
+                                            "example": "Senior Developer"
+                                        },
+                                        "company": {
+                                            "type": "string",
+                                            "example": "Tech Corp"
+                                        },
+                                        "location": {
+                                            "type": "string",
+                                            "example": "New York, USA"
+                                        },
+                                        "jobDescription": {
+                                            "type": "string",
+                                            "example": "What you need to know: - .NET Core, ASP.NET MVC, Web API - C# - HTML and CSS"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "example": [
+                                {
+                                    "date": "12 December 2024",
+                                    "jobTitle": "Backend Engineer",
+                                    "company": "StartupX",
+                                    "location": "Remote",
+                                    "jobDescription": "Experience with Node.js, Express, MongoDB"
+                                },
+                                {
+                                    "date": "15 November 2024",
+                                    "jobTitle": "Data Scientist",
+                                    "company": "AI Labs",
+                                    "location": "London, UK",
+                                    "jobDescription": "Python, TensorFlow, Keras"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Triples stored successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "inserted_triples": {
+                                            "type": "integer",
+                                            "example": 42
+                                        },
+                                        "errors": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string",
+                                                "example": "Error processing job 3: Invalid data format"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "No data provided"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "properties": {
+                                                "jobTitle": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "example": "The jobTitle field is required"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Internal server error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/triples/storeEventTriple": {
+            "post": {
+                "tags": [
+                    "Triples"
+                ],
+                "summary": "Store event-related RDF triples in the knowledge base",
+                "description": "Stores event triples with batch processing and detailed status reporting",
+                "operationId": "52728a04e91f6fca587f548a16149dd6",
+                "requestBody": {
+                    "description": "Event data for triple generation",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "required": [
+                                        "eventTitle",
+                                        "location",
+                                        "startDate"
+                                    ],
+                                    "properties": {
+                                        "eventTitle": {
+                                            "type": "string",
+                                            "example": "Jazz Festival"
+                                        },
+                                        "location": {
+                                            "type": "string",
+                                            "example": "Sibiu, Romania"
+                                        },
+                                        "startDate": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2024-07-15T19:00:00Z"
+                                        },
+                                        "endDate": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2024-07-18T22:00:00Z"
+                                        },
+                                        "eventType": {
+                                            "type": "string",
+                                            "example": "music festival"
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "example": "Annual international jazz event"
+                                        },
+                                        "isOnline": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "city": {
+                                            "type": "string",
+                                            "example": "Sibiu"
+                                        },
+                                        "country": {
+                                            "type": "string",
+                                            "example": "Romania"
+                                        },
+                                        "topicCategory": {
+                                            "type": "string",
+                                            "example": "Framework"
+                                        },
+                                        "topicCategoryDetails": {
+                                            "type": "string",
+                                            "example": "Angular"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "example": [
+                                {
+                                    "eventTitle": "Tech Conference",
+                                    "location": "Cluj-Napoca",
+                                    "startDate": "2024-09-01T09:00:00Z"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "responses": {
+                    "207": {
+                        "description": "Multi-status response with individual operation results",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Operation completed."
+                                        },
+                                        "results": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "triple": {
+                                                        "properties": {
+                                                            "subject": {
+                                                                "type": "string"
+                                                            },
+                                                            "predicate": {
+                                                                "type": "string"
+                                                            },
+                                                            "object": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "message": {
+                                                        "type": "string",
+                                                        "example": "Triple inserted successfully."
+                                                    },
+                                                    "status": {
+                                                        "type": "integer",
+                                                        "example": 201
+                                                    },
+                                                    "details": {
+                                                        "type": "object",
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "No data provided!"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error during triple preparation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Failed to prepare triples."
+                                        },
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Specific error message"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Jobs",
+            "description": "Jobs"
+        },
+        {
+            "name": "Events",
+            "description": "Events"
+        },
+        {
+            "name": "Triples",
+            "description": "Triples"
+        }
+    ]
+}
